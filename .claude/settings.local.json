@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git init)",
+      "Bash(pip install playwright anthropic python-dotenv pillow)",
+      "Bash(playwright install chromium)",
+      "Bash(pip install google-generativeai)",
+      "WebFetch(domain:account.ncut.edu.tw)",
+      "Bash(python inspect_pages.py)",
+      "Bash(python test_login.py)",
+      "Bash(python -c \":*)",
+      "Bash(python inspect_menu.py)",
+      "Bash(python inspect_appy.py)"
+    ]
+  }
+}

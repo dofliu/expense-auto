@@ -1,0 +1,359 @@
+{
+  "abt2_info": {
+    "found": true,
+    "tag": "A",
+    "name": "aBT2",
+    "id": "aBT2",
+    "href": "https://account.ncut.edu.tw/APSWIS_Q/Dept_Add_Q/DA_APP_Q.asp?RNK=N022618943&SerKind=0&APPYYEAR=115&AUTO_PURCHASE=",
+    "target": "MAIN",
+    "onclick": null,
+    "display": "inline"
+  },
+  "all_nav_links": [
+    {
+      "name": "aBT2",
+      "href": "https://account.ncut.edu.tw/APSWIS_Q/Dept_Add_Q/DA_APP_Q.asp?RNK=N022618943&SerKind=0&APPYYEAR=115&AUTO_PURCHASE=",
+      "target": "MAIN",
+      "onclick": ""
+    },
+    {
+      "name": "aBT1",
+      "href": "https://account.ncut.edu.tw/APSWIS_Q/Dept_Add_Q/DA_SerStart_Q.asp?RNK=N022618943&APPYYEAR=115",
+      "target": "MAIN",
+      "onclick": ""
+    },
+    {
+      "name": "aBT3",
+      "href": "https://account.ncut.edu.tw/APSWIS_Q/Dept_Add_Q/DA_SerAPPU_Q.asp?RNK=N022618943&APPYYEAR=115",
+      "target": "MAIN",
+      "onclick": ""
+    },
+    {
+      "name": "aBT4",
+      "href": "https://account.ncut.edu.tw/APSWIS_Q/Dept_Add_Q/APYKIND_Q.asp?RNK=N022618943&USERNO=56006&BYEAR=115",
+      "target": "MAIN",
+      "onclick": ""
+    },
+    {
+      "name": "SBT6",
+      "href": "https://account.ncut.edu.tw/APSWIS_Q/Dept_Ser_Q/P_BUGETS_FILTER_Q.asp?SRK=N022618943&STYPE=BT4&BYEAR=&SER_USERNO=&QSTR=",
+      "target": "MAIN",
+      "onclick": ""
+    },
+    {
+      "name": "SBTB15",
+      "href": "https://account.ncut.edu.tw/APSWIS_Q/Dept_Ser_Q/USERIGHT_LIST_Q.asp?SRK=N022618943&BYEAR=115&SER_USERNO=56006&COM=YT",
+      "target": "MAIN",
+      "onclick": ""
+    },
+    {
+      "name": "QBT1",
+      "href": "https://account.ncut.edu.tw/APSWIS_Q/OTHER_LIST_Q/PapMain_Q.asp?RNK=N022618943&ISNEW=N&SerKind=3&APPYYEAR=115",
+      "target": "MAIN",
+      "onclick": ""
+    },
+    {
+      "name": "DT",
+      "href": "https://account.ncut.edu.tw/APSWIS_Q/Dept_Add_Q/DA_SerFun_Q.asp?COM=YT",
+      "target": "MAIN",
+      "onclick": ""
+    },
+    {
+      "name": "SBT1",
+      "href": "https://account.ncut.edu.tw/APSWIS_Q/Dept_Add_Q/javascript.void(0);",
+      "target": "",
+      "onclick": "openSBT1(this);"
+    },
+    {
+      "name": "SBT2",
+      "href": "https://account.ncut.edu.tw/APSWIS_Q/Dept_Add_Q/javascript.void(0);",
+      "target": "",
+      "onclick": "openSBT2(this);"
+    },
+    {
+      "name": "SBT7",
+      "href": "https://account.ncut.edu.tw/APSWIS_Q/Dept_Add_Q/javascript.void(0);",
+      "target": "",
+      "onclick": "openSBT7(this);"
+    },
+    {
+      "name": "SBT3",
+      "href": "https://account.ncut.edu.tw/APSWIS_Q/Dept_Add_Q/javascript.void(0);",
+      "target": "",
+      "onclick": "openSBT3(this);"
+    },
+    {
+      "name": "SBT8",
+      "href": "https://account.ncut.edu.tw/APSWIS_Q/Dept_Add_Q/javascript.void(0);",
+      "target": "",
+      "onclick": "openSBT8(this);"
+    },
+    {
+      "name": "SBT9",
+      "href": "https://account.ncut.edu.tw/APSWIS_Q/Dept_Add_Q/javascript.void(0);",
+      "target": "",
+      "onclick": "openSBT9(this);"
+    },
+    {
+      "name": "SBT4",
+      "href": "https://account.ncut.edu.tw/APSWIS_Q/Dept_Add_Q/javascript.void(0);",
+      "target": "",
+      "onclick": "openSBT4(this);"
+    }
+  ],
+  "main_after_new_purchase": {
+    "url": "https://account.ncut.edu.tw/APSWIS_Q/Dept_Add_Q/DA_APP_Q.asp?RNK=N022618943&SerKind=0&APPYYEAR=115&AUTO_PURCHASE=",
+    "title": "",
+    "bodyText": "\n\n請  選  擇  購  案  類  別\n\n\t採購申請(15萬以上)\n\t先請後核(1萬以上)\n\t直接核銷(零用金)\n\t其他\n\t借支申請\n\t15萬以上科研採購\n\t清冊\n         ",
+    "forms": [
+      {
+        "id": "FORM1",
+        "action": "https://account.ncut.edu.tw/APSWIS_Q/Dept_Add_Q/STD_APPY_FRM_Q.asp",
+        "method": "post",
+        "inputs": [
+          {
+            "tag": "INPUT",
+            "name": "APPYSET",
+            "type": "hidden",
+            "value": "11",
+            "id": "",
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "MOVETYPE",
+            "type": "hidden",
+            "value": "1",
+            "id": "",
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "SETNAME",
+            "type": "hidden",
+            "value": "採購申請(15萬以上)",
+            "id": "",
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "ISAPPY",
+            "type": "hidden",
+            "value": "True",
+            "id": "",
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "ISVOUC",
+            "type": "hidden",
+            "value": "False",
+            "id": "",
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "ISTEMP",
+            "type": "hidden",
+            "value": "False",
+            "id": "",
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "ISCASH",
+            "type": "hidden",
+            "value": "False",
+            "id": "",
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "ISPURC",
+            "type": "hidden",
+            "value": "True",
+            "id": "",
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "SHOWVEN",
+            "type": "hidden",
+            "value": "False",
+            "id": "",
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "SHOWPRO",
+            "type": "hidden",
+            "value": "True",
+            "id": "",
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "ISPERIOD",
+            "type": "hidden",
+            "value": "False",
+            "id": "",
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "APPYYEAR",
+            "type": "hidden",
+            "value": "115",
+            "id": "",
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "ISNEW",
+            "type": "hidden",
+            "value": "Y",
+            "id": "",
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "APYNO",
+            "type": "hidden",
+            "value": "",
+            "id": "",
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "APYADD",
+            "type": "hidden",
+            "value": "",
+            "id": "",
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "APPYBUY",
+            "type": "hidden",
+            "value": "",
+            "id": "",
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "CHK1",
+            "type": "checkbox",
+            "value": "on",
+            "id": "",
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "CHK2",
+            "type": "checkbox",
+            "value": "on",
+            "id": "",
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "CHK3",
+            "type": "checkbox",
+            "value": "on",
+            "id": "",
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "CHK4",
+            "type": "checkbox",
+            "value": "on",
+            "id": "",
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "CHK5",
+            "type": "checkbox",
+            "value": "on",
+            "id": "",
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "CHK6",
+            "type": "checkbox",
+            "value": "on",
+            "id": "",
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "CHK7",
+            "type": "checkbox",
+            "value": "on",
+            "id": "",
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "K_1",
+            "type": "checkbox",
+            "value": "on",
+            "id": "",
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "K_2",
+            "type": "checkbox",
+            "value": "on",
+            "id": "",
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "L_ITEM2",
+            "type": "text",
+            "value": "100",
+            "id": "L_ITEM2",
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "K_3",
+            "type": "checkbox",
+            "value": "on",
+            "id": "",
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "K_4",
+            "type": "checkbox",
+            "value": "on",
+            "id": "",
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "SSS",
+            "type": "submit",
+            "value": "下一步",
+            "id": "",
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "",
+            "type": "button",
+            "value": "取　消",
+            "id": "",
+            "options": null
+          }
+        ]
+      }
+    ],
+    "links": []
+  }
+}

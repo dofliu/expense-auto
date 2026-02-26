@@ -1,0 +1,5658 @@
+{
+  "appy_elements": [
+    {
+      "idx": 0,
+      "tag": "INPUT",
+      "name": "BUGET",
+      "id": "",
+      "type": "hidden",
+      "value": "",
+      "className": "",
+      "onclick": "",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 1,
+      "tag": "INPUT",
+      "name": "BUGETS",
+      "id": "",
+      "type": "hidden",
+      "value": "",
+      "className": "",
+      "onclick": "",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 2,
+      "tag": "INPUT",
+      "name": "SUBJECT",
+      "id": "",
+      "type": "hidden",
+      "value": "",
+      "className": "",
+      "onclick": "",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 3,
+      "tag": "INPUT",
+      "name": "APPU",
+      "id": "",
+      "type": "hidden",
+      "value": "",
+      "className": "",
+      "onclick": "",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 4,
+      "tag": "INPUT",
+      "name": "IsNew",
+      "id": "",
+      "type": "hidden",
+      "value": "Y",
+      "className": "",
+      "onclick": "",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 5,
+      "tag": "INPUT",
+      "name": "APPYYEAR",
+      "id": "",
+      "type": "hidden",
+      "value": "115",
+      "className": "",
+      "onclick": "",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 6,
+      "tag": "INPUT",
+      "name": "APYNO",
+      "id": "",
+      "type": "hidden",
+      "value": "",
+      "className": "",
+      "onclick": "",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 7,
+      "tag": "INPUT",
+      "name": "APYADD",
+      "id": "",
+      "type": "hidden",
+      "value": "",
+      "className": "",
+      "onclick": "",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 8,
+      "tag": "INPUT",
+      "name": "ADATE",
+      "id": "",
+      "type": "hidden",
+      "value": "1150226",
+      "className": "",
+      "onclick": "",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 9,
+      "tag": "INPUT",
+      "name": "ISPURC",
+      "id": "",
+      "type": "hidden",
+      "value": "False",
+      "className": "",
+      "onclick": "",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 10,
+      "tag": "INPUT",
+      "name": "ISOVER",
+      "id": "",
+      "type": "hidden",
+      "value": "",
+      "className": "",
+      "onclick": "",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 11,
+      "tag": "INPUT",
+      "name": "APYDEP",
+      "id": "",
+      "type": "hidden",
+      "value": "945",
+      "className": "",
+      "onclick": "",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 12,
+      "tag": "INPUT",
+      "name": "APYUSERNO",
+      "id": "",
+      "type": "hidden",
+      "value": "56006",
+      "className": "",
+      "onclick": "",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 13,
+      "tag": "INPUT",
+      "name": "ISAPPY",
+      "id": "",
+      "type": "hidden",
+      "value": "True",
+      "className": "",
+      "onclick": "",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 14,
+      "tag": "INPUT",
+      "name": "ISVOUC",
+      "id": "",
+      "type": "hidden",
+      "value": "True",
+      "className": "",
+      "onclick": "",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 15,
+      "tag": "INPUT",
+      "name": "ISTEMP",
+      "id": "",
+      "type": "hidden",
+      "value": "False",
+      "className": "",
+      "onclick": "",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 16,
+      "tag": "INPUT",
+      "name": "ISCASH",
+      "id": "",
+      "type": "hidden",
+      "value": "True",
+      "className": "",
+      "onclick": "",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 17,
+      "tag": "INPUT",
+      "name": "APPYSET",
+      "id": "",
+      "type": "hidden",
+      "value": "13",
+      "className": "",
+      "onclick": "",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 18,
+      "tag": "INPUT",
+      "name": "MOVETYPE",
+      "id": "",
+      "type": "hidden",
+      "value": "6",
+      "className": "",
+      "onclick": "",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 19,
+      "tag": "INPUT",
+      "name": "SETNAME",
+      "id": "",
+      "type": "hidden",
+      "value": "直接核銷(零用金)",
+      "className": "",
+      "onclick": "",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 20,
+      "tag": "TEXTAREA",
+      "name": "ABSTRACT",
+      "id": "",
+      "type": "textarea",
+      "value": "",
+      "className": "STYABSTRACT",
+      "onclick": "",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 21,
+      "tag": "INPUT",
+      "name": "Y_METHODS",
+      "id": "",
+      "type": "hidden",
+      "value": "",
+      "className": "",
+      "onclick": "",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 22,
+      "tag": "INPUT",
+      "name": "ACCORDING",
+      "id": "",
+      "type": "hidden",
+      "value": "",
+      "className": "",
+      "onclick": "",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 23,
+      "tag": "INPUT",
+      "name": "SAMPLENO",
+      "id": "",
+      "type": "hidden",
+      "value": "",
+      "className": "",
+      "onclick": "",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 24,
+      "tag": "INPUT",
+      "name": "ISPERI",
+      "id": "",
+      "type": "hidden",
+      "value": "N",
+      "className": "",
+      "onclick": "",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 25,
+      "tag": "INPUT",
+      "name": "ISESS",
+      "id": "",
+      "type": "hidden",
+      "value": "N",
+      "className": "",
+      "onclick": "",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 26,
+      "tag": "INPUT",
+      "name": "",
+      "id": "",
+      "type": "button",
+      "value": "共同供應契約",
+      "className": "BT05",
+      "onclick": "if(ABSTRACT.value.substring(0,8)!='【共同供應契約】'){ABSTRACT.value='【共同供應契約】'+ABSTRACT.value;}",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 27,
+      "tag": "INPUT",
+      "name": "",
+      "id": "",
+      "type": "button",
+      "value": "電子支付",
+      "className": "BT04",
+      "onclick": "if(ABSTRACT.value.substring(0,6)!='【電子支付】'){ABSTRACT.value='【電子支付】'+ABSTRACT.value;}",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 28,
+      "tag": "INPUT",
+      "name": "APPYBUY",
+      "id": "",
+      "type": "hidden",
+      "value": "",
+      "className": "",
+      "onclick": "",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 29,
+      "tag": "INPUT",
+      "name": "",
+      "id": "",
+      "type": "button",
+      "value": "編輯經費",
+      "className": "BT04",
+      "onclick": "parent.DD.rows=\"*,0\";parent.QQ.cols=\"*,0,0\";",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 30,
+      "tag": "INPUT",
+      "name": "SUM_LIST",
+      "id": "",
+      "type": "button",
+      "value": "加總:$0",
+      "className": "STYSUMM",
+      "onclick": "SUM_SUM();",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 31,
+      "tag": "INPUT",
+      "name": "",
+      "id": "",
+      "type": "button",
+      "value": "存 入",
+      "className": "STYSAVE",
+      "onclick": "SUM_ALERT();",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 32,
+      "tag": "INPUT",
+      "name": "",
+      "id": "",
+      "type": "button",
+      "value": "取 消",
+      "className": "STYSAVE",
+      "onclick": "parent.parent.TITLE.BUTA2.click();",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 33,
+      "tag": "INPUT",
+      "name": "F1",
+      "id": "",
+      "type": "button",
+      "value": "編輯品名",
+      "className": "BT04",
+      "onclick": "parent.DD.rows=\"180,*\";parent.QQ.cols=\"*,0,0\";",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 34,
+      "tag": "INPUT",
+      "name": "SUM_APPP",
+      "id": "",
+      "type": "button",
+      "value": "加總:$0",
+      "className": "STYSUMM",
+      "onclick": "CHK_APPP();",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 35,
+      "tag": "INPUT",
+      "name": "VQ",
+      "id": "",
+      "type": "button",
+      "value": "編輯受款人",
+      "className": "BT04",
+      "onclick": "parent.DD.rows=\"180,*\";parent.QQ.cols=\"0,*,0\";",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 36,
+      "tag": "INPUT",
+      "name": "SUM_APPA",
+      "id": "",
+      "type": "button",
+      "value": "加總:$0",
+      "className": "STYSUMM",
+      "onclick": "CHK_APPA();",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 37,
+      "tag": "INPUT",
+      "name": "NO_MATH",
+      "id": "",
+      "type": "hidden",
+      "value": "N",
+      "className": "",
+      "onclick": "",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 38,
+      "tag": "SELECT",
+      "name": "ALL_DEPT",
+      "id": "ALL_DEPT",
+      "type": "select-one",
+      "value": "",
+      "className": "STDUNIT",
+      "onclick": "",
+      "onchange": "CHG_DEPT();",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "下拉選擇單位\n【000】全校性經費\n【001】校控經費\n【010】秘書室\n【013】創辦人暨校友服務辦公室\n【014】校長室\n【015】校友連絡中心\n【016】計畫辦公室\n【017】校務研究辦公室\n【019】公共關係室\n【100】教務處\n【110】招生事務處\n【111】健保自付\n【200】學生事務處\n【201】軍訓室\n【202】諮商輔導組\n【300】總務處\n【310】出納組\n【350】總務處營繕組",
+      "disabled": false,
+      "readonly": false,
+      "options": [
+        {
+          "value": "",
+          "text": "下拉選擇單位",
+          "selected": true
+        },
+        {
+          "value": "000",
+          "text": "【000】全校性經費",
+          "selected": false
+        },
+        {
+          "value": "001",
+          "text": "【001】校控經費",
+          "selected": false
+        },
+        {
+          "value": "010",
+          "text": "【010】秘書室",
+          "selected": false
+        },
+        {
+          "value": "013",
+          "text": "【013】創辦人暨校友服務辦公室",
+          "selected": false
+        },
+        {
+          "value": "014",
+          "text": "【014】校長室",
+          "selected": false
+        },
+        {
+          "value": "015",
+          "text": "【015】校友連絡中心",
+          "selected": false
+        },
+        {
+          "value": "016",
+          "text": "【016】計畫辦公室",
+          "selected": false
+        },
+        {
+          "value": "017",
+          "text": "【017】校務研究辦公室",
+          "selected": false
+        },
+        {
+          "value": "019",
+          "text": "【019】公共關係室",
+          "selected": false
+        },
+        {
+          "value": "100",
+          "text": "【100】教務處",
+          "selected": false
+        },
+        {
+          "value": "110",
+          "text": "【110】招生事務處",
+          "selected": false
+        },
+        {
+          "value": "111",
+          "text": "【111】健保自付",
+          "selected": false
+        },
+        {
+          "value": "200",
+          "text": "【200】學生事務處",
+          "selected": false
+        },
+        {
+          "value": "201",
+          "text": "【201】軍訓室",
+          "selected": false
+        },
+        {
+          "value": "202",
+          "text": "【202】諮商輔導組",
+          "selected": false
+        },
+        {
+          "value": "300",
+          "text": "【300】總務處",
+          "selected": false
+        },
+        {
+          "value": "310",
+          "text": "【310】出納組",
+          "selected": false
+        },
+        {
+          "value": "350",
+          "text": "【350】總務處營繕組",
+          "selected": false
+        },
+        {
+          "value": "400",
+          "text": "【400】人事室",
+          "selected": false
+        }
+      ]
+    },
+    {
+      "idx": 39,
+      "tag": "INPUT",
+      "name": "VOU_SERNO",
+      "id": "",
+      "type": "hidden",
+      "value": "",
+      "className": "",
+      "onclick": "",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 40,
+      "tag": "INPUT",
+      "name": "APPY_BUGETS",
+      "id": "",
+      "type": "hidden",
+      "value": "",
+      "className": "",
+      "onclick": "",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 41,
+      "tag": "SELECT",
+      "name": "BUGETNO_1",
+      "id": "",
+      "type": "select-one",
+      "value": "",
+      "className": "OutT1",
+      "onclick": "",
+      "onchange": "BN_1();",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "請先【點選本格】下拉選擇經費\n【】",
+      "disabled": false,
+      "readonly": false,
+      "options": [
+        {
+          "value": "",
+          "text": "請先【點選本格】下拉選擇經費",
+          "selected": true
+        },
+        {
+          "value": "",
+          "text": "【】",
+          "selected": false
+        }
+      ]
+    },
+    {
+      "idx": 42,
+      "tag": "SELECT",
+      "name": "BUGCODE_1",
+      "id": "",
+      "type": "select-one",
+      "value": "",
+      "className": "",
+      "onclick": "FORM1.SERSUB_1.click();",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": []
+    },
+    {
+      "idx": 43,
+      "tag": "SELECT",
+      "name": "D_APYKIND_1",
+      "id": "",
+      "type": "select-one",
+      "value": "",
+      "className": "STYAPYKIND",
+      "onclick": "",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "【】",
+      "disabled": false,
+      "readonly": false,
+      "options": [
+        {
+          "value": "",
+          "text": "",
+          "selected": true
+        },
+        {
+          "value": "",
+          "text": "【】",
+          "selected": false
+        }
+      ]
+    },
+    {
+      "idx": 44,
+      "tag": "INPUT",
+      "name": "SUBJECTNO_1",
+      "id": "",
+      "type": "text",
+      "value": "",
+      "className": "STYSUBTEXT",
+      "onclick": "SS_1();",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 45,
+      "tag": "SELECT",
+      "name": "SERSUB_1",
+      "id": "",
+      "type": "select-one",
+      "value": "",
+      "className": "STYSUBJECT",
+      "onclick": "SS_1();SUBJECTNO_1.value=this.value",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": []
+    },
+    {
+      "idx": 46,
+      "tag": "INPUT",
+      "name": "MOVETYPE_1",
+      "id": "",
+      "type": "hidden",
+      "value": "6",
+      "className": "",
+      "onclick": "",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 47,
+      "tag": "INPUT",
+      "name": "A9_1",
+      "id": "",
+      "type": "hidden",
+      "value": "",
+      "className": "",
+      "onclick": "",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 48,
+      "tag": "INPUT",
+      "name": "VA9_1",
+      "id": "",
+      "type": "button",
+      "value": "",
+      "className": "STYVA9",
+      "onclick": "BC_1();",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 49,
+      "tag": "INPUT",
+      "name": "D_AMOUNT_1",
+      "id": "",
+      "type": "text",
+      "value": "0",
+      "className": "APPYAMOUNT",
+      "onclick": "this.value=\"\";",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 50,
+      "tag": "SELECT",
+      "name": "BUGETNO_2",
+      "id": "",
+      "type": "select-one",
+      "value": "",
+      "className": "OutT2",
+      "onclick": "",
+      "onchange": "BN_2();",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "\n\t\t\t\t\t\t\t\t\t請先【點選本格】下拉選擇經費【】",
+      "disabled": false,
+      "readonly": false,
+      "options": [
+        {
+          "value": "",
+          "text": "請先【點選本格】下拉選擇經費",
+          "selected": true
+        },
+        {
+          "value": "",
+          "text": "【】",
+          "selected": false
+        }
+      ]
+    },
+    {
+      "idx": 51,
+      "tag": "SELECT",
+      "name": "BUGCODE_2",
+      "id": "",
+      "type": "select-one",
+      "value": "",
+      "className": "",
+      "onclick": "FORM1.SERSUB_2.click();",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "\n\t\t\t\t\t\t\t\t",
+      "disabled": false,
+      "readonly": false,
+      "options": []
+    },
+    {
+      "idx": 52,
+      "tag": "SELECT",
+      "name": "D_APYKIND_2",
+      "id": "",
+      "type": "select-one",
+      "value": "",
+      "className": "STYAPYKIND",
+      "onclick": "",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "\n\t\t\t\t\t\t\t\t【】",
+      "disabled": false,
+      "readonly": false,
+      "options": [
+        {
+          "value": "",
+          "text": "",
+          "selected": true
+        },
+        {
+          "value": "",
+          "text": "【】",
+          "selected": false
+        }
+      ]
+    },
+    {
+      "idx": 53,
+      "tag": "INPUT",
+      "name": "SUBJECTNO_2",
+      "id": "",
+      "type": "text",
+      "value": "",
+      "className": "STYSUBTEXT",
+      "onclick": "SS_2();",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 54,
+      "tag": "SELECT",
+      "name": "SERSUB_2",
+      "id": "",
+      "type": "select-one",
+      "value": "",
+      "className": "STYSUBJECT",
+      "onclick": "SS_2();SUBJECTNO_2.value=this.value;",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "\n\t\t\t\t\t\t\t\t",
+      "disabled": false,
+      "readonly": false,
+      "options": []
+    },
+    {
+      "idx": 55,
+      "tag": "INPUT",
+      "name": "MOVETYPE_2",
+      "id": "",
+      "type": "hidden",
+      "value": "6",
+      "className": "",
+      "onclick": "",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 56,
+      "tag": "INPUT",
+      "name": "A9_2",
+      "id": "",
+      "type": "hidden",
+      "value": "",
+      "className": "",
+      "onclick": "",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 57,
+      "tag": "INPUT",
+      "name": "VA9_2",
+      "id": "",
+      "type": "button",
+      "value": "",
+      "className": "STYVA9",
+      "onclick": "BC_2();",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 58,
+      "tag": "INPUT",
+      "name": "D_AMOUNT_2",
+      "id": "",
+      "type": "text",
+      "value": "0",
+      "className": "APPYAMOUNT",
+      "onclick": "this.value=\"\";",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 59,
+      "tag": "SELECT",
+      "name": "BUGETNO_3",
+      "id": "",
+      "type": "select-one",
+      "value": "",
+      "className": "OutT3",
+      "onclick": "",
+      "onchange": "BN_3();",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "\n\t\t\t\t\t\t\t\t\t請先【點選本格】下拉選擇經費【】",
+      "disabled": false,
+      "readonly": false,
+      "options": [
+        {
+          "value": "",
+          "text": "請先【點選本格】下拉選擇經費",
+          "selected": true
+        },
+        {
+          "value": "",
+          "text": "【】",
+          "selected": false
+        }
+      ]
+    },
+    {
+      "idx": 60,
+      "tag": "SELECT",
+      "name": "BUGCODE_3",
+      "id": "",
+      "type": "select-one",
+      "value": "",
+      "className": "",
+      "onclick": "FORM1.SERSUB_3.click();",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "\n\t\t\t\t\t\t\t\t",
+      "disabled": false,
+      "readonly": false,
+      "options": []
+    },
+    {
+      "idx": 61,
+      "tag": "SELECT",
+      "name": "D_APYKIND_3",
+      "id": "",
+      "type": "select-one",
+      "value": "",
+      "className": "STYAPYKIND",
+      "onclick": "",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "\n\t\t\t\t\t\t\t\t【】",
+      "disabled": false,
+      "readonly": false,
+      "options": [
+        {
+          "value": "",
+          "text": "",
+          "selected": true
+        },
+        {
+          "value": "",
+          "text": "【】",
+          "selected": false
+        }
+      ]
+    },
+    {
+      "idx": 62,
+      "tag": "INPUT",
+      "name": "SUBJECTNO_3",
+      "id": "",
+      "type": "text",
+      "value": "",
+      "className": "STYSUBTEXT",
+      "onclick": "SS_3();",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 63,
+      "tag": "SELECT",
+      "name": "SERSUB_3",
+      "id": "",
+      "type": "select-one",
+      "value": "",
+      "className": "STYSUBJECT",
+      "onclick": "SS_3();SUBJECTNO_3.value=this.value;",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "\n\t\t\t\t\t\t\t\t",
+      "disabled": false,
+      "readonly": false,
+      "options": []
+    },
+    {
+      "idx": 64,
+      "tag": "INPUT",
+      "name": "MOVETYPE_3",
+      "id": "",
+      "type": "hidden",
+      "value": "6",
+      "className": "",
+      "onclick": "",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 65,
+      "tag": "INPUT",
+      "name": "A9_3",
+      "id": "",
+      "type": "hidden",
+      "value": "",
+      "className": "",
+      "onclick": "",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 66,
+      "tag": "INPUT",
+      "name": "VA9_3",
+      "id": "",
+      "type": "button",
+      "value": "",
+      "className": "STYVA9",
+      "onclick": "BC_3();",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 67,
+      "tag": "INPUT",
+      "name": "D_AMOUNT_3",
+      "id": "",
+      "type": "text",
+      "value": "0",
+      "className": "APPYAMOUNT",
+      "onclick": "this.value=\"\";",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 68,
+      "tag": "SELECT",
+      "name": "BUGETNO_4",
+      "id": "",
+      "type": "select-one",
+      "value": "",
+      "className": "OutT4",
+      "onclick": "",
+      "onchange": "BN_4();",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "\n\t\t\t\t\t\t\t\t\t請先【點選本格】下拉選擇經費【】",
+      "disabled": false,
+      "readonly": false,
+      "options": [
+        {
+          "value": "",
+          "text": "請先【點選本格】下拉選擇經費",
+          "selected": true
+        },
+        {
+          "value": "",
+          "text": "【】",
+          "selected": false
+        }
+      ]
+    },
+    {
+      "idx": 69,
+      "tag": "SELECT",
+      "name": "BUGCODE_4",
+      "id": "",
+      "type": "select-one",
+      "value": "",
+      "className": "",
+      "onclick": "FORM1.SERSUB_4.click();",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "\n\t\t\t\t\t\t\t\t",
+      "disabled": false,
+      "readonly": false,
+      "options": []
+    },
+    {
+      "idx": 70,
+      "tag": "SELECT",
+      "name": "D_APYKIND_4",
+      "id": "",
+      "type": "select-one",
+      "value": "",
+      "className": "STYAPYKIND",
+      "onclick": "",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "\n\t\t\t\t\t\t\t\t【】",
+      "disabled": false,
+      "readonly": false,
+      "options": [
+        {
+          "value": "",
+          "text": "",
+          "selected": true
+        },
+        {
+          "value": "",
+          "text": "【】",
+          "selected": false
+        }
+      ]
+    },
+    {
+      "idx": 71,
+      "tag": "INPUT",
+      "name": "SUBJECTNO_4",
+      "id": "",
+      "type": "text",
+      "value": "",
+      "className": "STYSUBTEXT",
+      "onclick": "SS_4();",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 72,
+      "tag": "SELECT",
+      "name": "SERSUB_4",
+      "id": "",
+      "type": "select-one",
+      "value": "",
+      "className": "STYSUBJECT",
+      "onclick": "SS_4();SUBJECTNO_4.value=this.value;",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "\n\t\t\t\t\t\t\t\t",
+      "disabled": false,
+      "readonly": false,
+      "options": []
+    },
+    {
+      "idx": 73,
+      "tag": "INPUT",
+      "name": "MOVETYPE_4",
+      "id": "",
+      "type": "hidden",
+      "value": "6",
+      "className": "",
+      "onclick": "",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 74,
+      "tag": "INPUT",
+      "name": "A9_4",
+      "id": "",
+      "type": "hidden",
+      "value": "",
+      "className": "",
+      "onclick": "",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 75,
+      "tag": "INPUT",
+      "name": "VA9_4",
+      "id": "",
+      "type": "button",
+      "value": "",
+      "className": "STYVA9",
+      "onclick": "BC_4();",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 76,
+      "tag": "INPUT",
+      "name": "D_AMOUNT_4",
+      "id": "",
+      "type": "text",
+      "value": "0",
+      "className": "APPYAMOUNT",
+      "onclick": "this.value=\"\";",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 77,
+      "tag": "SELECT",
+      "name": "BUGETNO_5",
+      "id": "",
+      "type": "select-one",
+      "value": "",
+      "className": "OutT5",
+      "onclick": "",
+      "onchange": "BN_5();",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "\n\t\t\t\t\t\t\t\t\t請先【點選本格】下拉選擇經費【】",
+      "disabled": false,
+      "readonly": false,
+      "options": [
+        {
+          "value": "",
+          "text": "請先【點選本格】下拉選擇經費",
+          "selected": true
+        },
+        {
+          "value": "",
+          "text": "【】",
+          "selected": false
+        }
+      ]
+    },
+    {
+      "idx": 78,
+      "tag": "SELECT",
+      "name": "BUGCODE_5",
+      "id": "",
+      "type": "select-one",
+      "value": "",
+      "className": "",
+      "onclick": "FORM1.SERSUB_5.click();",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "\n\t\t\t\t\t\t\t\t",
+      "disabled": false,
+      "readonly": false,
+      "options": []
+    },
+    {
+      "idx": 79,
+      "tag": "SELECT",
+      "name": "D_APYKIND_5",
+      "id": "",
+      "type": "select-one",
+      "value": "",
+      "className": "STYAPYKIND",
+      "onclick": "",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "\n\t\t\t\t\t\t\t\t【】",
+      "disabled": false,
+      "readonly": false,
+      "options": [
+        {
+          "value": "",
+          "text": "",
+          "selected": true
+        },
+        {
+          "value": "",
+          "text": "【】",
+          "selected": false
+        }
+      ]
+    },
+    {
+      "idx": 80,
+      "tag": "INPUT",
+      "name": "SUBJECTNO_5",
+      "id": "",
+      "type": "text",
+      "value": "",
+      "className": "STYSUBTEXT",
+      "onclick": "SS_5();",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 81,
+      "tag": "SELECT",
+      "name": "SERSUB_5",
+      "id": "",
+      "type": "select-one",
+      "value": "",
+      "className": "STYSUBJECT",
+      "onclick": "SS_5();SUBJECTNO_5.value=this.value;",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "\n\t\t\t\t\t\t\t\t",
+      "disabled": false,
+      "readonly": false,
+      "options": []
+    },
+    {
+      "idx": 82,
+      "tag": "INPUT",
+      "name": "MOVETYPE_5",
+      "id": "",
+      "type": "hidden",
+      "value": "6",
+      "className": "",
+      "onclick": "",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 83,
+      "tag": "INPUT",
+      "name": "A9_5",
+      "id": "",
+      "type": "hidden",
+      "value": "",
+      "className": "",
+      "onclick": "",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 84,
+      "tag": "INPUT",
+      "name": "VA9_5",
+      "id": "",
+      "type": "button",
+      "value": "",
+      "className": "STYVA9",
+      "onclick": "BC_5();",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 85,
+      "tag": "INPUT",
+      "name": "D_AMOUNT_5",
+      "id": "",
+      "type": "text",
+      "value": "0",
+      "className": "APPYAMOUNT",
+      "onclick": "this.value=\"\";",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 86,
+      "tag": "SELECT",
+      "name": "BUGETNO_6",
+      "id": "",
+      "type": "select-one",
+      "value": "",
+      "className": "OutT6",
+      "onclick": "",
+      "onchange": "BN_6();",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "\n\t\t\t\t\t\t\t\t\t請先【點選本格】下拉選擇經費【】",
+      "disabled": false,
+      "readonly": false,
+      "options": [
+        {
+          "value": "",
+          "text": "請先【點選本格】下拉選擇經費",
+          "selected": true
+        },
+        {
+          "value": "",
+          "text": "【】",
+          "selected": false
+        }
+      ]
+    },
+    {
+      "idx": 87,
+      "tag": "SELECT",
+      "name": "BUGCODE_6",
+      "id": "",
+      "type": "select-one",
+      "value": "",
+      "className": "",
+      "onclick": "FORM1.SERSUB_6.click();",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "\n\t\t\t\t\t\t\t\t",
+      "disabled": false,
+      "readonly": false,
+      "options": []
+    },
+    {
+      "idx": 88,
+      "tag": "SELECT",
+      "name": "D_APYKIND_6",
+      "id": "",
+      "type": "select-one",
+      "value": "",
+      "className": "STYAPYKIND",
+      "onclick": "",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "\n\t\t\t\t\t\t\t\t【】",
+      "disabled": false,
+      "readonly": false,
+      "options": [
+        {
+          "value": "",
+          "text": "",
+          "selected": true
+        },
+        {
+          "value": "",
+          "text": "【】",
+          "selected": false
+        }
+      ]
+    },
+    {
+      "idx": 89,
+      "tag": "INPUT",
+      "name": "SUBJECTNO_6",
+      "id": "",
+      "type": "text",
+      "value": "",
+      "className": "STYSUBTEXT",
+      "onclick": "SS_6();",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 90,
+      "tag": "SELECT",
+      "name": "SERSUB_6",
+      "id": "",
+      "type": "select-one",
+      "value": "",
+      "className": "STYSUBJECT",
+      "onclick": "SS_6();SUBJECTNO_6.value=this.value;",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "\n\t\t\t\t\t\t\t\t",
+      "disabled": false,
+      "readonly": false,
+      "options": []
+    },
+    {
+      "idx": 91,
+      "tag": "INPUT",
+      "name": "MOVETYPE_6",
+      "id": "",
+      "type": "hidden",
+      "value": "6",
+      "className": "",
+      "onclick": "",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 92,
+      "tag": "INPUT",
+      "name": "A9_6",
+      "id": "",
+      "type": "hidden",
+      "value": "",
+      "className": "",
+      "onclick": "",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 93,
+      "tag": "INPUT",
+      "name": "VA9_6",
+      "id": "",
+      "type": "button",
+      "value": "",
+      "className": "STYVA9",
+      "onclick": "BC_6();",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 94,
+      "tag": "INPUT",
+      "name": "D_AMOUNT_6",
+      "id": "",
+      "type": "text",
+      "value": "0",
+      "className": "APPYAMOUNT",
+      "onclick": "this.value=\"\";",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 95,
+      "tag": "SELECT",
+      "name": "BUGETNO_7",
+      "id": "",
+      "type": "select-one",
+      "value": "",
+      "className": "OutT7",
+      "onclick": "",
+      "onchange": "BN_7();",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "\n\t\t\t\t\t\t\t\t\t請先【點選本格】下拉選擇經費【】",
+      "disabled": false,
+      "readonly": false,
+      "options": [
+        {
+          "value": "",
+          "text": "請先【點選本格】下拉選擇經費",
+          "selected": true
+        },
+        {
+          "value": "",
+          "text": "【】",
+          "selected": false
+        }
+      ]
+    },
+    {
+      "idx": 96,
+      "tag": "SELECT",
+      "name": "BUGCODE_7",
+      "id": "",
+      "type": "select-one",
+      "value": "",
+      "className": "",
+      "onclick": "FORM1.SERSUB_7.click();",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "\n\t\t\t\t\t\t\t\t",
+      "disabled": false,
+      "readonly": false,
+      "options": []
+    },
+    {
+      "idx": 97,
+      "tag": "SELECT",
+      "name": "D_APYKIND_7",
+      "id": "",
+      "type": "select-one",
+      "value": "",
+      "className": "STYAPYKIND",
+      "onclick": "",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "\n\t\t\t\t\t\t\t\t【】",
+      "disabled": false,
+      "readonly": false,
+      "options": [
+        {
+          "value": "",
+          "text": "",
+          "selected": true
+        },
+        {
+          "value": "",
+          "text": "【】",
+          "selected": false
+        }
+      ]
+    },
+    {
+      "idx": 98,
+      "tag": "INPUT",
+      "name": "SUBJECTNO_7",
+      "id": "",
+      "type": "text",
+      "value": "",
+      "className": "STYSUBTEXT",
+      "onclick": "SS_7();",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 99,
+      "tag": "SELECT",
+      "name": "SERSUB_7",
+      "id": "",
+      "type": "select-one",
+      "value": "",
+      "className": "STYSUBJECT",
+      "onclick": "SS_7();SUBJECTNO_7.value=this.value;",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "\n\t\t\t\t\t\t\t\t",
+      "disabled": false,
+      "readonly": false,
+      "options": []
+    },
+    {
+      "idx": 100,
+      "tag": "INPUT",
+      "name": "MOVETYPE_7",
+      "id": "",
+      "type": "hidden",
+      "value": "6",
+      "className": "",
+      "onclick": "",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 101,
+      "tag": "INPUT",
+      "name": "A9_7",
+      "id": "",
+      "type": "hidden",
+      "value": "",
+      "className": "",
+      "onclick": "",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 102,
+      "tag": "INPUT",
+      "name": "VA9_7",
+      "id": "",
+      "type": "button",
+      "value": "",
+      "className": "STYVA9",
+      "onclick": "BC_7();",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 103,
+      "tag": "INPUT",
+      "name": "D_AMOUNT_7",
+      "id": "",
+      "type": "text",
+      "value": "0",
+      "className": "APPYAMOUNT",
+      "onclick": "this.value=\"\";",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 104,
+      "tag": "SELECT",
+      "name": "BUGETNO_8",
+      "id": "",
+      "type": "select-one",
+      "value": "",
+      "className": "OutT8",
+      "onclick": "",
+      "onchange": "BN_8();",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "\n\t\t\t\t\t\t\t\t\t請先【點選本格】下拉選擇經費【】",
+      "disabled": false,
+      "readonly": false,
+      "options": [
+        {
+          "value": "",
+          "text": "請先【點選本格】下拉選擇經費",
+          "selected": true
+        },
+        {
+          "value": "",
+          "text": "【】",
+          "selected": false
+        }
+      ]
+    },
+    {
+      "idx": 105,
+      "tag": "SELECT",
+      "name": "BUGCODE_8",
+      "id": "",
+      "type": "select-one",
+      "value": "",
+      "className": "",
+      "onclick": "FORM1.SERSUB_8.click();",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "\n\t\t\t\t\t\t\t\t",
+      "disabled": false,
+      "readonly": false,
+      "options": []
+    },
+    {
+      "idx": 106,
+      "tag": "SELECT",
+      "name": "D_APYKIND_8",
+      "id": "",
+      "type": "select-one",
+      "value": "",
+      "className": "STYAPYKIND",
+      "onclick": "",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "\n\t\t\t\t\t\t\t\t【】",
+      "disabled": false,
+      "readonly": false,
+      "options": [
+        {
+          "value": "",
+          "text": "",
+          "selected": true
+        },
+        {
+          "value": "",
+          "text": "【】",
+          "selected": false
+        }
+      ]
+    },
+    {
+      "idx": 107,
+      "tag": "INPUT",
+      "name": "SUBJECTNO_8",
+      "id": "",
+      "type": "text",
+      "value": "",
+      "className": "STYSUBTEXT",
+      "onclick": "SS_8();",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 108,
+      "tag": "SELECT",
+      "name": "SERSUB_8",
+      "id": "",
+      "type": "select-one",
+      "value": "",
+      "className": "STYSUBJECT",
+      "onclick": "SS_8();SUBJECTNO_8.value=this.value;",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "\n\t\t\t\t\t\t\t\t",
+      "disabled": false,
+      "readonly": false,
+      "options": []
+    },
+    {
+      "idx": 109,
+      "tag": "INPUT",
+      "name": "MOVETYPE_8",
+      "id": "",
+      "type": "hidden",
+      "value": "6",
+      "className": "",
+      "onclick": "",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 110,
+      "tag": "INPUT",
+      "name": "A9_8",
+      "id": "",
+      "type": "hidden",
+      "value": "",
+      "className": "",
+      "onclick": "",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 111,
+      "tag": "INPUT",
+      "name": "VA9_8",
+      "id": "",
+      "type": "button",
+      "value": "",
+      "className": "STYVA9",
+      "onclick": "BC_8();",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 112,
+      "tag": "INPUT",
+      "name": "D_AMOUNT_8",
+      "id": "",
+      "type": "text",
+      "value": "0",
+      "className": "APPYAMOUNT",
+      "onclick": "this.value=\"\";",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 113,
+      "tag": "SELECT",
+      "name": "BUGETNO_9",
+      "id": "",
+      "type": "select-one",
+      "value": "",
+      "className": "OutT9",
+      "onclick": "",
+      "onchange": "BN_9();",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "\n\t\t\t\t\t\t\t\t\t請先【點選本格】下拉選擇經費【】",
+      "disabled": false,
+      "readonly": false,
+      "options": [
+        {
+          "value": "",
+          "text": "請先【點選本格】下拉選擇經費",
+          "selected": true
+        },
+        {
+          "value": "",
+          "text": "【】",
+          "selected": false
+        }
+      ]
+    },
+    {
+      "idx": 114,
+      "tag": "SELECT",
+      "name": "BUGCODE_9",
+      "id": "",
+      "type": "select-one",
+      "value": "",
+      "className": "",
+      "onclick": "FORM1.SERSUB_9.click();",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "\n\t\t\t\t\t\t\t\t",
+      "disabled": false,
+      "readonly": false,
+      "options": []
+    },
+    {
+      "idx": 115,
+      "tag": "SELECT",
+      "name": "D_APYKIND_9",
+      "id": "",
+      "type": "select-one",
+      "value": "",
+      "className": "STYAPYKIND",
+      "onclick": "",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "\n\t\t\t\t\t\t\t\t【】",
+      "disabled": false,
+      "readonly": false,
+      "options": [
+        {
+          "value": "",
+          "text": "",
+          "selected": true
+        },
+        {
+          "value": "",
+          "text": "【】",
+          "selected": false
+        }
+      ]
+    },
+    {
+      "idx": 116,
+      "tag": "INPUT",
+      "name": "SUBJECTNO_9",
+      "id": "",
+      "type": "text",
+      "value": "",
+      "className": "STYSUBTEXT",
+      "onclick": "SS_9();",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 117,
+      "tag": "SELECT",
+      "name": "SERSUB_9",
+      "id": "",
+      "type": "select-one",
+      "value": "",
+      "className": "STYSUBJECT",
+      "onclick": "SS_9();SUBJECTNO_9.value=this.value;",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "\n\t\t\t\t\t\t\t\t",
+      "disabled": false,
+      "readonly": false,
+      "options": []
+    },
+    {
+      "idx": 118,
+      "tag": "INPUT",
+      "name": "MOVETYPE_9",
+      "id": "",
+      "type": "hidden",
+      "value": "6",
+      "className": "",
+      "onclick": "",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 119,
+      "tag": "INPUT",
+      "name": "A9_9",
+      "id": "",
+      "type": "hidden",
+      "value": "",
+      "className": "",
+      "onclick": "",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 120,
+      "tag": "INPUT",
+      "name": "VA9_9",
+      "id": "",
+      "type": "button",
+      "value": "",
+      "className": "STYVA9",
+      "onclick": "BC_9();",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 121,
+      "tag": "INPUT",
+      "name": "D_AMOUNT_9",
+      "id": "",
+      "type": "text",
+      "value": "0",
+      "className": "APPYAMOUNT",
+      "onclick": "this.value=\"\";",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 122,
+      "tag": "SELECT",
+      "name": "BUGETNO_10",
+      "id": "",
+      "type": "select-one",
+      "value": "",
+      "className": "OutT10",
+      "onclick": "",
+      "onchange": "BN_10();",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "\n\t\t\t\t\t\t\t\t\t請先【點選本格】下拉選擇經費【】",
+      "disabled": false,
+      "readonly": false,
+      "options": [
+        {
+          "value": "",
+          "text": "請先【點選本格】下拉選擇經費",
+          "selected": true
+        },
+        {
+          "value": "",
+          "text": "【】",
+          "selected": false
+        }
+      ]
+    },
+    {
+      "idx": 123,
+      "tag": "SELECT",
+      "name": "BUGCODE_10",
+      "id": "",
+      "type": "select-one",
+      "value": "",
+      "className": "",
+      "onclick": "FORM1.SERSUB_10.click();",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "\n\t\t\t\t\t\t\t\t",
+      "disabled": false,
+      "readonly": false,
+      "options": []
+    },
+    {
+      "idx": 124,
+      "tag": "SELECT",
+      "name": "D_APYKIND_10",
+      "id": "",
+      "type": "select-one",
+      "value": "",
+      "className": "STYAPYKIND",
+      "onclick": "",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "\n\t\t\t\t\t\t\t\t【】",
+      "disabled": false,
+      "readonly": false,
+      "options": [
+        {
+          "value": "",
+          "text": "",
+          "selected": true
+        },
+        {
+          "value": "",
+          "text": "【】",
+          "selected": false
+        }
+      ]
+    },
+    {
+      "idx": 125,
+      "tag": "INPUT",
+      "name": "SUBJECTNO_10",
+      "id": "",
+      "type": "text",
+      "value": "",
+      "className": "STYSUBTEXT",
+      "onclick": "SS_10();",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 126,
+      "tag": "SELECT",
+      "name": "SERSUB_10",
+      "id": "",
+      "type": "select-one",
+      "value": "",
+      "className": "STYSUBJECT",
+      "onclick": "SS_10();SUBJECTNO_10.value=this.value;",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "\n\t\t\t\t\t\t\t\t",
+      "disabled": false,
+      "readonly": false,
+      "options": []
+    },
+    {
+      "idx": 127,
+      "tag": "INPUT",
+      "name": "MOVETYPE_10",
+      "id": "",
+      "type": "hidden",
+      "value": "6",
+      "className": "",
+      "onclick": "",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 128,
+      "tag": "INPUT",
+      "name": "A9_10",
+      "id": "",
+      "type": "hidden",
+      "value": "",
+      "className": "",
+      "onclick": "",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 129,
+      "tag": "INPUT",
+      "name": "VA9_10",
+      "id": "",
+      "type": "button",
+      "value": "",
+      "className": "STYVA9",
+      "onclick": "BC_10();",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 130,
+      "tag": "INPUT",
+      "name": "D_AMOUNT_10",
+      "id": "",
+      "type": "text",
+      "value": "0",
+      "className": "APPYAMOUNT",
+      "onclick": "this.value=\"\";",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 131,
+      "tag": "SELECT",
+      "name": "BUGETNO_11",
+      "id": "",
+      "type": "select-one",
+      "value": "",
+      "className": "OutT11",
+      "onclick": "",
+      "onchange": "BN_11();",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "\n\t\t\t\t\t\t\t\t\t請先【點選本格】下拉選擇經費【】",
+      "disabled": false,
+      "readonly": false,
+      "options": [
+        {
+          "value": "",
+          "text": "請先【點選本格】下拉選擇經費",
+          "selected": true
+        },
+        {
+          "value": "",
+          "text": "【】",
+          "selected": false
+        }
+      ]
+    },
+    {
+      "idx": 132,
+      "tag": "SELECT",
+      "name": "BUGCODE_11",
+      "id": "",
+      "type": "select-one",
+      "value": "",
+      "className": "",
+      "onclick": "FORM1.SERSUB_11.click();",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "\n\t\t\t\t\t\t\t\t",
+      "disabled": false,
+      "readonly": false,
+      "options": []
+    },
+    {
+      "idx": 133,
+      "tag": "SELECT",
+      "name": "D_APYKIND_11",
+      "id": "",
+      "type": "select-one",
+      "value": "",
+      "className": "STYAPYKIND",
+      "onclick": "",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "\n\t\t\t\t\t\t\t\t【】",
+      "disabled": false,
+      "readonly": false,
+      "options": [
+        {
+          "value": "",
+          "text": "",
+          "selected": true
+        },
+        {
+          "value": "",
+          "text": "【】",
+          "selected": false
+        }
+      ]
+    },
+    {
+      "idx": 134,
+      "tag": "INPUT",
+      "name": "SUBJECTNO_11",
+      "id": "",
+      "type": "text",
+      "value": "",
+      "className": "STYSUBTEXT",
+      "onclick": "SS_11();",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 135,
+      "tag": "SELECT",
+      "name": "SERSUB_11",
+      "id": "",
+      "type": "select-one",
+      "value": "",
+      "className": "STYSUBJECT",
+      "onclick": "SS_11();SUBJECTNO_11.value=this.value;",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "\n\t\t\t\t\t\t\t\t",
+      "disabled": false,
+      "readonly": false,
+      "options": []
+    },
+    {
+      "idx": 136,
+      "tag": "INPUT",
+      "name": "MOVETYPE_11",
+      "id": "",
+      "type": "hidden",
+      "value": "6",
+      "className": "",
+      "onclick": "",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 137,
+      "tag": "INPUT",
+      "name": "A9_11",
+      "id": "",
+      "type": "hidden",
+      "value": "",
+      "className": "",
+      "onclick": "",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 138,
+      "tag": "INPUT",
+      "name": "VA9_11",
+      "id": "",
+      "type": "button",
+      "value": "",
+      "className": "STYVA9",
+      "onclick": "BC_11();",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 139,
+      "tag": "INPUT",
+      "name": "D_AMOUNT_11",
+      "id": "",
+      "type": "text",
+      "value": "0",
+      "className": "APPYAMOUNT",
+      "onclick": "this.value=\"\";",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 140,
+      "tag": "SELECT",
+      "name": "BUGETNO_12",
+      "id": "",
+      "type": "select-one",
+      "value": "",
+      "className": "OutT12",
+      "onclick": "",
+      "onchange": "BN_12();",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "\n\t\t\t\t\t\t\t\t\t請先【點選本格】下拉選擇經費【】",
+      "disabled": false,
+      "readonly": false,
+      "options": [
+        {
+          "value": "",
+          "text": "請先【點選本格】下拉選擇經費",
+          "selected": true
+        },
+        {
+          "value": "",
+          "text": "【】",
+          "selected": false
+        }
+      ]
+    },
+    {
+      "idx": 141,
+      "tag": "SELECT",
+      "name": "BUGCODE_12",
+      "id": "",
+      "type": "select-one",
+      "value": "",
+      "className": "",
+      "onclick": "FORM1.SERSUB_12.click();",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "\n\t\t\t\t\t\t\t\t",
+      "disabled": false,
+      "readonly": false,
+      "options": []
+    },
+    {
+      "idx": 142,
+      "tag": "SELECT",
+      "name": "D_APYKIND_12",
+      "id": "",
+      "type": "select-one",
+      "value": "",
+      "className": "STYAPYKIND",
+      "onclick": "",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "\n\t\t\t\t\t\t\t\t【】",
+      "disabled": false,
+      "readonly": false,
+      "options": [
+        {
+          "value": "",
+          "text": "",
+          "selected": true
+        },
+        {
+          "value": "",
+          "text": "【】",
+          "selected": false
+        }
+      ]
+    },
+    {
+      "idx": 143,
+      "tag": "INPUT",
+      "name": "SUBJECTNO_12",
+      "id": "",
+      "type": "text",
+      "value": "",
+      "className": "STYSUBTEXT",
+      "onclick": "SS_12();",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 144,
+      "tag": "SELECT",
+      "name": "SERSUB_12",
+      "id": "",
+      "type": "select-one",
+      "value": "",
+      "className": "STYSUBJECT",
+      "onclick": "SS_12();SUBJECTNO_12.value=this.value;",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "\n\t\t\t\t\t\t\t\t",
+      "disabled": false,
+      "readonly": false,
+      "options": []
+    },
+    {
+      "idx": 145,
+      "tag": "INPUT",
+      "name": "MOVETYPE_12",
+      "id": "",
+      "type": "hidden",
+      "value": "6",
+      "className": "",
+      "onclick": "",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 146,
+      "tag": "INPUT",
+      "name": "A9_12",
+      "id": "",
+      "type": "hidden",
+      "value": "",
+      "className": "",
+      "onclick": "",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 147,
+      "tag": "INPUT",
+      "name": "VA9_12",
+      "id": "",
+      "type": "button",
+      "value": "",
+      "className": "STYVA9",
+      "onclick": "BC_12();",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 148,
+      "tag": "INPUT",
+      "name": "D_AMOUNT_12",
+      "id": "",
+      "type": "text",
+      "value": "0",
+      "className": "APPYAMOUNT",
+      "onclick": "this.value=\"\";",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 149,
+      "tag": "SELECT",
+      "name": "BUGETNO_13",
+      "id": "",
+      "type": "select-one",
+      "value": "",
+      "className": "OutT13",
+      "onclick": "",
+      "onchange": "BN_13();",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "\n\t\t\t\t\t\t\t\t\t請先【點選本格】下拉選擇經費【】",
+      "disabled": false,
+      "readonly": false,
+      "options": [
+        {
+          "value": "",
+          "text": "請先【點選本格】下拉選擇經費",
+          "selected": true
+        },
+        {
+          "value": "",
+          "text": "【】",
+          "selected": false
+        }
+      ]
+    },
+    {
+      "idx": 150,
+      "tag": "SELECT",
+      "name": "BUGCODE_13",
+      "id": "",
+      "type": "select-one",
+      "value": "",
+      "className": "",
+      "onclick": "FORM1.SERSUB_13.click();",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "\n\t\t\t\t\t\t\t\t",
+      "disabled": false,
+      "readonly": false,
+      "options": []
+    },
+    {
+      "idx": 151,
+      "tag": "SELECT",
+      "name": "D_APYKIND_13",
+      "id": "",
+      "type": "select-one",
+      "value": "",
+      "className": "STYAPYKIND",
+      "onclick": "",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "\n\t\t\t\t\t\t\t\t【】",
+      "disabled": false,
+      "readonly": false,
+      "options": [
+        {
+          "value": "",
+          "text": "",
+          "selected": true
+        },
+        {
+          "value": "",
+          "text": "【】",
+          "selected": false
+        }
+      ]
+    },
+    {
+      "idx": 152,
+      "tag": "INPUT",
+      "name": "SUBJECTNO_13",
+      "id": "",
+      "type": "text",
+      "value": "",
+      "className": "STYSUBTEXT",
+      "onclick": "SS_13();",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 153,
+      "tag": "SELECT",
+      "name": "SERSUB_13",
+      "id": "",
+      "type": "select-one",
+      "value": "",
+      "className": "STYSUBJECT",
+      "onclick": "SS_13();SUBJECTNO_13.value=this.value;",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "\n\t\t\t\t\t\t\t\t",
+      "disabled": false,
+      "readonly": false,
+      "options": []
+    },
+    {
+      "idx": 154,
+      "tag": "INPUT",
+      "name": "MOVETYPE_13",
+      "id": "",
+      "type": "hidden",
+      "value": "6",
+      "className": "",
+      "onclick": "",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 155,
+      "tag": "INPUT",
+      "name": "A9_13",
+      "id": "",
+      "type": "hidden",
+      "value": "",
+      "className": "",
+      "onclick": "",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 156,
+      "tag": "INPUT",
+      "name": "VA9_13",
+      "id": "",
+      "type": "button",
+      "value": "",
+      "className": "STYVA9",
+      "onclick": "BC_13();",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 157,
+      "tag": "INPUT",
+      "name": "D_AMOUNT_13",
+      "id": "",
+      "type": "text",
+      "value": "0",
+      "className": "APPYAMOUNT",
+      "onclick": "this.value=\"\";",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 158,
+      "tag": "SELECT",
+      "name": "BUGETNO_14",
+      "id": "",
+      "type": "select-one",
+      "value": "",
+      "className": "OutT14",
+      "onclick": "",
+      "onchange": "BN_14();",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "\n\t\t\t\t\t\t\t\t\t請先【點選本格】下拉選擇經費【】",
+      "disabled": false,
+      "readonly": false,
+      "options": [
+        {
+          "value": "",
+          "text": "請先【點選本格】下拉選擇經費",
+          "selected": true
+        },
+        {
+          "value": "",
+          "text": "【】",
+          "selected": false
+        }
+      ]
+    },
+    {
+      "idx": 159,
+      "tag": "SELECT",
+      "name": "BUGCODE_14",
+      "id": "",
+      "type": "select-one",
+      "value": "",
+      "className": "",
+      "onclick": "FORM1.SERSUB_14.click();",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "\n\t\t\t\t\t\t\t\t",
+      "disabled": false,
+      "readonly": false,
+      "options": []
+    },
+    {
+      "idx": 160,
+      "tag": "SELECT",
+      "name": "D_APYKIND_14",
+      "id": "",
+      "type": "select-one",
+      "value": "",
+      "className": "STYAPYKIND",
+      "onclick": "",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "\n\t\t\t\t\t\t\t\t【】",
+      "disabled": false,
+      "readonly": false,
+      "options": [
+        {
+          "value": "",
+          "text": "",
+          "selected": true
+        },
+        {
+          "value": "",
+          "text": "【】",
+          "selected": false
+        }
+      ]
+    },
+    {
+      "idx": 161,
+      "tag": "INPUT",
+      "name": "SUBJECTNO_14",
+      "id": "",
+      "type": "text",
+      "value": "",
+      "className": "STYSUBTEXT",
+      "onclick": "SS_14();",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 162,
+      "tag": "SELECT",
+      "name": "SERSUB_14",
+      "id": "",
+      "type": "select-one",
+      "value": "",
+      "className": "STYSUBJECT",
+      "onclick": "SS_14();SUBJECTNO_14.value=this.value;",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "\n\t\t\t\t\t\t\t\t",
+      "disabled": false,
+      "readonly": false,
+      "options": []
+    },
+    {
+      "idx": 163,
+      "tag": "INPUT",
+      "name": "MOVETYPE_14",
+      "id": "",
+      "type": "hidden",
+      "value": "6",
+      "className": "",
+      "onclick": "",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 164,
+      "tag": "INPUT",
+      "name": "A9_14",
+      "id": "",
+      "type": "hidden",
+      "value": "",
+      "className": "",
+      "onclick": "",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 165,
+      "tag": "INPUT",
+      "name": "VA9_14",
+      "id": "",
+      "type": "button",
+      "value": "",
+      "className": "STYVA9",
+      "onclick": "BC_14();",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 166,
+      "tag": "INPUT",
+      "name": "D_AMOUNT_14",
+      "id": "",
+      "type": "text",
+      "value": "0",
+      "className": "APPYAMOUNT",
+      "onclick": "this.value=\"\";",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 167,
+      "tag": "SELECT",
+      "name": "BUGETNO_15",
+      "id": "",
+      "type": "select-one",
+      "value": "",
+      "className": "OutT15",
+      "onclick": "",
+      "onchange": "BN_15();",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "\n\t\t\t\t\t\t\t\t\t請先【點選本格】下拉選擇經費【】",
+      "disabled": false,
+      "readonly": false,
+      "options": [
+        {
+          "value": "",
+          "text": "請先【點選本格】下拉選擇經費",
+          "selected": true
+        },
+        {
+          "value": "",
+          "text": "【】",
+          "selected": false
+        }
+      ]
+    },
+    {
+      "idx": 168,
+      "tag": "SELECT",
+      "name": "BUGCODE_15",
+      "id": "",
+      "type": "select-one",
+      "value": "",
+      "className": "",
+      "onclick": "FORM1.SERSUB_15.click();",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "\n\t\t\t\t\t\t\t\t",
+      "disabled": false,
+      "readonly": false,
+      "options": []
+    },
+    {
+      "idx": 169,
+      "tag": "SELECT",
+      "name": "D_APYKIND_15",
+      "id": "",
+      "type": "select-one",
+      "value": "",
+      "className": "STYAPYKIND",
+      "onclick": "",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "\n\t\t\t\t\t\t\t\t【】",
+      "disabled": false,
+      "readonly": false,
+      "options": [
+        {
+          "value": "",
+          "text": "",
+          "selected": true
+        },
+        {
+          "value": "",
+          "text": "【】",
+          "selected": false
+        }
+      ]
+    },
+    {
+      "idx": 170,
+      "tag": "INPUT",
+      "name": "SUBJECTNO_15",
+      "id": "",
+      "type": "text",
+      "value": "",
+      "className": "STYSUBTEXT",
+      "onclick": "SS_15();",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 171,
+      "tag": "SELECT",
+      "name": "SERSUB_15",
+      "id": "",
+      "type": "select-one",
+      "value": "",
+      "className": "STYSUBJECT",
+      "onclick": "SS_15();SUBJECTNO_15.value=this.value;",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "\n\t\t\t\t\t\t\t\t",
+      "disabled": false,
+      "readonly": false,
+      "options": []
+    },
+    {
+      "idx": 172,
+      "tag": "INPUT",
+      "name": "MOVETYPE_15",
+      "id": "",
+      "type": "hidden",
+      "value": "6",
+      "className": "",
+      "onclick": "",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 173,
+      "tag": "INPUT",
+      "name": "A9_15",
+      "id": "",
+      "type": "hidden",
+      "value": "",
+      "className": "",
+      "onclick": "",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 174,
+      "tag": "INPUT",
+      "name": "VA9_15",
+      "id": "",
+      "type": "button",
+      "value": "",
+      "className": "STYVA9",
+      "onclick": "BC_15();",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 175,
+      "tag": "INPUT",
+      "name": "D_AMOUNT_15",
+      "id": "",
+      "type": "text",
+      "value": "0",
+      "className": "APPYAMOUNT",
+      "onclick": "this.value=\"\";",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 176,
+      "tag": "SELECT",
+      "name": "BUGETNO_16",
+      "id": "",
+      "type": "select-one",
+      "value": "",
+      "className": "OutT16",
+      "onclick": "",
+      "onchange": "BN_16();",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "\n\t\t\t\t\t\t\t\t\t請先【點選本格】下拉選擇經費【】",
+      "disabled": false,
+      "readonly": false,
+      "options": [
+        {
+          "value": "",
+          "text": "請先【點選本格】下拉選擇經費",
+          "selected": true
+        },
+        {
+          "value": "",
+          "text": "【】",
+          "selected": false
+        }
+      ]
+    },
+    {
+      "idx": 177,
+      "tag": "SELECT",
+      "name": "BUGCODE_16",
+      "id": "",
+      "type": "select-one",
+      "value": "",
+      "className": "",
+      "onclick": "FORM1.SERSUB_16.click();",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "\n\t\t\t\t\t\t\t\t",
+      "disabled": false,
+      "readonly": false,
+      "options": []
+    },
+    {
+      "idx": 178,
+      "tag": "SELECT",
+      "name": "D_APYKIND_16",
+      "id": "",
+      "type": "select-one",
+      "value": "",
+      "className": "STYAPYKIND",
+      "onclick": "",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "\n\t\t\t\t\t\t\t\t【】",
+      "disabled": false,
+      "readonly": false,
+      "options": [
+        {
+          "value": "",
+          "text": "",
+          "selected": true
+        },
+        {
+          "value": "",
+          "text": "【】",
+          "selected": false
+        }
+      ]
+    },
+    {
+      "idx": 179,
+      "tag": "INPUT",
+      "name": "SUBJECTNO_16",
+      "id": "",
+      "type": "text",
+      "value": "",
+      "className": "STYSUBTEXT",
+      "onclick": "SS_16();",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 180,
+      "tag": "SELECT",
+      "name": "SERSUB_16",
+      "id": "",
+      "type": "select-one",
+      "value": "",
+      "className": "STYSUBJECT",
+      "onclick": "SS_16();SUBJECTNO_16.value=this.value;",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "\n\t\t\t\t\t\t\t\t",
+      "disabled": false,
+      "readonly": false,
+      "options": []
+    },
+    {
+      "idx": 181,
+      "tag": "INPUT",
+      "name": "MOVETYPE_16",
+      "id": "",
+      "type": "hidden",
+      "value": "6",
+      "className": "",
+      "onclick": "",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 182,
+      "tag": "INPUT",
+      "name": "A9_16",
+      "id": "",
+      "type": "hidden",
+      "value": "",
+      "className": "",
+      "onclick": "",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 183,
+      "tag": "INPUT",
+      "name": "VA9_16",
+      "id": "",
+      "type": "button",
+      "value": "",
+      "className": "STYVA9",
+      "onclick": "BC_16();",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 184,
+      "tag": "INPUT",
+      "name": "D_AMOUNT_16",
+      "id": "",
+      "type": "text",
+      "value": "0",
+      "className": "APPYAMOUNT",
+      "onclick": "this.value=\"\";",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 185,
+      "tag": "SELECT",
+      "name": "BUGETNO_17",
+      "id": "",
+      "type": "select-one",
+      "value": "",
+      "className": "OutT17",
+      "onclick": "",
+      "onchange": "BN_17();",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "\n\t\t\t\t\t\t\t\t\t請先【點選本格】下拉選擇經費【】",
+      "disabled": false,
+      "readonly": false,
+      "options": [
+        {
+          "value": "",
+          "text": "請先【點選本格】下拉選擇經費",
+          "selected": true
+        },
+        {
+          "value": "",
+          "text": "【】",
+          "selected": false
+        }
+      ]
+    },
+    {
+      "idx": 186,
+      "tag": "SELECT",
+      "name": "BUGCODE_17",
+      "id": "",
+      "type": "select-one",
+      "value": "",
+      "className": "",
+      "onclick": "FORM1.SERSUB_17.click();",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "\n\t\t\t\t\t\t\t\t",
+      "disabled": false,
+      "readonly": false,
+      "options": []
+    },
+    {
+      "idx": 187,
+      "tag": "SELECT",
+      "name": "D_APYKIND_17",
+      "id": "",
+      "type": "select-one",
+      "value": "",
+      "className": "STYAPYKIND",
+      "onclick": "",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "\n\t\t\t\t\t\t\t\t【】",
+      "disabled": false,
+      "readonly": false,
+      "options": [
+        {
+          "value": "",
+          "text": "",
+          "selected": true
+        },
+        {
+          "value": "",
+          "text": "【】",
+          "selected": false
+        }
+      ]
+    },
+    {
+      "idx": 188,
+      "tag": "INPUT",
+      "name": "SUBJECTNO_17",
+      "id": "",
+      "type": "text",
+      "value": "",
+      "className": "STYSUBTEXT",
+      "onclick": "SS_17();",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 189,
+      "tag": "SELECT",
+      "name": "SERSUB_17",
+      "id": "",
+      "type": "select-one",
+      "value": "",
+      "className": "STYSUBJECT",
+      "onclick": "SS_17();SUBJECTNO_17.value=this.value;",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "\n\t\t\t\t\t\t\t\t",
+      "disabled": false,
+      "readonly": false,
+      "options": []
+    },
+    {
+      "idx": 190,
+      "tag": "INPUT",
+      "name": "MOVETYPE_17",
+      "id": "",
+      "type": "hidden",
+      "value": "6",
+      "className": "",
+      "onclick": "",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 191,
+      "tag": "INPUT",
+      "name": "A9_17",
+      "id": "",
+      "type": "hidden",
+      "value": "",
+      "className": "",
+      "onclick": "",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 192,
+      "tag": "INPUT",
+      "name": "VA9_17",
+      "id": "",
+      "type": "button",
+      "value": "",
+      "className": "STYVA9",
+      "onclick": "BC_17();",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 193,
+      "tag": "INPUT",
+      "name": "D_AMOUNT_17",
+      "id": "",
+      "type": "text",
+      "value": "0",
+      "className": "APPYAMOUNT",
+      "onclick": "this.value=\"\";",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 194,
+      "tag": "SELECT",
+      "name": "BUGETNO_18",
+      "id": "",
+      "type": "select-one",
+      "value": "",
+      "className": "OutT18",
+      "onclick": "",
+      "onchange": "BN_18();",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "\n\t\t\t\t\t\t\t\t\t請先【點選本格】下拉選擇經費【】",
+      "disabled": false,
+      "readonly": false,
+      "options": [
+        {
+          "value": "",
+          "text": "請先【點選本格】下拉選擇經費",
+          "selected": true
+        },
+        {
+          "value": "",
+          "text": "【】",
+          "selected": false
+        }
+      ]
+    },
+    {
+      "idx": 195,
+      "tag": "SELECT",
+      "name": "BUGCODE_18",
+      "id": "",
+      "type": "select-one",
+      "value": "",
+      "className": "",
+      "onclick": "FORM1.SERSUB_18.click();",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "\n\t\t\t\t\t\t\t\t",
+      "disabled": false,
+      "readonly": false,
+      "options": []
+    },
+    {
+      "idx": 196,
+      "tag": "SELECT",
+      "name": "D_APYKIND_18",
+      "id": "",
+      "type": "select-one",
+      "value": "",
+      "className": "STYAPYKIND",
+      "onclick": "",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "\n\t\t\t\t\t\t\t\t【】",
+      "disabled": false,
+      "readonly": false,
+      "options": [
+        {
+          "value": "",
+          "text": "",
+          "selected": true
+        },
+        {
+          "value": "",
+          "text": "【】",
+          "selected": false
+        }
+      ]
+    },
+    {
+      "idx": 197,
+      "tag": "INPUT",
+      "name": "SUBJECTNO_18",
+      "id": "",
+      "type": "text",
+      "value": "",
+      "className": "STYSUBTEXT",
+      "onclick": "SS_18();",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 198,
+      "tag": "SELECT",
+      "name": "SERSUB_18",
+      "id": "",
+      "type": "select-one",
+      "value": "",
+      "className": "STYSUBJECT",
+      "onclick": "SS_18();SUBJECTNO_18.value=this.value;",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "\n\t\t\t\t\t\t\t\t",
+      "disabled": false,
+      "readonly": false,
+      "options": []
+    },
+    {
+      "idx": 199,
+      "tag": "INPUT",
+      "name": "MOVETYPE_18",
+      "id": "",
+      "type": "hidden",
+      "value": "6",
+      "className": "",
+      "onclick": "",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 200,
+      "tag": "INPUT",
+      "name": "A9_18",
+      "id": "",
+      "type": "hidden",
+      "value": "",
+      "className": "",
+      "onclick": "",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 201,
+      "tag": "INPUT",
+      "name": "VA9_18",
+      "id": "",
+      "type": "button",
+      "value": "",
+      "className": "STYVA9",
+      "onclick": "BC_18();",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 202,
+      "tag": "INPUT",
+      "name": "D_AMOUNT_18",
+      "id": "",
+      "type": "text",
+      "value": "0",
+      "className": "APPYAMOUNT",
+      "onclick": "this.value=\"\";",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 203,
+      "tag": "SELECT",
+      "name": "BUGETNO_19",
+      "id": "",
+      "type": "select-one",
+      "value": "",
+      "className": "OutT19",
+      "onclick": "",
+      "onchange": "BN_19();",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "\n\t\t\t\t\t\t\t\t\t請先【點選本格】下拉選擇經費【】",
+      "disabled": false,
+      "readonly": false,
+      "options": [
+        {
+          "value": "",
+          "text": "請先【點選本格】下拉選擇經費",
+          "selected": true
+        },
+        {
+          "value": "",
+          "text": "【】",
+          "selected": false
+        }
+      ]
+    },
+    {
+      "idx": 204,
+      "tag": "SELECT",
+      "name": "BUGCODE_19",
+      "id": "",
+      "type": "select-one",
+      "value": "",
+      "className": "",
+      "onclick": "FORM1.SERSUB_19.click();",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "\n\t\t\t\t\t\t\t\t",
+      "disabled": false,
+      "readonly": false,
+      "options": []
+    },
+    {
+      "idx": 205,
+      "tag": "SELECT",
+      "name": "D_APYKIND_19",
+      "id": "",
+      "type": "select-one",
+      "value": "",
+      "className": "STYAPYKIND",
+      "onclick": "",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "\n\t\t\t\t\t\t\t\t【】",
+      "disabled": false,
+      "readonly": false,
+      "options": [
+        {
+          "value": "",
+          "text": "",
+          "selected": true
+        },
+        {
+          "value": "",
+          "text": "【】",
+          "selected": false
+        }
+      ]
+    },
+    {
+      "idx": 206,
+      "tag": "INPUT",
+      "name": "SUBJECTNO_19",
+      "id": "",
+      "type": "text",
+      "value": "",
+      "className": "STYSUBTEXT",
+      "onclick": "SS_19();",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 207,
+      "tag": "SELECT",
+      "name": "SERSUB_19",
+      "id": "",
+      "type": "select-one",
+      "value": "",
+      "className": "STYSUBJECT",
+      "onclick": "SS_19();SUBJECTNO_19.value=this.value;",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "\n\t\t\t\t\t\t\t\t",
+      "disabled": false,
+      "readonly": false,
+      "options": []
+    },
+    {
+      "idx": 208,
+      "tag": "INPUT",
+      "name": "MOVETYPE_19",
+      "id": "",
+      "type": "hidden",
+      "value": "6",
+      "className": "",
+      "onclick": "",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 209,
+      "tag": "INPUT",
+      "name": "A9_19",
+      "id": "",
+      "type": "hidden",
+      "value": "",
+      "className": "",
+      "onclick": "",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 210,
+      "tag": "INPUT",
+      "name": "VA9_19",
+      "id": "",
+      "type": "button",
+      "value": "",
+      "className": "STYVA9",
+      "onclick": "BC_19();",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 211,
+      "tag": "INPUT",
+      "name": "D_AMOUNT_19",
+      "id": "",
+      "type": "text",
+      "value": "0",
+      "className": "APPYAMOUNT",
+      "onclick": "this.value=\"\";",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 212,
+      "tag": "SELECT",
+      "name": "BUGETNO_20",
+      "id": "",
+      "type": "select-one",
+      "value": "",
+      "className": "OutT20",
+      "onclick": "",
+      "onchange": "BN_20();",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "\n\t\t\t\t\t\t\t\t\t請先【點選本格】下拉選擇經費【】",
+      "disabled": false,
+      "readonly": false,
+      "options": [
+        {
+          "value": "",
+          "text": "請先【點選本格】下拉選擇經費",
+          "selected": true
+        },
+        {
+          "value": "",
+          "text": "【】",
+          "selected": false
+        }
+      ]
+    },
+    {
+      "idx": 213,
+      "tag": "SELECT",
+      "name": "BUGCODE_20",
+      "id": "",
+      "type": "select-one",
+      "value": "",
+      "className": "",
+      "onclick": "FORM1.SERSUB_20.click();",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "\n\t\t\t\t\t\t\t\t",
+      "disabled": false,
+      "readonly": false,
+      "options": []
+    },
+    {
+      "idx": 214,
+      "tag": "SELECT",
+      "name": "D_APYKIND_20",
+      "id": "",
+      "type": "select-one",
+      "value": "",
+      "className": "STYAPYKIND",
+      "onclick": "",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "\n\t\t\t\t\t\t\t\t【】",
+      "disabled": false,
+      "readonly": false,
+      "options": [
+        {
+          "value": "",
+          "text": "",
+          "selected": true
+        },
+        {
+          "value": "",
+          "text": "【】",
+          "selected": false
+        }
+      ]
+    },
+    {
+      "idx": 215,
+      "tag": "INPUT",
+      "name": "SUBJECTNO_20",
+      "id": "",
+      "type": "text",
+      "value": "",
+      "className": "STYSUBTEXT",
+      "onclick": "SS_20();",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 216,
+      "tag": "SELECT",
+      "name": "SERSUB_20",
+      "id": "",
+      "type": "select-one",
+      "value": "",
+      "className": "STYSUBJECT",
+      "onclick": "SS_20();SUBJECTNO_20.value=this.value;",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "\n\t\t\t\t\t\t\t\t",
+      "disabled": false,
+      "readonly": false,
+      "options": []
+    },
+    {
+      "idx": 217,
+      "tag": "INPUT",
+      "name": "MOVETYPE_20",
+      "id": "",
+      "type": "hidden",
+      "value": "6",
+      "className": "",
+      "onclick": "",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 218,
+      "tag": "INPUT",
+      "name": "A9_20",
+      "id": "",
+      "type": "hidden",
+      "value": "",
+      "className": "",
+      "onclick": "",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 219,
+      "tag": "INPUT",
+      "name": "VA9_20",
+      "id": "",
+      "type": "button",
+      "value": "",
+      "className": "STYVA9",
+      "onclick": "BC_20();",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    },
+    {
+      "idx": 220,
+      "tag": "INPUT",
+      "name": "D_AMOUNT_20",
+      "id": "",
+      "type": "text",
+      "value": "0",
+      "className": "APPYAMOUNT",
+      "onclick": "this.value=\"\";",
+      "onchange": "",
+      "onmousedown": "",
+      "href": "",
+      "innerText": "",
+      "disabled": false,
+      "readonly": false,
+      "options": null
+    }
+  ],
+  "clickable_cells": [],
+  "js_functions": [
+    "showBackground",
+    "closeWindow",
+    "PALERT",
+    "P_alert",
+    "POPEN",
+    "P_OPEN",
+    "P_WCLOSE",
+    "WINCLOSE",
+    "WIN_COLSE",
+    "WIN_OPEN",
+    "disableInfo",
+    "CharToAsc",
+    "AscToChar",
+    "ACPPYO",
+    "CHK_APPP",
+    "CHK_APPA",
+    " CHK_VOUSERNO",
+    "BN_1",
+    "SERSUBJ_1",
+    "SS_1",
+    "BC_1",
+    "CA_1",
+    "BN_2",
+    "SERSUBJ_2",
+    "SS_2",
+    "BC_2",
+    "CA_2",
+    "BN_3",
+    "SERSUBJ_3",
+    "SS_3",
+    "BC_3",
+    "CA_3",
+    "BN_4",
+    "SERSUBJ_4",
+    "SS_4",
+    "BC_4",
+    "CA_4",
+    "BN_5",
+    "SERSUBJ_5",
+    "SS_5",
+    "BC_5",
+    "CA_5",
+    "BN_6",
+    "SERSUBJ_6",
+    "SS_6",
+    "BC_6",
+    "CA_6",
+    "BN_7",
+    "SERSUBJ_7",
+    "SS_7",
+    "BC_7",
+    "CA_7",
+    "BN_8",
+    "SERSUBJ_8",
+    "SS_8",
+    "BC_8",
+    "CA_8",
+    "BN_9",
+    "SERSUBJ_9",
+    "SS_9",
+    "BC_9",
+    "CA_9",
+    "BN_10",
+    "SERSUBJ_10",
+    "SS_10",
+    "BC_10",
+    "CA_10",
+    "BN_11",
+    "SERSUBJ_11",
+    "SS_11",
+    "BC_11",
+    "CA_11",
+    "BN_12",
+    "SERSUBJ_12",
+    "SS_12",
+    "BC_12",
+    "CA_12",
+    "BN_13",
+    "SERSUBJ_13",
+    "SS_13",
+    "BC_13",
+    "CA_13",
+    "BN_14",
+    "SERSUBJ_14",
+    "SS_14",
+    "BC_14",
+    "CA_14",
+    "BN_15",
+    "SERSUBJ_15",
+    "SS_15",
+    "BC_15",
+    "CA_15",
+    "BN_16",
+    "SERSUBJ_16",
+    "SS_16",
+    "BC_16",
+    "CA_16",
+    "BN_17",
+    "SERSUBJ_17",
+    "SS_17",
+    "BC_17",
+    "CA_17",
+    "BN_18",
+    "SERSUBJ_18",
+    "SS_18",
+    "BC_18",
+    "CA_18",
+    "BN_19",
+    "SERSUBJ_19",
+    "SS_19",
+    "BC_19",
+    "CA_19",
+    "BN_20",
+    "SERSUBJ_20",
+    "SS_20",
+    "BC_20",
+    "CA_20",
+    "OT_1",
+    "OL_2",
+    "OL_3",
+    "OL_4",
+    "OL_5",
+    "OL_6",
+    "OL_7",
+    "OL_8",
+    "OL_9",
+    "OL_10",
+    "OL_11",
+    "OL_12",
+    "OL_13",
+    "OL_14",
+    "OL_15",
+    "OL_16",
+    "OL_17",
+    "OL_18",
+    "OL_19",
+    "OL_20",
+    "SUM_SUM",
+    "TOL_SUM",
+    "SUM_ALERT"
+  ],
+  "all_selects": [
+    {
+      "name": "ALL_DEPT",
+      "id": "ALL_DEPT",
+      "disabled": false,
+      "style": "width: 130px;",
+      "parentTag": "TD",
+      "parentId": "",
+      "optionCount": 80,
+      "firstOptions": [
+        {
+          "value": "",
+          "text": "下拉選擇單位"
+        },
+        {
+          "value": "000",
+          "text": "【000】全校性經費"
+        },
+        {
+          "value": "001",
+          "text": "【001】校控經費"
+        },
+        {
+          "value": "010",
+          "text": "【010】秘書室"
+        },
+        {
+          "value": "013",
+          "text": "【013】創辦人暨校友服務辦公室"
+        },
+        {
+          "value": "014",
+          "text": "【014】校長室"
+        },
+        {
+          "value": "015",
+          "text": "【015】校友連絡中心"
+        },
+        {
+          "value": "016",
+          "text": "【016】計畫辦公室"
+        },
+        {
+          "value": "017",
+          "text": "【017】校務研究辦公室"
+        },
+        {
+          "value": "019",
+          "text": "【019】公共關係室"
+        }
+      ]
+    },
+    {
+      "name": "BUGETNO_1",
+      "id": "",
+      "disabled": false,
+      "style": "background: rgb(187, 255, 255); font-size: 12pt; color: darkblue; font-style: normal; font-variant: normal; font-weight: normal; line-height: normal; width: 400pt;",
+      "parentTag": "TD",
+      "parentId": "",
+      "optionCount": 2,
+      "firstOptions": [
+        {
+          "value": "",
+          "text": "請先【點選本格】下拉選擇經費"
+        },
+        {
+          "value": "",
+          "text": "【】"
+        }
+      ]
+    },
+    {
+      "name": "BUGCODE_1",
+      "id": "",
+      "disabled": false,
+      "style": "background: rgb(187, 255, 255); font-size: 12pt; color: darkblue; font-style: normal; font-variant: normal; font-weight: normal; line-height: normal; width: 260pt;",
+      "parentTag": "TD",
+      "parentId": "",
+      "optionCount": 0,
+      "firstOptions": []
+    },
+    {
+      "name": "D_APYKIND_1",
+      "id": "",
+      "disabled": false,
+      "style": "",
+      "parentTag": "TD",
+      "parentId": "",
+      "optionCount": 2,
+      "firstOptions": [
+        {
+          "value": "",
+          "text": ""
+        },
+        {
+          "value": "",
+          "text": "【】"
+        }
+      ]
+    },
+    {
+      "name": "SERSUB_1",
+      "id": "",
+      "disabled": false,
+      "style": "",
+      "parentTag": "TD",
+      "parentId": "",
+      "optionCount": 0,
+      "firstOptions": []
+    },
+    {
+      "name": "BUGETNO_2",
+      "id": "",
+      "disabled": false,
+      "style": "background: rgb(187, 255, 255); font-size: 12pt; color: darkblue; font-style: normal; font-variant: normal; font-weight: normal; line-height: normal; width: 400pt;",
+      "parentTag": "TD",
+      "parentId": "",
+      "optionCount": 2,
+      "firstOptions": [
+        {
+          "value": "",
+          "text": "請先【點選本格】下拉選擇經費"
+        },
+        {
+          "value": "",
+          "text": "【】"
+        }
+      ]
+    },
+    {
+      "name": "BUGCODE_2",
+      "id": "",
+      "disabled": false,
+      "style": "background: rgb(187, 255, 255); font-size: 12pt; color: darkblue; font-style: normal; font-variant: normal; font-weight: normal; line-height: normal; width: 260pt;",
+      "parentTag": "TD",
+      "parentId": "",
+      "optionCount": 0,
+      "firstOptions": []
+    },
+    {
+      "name": "D_APYKIND_2",
+      "id": "",
+      "disabled": false,
+      "style": "",
+      "parentTag": "TD",
+      "parentId": "",
+      "optionCount": 2,
+      "firstOptions": [
+        {
+          "value": "",
+          "text": ""
+        },
+        {
+          "value": "",
+          "text": "【】"
+        }
+      ]
+    },
+    {
+      "name": "SERSUB_2",
+      "id": "",
+      "disabled": false,
+      "style": "",
+      "parentTag": "TD",
+      "parentId": "",
+      "optionCount": 0,
+      "firstOptions": []
+    },
+    {
+      "name": "BUGETNO_3",
+      "id": "",
+      "disabled": false,
+      "style": "background: rgb(187, 255, 255); font-size: 12pt; color: darkblue; font-style: normal; font-variant: normal; font-weight: normal; line-height: normal; width: 400pt;",
+      "parentTag": "TD",
+      "parentId": "",
+      "optionCount": 2,
+      "firstOptions": [
+        {
+          "value": "",
+          "text": "請先【點選本格】下拉選擇經費"
+        },
+        {
+          "value": "",
+          "text": "【】"
+        }
+      ]
+    },
+    {
+      "name": "BUGCODE_3",
+      "id": "",
+      "disabled": false,
+      "style": "background: rgb(187, 255, 255); font-size: 12pt; color: darkblue; font-style: normal; font-variant: normal; font-weight: normal; line-height: normal; width: 260pt;",
+      "parentTag": "TD",
+      "parentId": "",
+      "optionCount": 0,
+      "firstOptions": []
+    },
+    {
+      "name": "D_APYKIND_3",
+      "id": "",
+      "disabled": false,
+      "style": "",
+      "parentTag": "TD",
+      "parentId": "",
+      "optionCount": 2,
+      "firstOptions": [
+        {
+          "value": "",
+          "text": ""
+        },
+        {
+          "value": "",
+          "text": "【】"
+        }
+      ]
+    },
+    {
+      "name": "SERSUB_3",
+      "id": "",
+      "disabled": false,
+      "style": "",
+      "parentTag": "TD",
+      "parentId": "",
+      "optionCount": 0,
+      "firstOptions": []
+    },
+    {
+      "name": "BUGETNO_4",
+      "id": "",
+      "disabled": false,
+      "style": "background: rgb(187, 255, 255); font-size: 12pt; color: darkblue; font-style: normal; font-variant: normal; font-weight: normal; line-height: normal; width: 400pt;",
+      "parentTag": "TD",
+      "parentId": "",
+      "optionCount": 2,
+      "firstOptions": [
+        {
+          "value": "",
+          "text": "請先【點選本格】下拉選擇經費"
+        },
+        {
+          "value": "",
+          "text": "【】"
+        }
+      ]
+    },
+    {
+      "name": "BUGCODE_4",
+      "id": "",
+      "disabled": false,
+      "style": "background: rgb(187, 255, 255); font-size: 12pt; color: darkblue; font-style: normal; font-variant: normal; font-weight: normal; line-height: normal; width: 260pt;",
+      "parentTag": "TD",
+      "parentId": "",
+      "optionCount": 0,
+      "firstOptions": []
+    },
+    {
+      "name": "D_APYKIND_4",
+      "id": "",
+      "disabled": false,
+      "style": "",
+      "parentTag": "TD",
+      "parentId": "",
+      "optionCount": 2,
+      "firstOptions": [
+        {
+          "value": "",
+          "text": ""
+        },
+        {
+          "value": "",
+          "text": "【】"
+        }
+      ]
+    },
+    {
+      "name": "SERSUB_4",
+      "id": "",
+      "disabled": false,
+      "style": "",
+      "parentTag": "TD",
+      "parentId": "",
+      "optionCount": 0,
+      "firstOptions": []
+    },
+    {
+      "name": "BUGETNO_5",
+      "id": "",
+      "disabled": false,
+      "style": "background: rgb(187, 255, 255); font-size: 12pt; color: darkblue; font-style: normal; font-variant: normal; font-weight: normal; line-height: normal; width: 400pt;",
+      "parentTag": "TD",
+      "parentId": "",
+      "optionCount": 2,
+      "firstOptions": [
+        {
+          "value": "",
+          "text": "請先【點選本格】下拉選擇經費"
+        },
+        {
+          "value": "",
+          "text": "【】"
+        }
+      ]
+    },
+    {
+      "name": "BUGCODE_5",
+      "id": "",
+      "disabled": false,
+      "style": "background: rgb(187, 255, 255); font-size: 12pt; color: darkblue; font-style: normal; font-variant: normal; font-weight: normal; line-height: normal; width: 260pt;",
+      "parentTag": "TD",
+      "parentId": "",
+      "optionCount": 0,
+      "firstOptions": []
+    },
+    {
+      "name": "D_APYKIND_5",
+      "id": "",
+      "disabled": false,
+      "style": "",
+      "parentTag": "TD",
+      "parentId": "",
+      "optionCount": 2,
+      "firstOptions": [
+        {
+          "value": "",
+          "text": ""
+        },
+        {
+          "value": "",
+          "text": "【】"
+        }
+      ]
+    },
+    {
+      "name": "SERSUB_5",
+      "id": "",
+      "disabled": false,
+      "style": "",
+      "parentTag": "TD",
+      "parentId": "",
+      "optionCount": 0,
+      "firstOptions": []
+    },
+    {
+      "name": "BUGETNO_6",
+      "id": "",
+      "disabled": false,
+      "style": "background: rgb(187, 255, 255); font-size: 12pt; color: darkblue; font-style: normal; font-variant: normal; font-weight: normal; line-height: normal; width: 400pt;",
+      "parentTag": "TD",
+      "parentId": "",
+      "optionCount": 2,
+      "firstOptions": [
+        {
+          "value": "",
+          "text": "請先【點選本格】下拉選擇經費"
+        },
+        {
+          "value": "",
+          "text": "【】"
+        }
+      ]
+    },
+    {
+      "name": "BUGCODE_6",
+      "id": "",
+      "disabled": false,
+      "style": "background: rgb(187, 255, 255); font-size: 12pt; color: darkblue; font-style: normal; font-variant: normal; font-weight: normal; line-height: normal; width: 260pt;",
+      "parentTag": "TD",
+      "parentId": "",
+      "optionCount": 0,
+      "firstOptions": []
+    },
+    {
+      "name": "D_APYKIND_6",
+      "id": "",
+      "disabled": false,
+      "style": "",
+      "parentTag": "TD",
+      "parentId": "",
+      "optionCount": 2,
+      "firstOptions": [
+        {
+          "value": "",
+          "text": ""
+        },
+        {
+          "value": "",
+          "text": "【】"
+        }
+      ]
+    },
+    {
+      "name": "SERSUB_6",
+      "id": "",
+      "disabled": false,
+      "style": "",
+      "parentTag": "TD",
+      "parentId": "",
+      "optionCount": 0,
+      "firstOptions": []
+    },
+    {
+      "name": "BUGETNO_7",
+      "id": "",
+      "disabled": false,
+      "style": "background: rgb(187, 255, 255); font-size: 12pt; color: darkblue; font-style: normal; font-variant: normal; font-weight: normal; line-height: normal; width: 400pt;",
+      "parentTag": "TD",
+      "parentId": "",
+      "optionCount": 2,
+      "firstOptions": [
+        {
+          "value": "",
+          "text": "請先【點選本格】下拉選擇經費"
+        },
+        {
+          "value": "",
+          "text": "【】"
+        }
+      ]
+    },
+    {
+      "name": "BUGCODE_7",
+      "id": "",
+      "disabled": false,
+      "style": "background: rgb(187, 255, 255); font-size: 12pt; color: darkblue; font-style: normal; font-variant: normal; font-weight: normal; line-height: normal; width: 260pt;",
+      "parentTag": "TD",
+      "parentId": "",
+      "optionCount": 0,
+      "firstOptions": []
+    },
+    {
+      "name": "D_APYKIND_7",
+      "id": "",
+      "disabled": false,
+      "style": "",
+      "parentTag": "TD",
+      "parentId": "",
+      "optionCount": 2,
+      "firstOptions": [
+        {
+          "value": "",
+          "text": ""
+        },
+        {
+          "value": "",
+          "text": "【】"
+        }
+      ]
+    },
+    {
+      "name": "SERSUB_7",
+      "id": "",
+      "disabled": false,
+      "style": "",
+      "parentTag": "TD",
+      "parentId": "",
+      "optionCount": 0,
+      "firstOptions": []
+    },
+    {
+      "name": "BUGETNO_8",
+      "id": "",
+      "disabled": false,
+      "style": "background: rgb(187, 255, 255); font-size: 12pt; color: darkblue; font-style: normal; font-variant: normal; font-weight: normal; line-height: normal; width: 400pt;",
+      "parentTag": "TD",
+      "parentId": "",
+      "optionCount": 2,
+      "firstOptions": [
+        {
+          "value": "",
+          "text": "請先【點選本格】下拉選擇經費"
+        },
+        {
+          "value": "",
+          "text": "【】"
+        }
+      ]
+    },
+    {
+      "name": "BUGCODE_8",
+      "id": "",
+      "disabled": false,
+      "style": "background: rgb(187, 255, 255); font-size: 12pt; color: darkblue; font-style: normal; font-variant: normal; font-weight: normal; line-height: normal; width: 260pt;",
+      "parentTag": "TD",
+      "parentId": "",
+      "optionCount": 0,
+      "firstOptions": []
+    },
+    {
+      "name": "D_APYKIND_8",
+      "id": "",
+      "disabled": false,
+      "style": "",
+      "parentTag": "TD",
+      "parentId": "",
+      "optionCount": 2,
+      "firstOptions": [
+        {
+          "value": "",
+          "text": ""
+        },
+        {
+          "value": "",
+          "text": "【】"
+        }
+      ]
+    },
+    {
+      "name": "SERSUB_8",
+      "id": "",
+      "disabled": false,
+      "style": "",
+      "parentTag": "TD",
+      "parentId": "",
+      "optionCount": 0,
+      "firstOptions": []
+    },
+    {
+      "name": "BUGETNO_9",
+      "id": "",
+      "disabled": false,
+      "style": "background: rgb(187, 255, 255); font-size: 12pt; color: darkblue; font-style: normal; font-variant: normal; font-weight: normal; line-height: normal; width: 400pt;",
+      "parentTag": "TD",
+      "parentId": "",
+      "optionCount": 2,
+      "firstOptions": [
+        {
+          "value": "",
+          "text": "請先【點選本格】下拉選擇經費"
+        },
+        {
+          "value": "",
+          "text": "【】"
+        }
+      ]
+    },
+    {
+      "name": "BUGCODE_9",
+      "id": "",
+      "disabled": false,
+      "style": "background: rgb(187, 255, 255); font-size: 12pt; color: darkblue; font-style: normal; font-variant: normal; font-weight: normal; line-height: normal; width: 260pt;",
+      "parentTag": "TD",
+      "parentId": "",
+      "optionCount": 0,
+      "firstOptions": []
+    },
+    {
+      "name": "D_APYKIND_9",
+      "id": "",
+      "disabled": false,
+      "style": "",
+      "parentTag": "TD",
+      "parentId": "",
+      "optionCount": 2,
+      "firstOptions": [
+        {
+          "value": "",
+          "text": ""
+        },
+        {
+          "value": "",
+          "text": "【】"
+        }
+      ]
+    },
+    {
+      "name": "SERSUB_9",
+      "id": "",
+      "disabled": false,
+      "style": "",
+      "parentTag": "TD",
+      "parentId": "",
+      "optionCount": 0,
+      "firstOptions": []
+    },
+    {
+      "name": "BUGETNO_10",
+      "id": "",
+      "disabled": false,
+      "style": "background: rgb(187, 255, 255); font-size: 12pt; color: darkblue; font-style: normal; font-variant: normal; font-weight: normal; line-height: normal; width: 400pt;",
+      "parentTag": "TD",
+      "parentId": "",
+      "optionCount": 2,
+      "firstOptions": [
+        {
+          "value": "",
+          "text": "請先【點選本格】下拉選擇經費"
+        },
+        {
+          "value": "",
+          "text": "【】"
+        }
+      ]
+    },
+    {
+      "name": "BUGCODE_10",
+      "id": "",
+      "disabled": false,
+      "style": "background: rgb(187, 255, 255); font-size: 12pt; color: darkblue; font-style: normal; font-variant: normal; font-weight: normal; line-height: normal; width: 260pt;",
+      "parentTag": "TD",
+      "parentId": "",
+      "optionCount": 0,
+      "firstOptions": []
+    },
+    {
+      "name": "D_APYKIND_10",
+      "id": "",
+      "disabled": false,
+      "style": "",
+      "parentTag": "TD",
+      "parentId": "",
+      "optionCount": 2,
+      "firstOptions": [
+        {
+          "value": "",
+          "text": ""
+        },
+        {
+          "value": "",
+          "text": "【】"
+        }
+      ]
+    },
+    {
+      "name": "SERSUB_10",
+      "id": "",
+      "disabled": false,
+      "style": "",
+      "parentTag": "TD",
+      "parentId": "",
+      "optionCount": 0,
+      "firstOptions": []
+    },
+    {
+      "name": "BUGETNO_11",
+      "id": "",
+      "disabled": false,
+      "style": "background: rgb(187, 255, 255); font-size: 12pt; color: darkblue; font-style: normal; font-variant: normal; font-weight: normal; line-height: normal; width: 400pt;",
+      "parentTag": "TD",
+      "parentId": "",
+      "optionCount": 2,
+      "firstOptions": [
+        {
+          "value": "",
+          "text": "請先【點選本格】下拉選擇經費"
+        },
+        {
+          "value": "",
+          "text": "【】"
+        }
+      ]
+    },
+    {
+      "name": "BUGCODE_11",
+      "id": "",
+      "disabled": false,
+      "style": "background: rgb(187, 255, 255); font-size: 12pt; color: darkblue; font-style: normal; font-variant: normal; font-weight: normal; line-height: normal; width: 260pt;",
+      "parentTag": "TD",
+      "parentId": "",
+      "optionCount": 0,
+      "firstOptions": []
+    },
+    {
+      "name": "D_APYKIND_11",
+      "id": "",
+      "disabled": false,
+      "style": "",
+      "parentTag": "TD",
+      "parentId": "",
+      "optionCount": 2,
+      "firstOptions": [
+        {
+          "value": "",
+          "text": ""
+        },
+        {
+          "value": "",
+          "text": "【】"
+        }
+      ]
+    },
+    {
+      "name": "SERSUB_11",
+      "id": "",
+      "disabled": false,
+      "style": "",
+      "parentTag": "TD",
+      "parentId": "",
+      "optionCount": 0,
+      "firstOptions": []
+    },
+    {
+      "name": "BUGETNO_12",
+      "id": "",
+      "disabled": false,
+      "style": "background: rgb(187, 255, 255); font-size: 12pt; color: darkblue; font-style: normal; font-variant: normal; font-weight: normal; line-height: normal; width: 400pt;",
+      "parentTag": "TD",
+      "parentId": "",
+      "optionCount": 2,
+      "firstOptions": [
+        {
+          "value": "",
+          "text": "請先【點選本格】下拉選擇經費"
+        },
+        {
+          "value": "",
+          "text": "【】"
+        }
+      ]
+    },
+    {
+      "name": "BUGCODE_12",
+      "id": "",
+      "disabled": false,
+      "style": "background: rgb(187, 255, 255); font-size: 12pt; color: darkblue; font-style: normal; font-variant: normal; font-weight: normal; line-height: normal; width: 260pt;",
+      "parentTag": "TD",
+      "parentId": "",
+      "optionCount": 0,
+      "firstOptions": []
+    },
+    {
+      "name": "D_APYKIND_12",
+      "id": "",
+      "disabled": false,
+      "style": "",
+      "parentTag": "TD",
+      "parentId": "",
+      "optionCount": 2,
+      "firstOptions": [
+        {
+          "value": "",
+          "text": ""
+        },
+        {
+          "value": "",
+          "text": "【】"
+        }
+      ]
+    },
+    {
+      "name": "SERSUB_12",
+      "id": "",
+      "disabled": false,
+      "style": "",
+      "parentTag": "TD",
+      "parentId": "",
+      "optionCount": 0,
+      "firstOptions": []
+    },
+    {
+      "name": "BUGETNO_13",
+      "id": "",
+      "disabled": false,
+      "style": "background: rgb(187, 255, 255); font-size: 12pt; color: darkblue; font-style: normal; font-variant: normal; font-weight: normal; line-height: normal; width: 400pt;",
+      "parentTag": "TD",
+      "parentId": "",
+      "optionCount": 2,
+      "firstOptions": [
+        {
+          "value": "",
+          "text": "請先【點選本格】下拉選擇經費"
+        },
+        {
+          "value": "",
+          "text": "【】"
+        }
+      ]
+    },
+    {
+      "name": "BUGCODE_13",
+      "id": "",
+      "disabled": false,
+      "style": "background: rgb(187, 255, 255); font-size: 12pt; color: darkblue; font-style: normal; font-variant: normal; font-weight: normal; line-height: normal; width: 260pt;",
+      "parentTag": "TD",
+      "parentId": "",
+      "optionCount": 0,
+      "firstOptions": []
+    },
+    {
+      "name": "D_APYKIND_13",
+      "id": "",
+      "disabled": false,
+      "style": "",
+      "parentTag": "TD",
+      "parentId": "",
+      "optionCount": 2,
+      "firstOptions": [
+        {
+          "value": "",
+          "text": ""
+        },
+        {
+          "value": "",
+          "text": "【】"
+        }
+      ]
+    },
+    {
+      "name": "SERSUB_13",
+      "id": "",
+      "disabled": false,
+      "style": "",
+      "parentTag": "TD",
+      "parentId": "",
+      "optionCount": 0,
+      "firstOptions": []
+    },
+    {
+      "name": "BUGETNO_14",
+      "id": "",
+      "disabled": false,
+      "style": "background: rgb(187, 255, 255); font-size: 12pt; color: darkblue; font-style: normal; font-variant: normal; font-weight: normal; line-height: normal; width: 400pt;",
+      "parentTag": "TD",
+      "parentId": "",
+      "optionCount": 2,
+      "firstOptions": [
+        {
+          "value": "",
+          "text": "請先【點選本格】下拉選擇經費"
+        },
+        {
+          "value": "",
+          "text": "【】"
+        }
+      ]
+    },
+    {
+      "name": "BUGCODE_14",
+      "id": "",
+      "disabled": false,
+      "style": "background: rgb(187, 255, 255); font-size: 12pt; color: darkblue; font-style: normal; font-variant: normal; font-weight: normal; line-height: normal; width: 260pt;",
+      "parentTag": "TD",
+      "parentId": "",
+      "optionCount": 0,
+      "firstOptions": []
+    },
+    {
+      "name": "D_APYKIND_14",
+      "id": "",
+      "disabled": false,
+      "style": "",
+      "parentTag": "TD",
+      "parentId": "",
+      "optionCount": 2,
+      "firstOptions": [
+        {
+          "value": "",
+          "text": ""
+        },
+        {
+          "value": "",
+          "text": "【】"
+        }
+      ]
+    },
+    {
+      "name": "SERSUB_14",
+      "id": "",
+      "disabled": false,
+      "style": "",
+      "parentTag": "TD",
+      "parentId": "",
+      "optionCount": 0,
+      "firstOptions": []
+    },
+    {
+      "name": "BUGETNO_15",
+      "id": "",
+      "disabled": false,
+      "style": "background: rgb(187, 255, 255); font-size: 12pt; color: darkblue; font-style: normal; font-variant: normal; font-weight: normal; line-height: normal; width: 400pt;",
+      "parentTag": "TD",
+      "parentId": "",
+      "optionCount": 2,
+      "firstOptions": [
+        {
+          "value": "",
+          "text": "請先【點選本格】下拉選擇經費"
+        },
+        {
+          "value": "",
+          "text": "【】"
+        }
+      ]
+    },
+    {
+      "name": "BUGCODE_15",
+      "id": "",
+      "disabled": false,
+      "style": "background: rgb(187, 255, 255); font-size: 12pt; color: darkblue; font-style: normal; font-variant: normal; font-weight: normal; line-height: normal; width: 260pt;",
+      "parentTag": "TD",
+      "parentId": "",
+      "optionCount": 0,
+      "firstOptions": []
+    },
+    {
+      "name": "D_APYKIND_15",
+      "id": "",
+      "disabled": false,
+      "style": "",
+      "parentTag": "TD",
+      "parentId": "",
+      "optionCount": 2,
+      "firstOptions": [
+        {
+          "value": "",
+          "text": ""
+        },
+        {
+          "value": "",
+          "text": "【】"
+        }
+      ]
+    },
+    {
+      "name": "SERSUB_15",
+      "id": "",
+      "disabled": false,
+      "style": "",
+      "parentTag": "TD",
+      "parentId": "",
+      "optionCount": 0,
+      "firstOptions": []
+    },
+    {
+      "name": "BUGETNO_16",
+      "id": "",
+      "disabled": false,
+      "style": "background: rgb(187, 255, 255); font-size: 12pt; color: darkblue; font-style: normal; font-variant: normal; font-weight: normal; line-height: normal; width: 400pt;",
+      "parentTag": "TD",
+      "parentId": "",
+      "optionCount": 2,
+      "firstOptions": [
+        {
+          "value": "",
+          "text": "請先【點選本格】下拉選擇經費"
+        },
+        {
+          "value": "",
+          "text": "【】"
+        }
+      ]
+    },
+    {
+      "name": "BUGCODE_16",
+      "id": "",
+      "disabled": false,
+      "style": "background: rgb(187, 255, 255); font-size: 12pt; color: darkblue; font-style: normal; font-variant: normal; font-weight: normal; line-height: normal; width: 260pt;",
+      "parentTag": "TD",
+      "parentId": "",
+      "optionCount": 0,
+      "firstOptions": []
+    },
+    {
+      "name": "D_APYKIND_16",
+      "id": "",
+      "disabled": false,
+      "style": "",
+      "parentTag": "TD",
+      "parentId": "",
+      "optionCount": 2,
+      "firstOptions": [
+        {
+          "value": "",
+          "text": ""
+        },
+        {
+          "value": "",
+          "text": "【】"
+        }
+      ]
+    },
+    {
+      "name": "SERSUB_16",
+      "id": "",
+      "disabled": false,
+      "style": "",
+      "parentTag": "TD",
+      "parentId": "",
+      "optionCount": 0,
+      "firstOptions": []
+    },
+    {
+      "name": "BUGETNO_17",
+      "id": "",
+      "disabled": false,
+      "style": "background: rgb(187, 255, 255); font-size: 12pt; color: darkblue; font-style: normal; font-variant: normal; font-weight: normal; line-height: normal; width: 400pt;",
+      "parentTag": "TD",
+      "parentId": "",
+      "optionCount": 2,
+      "firstOptions": [
+        {
+          "value": "",
+          "text": "請先【點選本格】下拉選擇經費"
+        },
+        {
+          "value": "",
+          "text": "【】"
+        }
+      ]
+    },
+    {
+      "name": "BUGCODE_17",
+      "id": "",
+      "disabled": false,
+      "style": "background: rgb(187, 255, 255); font-size: 12pt; color: darkblue; font-style: normal; font-variant: normal; font-weight: normal; line-height: normal; width: 260pt;",
+      "parentTag": "TD",
+      "parentId": "",
+      "optionCount": 0,
+      "firstOptions": []
+    },
+    {
+      "name": "D_APYKIND_17",
+      "id": "",
+      "disabled": false,
+      "style": "",
+      "parentTag": "TD",
+      "parentId": "",
+      "optionCount": 2,
+      "firstOptions": [
+        {
+          "value": "",
+          "text": ""
+        },
+        {
+          "value": "",
+          "text": "【】"
+        }
+      ]
+    },
+    {
+      "name": "SERSUB_17",
+      "id": "",
+      "disabled": false,
+      "style": "",
+      "parentTag": "TD",
+      "parentId": "",
+      "optionCount": 0,
+      "firstOptions": []
+    },
+    {
+      "name": "BUGETNO_18",
+      "id": "",
+      "disabled": false,
+      "style": "background: rgb(187, 255, 255); font-size: 12pt; color: darkblue; font-style: normal; font-variant: normal; font-weight: normal; line-height: normal; width: 400pt;",
+      "parentTag": "TD",
+      "parentId": "",
+      "optionCount": 2,
+      "firstOptions": [
+        {
+          "value": "",
+          "text": "請先【點選本格】下拉選擇經費"
+        },
+        {
+          "value": "",
+          "text": "【】"
+        }
+      ]
+    },
+    {
+      "name": "BUGCODE_18",
+      "id": "",
+      "disabled": false,
+      "style": "background: rgb(187, 255, 255); font-size: 12pt; color: darkblue; font-style: normal; font-variant: normal; font-weight: normal; line-height: normal; width: 260pt;",
+      "parentTag": "TD",
+      "parentId": "",
+      "optionCount": 0,
+      "firstOptions": []
+    },
+    {
+      "name": "D_APYKIND_18",
+      "id": "",
+      "disabled": false,
+      "style": "",
+      "parentTag": "TD",
+      "parentId": "",
+      "optionCount": 2,
+      "firstOptions": [
+        {
+          "value": "",
+          "text": ""
+        },
+        {
+          "value": "",
+          "text": "【】"
+        }
+      ]
+    },
+    {
+      "name": "SERSUB_18",
+      "id": "",
+      "disabled": false,
+      "style": "",
+      "parentTag": "TD",
+      "parentId": "",
+      "optionCount": 0,
+      "firstOptions": []
+    },
+    {
+      "name": "BUGETNO_19",
+      "id": "",
+      "disabled": false,
+      "style": "background: rgb(187, 255, 255); font-size: 12pt; color: darkblue; font-style: normal; font-variant: normal; font-weight: normal; line-height: normal; width: 400pt;",
+      "parentTag": "TD",
+      "parentId": "",
+      "optionCount": 2,
+      "firstOptions": [
+        {
+          "value": "",
+          "text": "請先【點選本格】下拉選擇經費"
+        },
+        {
+          "value": "",
+          "text": "【】"
+        }
+      ]
+    },
+    {
+      "name": "BUGCODE_19",
+      "id": "",
+      "disabled": false,
+      "style": "background: rgb(187, 255, 255); font-size: 12pt; color: darkblue; font-style: normal; font-variant: normal; font-weight: normal; line-height: normal; width: 260pt;",
+      "parentTag": "TD",
+      "parentId": "",
+      "optionCount": 0,
+      "firstOptions": []
+    },
+    {
+      "name": "D_APYKIND_19",
+      "id": "",
+      "disabled": false,
+      "style": "",
+      "parentTag": "TD",
+      "parentId": "",
+      "optionCount": 2,
+      "firstOptions": [
+        {
+          "value": "",
+          "text": ""
+        },
+        {
+          "value": "",
+          "text": "【】"
+        }
+      ]
+    },
+    {
+      "name": "SERSUB_19",
+      "id": "",
+      "disabled": false,
+      "style": "",
+      "parentTag": "TD",
+      "parentId": "",
+      "optionCount": 0,
+      "firstOptions": []
+    },
+    {
+      "name": "BUGETNO_20",
+      "id": "",
+      "disabled": false,
+      "style": "background: rgb(187, 255, 255); font-size: 12pt; color: darkblue; font-style: normal; font-variant: normal; font-weight: normal; line-height: normal; width: 400pt;",
+      "parentTag": "TD",
+      "parentId": "",
+      "optionCount": 2,
+      "firstOptions": [
+        {
+          "value": "",
+          "text": "請先【點選本格】下拉選擇經費"
+        },
+        {
+          "value": "",
+          "text": "【】"
+        }
+      ]
+    },
+    {
+      "name": "BUGCODE_20",
+      "id": "",
+      "disabled": false,
+      "style": "background: rgb(187, 255, 255); font-size: 12pt; color: darkblue; font-style: normal; font-variant: normal; font-weight: normal; line-height: normal; width: 260pt;",
+      "parentTag": "TD",
+      "parentId": "",
+      "optionCount": 0,
+      "firstOptions": []
+    },
+    {
+      "name": "D_APYKIND_20",
+      "id": "",
+      "disabled": false,
+      "style": "",
+      "parentTag": "TD",
+      "parentId": "",
+      "optionCount": 2,
+      "firstOptions": [
+        {
+          "value": "",
+          "text": ""
+        },
+        {
+          "value": "",
+          "text": "【】"
+        }
+      ]
+    },
+    {
+      "name": "SERSUB_20",
+      "id": "",
+      "disabled": false,
+      "style": "",
+      "parentTag": "TD",
+      "parentId": "",
+      "optionCount": 0,
+      "firstOptions": []
+    }
+  ]
+}

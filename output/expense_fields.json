@@ -1,0 +1,2416 @@
+{
+  "all_frames_after_submit": [
+    {
+      "name": "",
+      "url": "https://account.ncut.edu.tw/APSWIS_Q/Dept_Add_Q/DA_SerBug_Menu_Q.asp?Firstload=Y"
+    },
+    {
+      "name": "TITLE",
+      "url": "https://account.ncut.edu.tw/APSWIS_Q/Dept_Add_Q/DA_SerFun_Q.asp?COM=YT"
+    },
+    {
+      "name": "MAIN",
+      "url": "https://account.ncut.edu.tw/APSWIS_Q/Dept_Add_Q/STD_APPY_FRM_Q.asp"
+    },
+    {
+      "name": "OT",
+      "url": "https://account.ncut.edu.tw/APSWIS_Q/SHAR_BUG_Q/SHAR_BUG_STR_Q.asp?COM=YT"
+    },
+    {
+      "name": "CK_VN",
+      "url": "https://account.ncut.edu.tw/APSWIS_Q/Dept_Add_Q/CHK_VEN_Q.asp"
+    },
+    {
+      "name": "LA_AM",
+      "url": "https://account.ncut.edu.tw/APSWIS_Q/Dept_Add_Q/LAST_AM_Q.asp"
+    },
+    {
+      "name": "TRAN",
+      "url": "https://account.ncut.edu.tw/APSWIS_Q/Dept_Add_Q/TRAN_Q.asp?COM=YT"
+    },
+    {
+      "name": "OTHER",
+      "url": "https://account.ncut.edu.tw/APSWIS_Q/BLANK_Q.asp"
+    },
+    {
+      "name": "T",
+      "url": "https://account.ncut.edu.tw/APSWIS_Q/SHAR_BUG_Q/SHAR_BUG_Q.asp"
+    },
+    {
+      "name": "M",
+      "url": "https://account.ncut.edu.tw/APSWIS_Q/SHAR_BUG_Q/SHR_USERIGHT_LIST_Q.asp"
+    },
+    {
+      "name": "APPY",
+      "url": "https://account.ncut.edu.tw/APSWIS_Q/Dept_Add_Q/STD_APPY_Q.asp?COPY=&APPYYEAR=115&ISNEW=Y&APYNO=&APYADD=&APPYSET=13&MOVETYPE=6&ISAPPY=True&ISVOUC=True&ISTEMP=False&ISCASH=True&ISPURC=False&SETNAME=%AA%BD%B1%B5%AE%D6%BEP(%B9s%A5%CE%AA%F7)%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20&APPU=&DECI=&SHOWVEN=True&SHOWPRO=True&APPYBUY=&VOUSERNO="
+    },
+    {
+      "name": "APPP",
+      "url": "https://account.ncut.edu.tw/APSWIS_Q/Dept_Add_Q/STD_APPP_Q.asp?APPYYEAR=115&ISNEW=Y&APYNO=&APYADD=&APPYSET=13&ISPURC=False&MOVETYPE=6&ISAPPY=True&ISVOUC=True&ISPERIOD=False&SHOWVEN=True"
+    },
+    {
+      "name": "APPA",
+      "url": "https://account.ncut.edu.tw/APSWIS_Q/Dept_Add_Q/STD_APPA_Q.asp?COPY=&APPYYEAR=115&ISNEW=Y&APYNO=&APYADD=&APPYSET=13&ISCASH=True&ISPERIOD=False&SHOWPRO=True&APPU="
+    },
+    {
+      "name": "PS",
+      "url": "https://account.ncut.edu.tw/APSWIS_Q/Dept_Add_Q/PR_SAVE_Q.asp"
+    }
+  ],
+  "appy_frame": {
+    "url": "https://account.ncut.edu.tw/APSWIS_Q/Dept_Add_Q/STD_APPY_Q.asp?COPY=&APPYYEAR=115&ISNEW=Y&APYNO=&APYADD=&APPYSET=13&MOVETYPE=6&ISAPPY=True&ISVOUC=True&ISTEMP=False&ISCASH=True&ISPURC=False&SETNAME=%AA%BD%B1%B5%AE%D6%BEP(%B9s%A5%CE%AA%F7)%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20&APPU=&DECI=&SHOWVEN=True&SHOWPRO=True&APPYBUY=&VOUSERNO=",
+    "bodyText": "購案類別\t新增直接核銷(零用金)\t用\n途\n說\n明\t  \t\t\t\n\n購案編號\t...\t\t\n申請單位\t智慧自動化工程系\t\t\n申 請 人\t劉瑞弘\t\t\n會簽單位\t\n下拉選擇單位\n【000】全校性經費\n【001】校控經費\n【010】秘書室\n【013】創辦人暨校友服務辦公室\n【014】校長室\n【015】校友連絡中心\n【016】計畫辦公室\n【017】校務研究辦公室\n【019】公共關係室\n【100】教務處\n【110】招生事務處\n【111】健保自付\n【200】學生事務處\n【201】軍訓室\n【202】諮商輔導組\n【300】總務處\n【310】出納組\n【350】總務處營繕組\n【400】人事室\n【500】主計室\n【610】圖書館\n【620】電算中心\n【621】電算中心一\n【700】進修推廣部\n【701】進修推廣部\n【710】進修部\n【720】推廣部\n【800】研究發展處\n【810】創育中心\n【820】國際事務處\n【830】語言中心\n【840】計畫辦公室\n【850】產學營運處\n【860】永續與校務研發中心\n【870】環安中心\n【880】藝術中心\n【901】機械工程系\n【902】電機工程系\n【903】冷凍空調與能源系\n【904】電子工程系\n【905】化工與材料工程系\n【906】工業工程與管理系\n【907】企業管理系\n【908】資訊管理系\n【909】行銷與流通管理系\n【910】進修學院\n【911】通識教育中心\n【912】景觀系\n【913】體育室\n【914】基礎通識教育中心\n【915】博雅通識教育中心\n【918】流通科技管理研究所\n【919】資訊與電能科技研究所\n【920】材料與化工研究所\n【921】生產系統工程與管理研究所\n【922】冷凍空調與能源科技研究所\n【923】企業管理研究所\n【924】應用英語系\n【925】健康產業科技研發與管理系\n【926】精密機械與製造科技研究所\n【927】自動化工程系\n【928】電機工程所\n【930】產業科技研究總中心\n【931】資訊工程系\n【932】人文學院\n【933】工程學院\n【934】電資學院\n【935】管理學院\n【936】通識教育學院\n【938】技術研發中心\n【939】諮商輔導中心\n【940】文化創意事業系\n【941】研發科技與資訊管理研究所\n【942】精密製造科技研究所(博士班)\n【943】專案管理研究所\n【944】前瞻電資科技研究所\n【945】智慧自動化工程系\n【946】人工智慧應用工程系\n【947】智慧製造與資訊應用碩士學位學程\n\t計畫編號\t經費用途\t分類\t科目\t經費餘額\t金額\n1\t\n請先【點選本格】下拉選擇經費\n【】\n\t\t\n【】\n\t\t\t\t",
+    "forms": [
+      {
+        "id": "",
+        "action": "https://account.ncut.edu.tw/APSWIS_Q/Dept_Add_Q/STD_APPY_Q.asp?COPY=&APPYYEAR=115&ISNEW=Y&APYNO=&APYADD=&APPYSET=13&MOVETYPE=6&ISAPPY=True&ISVOUC=True&ISTEMP=False&ISCASH=True&ISPURC=False&SETNAME=%AA%BD%B1%B5%AE%D6%BEP(%B9s%A5%CE%AA%F7)%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20&APPU=&DECI=&SHOWVEN=True&SHOWPRO=True&APPYBUY=&VOUSERNO=",
+        "method": "post",
+        "elements": []
+      },
+      {
+        "id": "",
+        "action": "https://account.ncut.edu.tw/APSWIS_Q/Dept_Add_Q/STD_APPY_Q.asp?COPY=&APPYYEAR=115&ISNEW=Y&APYNO=&APYADD=&APPYSET=13&MOVETYPE=6&ISAPPY=True&ISVOUC=True&ISTEMP=False&ISCASH=True&ISPURC=False&SETNAME=%AA%BD%B1%B5%AE%D6%BEP(%B9s%A5%CE%AA%F7)%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20&APPU=&DECI=&SHOWVEN=True&SHOWPRO=True&APPYBUY=&VOUSERNO=",
+        "method": "post",
+        "elements": []
+      }
+    ]
+  },
+  "appp_frame": {
+    "url": "https://account.ncut.edu.tw/APSWIS_Q/Dept_Add_Q/STD_APPP_Q.asp?APPYYEAR=115&ISNEW=Y&APYNO=&APYADD=&APPYSET=13&ISPURC=False&MOVETYPE=6&ISAPPY=True&ISVOUC=True&ISPERIOD=False&SHOWVEN=True",
+    "bodyText": "  \n\t品名\t詳細規格\t廠牌型號\t單位\t數量\t總價\t置放地點\t保管人\n1\t\t\t\t\t\t\t\t\n2\t\t\t\t\t\t\t\t\n3\t\t\t\t\t\t\t\t\n4\t\t\t\t\t\t\t\t\n5\t\t\t\t\t\t\t\t\n6\t\t\t\t\t\t\t\t\n7\t\t\t\t\t\t\t\t\n8\t\t\t\t\t\t\t\t\n9\t\t\t\t\t\t\t\t\n10\t\t\t\t\t\t\t\t\n11\t\t\t\t\t\t\t\t\n12\t\t\t\t\t\t\t\t\n13\t\t\t\t\t\t\t\t\n14\t\t\t\t\t\t\t\t\n15\t\t\t\t\t\t\t\t",
+    "forms": [
+      {
+        "id": "",
+        "action": "https://account.ncut.edu.tw/APSWIS_Q/Dept_Add_Q/STD_APPP_Q.asp?APPYYEAR=115&ISNEW=Y&APYNO=&APYADD=&APPYSET=13&ISPURC=False&MOVETYPE=6&ISAPPY=True&ISVOUC=True&ISPERIOD=False&SHOWVEN=True",
+        "method": "post",
+        "elements": []
+      },
+      {
+        "id": "",
+        "action": "https://account.ncut.edu.tw/APSWIS_Q/Dept_Add_Q/STD_APPP_Q.asp?APPYYEAR=115&ISNEW=Y&APYNO=&APYADD=&APPYSET=13&ISPURC=False&MOVETYPE=6&ISAPPY=True&ISVOUC=True&ISPERIOD=False&SHOWVEN=True",
+        "method": "get",
+        "elements": [
+          {
+            "tag": "INPUT",
+            "name": "TOG_APYNO",
+            "type": "text",
+            "value": "",
+            "id": "",
+            "readonly": false,
+            "disabled": false,
+            "maxLength": 14,
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "TOG_APYADD",
+            "type": "hidden",
+            "value": "",
+            "id": "",
+            "readonly": false,
+            "disabled": false,
+            "maxLength": 2,
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "APPYSET",
+            "type": "hidden",
+            "value": "13",
+            "id": "",
+            "readonly": false,
+            "disabled": false,
+            "maxLength": null,
+            "options": null
+          }
+        ]
+      },
+      {
+        "id": "",
+        "action": "https://account.ncut.edu.tw/APSWIS_Q/Dept_Add_Q/STD_APPP_Q.asp?APPYYEAR=115&ISNEW=Y&APYNO=&APYADD=&APPYSET=13&ISPURC=False&MOVETYPE=6&ISAPPY=True&ISVOUC=True&ISPERIOD=False&SHOWVEN=True",
+        "method": "get",
+        "elements": []
+      },
+      {
+        "id": "",
+        "action": "https://account.ncut.edu.tw/APSWIS_Q/Dept_Add_Q/STD_APPP_Q.asp?APPYYEAR=115&ISNEW=Y&APYNO=&APYADD=&APPYSET=13&ISPURC=False&MOVETYPE=6&ISAPPY=True&ISVOUC=True&ISPERIOD=False&SHOWVEN=True",
+        "method": "get",
+        "elements": [
+          {
+            "tag": "INPUT",
+            "name": "",
+            "type": "button",
+            "value": "導引申請",
+            "id": "",
+            "readonly": false,
+            "disabled": false,
+            "maxLength": null,
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "",
+            "type": "button",
+            "value": "引用舊採購案",
+            "id": "",
+            "readonly": false,
+            "disabled": false,
+            "maxLength": null,
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "POFFICE",
+            "type": "hidden",
+            "value": "",
+            "id": "",
+            "readonly": false,
+            "disabled": false,
+            "maxLength": null,
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "POFFICE_1",
+            "type": "checkbox",
+            "value": "on",
+            "id": "",
+            "readonly": false,
+            "disabled": false,
+            "maxLength": null,
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "POFFICE_2",
+            "type": "checkbox",
+            "value": "on",
+            "id": "",
+            "readonly": false,
+            "disabled": false,
+            "maxLength": null,
+            "options": null
+          },
+          {
+            "tag": "TEXTAREA",
+            "name": "CONTENT",
+            "type": "textarea",
+            "value": "",
+            "id": "",
+            "readonly": false,
+            "disabled": false,
+            "maxLength": null,
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "PUR_NUMBER",
+            "type": "hidden",
+            "value": "1",
+            "id": "",
+            "readonly": false,
+            "disabled": false,
+            "maxLength": null,
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "PUR_AMOUNT",
+            "type": "hidden",
+            "value": "",
+            "id": "",
+            "readonly": false,
+            "disabled": false,
+            "maxLength": null,
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "CTYPE",
+            "type": "hidden",
+            "value": "",
+            "id": "",
+            "readonly": false,
+            "disabled": false,
+            "maxLength": null,
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "CTYPE_1",
+            "type": "checkbox",
+            "value": "on",
+            "id": "",
+            "readonly": false,
+            "disabled": false,
+            "maxLength": null,
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "CTYPE_2",
+            "type": "hidden",
+            "value": "",
+            "id": "",
+            "readonly": false,
+            "disabled": false,
+            "maxLength": null,
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "LTYPE",
+            "type": "hidden",
+            "value": "",
+            "id": "",
+            "readonly": false,
+            "disabled": false,
+            "maxLength": null,
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "LTYPE_1",
+            "type": "hidden",
+            "value": "",
+            "id": "",
+            "readonly": false,
+            "disabled": false,
+            "maxLength": null,
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "OTYPE",
+            "type": "hidden",
+            "value": "",
+            "id": "",
+            "readonly": false,
+            "disabled": false,
+            "maxLength": null,
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "OTYPE_1",
+            "type": "hidden",
+            "value": "",
+            "id": "",
+            "readonly": false,
+            "disabled": false,
+            "maxLength": null,
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "OTYPE_2",
+            "type": "hidden",
+            "value": "",
+            "id": "",
+            "readonly": false,
+            "disabled": false,
+            "maxLength": null,
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "CPUR",
+            "type": "hidden",
+            "value": "",
+            "id": "",
+            "readonly": false,
+            "disabled": false,
+            "maxLength": null,
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "CPUR_1",
+            "type": "checkbox",
+            "value": "on",
+            "id": "",
+            "readonly": false,
+            "disabled": false,
+            "maxLength": null,
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "RPUR",
+            "type": "hidden",
+            "value": "",
+            "id": "",
+            "readonly": false,
+            "disabled": false,
+            "maxLength": null,
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "RPUR_1",
+            "type": "hidden",
+            "value": "",
+            "id": "",
+            "readonly": false,
+            "disabled": false,
+            "maxLength": null,
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "SPUR",
+            "type": "hidden",
+            "value": "",
+            "id": "",
+            "readonly": false,
+            "disabled": false,
+            "maxLength": null,
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "SPUR_1",
+            "type": "hidden",
+            "value": "",
+            "id": "",
+            "readonly": false,
+            "disabled": false,
+            "maxLength": null,
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "GPUR",
+            "type": "hidden",
+            "value": "",
+            "id": "",
+            "readonly": false,
+            "disabled": false,
+            "maxLength": null,
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "GPUR_1",
+            "type": "checkbox",
+            "value": "on",
+            "id": "",
+            "readonly": false,
+            "disabled": false,
+            "maxLength": null,
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "UPUR",
+            "type": "hidden",
+            "value": "",
+            "id": "",
+            "readonly": false,
+            "disabled": false,
+            "maxLength": null,
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "UPUR_1",
+            "type": "checkbox",
+            "value": "on",
+            "id": "",
+            "readonly": false,
+            "disabled": false,
+            "maxLength": null,
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "UTYPE",
+            "type": "hidden",
+            "value": "1",
+            "id": "",
+            "readonly": false,
+            "disabled": false,
+            "maxLength": null,
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "UTYPE_1",
+            "type": "checkbox",
+            "value": "on",
+            "id": "",
+            "readonly": false,
+            "disabled": false,
+            "maxLength": null,
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "UTYPE_2",
+            "type": "checkbox",
+            "value": "on",
+            "id": "",
+            "readonly": false,
+            "disabled": false,
+            "maxLength": null,
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "UTYPE_3",
+            "type": "checkbox",
+            "value": "on",
+            "id": "",
+            "readonly": false,
+            "disabled": false,
+            "maxLength": null,
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "UTYPE_4",
+            "type": "checkbox",
+            "value": "on",
+            "id": "",
+            "readonly": false,
+            "disabled": false,
+            "maxLength": null,
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "RCDAT_1",
+            "type": "checkbox",
+            "value": "on",
+            "id": "",
+            "readonly": false,
+            "disabled": false,
+            "maxLength": null,
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "RCDAT",
+            "type": "hidden",
+            "value": "",
+            "id": "",
+            "readonly": false,
+            "disabled": false,
+            "maxLength": null,
+            "options": null
+          },
+          {
+            "tag": "SELECT",
+            "name": "RCDAT_Y",
+            "type": "select-one",
+            "value": "115",
+            "id": "",
+            "readonly": false,
+            "disabled": true,
+            "maxLength": null,
+            "options": [
+              {
+                "value": "115",
+                "text": "115",
+                "selected": true
+              },
+              {
+                "value": "116",
+                "text": "116",
+                "selected": false
+              },
+              {
+                "value": "117",
+                "text": "117",
+                "selected": false
+              },
+              {
+                "value": "118",
+                "text": "118",
+                "selected": false
+              },
+              {
+                "value": "119",
+                "text": "119",
+                "selected": false
+              },
+              {
+                "value": "120",
+                "text": "120",
+                "selected": false
+              }
+            ]
+          },
+          {
+            "tag": "SELECT",
+            "name": "RCDAT_M",
+            "type": "select-one",
+            "value": "01",
+            "id": "",
+            "readonly": false,
+            "disabled": true,
+            "maxLength": null,
+            "options": [
+              {
+                "value": "01",
+                "text": "1",
+                "selected": true
+              },
+              {
+                "value": "02",
+                "text": "2",
+                "selected": false
+              },
+              {
+                "value": "03",
+                "text": "3",
+                "selected": false
+              },
+              {
+                "value": "04",
+                "text": "4",
+                "selected": false
+              },
+              {
+                "value": "05",
+                "text": "5",
+                "selected": false
+              },
+              {
+                "value": "06",
+                "text": "6",
+                "selected": false
+              },
+              {
+                "value": "07",
+                "text": "7",
+                "selected": false
+              },
+              {
+                "value": "08",
+                "text": "8",
+                "selected": false
+              },
+              {
+                "value": "09",
+                "text": "9",
+                "selected": false
+              },
+              {
+                "value": "10",
+                "text": "10",
+                "selected": false
+              },
+              {
+                "value": "11",
+                "text": "11",
+                "selected": false
+              },
+              {
+                "value": "12",
+                "text": "12",
+                "selected": false
+              }
+            ]
+          },
+          {
+            "tag": "SELECT",
+            "name": "RCDAT_D",
+            "type": "select-one",
+            "value": "01",
+            "id": "",
+            "readonly": false,
+            "disabled": true,
+            "maxLength": null,
+            "options": [
+              {
+                "value": "01",
+                "text": "1",
+                "selected": true
+              },
+              {
+                "value": "02",
+                "text": "2",
+                "selected": false
+              },
+              {
+                "value": "03",
+                "text": "3",
+                "selected": false
+              },
+              {
+                "value": "04",
+                "text": "4",
+                "selected": false
+              },
+              {
+                "value": "05",
+                "text": "5",
+                "selected": false
+              },
+              {
+                "value": "06",
+                "text": "6",
+                "selected": false
+              },
+              {
+                "value": "07",
+                "text": "7",
+                "selected": false
+              },
+              {
+                "value": "08",
+                "text": "8",
+                "selected": false
+              },
+              {
+                "value": "09",
+                "text": "9",
+                "selected": false
+              },
+              {
+                "value": "10",
+                "text": "10",
+                "selected": false
+              },
+              {
+                "value": "11",
+                "text": "11",
+                "selected": false
+              },
+              {
+                "value": "12",
+                "text": "12",
+                "selected": false
+              },
+              {
+                "value": "13",
+                "text": "13",
+                "selected": false
+              },
+              {
+                "value": "14",
+                "text": "14",
+                "selected": false
+              },
+              {
+                "value": "15",
+                "text": "15",
+                "selected": false
+              },
+              {
+                "value": "16",
+                "text": "16",
+                "selected": false
+              },
+              {
+                "value": "17",
+                "text": "17",
+                "selected": false
+              },
+              {
+                "value": "18",
+                "text": "18",
+                "selected": false
+              },
+              {
+                "value": "19",
+                "text": "19",
+                "selected": false
+              },
+              {
+                "value": "20",
+                "text": "20",
+                "selected": false
+              },
+              {
+                "value": "21",
+                "text": "21",
+                "selected": false
+              },
+              {
+                "value": "22",
+                "text": "22",
+                "selected": false
+              },
+              {
+                "value": "23",
+                "text": "23",
+                "selected": false
+              },
+              {
+                "value": "24",
+                "text": "24",
+                "selected": false
+              },
+              {
+                "value": "25",
+                "text": "25",
+                "selected": false
+              },
+              {
+                "value": "26",
+                "text": "26",
+                "selected": false
+              },
+              {
+                "value": "27",
+                "text": "27",
+                "selected": false
+              },
+              {
+                "value": "28",
+                "text": "28",
+                "selected": false
+              },
+              {
+                "value": "29",
+                "text": "29",
+                "selected": false
+              },
+              {
+                "value": "30",
+                "text": "30",
+                "selected": false
+              }
+            ]
+          },
+          {
+            "tag": "INPUT",
+            "name": "PMNDAYS_1",
+            "type": "checkbox",
+            "value": "on",
+            "id": "",
+            "readonly": false,
+            "disabled": false,
+            "maxLength": null,
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "PMNDAYS",
+            "type": "text",
+            "value": "",
+            "id": "",
+            "readonly": false,
+            "disabled": true,
+            "maxLength": null,
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "RCDATB_1",
+            "type": "checkbox",
+            "value": "on",
+            "id": "",
+            "readonly": false,
+            "disabled": false,
+            "maxLength": null,
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "RCDATB",
+            "type": "hidden",
+            "value": "",
+            "id": "",
+            "readonly": false,
+            "disabled": false,
+            "maxLength": null,
+            "options": null
+          },
+          {
+            "tag": "SELECT",
+            "name": "RCDATB_Y",
+            "type": "select-one",
+            "value": "115",
+            "id": "",
+            "readonly": false,
+            "disabled": true,
+            "maxLength": null,
+            "options": [
+              {
+                "value": "115",
+                "text": "115",
+                "selected": true
+              },
+              {
+                "value": "116",
+                "text": "116",
+                "selected": false
+              },
+              {
+                "value": "117",
+                "text": "117",
+                "selected": false
+              },
+              {
+                "value": "118",
+                "text": "118",
+                "selected": false
+              },
+              {
+                "value": "119",
+                "text": "119",
+                "selected": false
+              },
+              {
+                "value": "120",
+                "text": "120",
+                "selected": false
+              }
+            ]
+          },
+          {
+            "tag": "SELECT",
+            "name": "RCDATB_M",
+            "type": "select-one",
+            "value": "01",
+            "id": "",
+            "readonly": false,
+            "disabled": true,
+            "maxLength": null,
+            "options": [
+              {
+                "value": "01",
+                "text": "1",
+                "selected": true
+              },
+              {
+                "value": "02",
+                "text": "2",
+                "selected": false
+              },
+              {
+                "value": "03",
+                "text": "3",
+                "selected": false
+              },
+              {
+                "value": "04",
+                "text": "4",
+                "selected": false
+              },
+              {
+                "value": "05",
+                "text": "5",
+                "selected": false
+              },
+              {
+                "value": "06",
+                "text": "6",
+                "selected": false
+              },
+              {
+                "value": "07",
+                "text": "7",
+                "selected": false
+              },
+              {
+                "value": "08",
+                "text": "8",
+                "selected": false
+              },
+              {
+                "value": "09",
+                "text": "9",
+                "selected": false
+              },
+              {
+                "value": "10",
+                "text": "10",
+                "selected": false
+              },
+              {
+                "value": "11",
+                "text": "11",
+                "selected": false
+              },
+              {
+                "value": "12",
+                "text": "12",
+                "selected": false
+              }
+            ]
+          },
+          {
+            "tag": "SELECT",
+            "name": "RCDATB_D",
+            "type": "select-one",
+            "value": "01",
+            "id": "",
+            "readonly": false,
+            "disabled": true,
+            "maxLength": null,
+            "options": [
+              {
+                "value": "01",
+                "text": "1",
+                "selected": true
+              },
+              {
+                "value": "02",
+                "text": "2",
+                "selected": false
+              },
+              {
+                "value": "03",
+                "text": "3",
+                "selected": false
+              },
+              {
+                "value": "04",
+                "text": "4",
+                "selected": false
+              },
+              {
+                "value": "05",
+                "text": "5",
+                "selected": false
+              },
+              {
+                "value": "06",
+                "text": "6",
+                "selected": false
+              },
+              {
+                "value": "07",
+                "text": "7",
+                "selected": false
+              },
+              {
+                "value": "08",
+                "text": "8",
+                "selected": false
+              },
+              {
+                "value": "09",
+                "text": "9",
+                "selected": false
+              },
+              {
+                "value": "10",
+                "text": "10",
+                "selected": false
+              },
+              {
+                "value": "11",
+                "text": "11",
+                "selected": false
+              },
+              {
+                "value": "12",
+                "text": "12",
+                "selected": false
+              },
+              {
+                "value": "13",
+                "text": "13",
+                "selected": false
+              },
+              {
+                "value": "14",
+                "text": "14",
+                "selected": false
+              },
+              {
+                "value": "15",
+                "text": "15",
+                "selected": false
+              },
+              {
+                "value": "16",
+                "text": "16",
+                "selected": false
+              },
+              {
+                "value": "17",
+                "text": "17",
+                "selected": false
+              },
+              {
+                "value": "18",
+                "text": "18",
+                "selected": false
+              },
+              {
+                "value": "19",
+                "text": "19",
+                "selected": false
+              },
+              {
+                "value": "20",
+                "text": "20",
+                "selected": false
+              },
+              {
+                "value": "21",
+                "text": "21",
+                "selected": false
+              },
+              {
+                "value": "22",
+                "text": "22",
+                "selected": false
+              },
+              {
+                "value": "23",
+                "text": "23",
+                "selected": false
+              },
+              {
+                "value": "24",
+                "text": "24",
+                "selected": false
+              },
+              {
+                "value": "25",
+                "text": "25",
+                "selected": false
+              },
+              {
+                "value": "26",
+                "text": "26",
+                "selected": false
+              },
+              {
+                "value": "27",
+                "text": "27",
+                "selected": false
+              },
+              {
+                "value": "28",
+                "text": "28",
+                "selected": false
+              },
+              {
+                "value": "29",
+                "text": "29",
+                "selected": false
+              },
+              {
+                "value": "30",
+                "text": "30",
+                "selected": false
+              }
+            ]
+          },
+          {
+            "tag": "INPUT",
+            "name": "RCDATE",
+            "type": "hidden",
+            "value": "",
+            "id": "",
+            "readonly": false,
+            "disabled": false,
+            "maxLength": null,
+            "options": null
+          },
+          {
+            "tag": "SELECT",
+            "name": "RCDATE_Y",
+            "type": "select-one",
+            "value": "115",
+            "id": "",
+            "readonly": false,
+            "disabled": true,
+            "maxLength": null,
+            "options": [
+              {
+                "value": "115",
+                "text": "115",
+                "selected": true
+              },
+              {
+                "value": "116",
+                "text": "116",
+                "selected": false
+              },
+              {
+                "value": "117",
+                "text": "117",
+                "selected": false
+              },
+              {
+                "value": "118",
+                "text": "118",
+                "selected": false
+              },
+              {
+                "value": "119",
+                "text": "119",
+                "selected": false
+              },
+              {
+                "value": "120",
+                "text": "120",
+                "selected": false
+              }
+            ]
+          },
+          {
+            "tag": "SELECT",
+            "name": "RCDATE_M",
+            "type": "select-one",
+            "value": "01",
+            "id": "",
+            "readonly": false,
+            "disabled": true,
+            "maxLength": null,
+            "options": [
+              {
+                "value": "01",
+                "text": "1",
+                "selected": true
+              },
+              {
+                "value": "02",
+                "text": "2",
+                "selected": false
+              },
+              {
+                "value": "03",
+                "text": "3",
+                "selected": false
+              },
+              {
+                "value": "04",
+                "text": "4",
+                "selected": false
+              },
+              {
+                "value": "05",
+                "text": "5",
+                "selected": false
+              },
+              {
+                "value": "06",
+                "text": "6",
+                "selected": false
+              },
+              {
+                "value": "07",
+                "text": "7",
+                "selected": false
+              },
+              {
+                "value": "08",
+                "text": "8",
+                "selected": false
+              },
+              {
+                "value": "09",
+                "text": "9",
+                "selected": false
+              },
+              {
+                "value": "10",
+                "text": "10",
+                "selected": false
+              },
+              {
+                "value": "11",
+                "text": "11",
+                "selected": false
+              },
+              {
+                "value": "12",
+                "text": "12",
+                "selected": false
+              }
+            ]
+          },
+          {
+            "tag": "SELECT",
+            "name": "RCDATE_D",
+            "type": "select-one",
+            "value": "01",
+            "id": "",
+            "readonly": false,
+            "disabled": true,
+            "maxLength": null,
+            "options": [
+              {
+                "value": "01",
+                "text": "1",
+                "selected": true
+              },
+              {
+                "value": "02",
+                "text": "2",
+                "selected": false
+              },
+              {
+                "value": "03",
+                "text": "3",
+                "selected": false
+              },
+              {
+                "value": "04",
+                "text": "4",
+                "selected": false
+              },
+              {
+                "value": "05",
+                "text": "5",
+                "selected": false
+              },
+              {
+                "value": "06",
+                "text": "6",
+                "selected": false
+              },
+              {
+                "value": "07",
+                "text": "7",
+                "selected": false
+              },
+              {
+                "value": "08",
+                "text": "8",
+                "selected": false
+              },
+              {
+                "value": "09",
+                "text": "9",
+                "selected": false
+              },
+              {
+                "value": "10",
+                "text": "10",
+                "selected": false
+              },
+              {
+                "value": "11",
+                "text": "11",
+                "selected": false
+              },
+              {
+                "value": "12",
+                "text": "12",
+                "selected": false
+              },
+              {
+                "value": "13",
+                "text": "13",
+                "selected": false
+              },
+              {
+                "value": "14",
+                "text": "14",
+                "selected": false
+              },
+              {
+                "value": "15",
+                "text": "15",
+                "selected": false
+              },
+              {
+                "value": "16",
+                "text": "16",
+                "selected": false
+              },
+              {
+                "value": "17",
+                "text": "17",
+                "selected": false
+              },
+              {
+                "value": "18",
+                "text": "18",
+                "selected": false
+              },
+              {
+                "value": "19",
+                "text": "19",
+                "selected": false
+              },
+              {
+                "value": "20",
+                "text": "20",
+                "selected": false
+              },
+              {
+                "value": "21",
+                "text": "21",
+                "selected": false
+              },
+              {
+                "value": "22",
+                "text": "22",
+                "selected": false
+              },
+              {
+                "value": "23",
+                "text": "23",
+                "selected": false
+              },
+              {
+                "value": "24",
+                "text": "24",
+                "selected": false
+              },
+              {
+                "value": "25",
+                "text": "25",
+                "selected": false
+              },
+              {
+                "value": "26",
+                "text": "26",
+                "selected": false
+              },
+              {
+                "value": "27",
+                "text": "27",
+                "selected": false
+              },
+              {
+                "value": "28",
+                "text": "28",
+                "selected": false
+              },
+              {
+                "value": "29",
+                "text": "29",
+                "selected": false
+              },
+              {
+                "value": "30",
+                "text": "30",
+                "selected": false
+              }
+            ]
+          },
+          {
+            "tag": "INPUT",
+            "name": "CCDATEC_1",
+            "type": "checkbox",
+            "value": "on",
+            "id": "",
+            "readonly": false,
+            "disabled": false,
+            "maxLength": null,
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "CCDATC",
+            "type": "text",
+            "value": "",
+            "id": "",
+            "readonly": false,
+            "disabled": true,
+            "maxLength": null,
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "NDAYS",
+            "type": "hidden",
+            "value": "",
+            "id": "",
+            "readonly": false,
+            "disabled": false,
+            "maxLength": null,
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "PP37T1",
+            "type": "text",
+            "value": "",
+            "id": "",
+            "readonly": false,
+            "disabled": false,
+            "maxLength": 50,
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "TRANS",
+            "type": "hidden",
+            "value": "",
+            "id": "",
+            "readonly": false,
+            "disabled": false,
+            "maxLength": null,
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "TRANS_1",
+            "type": "checkbox",
+            "value": "on",
+            "id": "",
+            "readonly": false,
+            "disabled": false,
+            "maxLength": null,
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "TRANS_2",
+            "type": "checkbox",
+            "value": "on",
+            "id": "",
+            "readonly": false,
+            "disabled": false,
+            "maxLength": null,
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "TRANS_3",
+            "type": "checkbox",
+            "value": "on",
+            "id": "",
+            "readonly": false,
+            "disabled": false,
+            "maxLength": null,
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "TRANS_4",
+            "type": "checkbox",
+            "value": "on",
+            "id": "",
+            "readonly": false,
+            "disabled": false,
+            "maxLength": null,
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "TRANS_9",
+            "type": "checkbox",
+            "value": "on",
+            "id": "",
+            "readonly": false,
+            "disabled": false,
+            "maxLength": null,
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "TRANS9_TEXT",
+            "type": "text",
+            "value": "",
+            "id": "",
+            "readonly": false,
+            "disabled": false,
+            "maxLength": null,
+            "options": null
+          },
+          {
+            "tag": "SELECT",
+            "name": "PMSMONTH",
+            "type": "select-one",
+            "value": "0",
+            "id": "",
+            "readonly": false,
+            "disabled": false,
+            "maxLength": null,
+            "options": [
+              {
+                "value": "0",
+                "text": "0",
+                "selected": true
+              },
+              {
+                "value": "1",
+                "text": "1",
+                "selected": false
+              },
+              {
+                "value": "2",
+                "text": "2",
+                "selected": false
+              },
+              {
+                "value": "3",
+                "text": "3",
+                "selected": false
+              },
+              {
+                "value": "4",
+                "text": "4",
+                "selected": false
+              },
+              {
+                "value": "5",
+                "text": "5",
+                "selected": false
+              }
+            ]
+          },
+          {
+            "tag": "INPUT",
+            "name": "ADDPURYEAR_1",
+            "type": "checkbox",
+            "value": "on",
+            "id": "",
+            "readonly": false,
+            "disabled": false,
+            "maxLength": null,
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "ADDPURYEAR",
+            "type": "text",
+            "value": "",
+            "id": "",
+            "readonly": false,
+            "disabled": false,
+            "maxLength": null,
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "ADDPURAMT",
+            "type": "text",
+            "value": "",
+            "id": "",
+            "readonly": false,
+            "disabled": false,
+            "maxLength": null,
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "ADDPURNUM",
+            "type": "text",
+            "value": "",
+            "id": "",
+            "readonly": false,
+            "disabled": false,
+            "maxLength": null,
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "ADDPURCNT",
+            "type": "hidden",
+            "value": "",
+            "id": "",
+            "readonly": false,
+            "disabled": true,
+            "maxLength": null,
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "CONSULT",
+            "type": "hidden",
+            "value": "",
+            "id": "",
+            "readonly": false,
+            "disabled": false,
+            "maxLength": null,
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "CONSULT_1",
+            "type": "checkbox",
+            "value": "on",
+            "id": "",
+            "readonly": false,
+            "disabled": false,
+            "maxLength": null,
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "CONSULT_2",
+            "type": "checkbox",
+            "value": "on",
+            "id": "",
+            "readonly": false,
+            "disabled": false,
+            "maxLength": null,
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "STYPE",
+            "type": "hidden",
+            "value": "",
+            "id": "",
+            "readonly": false,
+            "disabled": false,
+            "maxLength": null,
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "STYPE_1",
+            "type": "checkbox",
+            "value": "on",
+            "id": "",
+            "readonly": false,
+            "disabled": false,
+            "maxLength": null,
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "STYPE_2",
+            "type": "checkbox",
+            "value": "on",
+            "id": "",
+            "readonly": false,
+            "disabled": false,
+            "maxLength": null,
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "STYPE_3",
+            "type": "checkbox",
+            "value": "on",
+            "id": "",
+            "readonly": false,
+            "disabled": false,
+            "maxLength": null,
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "ACHK9",
+            "type": "hidden",
+            "value": "1",
+            "id": "",
+            "readonly": false,
+            "disabled": false,
+            "maxLength": null,
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "ACHK_9",
+            "type": "hidden",
+            "value": "",
+            "id": "",
+            "readonly": false,
+            "disabled": false,
+            "maxLength": null,
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "ACHK6",
+            "type": "hidden",
+            "value": "",
+            "id": "",
+            "readonly": false,
+            "disabled": false,
+            "maxLength": null,
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "ACHK_6",
+            "type": "hidden",
+            "value": "",
+            "id": "",
+            "readonly": false,
+            "disabled": false,
+            "maxLength": null,
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "ACHK7",
+            "type": "hidden",
+            "value": "",
+            "id": "",
+            "readonly": false,
+            "disabled": false,
+            "maxLength": null,
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "ACHK_7",
+            "type": "hidden",
+            "value": "",
+            "id": "",
+            "readonly": false,
+            "disabled": false,
+            "maxLength": null,
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "ACHK8",
+            "type": "hidden",
+            "value": "",
+            "id": "",
+            "readonly": false,
+            "disabled": false,
+            "maxLength": null,
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "ACHK_8",
+            "type": "hidden",
+            "value": "",
+            "id": "",
+            "readonly": false,
+            "disabled": false,
+            "maxLength": null,
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "ACHK10",
+            "type": "hidden",
+            "value": "",
+            "id": "",
+            "readonly": false,
+            "disabled": false,
+            "maxLength": null,
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "ACHK_10",
+            "type": "hidden",
+            "value": "",
+            "id": "",
+            "readonly": false,
+            "disabled": false,
+            "maxLength": null,
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "ACHK1FN",
+            "type": "hidden",
+            "value": "",
+            "id": "",
+            "readonly": false,
+            "disabled": true,
+            "maxLength": null,
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "ACHK1",
+            "type": "hidden",
+            "value": "",
+            "id": "",
+            "readonly": false,
+            "disabled": false,
+            "maxLength": null,
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "ACHK_1",
+            "type": "hidden",
+            "value": "",
+            "id": "",
+            "readonly": false,
+            "disabled": false,
+            "maxLength": null,
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "ACHK2FN",
+            "type": "hidden",
+            "value": "",
+            "id": "",
+            "readonly": false,
+            "disabled": false,
+            "maxLength": null,
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "ACHK2",
+            "type": "hidden",
+            "value": "",
+            "id": "",
+            "readonly": false,
+            "disabled": false,
+            "maxLength": null,
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "ACHK_2",
+            "type": "hidden",
+            "value": "",
+            "id": "",
+            "readonly": false,
+            "disabled": false,
+            "maxLength": null,
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "ACHK5",
+            "type": "hidden",
+            "value": "",
+            "id": "",
+            "readonly": false,
+            "disabled": false,
+            "maxLength": null,
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "ACHK_5",
+            "type": "hidden",
+            "value": "",
+            "id": "",
+            "readonly": false,
+            "disabled": false,
+            "maxLength": null,
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "ACHK3FN",
+            "type": "hidden",
+            "value": "",
+            "id": "",
+            "readonly": false,
+            "disabled": false,
+            "maxLength": null,
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "ACHK3",
+            "type": "hidden",
+            "value": "",
+            "id": "",
+            "readonly": false,
+            "disabled": false,
+            "maxLength": null,
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "ACHK_3",
+            "type": "hidden",
+            "value": "",
+            "id": "",
+            "readonly": false,
+            "disabled": false,
+            "maxLength": null,
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "ACHK11",
+            "type": "hidden",
+            "value": "",
+            "id": "",
+            "readonly": false,
+            "disabled": false,
+            "maxLength": null,
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "ACHK_11",
+            "type": "hidden",
+            "value": "",
+            "id": "",
+            "readonly": false,
+            "disabled": false,
+            "maxLength": null,
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "ACHK4",
+            "type": "hidden",
+            "value": "",
+            "id": "",
+            "readonly": false,
+            "disabled": false,
+            "maxLength": null,
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "ACHK_4",
+            "type": "checkbox",
+            "value": "on",
+            "id": "",
+            "readonly": false,
+            "disabled": false,
+            "maxLength": null,
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "ACHK4_TEXT",
+            "type": "text",
+            "value": "",
+            "id": "",
+            "readonly": false,
+            "disabled": false,
+            "maxLength": null,
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "EMAIL",
+            "type": "button",
+            "value": "電子郵件",
+            "id": "",
+            "readonly": false,
+            "disabled": false,
+            "maxLength": null,
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "PTYPE1",
+            "type": "hidden",
+            "value": "",
+            "id": "",
+            "readonly": false,
+            "disabled": false,
+            "maxLength": null,
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "PTYPE3",
+            "type": "hidden",
+            "value": "",
+            "id": "",
+            "readonly": false,
+            "disabled": false,
+            "maxLength": null,
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "PTYPE2",
+            "type": "hidden",
+            "value": "",
+            "id": "",
+            "readonly": false,
+            "disabled": false,
+            "maxLength": null,
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "PTYPE6",
+            "type": "hidden",
+            "value": "",
+            "id": "",
+            "readonly": false,
+            "disabled": false,
+            "maxLength": null,
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "PTYPE7",
+            "type": "hidden",
+            "value": "",
+            "id": "",
+            "readonly": false,
+            "disabled": false,
+            "maxLength": null,
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "PTYPE9",
+            "type": "hidden",
+            "value": "",
+            "id": "",
+            "readonly": false,
+            "disabled": false,
+            "maxLength": null,
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "APP_IDNO",
+            "type": "text",
+            "value": "",
+            "id": "",
+            "readonly": false,
+            "disabled": false,
+            "maxLength": null,
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "APYUSER",
+            "type": "text",
+            "value": "",
+            "id": "",
+            "readonly": false,
+            "disabled": false,
+            "maxLength": null,
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "APYUSERNO",
+            "type": "hidden",
+            "value": "",
+            "id": "",
+            "readonly": false,
+            "disabled": false,
+            "maxLength": null,
+            "options": null
+          },
+          {
+            "tag": "SELECT",
+            "name": "PR_UNIT",
+            "type": "select-one",
+            "value": "",
+            "id": "",
+            "readonly": false,
+            "disabled": false,
+            "maxLength": null,
+            "options": [
+              {
+                "value": "",
+                "text": "",
+                "selected": true
+              },
+              {
+                "value": "000 ",
+                "text": "全校性經費",
+                "selected": false
+              },
+              {
+                "value": "001 ",
+                "text": "校控經費",
+                "selected": false
+              },
+              {
+                "value": "002 ",
+                "text": "暑修經費",
+                "selected": false
+              },
+              {
+                "value": "003 ",
+                "text": "其他機關專項補助",
+                "selected": false
+              },
+              {
+                "value": "004 ",
+                "text": "87學年度流通科獨立招生經費",
+                "selected": false
+              },
+              {
+                "value": "005 ",
+                "text": "教育部委辦案件",
+                "selected": false
+              },
+              {
+                "value": "006 ",
+                "text": "電子科技能檢定",
+                "selected": false
+              },
+              {
+                "value": "007 ",
+                "text": "新校區整地水土保持工程",
+                "selected": false
+              },
+              {
+                "value": "008 ",
+                "text": "節約措施",
+                "selected": false
+              },
+              {
+                "value": "009 ",
+                "text": "保留下年度設備費",
+                "selected": false
+              },
+              {
+                "value": "010 ",
+                "text": "秘書室",
+                "selected": false
+              },
+              {
+                "value": "011 ",
+                "text": "電子館及女舍補照、補強案",
+                "selected": false
+              },
+              {
+                "value": "012 ",
+                "text": "寒修經費",
+                "selected": false
+              },
+              {
+                "value": "013 ",
+                "text": "創辦人暨校友服務辦公室",
+                "selected": false
+              },
+              {
+                "value": "014 ",
+                "text": "校長室",
+                "selected": false
+              },
+              {
+                "value": "015 ",
+                "text": "校友連絡中心",
+                "selected": false
+              },
+              {
+                "value": "016 ",
+                "text": "計畫辦公室",
+                "selected": false
+              },
+              {
+                "value": "017 ",
+                "text": "校務研究辦公室",
+                "selected": false
+              },
+              {
+                "value": "019 ",
+                "text": "公共關係室",
+                "selected": false
+              },
+              {
+                "value": "100 ",
+                "text": "教務處",
+                "selected": false
+              },
+              {
+                "value": "110 ",
+                "text": "招生事務處",
+                "selected": false
+              },
+              {
+                "value": "111 ",
+                "text": "健保自付",
+                "selected": false
+              },
+              {
+                "value": "200 ",
+                "text": "學生事務處",
+                "selected": false
+              },
+              {
+                "value": "201 ",
+                "text": "軍訓室",
+                "selected": false
+              },
+              {
+                "value": "202 ",
+                "text": "諮商輔導組",
+                "selected": false
+              },
+              {
+                "value": "300 ",
+                "text": "總務處",
+                "selected": false
+              },
+              {
+                "value": "310 ",
+                "text": "出納組",
+                "selected": false
+              },
+              {
+                "value": "350 ",
+                "text": "總務處營繕組",
+                "selected": false
+              },
+              {
+                "value": "400 ",
+                "text": "人事室",
+                "selected": false
+              }
+            ]
+          },
+          {
+            "tag": "INPUT",
+            "name": "APYUNIT",
+            "type": "hidden",
+            "value": "",
+            "id": "",
+            "readonly": false,
+            "disabled": false,
+            "maxLength": null,
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "APYUNITNO",
+            "type": "hidden",
+            "value": "",
+            "id": "",
+            "readonly": false,
+            "disabled": false,
+            "maxLength": null,
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "APP_WK",
+            "type": "text",
+            "value": "",
+            "id": "",
+            "readonly": false,
+            "disabled": false,
+            "maxLength": null,
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "APYUSERT",
+            "type": "text",
+            "value": "",
+            "id": "",
+            "readonly": false,
+            "disabled": false,
+            "maxLength": 20,
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "APYUSEREM",
+            "type": "text",
+            "value": "",
+            "id": "",
+            "readonly": false,
+            "disabled": false,
+            "maxLength": null,
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "CTUSER_1",
+            "type": "checkbox",
+            "value": "on",
+            "id": "",
+            "readonly": false,
+            "disabled": false,
+            "maxLength": null,
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "CTUSERNO",
+            "type": "text",
+            "value": "",
+            "id": "",
+            "readonly": false,
+            "disabled": false,
+            "maxLength": null,
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "CTUSER",
+            "type": "text",
+            "value": "",
+            "id": "",
+            "readonly": false,
+            "disabled": false,
+            "maxLength": null,
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "CTUSERT",
+            "type": "text",
+            "value": "",
+            "id": "",
+            "readonly": false,
+            "disabled": false,
+            "maxLength": 20,
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "CTUSEREM",
+            "type": "text",
+            "value": "",
+            "id": "",
+            "readonly": false,
+            "disabled": false,
+            "maxLength": null,
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "SAVE_SAMPLE",
+            "type": "hidden",
+            "value": "作成範本",
+            "id": "",
+            "readonly": false,
+            "disabled": false,
+            "maxLength": null,
+            "options": null
+          }
+        ]
+      }
+    ]
+  },
+  "appa_frame": {
+    "url": "https://account.ncut.edu.tw/APSWIS_Q/Dept_Add_Q/STD_APPA_Q.asp?COPY=&APPYYEAR=115&ISNEW=Y&APYNO=&APYADD=&APPYSET=13&ISCASH=True&ISPERIOD=False&SHOWPRO=True&APPU=",
+    "bodyText": "   受款人編輯：必須輸入發票號碼(收據請按填入收據及填入日期)、受款人代碼(廠商統編或代墊者帳號)及受款人姓名。\n同一計畫編號，同一個廠商，90天內，小額採購金額不得逾十五萬元。\n\t代墊\t發票/收據號碼\t發票/收據日期\t查受款人\t受款人代碼\t受款人姓名\t含稅金額\n1\t\t\t\t查受款人\t\t\t\n2\t\t\t\t查受款人\t\t\t\n3\t\t\t\t查受款人\t\t\t\n4\t\t\t\t查受款人\t\t\t\n5\t\t\t\t查受款人\t\t\t\n6\t\t\t\t查受款人\t\t\t\n7\t\t\t\t查受款人\t\t\t\n8\t\t\t\t查受款人\t\t\t\n9\t\t\t\t查受款人\t\t\t\n10\t\t\t\t查受款人\t\t\t\n11\t\t\t\t查受款人\t\t\t\n12\t\t\t\t查受款人\t\t\t\n13\t\t\t\t查受款人\t\t\t\n14\t\t\t\t查受款人\t\t\t\n15\t\t\t\t查受款人\t\t\t\n16\t\t\t\t查受款人\t\t\t\n17\t\t\t\t查受款人\t\t\t\n18\t\t\t\t查受款人\t\t\t\n19\t\t\t\t查受款人\t\t\t\n20\t\t\t\t查受款人\t\t\t",
+    "forms": [
+      {
+        "id": "FORM1",
+        "action": "https://account.ncut.edu.tw/APSWIS_Q/Dept_Add_Q/STD_APPA_Q.asp?COPY=&APPYYEAR=115&ISNEW=Y&APYNO=&APYADD=&APPYSET=13&ISCASH=True&ISPERIOD=False&SHOWPRO=True&APPU=",
+        "method": "post",
+        "elements": [
+          {
+            "tag": "INPUT",
+            "name": "",
+            "type": "hidden",
+            "value": "引用先前之請購案",
+            "id": "",
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "",
+            "type": "button",
+            "value": "借支現金",
+            "id": "",
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "",
+            "type": "button",
+            "value": "填入收據",
+            "id": "",
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "",
+            "type": "button",
+            "value": "詳如清冊",
+            "id": "",
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "SUM_LIST",
+            "type": "hidden",
+            "value": "",
+            "id": "SUM_LIST",
+            "options": null
+          }
+        ]
+      }
+    ]
+  }
+}
