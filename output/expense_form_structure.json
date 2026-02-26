@@ -1,0 +1,80 @@
+{
+  "form_js": "\nvar isIe=(document.all)?true:false;\n//讓背景漸漸變暗\nfunction showBackground(obj,endInt)\n{\n\tif(isIe)\n\t{\n\t\tobj.filters.alpha.opacity+=20;\n\t\tif(obj.filters.alpha.opacity<endInt)\n\t\t{\n\t\t\tsetTimeout(function(){showBackground(obj,endInt)},5);\n\t\t}\n\t}else{\n\t\tvar al=parseFloat(obj.style.opacity);al+=0.01;\n\t\tobj.style.opacity=al;\n\t\tif(al<(endInt/100))\n\t\t{setTimeout(function(){showBackground(obj,endInt)},5);}\n\t\t}\n}\n\n//關閉視窗\nfunction closeWindow()\n{\nif(document.getElementById('back')!=null)\n{\ndocument.getElementById('back').parentNode.removeChild(document.getElementById('back'));\n}\nif(document.getElementById('mesWindow')!=null)\n{\ndocument.getElementById('mesWindow').parentNode.removeChild(document.getElementById('mesWindow'));\n}\n}\n\n//彈出訊息 START=============================================================================\nfunction PALERT(wTitle,content,pos,wWidth,GoURL,EXT_BUTTON)\n{\n\tcloseWindow();\n\tvar bWidth=parseInt(document.documentElement.scrollWidth);\n\tvar bHeight=parseInt(document.documentElement.scrollHeight);\n\tvar back=document.createElement(\"div\");\n\tback.id=\"back\";\n\tvar styleStr=\"top:0px;left:0px;position:absolute;background:#666;width:\"+bWidth+\"px;height:\"+bHeight+\"px;\";\n\tstyleStr+=(isIe)?\"filter:alpha(opacity=0);\":\"opacity:0;\";\n\tback.style.cssText=styleStr;\n\tdocument.body.appendChild(back);\n\tshowBackground(back,80);\n\tvar mesW=document.createElement(\"div\");\n\tmesW.id=\"mesWindow\";\n\tmesW.className=\"mesWindow\";\n\tmesW.innerHTML=\"<div class='mesWindowTop' ><table width='100%' height='100%' style='background:darkblue;'><tr><td style='background:darkblue;' align=center><font color=yellow>\"+wTitle+\"</font></td><td style='width:1px;background:darkblue;fontcolor:yellow;'><input type='button' name='btt' id='btt' onclick='\"+GoURL+\"'' title='關閉視窗' class='close' value='關閉' /></td></tr></table></div>\";\n\tmesW.innerHTML=mesW.innerHTML+\"<div class='mesWindowContent' id='mesWindowContent' ><center><font color=darkblue size=3>\"+content+\"</center></div><div class='mesWindowBottom'><center>\"+EXT_BUTTON+\"</center></div>\";\n\t//跟物件\n\t//styleStr=\"left:\"+(((pos.x-wWidth)>0)?(pos.x-wWidth):pos.x)+\"px;top:\"+(pos.y)+\"px;position:absolute;width:\"+wWidth+\"px;\";\n\t//置中\n\tstyleStr=\"left:\"+(bWidth/2-wWidth/2)+\"px;top:\"+(bHeight/2-100)+\"px;position:absolute;width:\"+wWidth+\"px;\";\n\tmesW.style.cssText=styleStr;\n\tdocument.body.appendChild(mesW);\n\tbtt.focus();\n}\n\nfunction P_alert(CONT,TITLE,GoURL,EXT_BUTTON)\n{\nif(TITLE=='')\n{\n\tTITLE='提示訊息';\n}\n\tmessContent=\"<div style='padding:20px 0 20px 0;text-align:center'>\"+CONT+\"</div>\";\n\tPALERT(TITLE,messContent,\"x:100;y:100\",250,GoURL,EXT_BUTTON);\n}\n//彈出訊息 END=============================================================================\n\n//開新網頁 START==================================================================================\nfunction POPEN(wTitle,content,pos,wWidth)\n{\n\tcloseWindow();\n\tvar bWidth=parseInt(document.documentElement.scrollWidth);\n\tvar bHeight=parseInt(document.documentElement.scrollHeight);\n\tvar back=document.createElement(\"div\");\n\tback.id=\"back\";\n\tvar styleStr=\"top:0px;left:0px;position:absolute;background:#666;width:\"+bWidth+\"px;height:\"+bHeight+\"px;\";\n\tstyleStr+=(isIe)?\"filter:alpha(opacity=0);\":\"opacity:0;\";\n\tback.style.cssText=styleStr;\n\tdocument.body.appendChild(back);\n\tshowBackground(back,80);\n\tvar mesW=document.createElement(\"div\");\n\tmesW.id=\"mesWindow\";\n\tmesW.className=\"mesWindow\";\n\tmesW.innerHTML=\"<div class='mesWindowTop' ><table width='100%' height='100%' style='background:darkblue;'><tr><td style='background:darkblue;' align=center><font color=yellow>\"+wTitle+\"</font></td><td style='width:1px;background:darkblue;fontcolor:yellow;'><input type='button' name='btt' id='btt' onclick='closeWindow();' title='關閉視窗' class='close' value='關閉' /></td></tr></table></div>\";\n\tmesW.innerHTML=mesW.innerHTML+\"<div class='mesWindowContent' id='mesWindowContent' ><center><font color=darkblue size=3><iframe name=I1 id=I1 width=700 height=500 src=\"+content+\"></iframe></center></div>\";\n\t//跟物件\n\t//styleStr=\"left:\"+(((pos.x-wWidth)>0)?(pos.x-wWidth):pos.x)+\"px;top:\"+(pos.y)+\"px;position:absolute;width:\"+wWidth+\"px;\";\n\t//置中\n\tstyleStr=\"left:\"+(bWidth/2-wWidth/2)+\"px;top:0px;position:absolute;width:\"+wWidth+\"px;\";\n\tmesW.style.cssText=styleStr;\n\tdocument.body.appendChild(mesW);\n\tbtt.focus();\n}\n\nfunction P_OPEN(URL,TITLE)\n{\nif(TITLE=='')\n{\n\tTITLE='網頁';\n}\n\tmessContent=\"<div style='padding:20px 0 20px 0;text-align:center'>\"+URL+\"</div>\";\n\tPOPEN(TITLE,messContent,\"x:100;y:100\",700);\n}\n\nfunction P_WCLOSE(URL,TITLE)\n{\nif(TITLE=='')\n{\n\tTITLE='網頁';\n}\n\tmessContent=\"<div style='padding:20px 0 20px 0;text-align:center'>\"+URL+\"</div>\";\n\tPOPEN(TITLE,messContent,\"x:100;y:100\",700);\n}\n//開新網頁 END==================================================================================\n\n//開網頁 START============================================================================\nfunction WINCLOSE(wTitle,content,pos,wWidth)\n{\n\tcloseWindow();\n\tvar bWidth=parseInt(document.documentElement.scrollWidth);\n\tvar bHeight=parseInt(document.documentElement.scrollHeight);\n\tvar back=document.createElement(\"div\");\n\tback.id=\"back\";\n\tvar styleStr=\"top:0px;left:0px;position:absolute;background:#666;width:\"+bWidth+\"px;height:\"+bHeight+\"px;\";\n\tstyleStr+=(isIe)?\"filter:alpha(opacity=0);\":\"opacity:0;\";\n\tback.style.cssText=styleStr;\n\tdocument.body.appendChild(back);\n\tshowBackground(back,80);\n\tvar mesW=document.createElement(\"div\");\n\tmesW.id=\"mesWindow\";\n\tmesW.className=\"mesWindow\";\n\tmesW.innerHTML=\"<div class='mesWindowTop' ><table width='100%' height='100%' style='background:darkblue;'><tr><td style='background:darkblue;' align=center><font color=yellow>\"+wTitle+\"</font></td></tr></table></div>\";\n\tmesW.innerHTML=mesW.innerHTML+\"<div class='mesWindowContent' id='mesWindowContent' ><center><font color=darkblue size=3>\"+content+\"</center></div>\";\n\t//跟物件\n\t//styleStr=\"left:\"+(((pos.x-wWidth)>0)?(pos.x-wWidth):pos.x)+\"px;top:\"+(pos.y)+\"px;position:absolute;width:\"+wWidth+\"px;\";\n\t//置中\n\tstyleStr=\"left:\"+(bWidth/2-wWidth/2)+\"px;top:\"+(bHeight/2-100)+\"px;positio",
+  "chk3_info": {
+    "found": true,
+    "onclick": "CK3();",
+    "parentHTML": "\n\t\t\t\t\t<td align=\"center\" valign=\"top\" title=\"\"> \n\t\t\t\t\t\t\t<input type=\"checkbox\" name=\"CHK3\" onclick=\"CK3();\">\n\t\t\t\t\t\t\t<script language=\"javascript\">\n\t\t\t\t\t\t\t\tfunction CK3()\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\tFORM1.CHK1.checked=false;\n\t\t\t\t\t\t\t\t\t\t//判斷自動新增則將APPYSET選定,而後自動進入\n\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\tFORM1.CHK2.checked=false;\n\t\t\t\t\t\t\t\t\t\t//判斷自動新增則將APPYSET選定,而後自動進入\n\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\tFORM1.CHK3.checked=true;\n\t\t\t\t\t\t\t\t\t\t//判斷自動新增則將APPYSET選定,而後自動進入\n\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\tFORM1.CHK4.checked=false;\n\t\t\t\t\t\t\t\t\t\t//判斷自動新增則將APPYSE"
+  },
+  "hidden_after_chk3": [
+    {
+      "name": "APPYSET",
+      "value": "13"
+    },
+    {
+      "name": "MOVETYPE",
+      "value": "6"
+    },
+    {
+      "name": "SETNAME",
+      "value": "直接核銷(零用金)"
+    },
+    {
+      "name": "ISAPPY",
+      "value": "True"
+    },
+    {
+      "name": "ISVOUC",
+      "value": "True"
+    },
+    {
+      "name": "ISTEMP",
+      "value": "False"
+    },
+    {
+      "name": "ISCASH",
+      "value": "True"
+    },
+    {
+      "name": "ISPURC",
+      "value": "False"
+    },
+    {
+      "name": "SHOWVEN",
+      "value": "True"
+    },
+    {
+      "name": "SHOWPRO",
+      "value": "True"
+    },
+    {
+      "name": "ISPERIOD",
+      "value": "False"
+    },
+    {
+      "name": "APPYYEAR",
+      "value": "115"
+    },
+    {
+      "name": "ISNEW",
+      "value": "Y"
+    },
+    {
+      "name": "APYNO",
+      "value": ""
+    },
+    {
+      "name": "APYADD",
+      "value": ""
+    },
+    {
+      "name": "APPYBUY",
+      "value": ""
+    }
+  ],
+  "expense_form": {
+    "url": "https://account.ncut.edu.tw/APSWIS_Q/Dept_Add_Q/STD_APPY_FRM_Q.asp",
+    "title": "",
+    "bodyText": "",
+    "forms": []
+  }
+}

@@ -1,0 +1,463 @@
+{
+  "step1_confirm_year": {
+    "url": "https://account.ncut.edu.tw/APSWIS_Q/CONFIRM_YAER_Q.asp?MED=redir",
+    "bodyText": "\n\n\n\n選  擇  請  購  年  度\n\n  以前年度未結案的計畫請購案，必須切換至以前請購年度，\n  才得進行後續報銷動作。請選擇請購年度：\n\n   \n114\n115\n ",
+    "forms": [
+      {
+        "id": "F1",
+        "action": "https://account.ncut.edu.tw/APSWIS_Q/CHANGE_YEAR_Q.asp",
+        "method": "post",
+        "inputs": [
+          {
+            "tag": "SELECT",
+            "name": "APPYYEAR",
+            "type": "select-one",
+            "value": "115",
+            "options": [
+              {
+                "value": "114",
+                "text": "114",
+                "selected": false
+              },
+              {
+                "value": "115",
+                "text": "115",
+                "selected": true
+              }
+            ]
+          },
+          {
+            "tag": "INPUT",
+            "name": "width",
+            "type": "hidden",
+            "value": "",
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "height",
+            "type": "hidden",
+            "value": "",
+            "options": null
+          },
+          {
+            "tag": "INPUT",
+            "name": "submit1",
+            "type": "submit",
+            "value": "確認年度",
+            "options": null
+          }
+        ]
+      }
+    ],
+    "links": [],
+    "inputs": [
+      {
+        "value": "確認年度",
+        "name": "submit1",
+        "onclick": ""
+      }
+    ]
+  },
+  "step1_title_after_lis1": {
+    "url": "https://account.ncut.edu.tw/APSWIS_Q/Dept_Add_Q/DA_SerFun_Q.asp?CONFIRM_YEAR=Y&COM=&LOM=",
+    "inputs": [
+      {
+        "value": " 選擇請購年度",
+        "name": "",
+        "onclick": "LIS1( );"
+      },
+      {
+        "value": " 部門請購查詢",
+        "name": "",
+        "onclick": "LIS2( );"
+      },
+      {
+        "value": " 計畫請購查詢",
+        "name": "",
+        "onclick": "LIS4( );"
+      },
+      {
+        "value": " 輔助項目服務",
+        "name": "",
+        "onclick": "LIS7( );"
+      },
+      {
+        "value": "登出系統  ",
+        "name": "",
+        "onclick": "LIS8( );"
+      }
+    ],
+    "links": []
+  },
+  "step2_title_after_lis2": {
+    "url": "https://account.ncut.edu.tw/APSWIS_Q/Dept_Add_Q/DA_SerFun_Q.asp?COM=YT",
+    "inputs": [
+      {
+        "value": " 選擇請購年度",
+        "name": "",
+        "onclick": "LIS1( );"
+      },
+      {
+        "value": " 部門請購查詢",
+        "name": "",
+        "onclick": "LIS2( );"
+      },
+      {
+        "value": " 計畫請購查詢",
+        "name": "",
+        "onclick": "LIS4( );"
+      },
+      {
+        "value": " 輔助項目服務",
+        "name": "",
+        "onclick": "LIS7( );"
+      },
+      {
+        "value": "登出系統  ",
+        "name": "",
+        "onclick": "LIS8( );"
+      },
+      {
+        "value": "新增請購",
+        "name": "BUTA2",
+        "onclick": "parent.FM.rows=\"15%,*,0,0,0,0,0\";aBT2.click();"
+      },
+      {
+        "value": "購案管理",
+        "name": "BUTA1",
+        "onclick": "parent.FM.rows=\"15%,*,0,0,0,0,0\";aBT1.click();"
+      },
+      {
+        "value": "會簽作業",
+        "name": "BUTA3",
+        "onclick": "parent.FM.rows=\"15%,*,0,0,0,0,0\";aBT3.click();"
+      },
+      {
+        "value": "經費授權",
+        "name": "BUTA8",
+        "onclick": "parent.FM.rows=\"15%,0,*,0,0,0,0\";parent.OT.T.Q.click();"
+      },
+      {
+        "value": "經費分類",
+        "name": "BUTA4",
+        "onclick": "parent.FM.rows=\"15%,*,0,0,0,0,0\";aBT4.click();"
+      },
+      {
+        "value": "購案查詢",
+        "name": "BUT6",
+        "onclick": "parent.FM.rows=\"15%,*,0,0,0,0,0\";SBT6.click();"
+      },
+      {
+        "value": "授權查詢",
+        "name": "BUTB15",
+        "onclick": "parent.FM.rows=\"15%,*,0,0,0,0,0\";SBTB15.click();"
+      },
+      {
+        "value": "其他清單",
+        "name": "BUTA7",
+        "onclick": "parent.FM.rows=\"15%,*,0,0,0,0,0\";QBT1.click();"
+      },
+      {
+        "value": "計畫清單",
+        "name": "BUT1",
+        "onclick": "parent.FM.rows=\"15%,*,0,0,0,0,0\";SBT1.click();"
+      },
+      {
+        "value": "用途明細",
+        "name": "BUT2",
+        "onclick": "parent.FM.rows=\"15%,*,0,0,0,0,0\";SBT2.click();"
+      },
+      {
+        "value": "收支明細",
+        "name": "BUT7",
+        "onclick": "parent.FM.rows=\"15%,*,0,0,0,0,0\";SBT7.click();"
+      },
+      {
+        "value": "請購明細",
+        "name": "BUT3",
+        "onclick": "parent.FM.rows=\"15%,*,0,0,0,0,0\";SBT3.click();"
+      },
+      {
+        "value": "流用明細",
+        "name": "BUT4",
+        "onclick": "parent.FM.rows=\"15%,*,0,0,0,0,0\";SBT4.click();"
+      },
+      {
+        "value": "購案品項",
+        "name": "BUT8",
+        "onclick": "parent.FM.rows=\"15%,*,0,0,0,0,0\";SBT8.click();"
+      }
+    ],
+    "links": [
+      {
+        "href": "https://account.ncut.edu.tw/APSWIS_Q/Dept_Add_Q/javascript.void(0);",
+        "text": "",
+        "onclick": "openSBT1(this);",
+        "target": ""
+      },
+      {
+        "href": "https://account.ncut.edu.tw/APSWIS_Q/Dept_Add_Q/javascript.void(0);",
+        "text": "",
+        "onclick": "openSBT2(this);",
+        "target": ""
+      },
+      {
+        "href": "https://account.ncut.edu.tw/APSWIS_Q/Dept_Add_Q/javascript.void(0);",
+        "text": "",
+        "onclick": "openSBT7(this);",
+        "target": ""
+      },
+      {
+        "href": "https://account.ncut.edu.tw/APSWIS_Q/Dept_Add_Q/javascript.void(0);",
+        "text": "",
+        "onclick": "openSBT3(this);",
+        "target": ""
+      },
+      {
+        "href": "https://account.ncut.edu.tw/APSWIS_Q/Dept_Add_Q/javascript.void(0);",
+        "text": "",
+        "onclick": "openSBT8(this);",
+        "target": ""
+      },
+      {
+        "href": "https://account.ncut.edu.tw/APSWIS_Q/Dept_Add_Q/javascript.void(0);",
+        "text": "",
+        "onclick": "openSBT9(this);",
+        "target": ""
+      },
+      {
+        "href": "https://account.ncut.edu.tw/APSWIS_Q/Dept_Add_Q/javascript.void(0);",
+        "text": "",
+        "onclick": "openSBT4(this);",
+        "target": ""
+      }
+    ],
+    "selects": [
+      {
+        "name": "YEARLY",
+        "id": "YEARLY",
+        "options": [
+          {
+            "value": "112",
+            "text": "112"
+          },
+          {
+            "value": "113",
+            "text": "113"
+          },
+          {
+            "value": "114",
+            "text": "114"
+          },
+          {
+            "value": "115",
+            "text": "115"
+          }
+        ]
+      },
+      {
+        "name": "BUGETNO",
+        "id": "BUGETNO",
+        "options": [
+          {
+            "value": "",
+            "text": "請下拉選擇預算"
+          },
+          {
+            "value": "無授權計畫",
+            "text": "無授權計畫"
+          }
+        ]
+      }
+    ],
+    "bodyText": "\t\t\t\t\n請購：115年\t       \n查詢：預算\t\n112\n113\n114\n115\n\t\n請下拉選擇預算\n無授權計畫\n\t     "
+  },
+  "step2_main_after_lis2": {
+    "url": "https://account.ncut.edu.tw/APSWIS_Q/BLANK_Q.asp?COM=YT",
+    "bodyText": ""
+  },
+  "step3_title_after_lis4": {
+    "url": "https://account.ncut.edu.tw/APSWIS_Q/Dept_Add_Q/DA_SerFun_Q.asp?COM=YT",
+    "inputs": [
+      {
+        "value": " 選擇請購年度",
+        "name": "",
+        "onclick": "LIS1( );"
+      },
+      {
+        "value": " 部門請購查詢",
+        "name": "",
+        "onclick": "LIS2( );"
+      },
+      {
+        "value": " 計畫請購查詢",
+        "name": "",
+        "onclick": "LIS4( );"
+      },
+      {
+        "value": " 輔助項目服務",
+        "name": "",
+        "onclick": "LIS7( );"
+      },
+      {
+        "value": "登出系統  ",
+        "name": "",
+        "onclick": "LIS8( );"
+      },
+      {
+        "value": "新增請購",
+        "name": "BUTA2",
+        "onclick": "parent.FM.rows=\"15%,*,0,0,0,0,0\";aBT2.click();"
+      },
+      {
+        "value": "購案管理",
+        "name": "BUTA1",
+        "onclick": "parent.FM.rows=\"15%,*,0,0,0,0,0\";aBT1.click();"
+      },
+      {
+        "value": "會簽作業",
+        "name": "BUTA3",
+        "onclick": "parent.FM.rows=\"15%,*,0,0,0,0,0\";aBT3.click();"
+      },
+      {
+        "value": "經費授權",
+        "name": "BUTA8",
+        "onclick": "parent.FM.rows=\"15%,0,*,0,0,0,0\";parent.OT.T.Q.click();"
+      },
+      {
+        "value": "經費分類",
+        "name": "BUTA4",
+        "onclick": "parent.FM.rows=\"15%,*,0,0,0,0,0\";aBT4.click();"
+      },
+      {
+        "value": "購案查詢",
+        "name": "BUT6",
+        "onclick": "parent.FM.rows=\"15%,*,0,0,0,0,0\";SBT6.click();"
+      },
+      {
+        "value": "授權查詢",
+        "name": "BUTB15",
+        "onclick": "parent.FM.rows=\"15%,*,0,0,0,0,0\";SBTB15.click();"
+      },
+      {
+        "value": "其他清單",
+        "name": "BUTA7",
+        "onclick": "parent.FM.rows=\"15%,*,0,0,0,0,0\";QBT1.click();"
+      },
+      {
+        "value": "計畫清單",
+        "name": "BUT1",
+        "onclick": "parent.FM.rows=\"15%,*,0,0,0,0,0\";SBT1.click();"
+      },
+      {
+        "value": "用途明細",
+        "name": "BUT2",
+        "onclick": "parent.FM.rows=\"15%,*,0,0,0,0,0\";SBT2.click();"
+      },
+      {
+        "value": "收支明細",
+        "name": "BUT7",
+        "onclick": "parent.FM.rows=\"15%,*,0,0,0,0,0\";SBT7.click();"
+      },
+      {
+        "value": "請購明細",
+        "name": "BUT3",
+        "onclick": "parent.FM.rows=\"15%,*,0,0,0,0,0\";SBT3.click();"
+      },
+      {
+        "value": "流用明細",
+        "name": "BUT4",
+        "onclick": "parent.FM.rows=\"15%,*,0,0,0,0,0\";SBT4.click();"
+      },
+      {
+        "value": "購案品項",
+        "name": "BUT8",
+        "onclick": "parent.FM.rows=\"15%,*,0,0,0,0,0\";SBT8.click();"
+      }
+    ],
+    "links": [
+      {
+        "href": "https://account.ncut.edu.tw/APSWIS_Q/Dept_Add_Q/javascript.void(0);",
+        "text": "",
+        "onclick": "openSBT1(this);",
+        "target": ""
+      },
+      {
+        "href": "https://account.ncut.edu.tw/APSWIS_Q/Dept_Add_Q/javascript.void(0);",
+        "text": "",
+        "onclick": "openSBT2(this);",
+        "target": ""
+      },
+      {
+        "href": "https://account.ncut.edu.tw/APSWIS_Q/Dept_Add_Q/javascript.void(0);",
+        "text": "",
+        "onclick": "openSBT7(this);",
+        "target": ""
+      },
+      {
+        "href": "https://account.ncut.edu.tw/APSWIS_Q/Dept_Add_Q/javascript.void(0);",
+        "text": "",
+        "onclick": "openSBT3(this);",
+        "target": ""
+      },
+      {
+        "href": "https://account.ncut.edu.tw/APSWIS_Q/Dept_Add_Q/javascript.void(0);",
+        "text": "",
+        "onclick": "openSBT8(this);",
+        "target": ""
+      },
+      {
+        "href": "https://account.ncut.edu.tw/APSWIS_Q/Dept_Add_Q/javascript.void(0);",
+        "text": "",
+        "onclick": "openSBT9(this);",
+        "target": ""
+      },
+      {
+        "href": "https://account.ncut.edu.tw/APSWIS_Q/Dept_Add_Q/javascript.void(0);",
+        "text": "",
+        "onclick": "openSBT4(this);",
+        "target": ""
+      }
+    ],
+    "selects": [
+      {
+        "name": "YEARLY",
+        "id": "YEARLY",
+        "options": [
+          {
+            "value": "112",
+            "text": "112"
+          },
+          {
+            "value": "113",
+            "text": "113"
+          },
+          {
+            "value": "114",
+            "text": "114"
+          },
+          {
+            "value": "115",
+            "text": "115"
+          }
+        ]
+      },
+      {
+        "name": "BUGETNO",
+        "id": "BUGETNO",
+        "options": [
+          {
+            "value": "",
+            "text": "請下拉選擇預算"
+          },
+          {
+            "value": "無授權計畫",
+            "text": "無授權計畫"
+          }
+        ]
+      }
+    ],
+    "bodyText": "\t\t\t\t\n請購：115年\t       \n查詢：預算\t\n112\n113\n114\n115\n\t\n請下拉選擇預算\n無授權計畫\n\t     "
+  }
+}

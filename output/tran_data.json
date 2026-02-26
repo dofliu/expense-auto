@@ -1,0 +1,116 @@
+{
+  "tran_frame": {
+    "url": "https://account.ncut.edu.tw/APSWIS_Q/Dept_Add_Q/TRAN_Q.asp?COM=YT",
+    "forms": [
+      {
+        "name": "FORM2",
+        "action": "https://account.ncut.edu.tw/APSWIS_Q/Dept_Add_Q/TRAN_Q.asp?COM=YT",
+        "method": "get",
+        "elements": [
+          {
+            "name": "BUGET",
+            "type": "text",
+            "valueLen": 2,
+            "valuePeek": "#@"
+          },
+          {
+            "name": "JBUGET",
+            "type": "text",
+            "valueLen": 0,
+            "valuePeek": ""
+          },
+          {
+            "name": "JBUGETNO",
+            "type": "text",
+            "valueLen": 0,
+            "valuePeek": ""
+          },
+          {
+            "name": "BUGETS",
+            "type": "text",
+            "valueLen": 4,
+            "valuePeek": "###@"
+          },
+          {
+            "name": "SUBJECTNO",
+            "type": "text",
+            "valueLen": 25949,
+            "valuePeek": "110704-1091#計畫兼職酬金@110704-1092#計畫其他人事費@110704-3024#學生平安保險費@110704-3099#計畫業務費@110704-8011#管理及總務費用-人事費@110704-8012#管理及總務費用-材料及用品費@110704-8013#管理及總務費用-服務費用@110704-8014#管理及總務費用-維護費@110704-8015#管理及總務費用-稅捐與規費@110704-8016#管理及總務費用-郵電費@110704-8021#教學研究及訓輔費用-人事費@110704-8022#教學研究及訓輔費用-服務費用@110704-8023#教學研究及訓輔費"
+          },
+          {
+            "name": "APYKIND",
+            "type": "text",
+            "valueLen": 2,
+            "valuePeek": "$@"
+          }
+        ]
+      }
+    ],
+    "bodyLen": 34311,
+    "bodyText": "     "
+  },
+  "appy_f1": {
+    "name": "F1",
+    "type": "button",
+    "value": "編輯品名",
+    "onclick": "parent.DD.rows=\"180,*\";parent.QQ.cols=\"*,0,0\";",
+    "formAction": "https://account.ncut.edu.tw/APSWIS_Q/Dept_Add_Q/STD_APPY_Q.asp?COPY=&APPYYEAR=115&ISNEW=Y&APYNO=&APYADD=&APPYSET=13&MOVETYPE=6&ISAPPY=True&ISVOUC=True&ISTEMP=False&ISCASH=True&ISPURC=False&SETNAME=%AA%BD%B1%B5%AE%D6%BEP(%B9s%A5%CE%AA%F7)%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20&APPU=&DECI=&SHOWVEN=True&SHOWPRO=True&APPYBUY=&VOUSERNO="
+  },
+  "appy_onload": {
+    "bodyOnload": "",
+    "bodyOnunload": ""
+  },
+  "tran_frame_after_wait": {
+    "url": "https://account.ncut.edu.tw/APSWIS_Q/Dept_Add_Q/TRAN_Q.asp?COM=YT",
+    "forms": [
+      {
+        "name": "FORM2",
+        "elements": [
+          {
+            "name": "BUGET",
+            "valueLen": 2,
+            "valuePeek": "#@"
+          },
+          {
+            "name": "JBUGET",
+            "valueLen": 0,
+            "valuePeek": ""
+          },
+          {
+            "name": "JBUGETNO",
+            "valueLen": 0,
+            "valuePeek": ""
+          },
+          {
+            "name": "BUGETS",
+            "valueLen": 4,
+            "valuePeek": "###@"
+          },
+          {
+            "name": "SUBJECTNO",
+            "valueLen": 25949,
+            "valuePeek": "110704-1091#計畫兼職酬金@110704-1092#計畫其他人事費@110704-3024#學生平安保險費@110704-3099#計畫業務費@110704-8011#管理及總務費用-人事費@110704-8012#管理及總務費用-材料及用品費@110704-8013#管理及總務費用-服務費用@110704-8014#管理及總務費用-維護費@110704-8015#管理及總務費用-稅捐與規費@110704-8016#管理及總務費用-郵電費@110704-8021#教學研究及訓輔費用-人事費@110704-8022#教學研究及訓輔費用-服務費用@110704-8023#教學研究及訓輔費"
+          },
+          {
+            "name": "APYKIND",
+            "valueLen": 2,
+            "valuePeek": "$@"
+          }
+        ]
+      }
+    ]
+  },
+  "bugetno_after_wait": {
+    "length": 2,
+    "options": [
+      {
+        "value": "",
+        "text": "請先【點選本格】下拉選擇經費"
+      },
+      {
+        "value": "",
+        "text": "【】"
+      }
+    ]
+  }
+}

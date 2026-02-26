@@ -1,0 +1,26 @@
+# Credentials
+credentials.env
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+venv/
+.venv/
+
+# Project output
+output/*.pdf
+receipts/*
+!receipts/.gitkeep
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+Thumbs.db
+.DS_Store

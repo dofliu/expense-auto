@@ -1,0 +1,1338 @@
+<html><head><meta http-equiv="Content-Type" content="text-html; charset=big5">
+
+<meta http-equiv="Content-Type" content="text-html; charset=big5">
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+</head><body marginwidth="6" marginheight="8" background="../APS_IMG_Q/PCG/AccSQLWEB1280_BOTTOM.gif"><httpcookies httponlycookies="true" lockitem="true">
+<style>
+html,body{font-size:12px;margin:0px;height:100%;}
+.mesWindow{border:#666 1px solid;background:#fff;}
+.mesWindowTop{border-bottom:#eee 1px solid;margin-left:4px;padding:3px;font-weight:bold;text-align:left;font-size:12px;}
+.mesWindowContent{margin:4px;font-size:12px;}
+.mesWindow .close{height:15px;width:28px;border:none;cursor:pointer;text-decoration:underline;background:#fff}
+</style>
+<script>
+var isIe=(document.all)?true:false;
+//讓背景漸漸變暗
+function showBackground(obj,endInt)
+{
+	if(isIe)
+	{
+		obj.filters.alpha.opacity+=20;
+		if(obj.filters.alpha.opacity<endInt)
+		{
+			setTimeout(function(){showBackground(obj,endInt)},5);
+		}
+	}else{
+		var al=parseFloat(obj.style.opacity);al+=0.01;
+		obj.style.opacity=al;
+		if(al<(endInt/100))
+		{setTimeout(function(){showBackground(obj,endInt)},5);}
+		}
+}
+
+//關閉視窗
+function closeWindow()
+{
+if(document.getElementById('back')!=null)
+{
+document.getElementById('back').parentNode.removeChild(document.getElementById('back'));
+}
+if(document.getElementById('mesWindow')!=null)
+{
+document.getElementById('mesWindow').parentNode.removeChild(document.getElementById('mesWindow'));
+}
+}
+
+//彈出訊息 START=============================================================================
+function PALERT(wTitle,content,pos,wWidth,GoURL,EXT_BUTTON)
+{
+	closeWindow();
+	var bWidth=parseInt(document.documentElement.scrollWidth);
+	var bHeight=parseInt(document.documentElement.scrollHeight);
+	var back=document.createElement("div");
+	back.id="back";
+	var styleStr="top:0px;left:0px;position:absolute;background:#666;width:"+bWidth+"px;height:"+bHeight+"px;";
+	styleStr+=(isIe)?"filter:alpha(opacity=0);":"opacity:0;";
+	back.style.cssText=styleStr;
+	document.body.appendChild(back);
+	showBackground(back,80);
+	var mesW=document.createElement("div");
+	mesW.id="mesWindow";
+	mesW.className="mesWindow";
+	mesW.innerHTML="<div class='mesWindowTop' ><table width='100%' height='100%' style='background:darkblue;'><tr><td style='background:darkblue;' align=center><font color=yellow>"+wTitle+"</font></td><td style='width:1px;background:darkblue;fontcolor:yellow;'><input type='button' name='btt' id='btt' onclick='"+GoURL+"'' title='關閉視窗' class='close' value='關閉' /></td></tr></table></div>";
+	mesW.innerHTML=mesW.innerHTML+"<div class='mesWindowContent' id='mesWindowContent' ><center><font color=darkblue size=3>"+content+"</center></div><div class='mesWindowBottom'><center>"+EXT_BUTTON+"</center></div>";
+	//跟物件
+	//styleStr="left:"+(((pos.x-wWidth)>0)?(pos.x-wWidth):pos.x)+"px;top:"+(pos.y)+"px;position:absolute;width:"+wWidth+"px;";
+	//置中
+	styleStr="left:"+(bWidth/2-wWidth/2)+"px;top:"+(bHeight/2-100)+"px;position:absolute;width:"+wWidth+"px;";
+	mesW.style.cssText=styleStr;
+	document.body.appendChild(mesW);
+	btt.focus();
+}
+
+function P_alert(CONT,TITLE,GoURL,EXT_BUTTON)
+{
+if(TITLE=='')
+{
+	TITLE='提示訊息';
+}
+	messContent="<div style='padding:20px 0 20px 0;text-align:center'>"+CONT+"</div>";
+	PALERT(TITLE,messContent,"x:100;y:100",250,GoURL,EXT_BUTTON);
+}
+//彈出訊息 END=============================================================================
+
+//開新網頁 START==================================================================================
+function POPEN(wTitle,content,pos,wWidth)
+{
+	closeWindow();
+	var bWidth=parseInt(document.documentElement.scrollWidth);
+	var bHeight=parseInt(document.documentElement.scrollHeight);
+	var back=document.createElement("div");
+	back.id="back";
+	var styleStr="top:0px;left:0px;position:absolute;background:#666;width:"+bWidth+"px;height:"+bHeight+"px;";
+	styleStr+=(isIe)?"filter:alpha(opacity=0);":"opacity:0;";
+	back.style.cssText=styleStr;
+	document.body.appendChild(back);
+	showBackground(back,80);
+	var mesW=document.createElement("div");
+	mesW.id="mesWindow";
+	mesW.className="mesWindow";
+	mesW.innerHTML="<div class='mesWindowTop' ><table width='100%' height='100%' style='background:darkblue;'><tr><td style='background:darkblue;' align=center><font color=yellow>"+wTitle+"</font></td><td style='width:1px;background:darkblue;fontcolor:yellow;'><input type='button' name='btt' id='btt' onclick='closeWindow();' title='關閉視窗' class='close' value='關閉' /></td></tr></table></div>";
+	mesW.innerHTML=mesW.innerHTML+"<div class='mesWindowContent' id='mesWindowContent' ><center><font color=darkblue size=3><iframe name=I1 id=I1 width=700 height=500 src="+content+"></iframe></center></div>";
+	//跟物件
+	//styleStr="left:"+(((pos.x-wWidth)>0)?(pos.x-wWidth):pos.x)+"px;top:"+(pos.y)+"px;position:absolute;width:"+wWidth+"px;";
+	//置中
+	styleStr="left:"+(bWidth/2-wWidth/2)+"px;top:0px;position:absolute;width:"+wWidth+"px;";
+	mesW.style.cssText=styleStr;
+	document.body.appendChild(mesW);
+	btt.focus();
+}
+
+function P_OPEN(URL,TITLE)
+{
+if(TITLE=='')
+{
+	TITLE='網頁';
+}
+	messContent="<div style='padding:20px 0 20px 0;text-align:center'>"+URL+"</div>";
+	POPEN(TITLE,messContent,"x:100;y:100",700);
+}
+
+function P_WCLOSE(URL,TITLE)
+{
+if(TITLE=='')
+{
+	TITLE='網頁';
+}
+	messContent="<div style='padding:20px 0 20px 0;text-align:center'>"+URL+"</div>";
+	POPEN(TITLE,messContent,"x:100;y:100",700);
+}
+//開新網頁 END==================================================================================
+
+//開網頁 START============================================================================
+function WINCLOSE(wTitle,content,pos,wWidth)
+{
+	closeWindow();
+	var bWidth=parseInt(document.documentElement.scrollWidth);
+	var bHeight=parseInt(document.documentElement.scrollHeight);
+	var back=document.createElement("div");
+	back.id="back";
+	var styleStr="top:0px;left:0px;position:absolute;background:#666;width:"+bWidth+"px;height:"+bHeight+"px;";
+	styleStr+=(isIe)?"filter:alpha(opacity=0);":"opacity:0;";
+	back.style.cssText=styleStr;
+	document.body.appendChild(back);
+	showBackground(back,80);
+	var mesW=document.createElement("div");
+	mesW.id="mesWindow";
+	mesW.className="mesWindow";
+	mesW.innerHTML="<div class='mesWindowTop' ><table width='100%' height='100%' style='background:darkblue;'><tr><td style='background:darkblue;' align=center><font color=yellow>"+wTitle+"</font></td></tr></table></div>";
+	mesW.innerHTML=mesW.innerHTML+"<div class='mesWindowContent' id='mesWindowContent' ><center><font color=darkblue size=3>"+content+"</center></div>";
+	//跟物件
+	//styleStr="left:"+(((pos.x-wWidth)>0)?(pos.x-wWidth):pos.x)+"px;top:"+(pos.y)+"px;position:absolute;width:"+wWidth+"px;";
+	//置中
+	styleStr="left:"+(bWidth/2-wWidth/2)+"px;top:"+(bHeight/2-100)+"px;position:absolute;width:"+wWidth+"px;";
+	mesW.style.cssText=styleStr;
+	document.body.appendChild(mesW);
+}
+
+function WIN_COLSE(CONT)
+{
+	TITLE='處理中，請稍候';
+	messContent="<div style='padding:20px 0 20px 0;text-align:center'>"+CONT+"</div>";
+	WINCLOSE(TITLE,messContent,"x:100;y:100",250);
+}
+
+function WIN_OPEN()
+{
+	closeWindow();
+}
+//鎖/開網頁 END================================================================================
+</script>
+
+
+
+<!--<script>
+//罕見字集 start ===========================================================
+//var WFCIP = "140.124.13.81";
+//var getWebHost = (("http:" == document.location.protocol) ? "http://" : "https://");
+//if(document.all){
+ //document.write(unescape("%3Cscript src='" + getWebHost + WFCIP + "/wfs/js/lib/wfs.js' type='text/javascript'%3E%3C/script%3E"));
+//}else{
+ //document.write(unescape("%3Cscript src='" + getWebHost + WFCIP + "/wfs/js/lib/jquery.js' type='text/javascript'%3E%3C/script%3E"));
+ //document.write(unescape("%3Cscript src='" + getWebHost + WFCIP + "/wfs/js/lib/jQwfs.js' type='text/javascript'%3E%3C/script%3E"));
+//}
+//罕見字集 end ======================================================
+</script>-->
+<meta http-equiv="pragma" content="no-cache">
+
+	<link rel="stylesheet" href="../CSS_Q/1024LSTY.css" type="text/css">
+
+
+
+
+
+
+<style type="text/css">
+  <!--
+    body{
+	        background-position: center 0%;
+			background-repeat: no-repeat;
+			background-attachment: fixed;
+			}
+  -->
+</style>
+<script language="javascript">
+   if(screen.availWidth>1024)
+	{
+	   document.write("<link rel=stylesheet href=../CSS_Q/1280LSTY.css type=text/css>");
+	   document.write("<body background=../APS_IMG_Q/PCG/AccSQLWEB1280_BOTTOM.gif>"); 
+	 }
+	 else
+	 {
+	   document.write("<link rel=stylesheet href=../CSS_Q/1024LSTY.css type=text/css>");
+	   document.write("<body background=../APS_IMG_Q/PCG/AccSQLWEB1024_BOTTOM.gif>");	   
+	 }
+</script><link rel="stylesheet" href="../CSS_Q/1280LSTY.css" type="text/css">
+
+<script type="text/javascript">
+function disableInfo() {  
+    document.onkeydown = function() {  
+        var e = window.event || arguments[0];  
+        //F12  
+        if(e.keyCode == 123) {  
+			alert("禁用F12");
+            return false;  
+            //Ctrl+Shift+I  
+        } else if((e.ctrlKey) && (e.shiftKey) && (e.keyCode == 73)) {  
+		    alert("禁用鍵");
+            return false;  
+            //Shift+F10  
+        } else if((e.shiftKey) && (e.keyCode == 121)){  
+		    alert("禁用F10");
+            return false;  
+        }  
+    };  
+    //右鍵  
+    document.oncontextmenu = function() { 
+		alert("禁用右鍵"); 
+        return false;  
+    }  
+}
+</script>
+
+<script type="text/javascript">    
+    function CharToAsc(STR)
+    {
+        Chars = STR.split("※");
+        var X_STR = "";
+        for(var i =0;i<chars.length;i++){
+           X_STR = X_STR +"※"+chars[i].charCodeAt(0).toString();
+        }
+        X_STR.substr(1,X_STR.length-1)
+		return X_STR;
+	}
+</script>
+
+<script type="text/javascript">    
+    function AscToChar(STR)
+    {
+        Ascs = STR.split("※");
+        var A_STR = "";
+        for(var i =0;i<Ascs.length;i++){
+           A_STR = A_STR+String.fromCharCode(Ascs[i]);
+        }
+		return A_STR;
+	}
+</script>
+<center>
+
+<table background="../APS_IMG_Q/PCG/BC01.gif" bgcolor="#F0F0F0" border="0" cellspacing="0" cellpadding="0" width="900" style="border-collapse: collapse;table-layout:fixed;"> 
+<colgroup><col width="70"><col width="130"><col width="20"><col width="400"><col width="100"><col width="110"><col width="70">
+	</colgroup><tbody><tr style="height:23">
+		<form name="FORM2" method="post"></form>
+		     
+<input type="hidden" name="BUGET" value="">
+<input type="hidden" name="BUGETS" value="">
+<input type="hidden" name="SUBJECT" value="">
+	
+<form name="FORM1" method="post"></form>
+<input type="hidden" name="APPU" value="">
+
+	<input type="hidden" name="IsNew" value="Y">
+	<input type="hidden" name="APPYYEAR" value="115">
+	<input type="hidden" name="APYNO" value="">
+	<input type="hidden" name="APYADD" value="">
+	<input type="hidden" name="ADATE" value="1150226">
+
+<input type="hidden" name="ISPURC" value="False">
+<input type="hidden" name="ISOVER" value="">
+<input type="hidden" name="APYDEP" value="945">
+<input type="hidden" name="APYUSERNO" value="56006">
+<input type="hidden" name="ISAPPY" value="True">
+<input type="hidden" name="ISVOUC" value="True">
+<input type="hidden" name="ISTEMP" value="False">
+<input type="hidden" name="ISCASH" value="True">
+<input type="hidden" name="APPYSET" value="13">
+<input type="hidden" name="MOVETYPE" value="6">
+<input type="hidden" name="SETNAME" value="直接核銷(零用金)">
+
+		<td align="center" bgcolor="#00ffff" style="padding-top:3px;" background="../APS_IMG_Q/PCG/ekp_bg_1.jpg">
+				<font class="size3W">購案類別</font>
+		</td>
+		<td style="padding-top:3px;padding-left:2pt;">
+			
+			<font class="size3DB">新增</font><font class="size3DR">直接核銷(零用金)</font>
+		</td>
+		<td rowspan="5" align="center" background="../APS_IMG_Q/PCG/ekp_bg_1.jpg">
+			 
+				<font class="size3W">
+					用<br>途<br>說<br>明
+				</font>
+				
+		</td>
+		<td rowspan="5" valign="top">
+			
+			<textarea name="ABSTRACT" class="STYABSTRACT" style="HEIGHT:70pt;" onblur="this.value=this.value.replace(&quot;'&quot;,&quot;吋&quot;).replace(&quot;#&quot;,&quot;號&quot;).replace(&quot;&amp;&quot;,&quot;及&quot;);"></textarea>
+			<input type="hidden" name="Y_METHODS" value="">
+			<input type="hidden" name="ACCORDING" value="">
+			
+            <div style=" display:none;">
+                <script language="javascript">
+                    function ACPPYO(){
+                        if( parent.APPP.FORM1.PRODUCT_1.value==""){							
+							parent.APPP.FORM1.PRODUCT_1.value="詳如附件"
+                        }
+                        var ISVOUCHK="True";
+                        if(ISVOUCHK=="True"){
+                            if( parent.APPA.FORM1.INVOICENO_1.value==""){
+                                parent.APPA.FORM1.INVOICENO_1.value="詳如清冊"
+								parent.APPA.FORM1.VENDORID_1.value="XX01";
+                                parent.APPA.FORM1.VENDORID_S_1.value="XX001"
+                                parent.APPA.FORM1.VENNAME_1.value="詳如清冊"
+                            }
+                        }
+                    }
+
+                </script>
+				
+				<input type="hidden" name="SAMPLENO" value="">
+				
+            </div>
+			
+
+			
+				 <input type="hidden" value="N" name="ISPERI">
+					 <script language="javascript">
+					 
+					    FORM1.ISPERI.value="N";			 			
+					 
+					 </script>
+				 
+				   <input type="hidden" value="N" name="ISESS"> 	 
+				 
+					<input type="button" value="共同供應契約" onclick="if(ABSTRACT.value.substring(0,8)!='【共同供應契約】'){ABSTRACT.value='【共同供應契約】'+ABSTRACT.value;}" class="BT05">
+				
+				     <input type="button" value="電子支付" onclick="if(ABSTRACT.value.substring(0,6)!='【電子支付】'){ABSTRACT.value='【電子支付】'+ABSTRACT.value;}" class="BT04">
+				
+					<input type="hidden" name="APPYBUY">
+				
+		</td>
+		<td align="center" style="padding-top:1.5pt;">
+			<input type="button" onclick="parent.DD.rows=&quot;*,0&quot;;parent.QQ.cols=&quot;*,0,0&quot;;" value="編輯經費" class="BT04">
+		</td>
+		<td style="padding-top:1.5pt;">
+			<input type="button" name="SUM_LIST" onclick="SUM_SUM();" value="加總:$0" class="STYSUMM"> 
+		</td>
+		<td rowspan="4" align="center">
+			<input type="button" value="存 入" onclick="SUM_ALERT();" class="STYSAVE"><br>
+		    <input type="button" value="取 消" onclick="parent.parent.TITLE.BUTA2.click();" class="STYSAVE">	
+		</td>
+		
+	</tr>	
+	<tr style="height:23">
+		<td align="center" bgcolor="#00ffff" style="padding-top:3px;" background="../APS_IMG_Q/PCG/ekp_bg_1.jpg">
+				<font class="size3W">購案編號</font>
+		</td>
+		<td style="padding-top:3px;padding-left:2pt;">
+			<font class="size3DB">
+		 		...
+		 	</font>	
+		</td>
+		<td align="center" style="padding-top:1.5pt;">
+		   
+			<input type="button" name="F1" onclick="parent.DD.rows=&quot;180,*&quot;;parent.QQ.cols=&quot;*,0,0&quot;;" value="編輯品名" class="BT04">
+		   
+		</td>
+		<td style="padding-top:1.5pt;">
+		   
+			<input type="button" name="SUM_APPP" onclick="CHK_APPP();" value="加總:$0" class="STYSUMM">
+			<script language="javascript">
+			    function CHK_APPP()
+				{
+				  parent.APPP.FORM1.SUM_LIST.click();
+				  FORM1.SUM_APPP.value=parent.APPP.FORM1.SUM_LIST.value;
+				}
+			</script>
+			
+		</td>
+	</tr>	
+	<tr style="height:23">
+		<td align="center" bgcolor="#00ffff" style="padding-top:3px;" background="../APS_IMG_Q/PCG/ekp_bg_1.jpg">
+				<font class="size3W">申請單位</font>
+		</td>
+		<td style="padding-top:3px;padding-left:2pt;">
+			
+		  		<font class="size3DB">智慧自動化工程系              </font>
+		  		
+		</td>
+		<td align="center" style="padding-top:1.5pt;">
+		  
+			<input type="button" name="VQ" onclick="parent.DD.rows=&quot;180,*&quot;;parent.QQ.cols=&quot;0,*,0&quot;;" value="編輯受款人" class="BT04">
+		  	
+		</td>
+		<td style="padding-top:1.5pt;">
+		    
+			<input type="button" name="SUM_APPA" onclick="CHK_APPA();" value="加總:$0" class="STYSUMM">
+			<script language="javascript">
+			    function CHK_APPA()
+				{
+				  parent.APPA.FORM1.SUM_LIST.click();
+				  FORM1.SUM_APPA.value=parent.APPA.SUM_LIST.value;
+				}
+			</script>
+			
+		</td>
+	</tr>	
+	<tr style="height:23">
+		<td align="center" bgcolor="#00ffff" style="padding-top:3px;" background="../APS_IMG_Q/PCG/ekp_bg_1.jpg">
+				<font class="size3W">申&nbsp;請&nbsp;人</font>
+		</td>
+		<td style="padding-top:3px;padding-left:2pt;">
+			<font class="size3DB">劉瑞弘</font>
+		</td>
+		<td align="center" style="padding-top:1.5pt;">
+							
+		</td>
+		<td style="padding-top:1.5pt;">
+		
+		<input type="hidden" name="NO_MATH" value="N">
+	
+	
+		</td>
+	
+		</tr><tr style="height:23">
+			<td align="center" bgcolor="#00ffff" style="padding-top:3px;" background="../APS_IMG_Q/PCG/ekp_bg_1.jpg">
+				<font class="size3W">會簽單位</font>
+			</td>
+			<td>
+				<select name="ALL_DEPT" id="ALL_DEPT" class="STDUNIT" style="width:130px;" onchange="CHG_DEPT();">
+<option style=" color=red" value="">下拉選擇單位</option>
+<option value="000">【000】全校性經費</option>
+<option value="001">【001】校控經費</option>
+<option value="010">【010】秘書室</option>
+<option value="013">【013】創辦人暨校友服務辦公室</option>
+<option value="014">【014】校長室</option>
+<option value="015">【015】校友連絡中心</option>
+<option value="016">【016】計畫辦公室</option>
+<option value="017">【017】校務研究辦公室</option>
+<option value="019">【019】公共關係室</option>
+<option value="100">【100】教務處</option>
+<option value="110">【110】招生事務處</option>
+<option value="111">【111】健保自付</option>
+<option value="200">【200】學生事務處</option>
+<option value="201">【201】軍訓室</option>
+<option value="202">【202】諮商輔導組</option>
+<option value="300">【300】總務處</option>
+<option value="310">【310】出納組</option>
+<option value="350">【350】總務處營繕組</option>
+<option value="400">【400】人事室</option>
+<option value="500">【500】主計室</option>
+<option value="610">【610】圖書館</option>
+<option value="620">【620】電算中心</option>
+<option value="621">【621】電算中心一</option>
+<option value="700">【700】進修推廣部</option>
+<option value="701">【701】進修推廣部</option>
+<option value="710">【710】進修部</option>
+<option value="720">【720】推廣部</option>
+<option value="800">【800】研究發展處</option>
+<option value="810">【810】創育中心</option>
+<option value="820">【820】國際事務處</option>
+<option value="830">【830】語言中心</option>
+<option value="840">【840】計畫辦公室</option>
+<option value="850">【850】產學營運處</option>
+<option value="860">【860】永續與校務研發中心</option>
+<option value="870">【870】環安中心</option>
+<option value="880">【880】藝術中心</option>
+<option value="901">【901】機械工程系</option>
+<option value="902">【902】電機工程系</option>
+<option value="903">【903】冷凍空調與能源系</option>
+<option value="904">【904】電子工程系</option>
+<option value="905">【905】化工與材料工程系</option>
+<option value="906">【906】工業工程與管理系</option>
+<option value="907">【907】企業管理系</option>
+<option value="908">【908】資訊管理系</option>
+<option value="909">【909】行銷與流通管理系</option>
+<option value="910">【910】進修學院</option>
+<option value="911">【911】通識教育中心</option>
+<option value="912">【912】景觀系</option>
+<option value="913">【913】體育室</option>
+<option value="914">【914】基礎通識教育中心</option>
+<option value="915">【915】博雅通識教育中心</option>
+<option value="918">【918】流通科技管理研究所</option>
+<option value="919">【919】資訊與電能科技研究所</option>
+<option value="920">【920】材料與化工研究所</option>
+<option value="921">【921】生產系統工程與管理研究所</option>
+<option value="922">【922】冷凍空調與能源科技研究所</option>
+<option value="923">【923】企業管理研究所</option>
+<option value="924">【924】應用英語系</option>
+<option value="925">【925】健康產業科技研發與管理系</option>
+<option value="926">【926】精密機械與製造科技研究所</option>
+<option value="927">【927】自動化工程系</option>
+<option value="928">【928】電機工程所</option>
+<option value="930">【930】產業科技研究總中心</option>
+<option value="931">【931】資訊工程系</option>
+<option value="932">【932】人文學院</option>
+<option value="933">【933】工程學院</option>
+<option value="934">【934】電資學院</option>
+<option value="935">【935】管理學院</option>
+<option value="936">【936】通識教育學院</option>
+<option value="938">【938】技術研發中心</option>
+<option value="939">【939】諮商輔導中心</option>
+<option value="940">【940】文化創意事業系</option>
+<option value="941">【941】研發科技與資訊管理研究所</option>
+<option value="942">【942】精密製造科技研究所(博士班)</option>
+<option value="943">【943】專案管理研究所</option>
+<option value="944">【944】前瞻電資科技研究所</option>
+<option value="945">【945】智慧自動化工程系</option>
+<option value="946">【946】人工智慧應用工程系</option>
+<option value="947">【947】智慧製造與資訊應用碩士學位學程</option>
+</select>
+
+			</td>
+			
+			    <input type="hidden" name="VOU_SERNO" value="">
+			
+		</tr>		
+	
+	<script language="javascript">
+	function  CHK_VOUSERNO()
+	{
+		FORM1.VOU_SERNO.value=FORM1.VOU_SERNO.value.toUpperCase();
+		if (FORM1.VOU_SERNO.value==FORM1.APYUSERNO.value)
+		{
+		  alert("報銷人不可指定自己!!");
+		  FORM1.VOU_SERNO.value="";
+		}
+		
+		if (!FORM1.VOU_SERNO.value=="")
+		{
+		  window.open("SEAR_VOUSERNO_Q.asp?ID="+FORM1.VOU_SERNO.value+"","","width=20,height=50,top=1,LEFT=1,toolbar=no,menubar=no,location=no,directories=no,status=no,resizable=1,scrollbars=1");
+		}
+	}
+	</script>	
+	
+				 
+		  			<!--進入後就有編輯品明之項目-->
+	      		
+		    			<script language="javascript">
+			    			FORM1.F1.click();
+		   				 </script>
+		  					
+</tbody></table>	
+
+
+
+	<input type="hidden" name="APPY_BUGETS" value="">
+
+
+<!--經費編輯決標/追加/追減畫面-->
+	
+
+<!------經費編輯決標/追加/追減畫面結束----------->
+
+<!------正式畫面開始----------------------------->
+	
+	<!--<FIELDSET ALIGN="center" class="LEGEND_H_W">
+	<LEGEND>
+	<font class="size3DR"; >經費編輯</font>
+	
+	
+	
+	
+	</LEGEND>-->
+<!----------------------------------------------------------------------------------------------->	
+		<div id="OutT1">
+		<!--表頭-->
+			<table border="0" background="../APS_IMG_Q/PCG/BC01.gif" width="900" cellpadding="0" cellspacing="0" style="table-layout:fixed;border-collapse: collapse"> 
+				<colgroup><col width="30"><col width="260"><col width="160"><col width="80"><col width="80"><col width="100"><col width="90"><col width="100">
+						</colgroup><tbody><tr bgcolor="#004080" height="20" align="center" style="padding-top:1px;border-top:none;border-left:none;border-bottom:none;border-right:none;background-color:darkblue;">
+							<td class="st3" align="center" style="background:transparent url('../APS_IMG_Q/PCG/icon_list.gif')  no-repeat center;">
+							</td> 
+							<td class="st3" align="center" background="../APS_IMG_Q/PCG/ekp_bg_1.jpg">
+								<font class="size3W">計畫編號</font>
+							</td>
+							<td class="st3" align="center" background="../APS_IMG_Q/PCG/ekp_bg_1.jpg">
+								<font class="size3W">經費用途</font>
+							</td>
+							
+							<td class="st3" align="center" background="../APS_IMG_Q/PCG/ekp_bg_1.jpg">
+								<font class="size3W">分類</font>
+							</td>
+							
+							<td colspan="2" class="st3" align="center" background="../APS_IMG_Q/PCG/ekp_bg_1.jpg">
+								<font class="size3W">科目</font>
+							</td>
+							
+							<td class="st3" align="center" background="../APS_IMG_Q/PCG/ekp_bg_1.jpg">
+								
+										<font class="size3W">經費餘額</font>
+								 
+							</td>
+							
+							<td class="st3" align="center" background="../APS_IMG_Q/PCG/ekp_bg_1.jpg">
+								<font class="size3W">金額</font> 
+							</td>
+			  			</tr>
+						
+		<!--表頭-->
+								<script language="javascript">
+									//抓回CO之BUGET元素中之值(BUGETNO#BUGNAME@BUGETNO#BUGNAME)
+									
+										CO_BUGET_VA=parent.parent.TRAN.FORM2.BUGET.value;
+						  			
+						  			//切Array
+									A_CO_BUGET_VA=CO_BUGET_VA.split("@");
+									//算Array長度
+									N_CO_BUGET_VA=A_CO_BUGET_VA.length;
+									//alert(N_CO_BUGET_VA);
+									
+									//定義select之option之數量
+									var BUGETS_STR;
+									
+										BUGETS_STR=parent.parent.TRAN.FORM2.BUGETS.value;//+FORM1.APPY_BUGETS.value;
+									
+									T_A_BS=new Array();
+									T_A_BS=BUGETS_STR.split("@");
+									T_N_BS=T_A_BS.length;
+									//alert(BUGETS_STR);
+									
+									//抓回SUBJECTNO元素之值
+						  			T_A_SJ=new Array();
+						 			T_A_SJ=parent.parent.TRAN.FORM2.SUBJECTNO.value.split("@");
+						  			T_N_SJ=T_A_SJ.length;
+									
+									//抓回APYKIND之值
+									T_A_AK=new Array();
+						 			T_A_AK=parent.parent.TRAN.FORM2.APYKIND.value.split("@");
+						  			T_N_AK=T_A_AK.length;
+								</script>
+						
+						
+						<tr style="background-color:#F0F0F0;cursor:hand"> 
+							<td class="st3" align="center">
+								<font class="OutT1" style="FONT-SIZE: 12pt;color: darkblue; FONT-STYLE: normal; FONT-VARIANT: normal; FONT-WEIGHT: normal;">1</font>
+							</td> 
+							<td class="st3" align="center">			
+								
+<!--第一個bug sel開始-------------------------->
+					<!--BUGETNO---------------------------->
+					
+									<select name="BUGETNO_1" onchange="BN_1();" onblur="BN_1();" class="OutT1" style="background:#BBFFFF ; FONT-SIZE: 12pt;color: darkblue; FONT-STYLE: normal; FONT-VARIANT: normal; FONT-WEIGHT: normal; LINE-HEIGHT:normal; WIDTH:400pt">
+									<option value="" style="color: red;">請先【點選本格】下拉選擇經費</option><option value="">【】</option></select>
+									<script language="javascript">
+										FORM1.BUGETNO_1.length=N_CO_BUGET_VA;
+										//跑回圈加入到SELECT中
+										FORM1.BUGETNO_1.options[0].value="";
+										FORM1.BUGETNO_1.options[0].text="請先【點選本格】下拉選擇經費";
+										FORM1.BUGETNO_1.options[0].style.color="red";
+										for(TB=0;TB<N_CO_BUGET_VA-1;TB++)
+										{
+											FORM1.BUGETNO_1.options[TB+1].value=A_CO_BUGET_VA[TB].split("#")[0];
+											FORM1.BUGETNO_1.options[TB+1].text="【"+A_CO_BUGET_VA[TB].split("#")[0]+"】"+A_CO_BUGET_VA[TB].split("#")[1];
+										}
+											
+									</script>
+								
+							</td>
+					<!--BUGETNO END--------------------------->
+					<!--BUGCODE --------------------------->
+							<td class="st3" align="center"> 
+					
+									<select name="BUGCODE_1" onblur="BC_1();" onclick="FORM1.SERSUB_1.click();" style="background:#BBFFFF ; FONT-SIZE:12pt;color: darkblue; FONT-STYLE: normal; FONT-VARIANT: normal; FONT-WEIGHT: normal; LINE-HEIGHT:normal; WIDTH:260pt">	
+									
+									</select>
+							
+								<script language="javascript">
+								
+								//建立一個
+								function BN_1()
+								{
+									var TQS_1="##下拉選擇經費用途#@";
+									//將BUGETNO.VALUE送到HI
+									for(TQ=0;TQ<T_N_BS-1;TQ++)
+									{
+										//組出可用之bugets之字串
+										T_A_BS_A=T_A_BS[TQ].split("#");
+										if(T_A_BS_A[0]==FORM1.BUGETNO_1.value)
+										{
+											TQS_1=TQS_1+T_A_BS[TQ]+"@";
+										}
+									}
+									//再把字串切Array放到BUGCODE_?中
+									A_BGC=new Array();
+									A_BGC=TQS_1.split("@");
+									N_BGC=A_BGC.length;
+									//設定BUGCODE_之option數
+									FORM1.BUGCODE_1.length=N_BGC-1;
+									//跑回圈加入到SELECT中
+									FORM1.BUGCODE_1.options[0].style.color="red";
+										for(TC=0;TC<N_BGC-1;TC++)
+										{
+											FORM1.BUGCODE_1.options[TC].value=A_BGC[TC].split("#")[1];
+											FORM1.BUGCODE_1.options[TC].text="【"+A_BGC[TC].split("#")[1]+"】"+A_BGC[TC].split("#")[2];
+										}
+									
+								}
+								</script>
+							
+							</td>
+				<!--BUGCODE END--------------------------->
+				<!--APYKIND    --------------------------->
+							
+							<td class="st3" align="center">
+							
+								<select name="D_APYKIND_1" class="STYAPYKIND">
+								<option></option><option value="">【】</option></select>
+								<script language="javascript">
+									FORM1.D_APYKIND_1.length=T_N_AK;
+									for(AK=0;AK<T_N_AK-1;AK++)
+									{
+										FORM1.D_APYKIND_1.options[AK+1].value=T_A_AK[AK].split("$")[0];
+										FORM1.D_APYKIND_1.options[AK+1].text=T_A_AK[AK].split("$")[0]+"【"+T_A_AK[AK].split("$")[1]+"】";
+									}
+									
+								</script>
+							
+							</td>
+							
+					<!--APYKIND END--------------------------->
+					<!--SUBJECTNO  --------------------------->	
+							
+							<td class="st3" align="center">
+								<input type="text" name="SUBJECTNO_1" maxlength="13" onclick="SS_1();" onblur="SERSUBJ_1();" title="此欄位輸入七級科目代碼將自動尋找出七級科目名稱" value="" class="STYSUBTEXT">
+									<script language="javascript">
+										function SERSUBJ_1()
+										{
+											
+											//980902karen==>輸入科目轉成大寫及檢驗會計科目是否屬下拉清單有的											
+											FORM1.SERSUB_1.value=FORM1.SUBJECTNO_1.value.toUpperCase();
+											FORM1.SUBJECTNO_1.value=FORM1.SUBJECTNO_1.value.toUpperCase();
+											NO_MSG_1="N"
+										    if (!FORM1.SUBJECTNO_1.value=="" && FORM1.SERSUB_1.value=="")
+										    {
+										     alert("請填入或下拉選擇正確的會計科目!!!");
+											 
+											 //1030903Pan==>依輸入科目停在最近似的會計科目==>start
+											 S_1_LEN=FORM1.SUBJECTNO_1.value.length;
+											 for(i=0;i<FORM1.SERSUB_1.length;i++)
+											 {
+												if (FORM1.SUBJECTNO_1.value.toUpperCase()==FORM1.SERSUB_1[i].value.substr(0,S_1_LEN))
+													{
+														FORM1.SERSUB_1[i].selected=true;
+														FORM1.SUBJECTNO_1.value="";
+														NO_MSG_1="N"
+														return;
+													}
+												else
+												   {
+												    NO_MSG_1="Y"
+												   }
+										    }
+											if(NO_MSG_1="Y")
+											{
+											  FORM1.SUBJECTNO_1.value="";
+											}
+											//1030903Pan==>依輸入科目停在最近似的會計科目==>end
+											
+											}											
+										}
+									</script>
+							</td>
+							<td class="st3" align="center">
+								<select name="SERSUB_1" onclick="SS_1();SUBJECTNO_1.value=this.value" class="STYSUBJECT">
+								</select>
+								<script language="javascript">
+												
+									function SS_1()
+									{
+										//定義select之option之數量
+										FORM1.SERSUB_1.length=T_N_SJ;
+										//跑回圈加入到SELECT中
+										FORM1.SERSUB_1.options[0].value="";
+										FORM1.SERSUB_1.options[0].text="查詢會計科目";
+										FORM1.SERSUB_1.options[0].style.color="red";
+										SJ_CO=1;
+										for(TB=0;TB<T_N_SJ-1;TB++)
+										{
+											FORM1.SERSUB_1.options[TB+1].value=T_A_SJ[TB].split("#")[0];
+											FORM1.SERSUB_1.options[TB+1].text="【"+T_A_SJ[TB].split("#")[0]+"】"+T_A_SJ[TB].split("#")[1];
+										}										
+									}
+									
+								</script>	
+							</td>
+							
+					<!--SUBJECTNO END--------------------------->	
+					
+							<input type="hidden" name="MOVETYPE_1" value="6">
+		<!--A9--------------------------->	
+		
+							<td class="st3" align="center">
+								<input type="hidden" name="A9_1" value="">
+				
+							
+							<input type="button" name="VA9_1" onclick="BC_1();" maxlength="9" class="STYVA9">
+								<script language="javascript">
+										
+									function BC_1()
+									{
+										var TMP_AM=0;
+										
+												parent.parent.LA_AM.FORM1.APYNO.value="";
+												parent.parent.LA_AM.FORM1.APYADD.value="";
+												parent.parent.LA_AM.FORM1.T_APYNO.value="";
+												parent.parent.LA_AM.FORM1.T_APYADD.value="";
+											
+												//複製用
+												parent.parent.LA_AM.FORM1.APYNO.value="";
+												parent.parent.LA_AM.FORM1.APYADD.value="";
+												parent.parent.LA_AM.FORM1.T_APYNO.value="";
+												parent.parent.LA_AM.FORM1.T_APYADD.value="";
+											
+										parent.parent.LA_AM.FORM1.USERNO.value="56006";
+										parent.parent.LA_AM.FORM1.BUGCODE.value=FORM1.BUGCODE_1.value;
+										parent.parent.LA_AM.FORM1.BUGETNO.value=FORM1.BUGETNO_1.value;
+										parent.parent.LA_AM.FORM1.INITMOVE.value=FORM1.MOVETYPE_1.value;
+										
+										parent.parent.LA_AM.FORM1.SUM_AM.value=TMP_AM;
+										parent.parent.LA_AM.FORM1.RE_HAND.value="parent.MAIN.APPY.FORM1";
+										parent.parent.LA_AM.FORM1.I_J.value="_1";
+										parent.parent.LA_AM.FORM1.submit();
+									}
+								</script>
+					
+							</td>
+		
+		<!--A9 END--------------------------->	
+		<!--D_AMOUNT--------------------------->	
+							<td class="st3" style="padding-top:0pt;"> 
+								<input type="text" name="D_AMOUNT_1" value="0" onclick="this.value=&quot;&quot;;" onblur="CA_1(); if(isNaN(this.value)){alert('請輸入數字');this.value='0';} if(this.value==''){this.value='0';} SUM_SUM();" onfocus="this.click();" maxlength="10" class="APPYAMOUNT">
+ 								
+								<script language="javascript">
+										function CA_1()
+										{
+												
+												if (parseInt(FORM1.D_AMOUNT_1.value)>parseInt(FORM1.A9_1.value))
+												{
+													
+														alert("所選金額已超出經費用途餘額,若確定以超出金額則點選【存入】!!");
+													
+												}
+												
+										}
+										
+								</script>
+							</td>
+		<!--D_AMOUNT END--------------------------->
+			  			</tr>
+		   			</tbody></table>
+					
+	<!--第一個bug sel結束-------------------------->
+	<!--第二個以上之bug sel------------------------>
+				
+				<div id="OutL2" style="display:none">
+		   		<table border="0" width="900" cellpadding="0" cellspacing="0" style="table-layout:fixed;border-collapse: collapse"> 
+				<colgroup><col width="30"><col width="260"><col width="160"><col width="80"><col width="80"><col width="100"><col width="90"><col width="100">
+						</colgroup><tbody><tr style="background-color:#F0F0F0;cursor:hand"> 
+							<td class="st3" align="center">
+								<font class="size3DB">2</font>
+								</td> 
+							<td class="st3" align="center"> 
+					
+		<!--BUGETNO---------------------------->
+					
+									<select name="BUGETNO_2" onchange="BN_2();" onblur="BN_2();" class="OutT2" style="background:#BBFFFF ; FONT-SIZE: 12pt;color: darkblue; FONT-STYLE: normal; FONT-VARIANT: normal; FONT-WEIGHT: normal; LINE-HEIGHT:normal; WIDTH:400pt">
+									<option value="" style="color: red;">請先【點選本格】下拉選擇經費</option><option value="">【】</option></select>
+									<script language="javascript">
+										FORM1.BUGETNO_2.length=N_CO_BUGET_VA;
+										//跑回圈加入到SELECT中
+										FORM1.BUGETNO_2.options[0].value="";
+										FORM1.BUGETNO_2.options[0].text="請先【點選本格】下拉選擇經費";
+										FORM1.BUGETNO_2.options[0].style.color="red";
+										for(TB=0;TB<N_CO_BUGET_VA-1;TB++)
+										{
+											FORM1.BUGETNO_2.options[TB+1].value=A_CO_BUGET_VA[TB].split("#")[0];
+											FORM1.BUGETNO_2.options[TB+1].text="【"+A_CO_BUGET_VA[TB].split("#")[0]+"】"+A_CO_BUGET_VA[TB].split("#")[1];
+										}
+											
+									</script>
+							
+							</td>
+			<!--BUGET END-------------------------->
+			<!--BUGCODE---------------------------->
+							<td class="st3" align="center"> 		
+					
+								<select name="BUGCODE_2" onblur="BC_2();" onclick="FORM1.SERSUB_2.click();" style="background:#BBFFFF ; FONT-SIZE:12pt;color: darkblue; FONT-STYLE: normal; FONT-VARIANT: normal; FONT-WEIGHT: normal; LINE-HEIGHT:normal; WIDTH:260pt">
+								</select>
+								<script language="javascript">
+								
+								//建立一個
+								function BN_2()
+								{
+									var TQS_1="##下拉選擇經費用途#@";
+									//將BUGETNO.VALUE送到HI
+									for(TQ=0;TQ<T_N_BS-1;TQ++)
+									{
+										//組出可用之bugets之字串
+										T_A_BS_A=T_A_BS[TQ].split("#");
+										if(T_A_BS_A[0]==FORM1.BUGETNO_2.value)
+										{
+											TQS_1=TQS_1+T_A_BS[TQ]+"@";
+										}
+									}
+									//再把字串切Array放到BUGCODE_?中
+									A_BGC=new Array();
+									A_BGC=TQS_1.split("@");
+									N_BGC=A_BGC.length;
+									//設定BUGCODE_之option數
+										FORM1.BUGCODE_2.length=N_BGC-1;
+										FORM1.BUGCODE_2.options[0].style.color="red";
+										for(TC=0;TC<N_BGC-1;TC++)
+										{
+											FORM1.BUGCODE_2.options[TC].value=A_BGC[TC].split("#")[1];
+											FORM1.BUGCODE_2.options[TC].text="【"+A_BGC[TC].split("#")[1]+"】"+A_BGC[TC].split("#")[2];
+										}
+																		
+								}
+								</script>
+							
+							</td>
+				<!--BUGCODE END------------------------>
+				<!--APYKIND---------------------------->
+					
+							<td class="st3" align="center">
+							
+								<select name="D_APYKIND_2" class="STYAPYKIND">
+								<option></option><option value="">【】</option></select>
+								<script language="javascript">
+									FORM1.D_APYKIND_2.length=T_N_AK;
+									for(AK=0;AK<T_N_AK-1;AK++)
+									{
+										FORM1.D_APYKIND_2.options[AK+1].value=T_A_AK[AK].split("$")[0];
+										FORM1.D_APYKIND_2.options[AK+1].text=T_A_AK[AK].split("$")[0]+"【"+T_A_AK[AK].split("$")[1]+"】";
+									}
+									
+								</script>
+							
+							</td>
+					
+				<!--APYKIND END------------------------>
+				<!--SUBJECTNO---------------------------->
+							
+							<td class="st3" align="center">
+							<input type="text" name="SUBJECTNO_2" maxlength="13" onclick="SS_2();" onblur="SERSUBJ_2();" title="此欄位輸入七級科目代碼將自動尋找出七級科目名稱" value="" class="STYSUBTEXT">
+									<script language="javascript">
+										function SERSUBJ_2()
+										{
+											//980902karen==>輸入科目轉成大寫及檢驗會計科目是否屬下拉清單有的
+											FORM1.SERSUB_2.value=FORM1.SUBJECTNO_2.value.toUpperCase();
+											FORM1.SUBJECTNO_2.value=FORM1.SUBJECTNO_2.value.toUpperCase();
+											NO_MSG_2="N"
+											if(!FORM1.SUBJECTNO_2.value=="" && FORM1.SERSUB_2.value=="")
+											{
+											 alert("請填入或下拉選擇正確的會計科目!!!");
+											 
+											 //1030903Pan==>依輸入科目停在最近似的會計科目==>start
+											 S_2_LEN=FORM1.SUBJECTNO_2.value.length;
+											 for(i=0;i<FORM1.SERSUB_2.length;i++)
+											 {
+												if (FORM1.SUBJECTNO_2.value.toUpperCase()==FORM1.SERSUB_2[i].value.substr(0,S_2_LEN))
+													{
+														FORM1.SERSUB_2[i].selected=true;
+														FORM1.SUBJECTNO_2.value="";
+														NO_MSG_2="N"
+														return;
+													}
+												else
+												   {
+												    NO_MSG_2="Y"
+												   }
+										    }
+											if(NO_MSG_2="Y")
+											{
+											  FORM1.SUBJECTNO_2.value="";
+											}
+											//1030903Pan==>依輸入科目停在最近似的會計科目==>end											 
+											 
+											}
+										}
+									</script>
+							</td>
+							<td class="st3" align="center">
+								<select name="SERSUB_2" onclick="SS_2();SUBJECTNO_2.value=this.value;" class="STYSUBJECT">
+								</select>
+								<script language="javascript">		
+									function SS_2()
+									{
+										//定義select之option之數量
+										FORM1.SERSUB_2.length=T_N_SJ;
+										//跑回圈加入到SELECT中
+										FORM1.SERSUB_2.options[0].value="";
+										FORM1.SERSUB_2.options[0].text="查詢會計科目";
+										FORM1.SERSUB_2.options[0].style.color="red";
+										SJ_CO=1
+										for(TB=0;TB<T_N_SJ-1;TB++)
+										{
+											FORM1.SERSUB_2.options[TB+1].value=T_A_SJ[TB].split("#")[0];
+											FORM1.SERSUB_2.options[TB+1].text="【"+T_A_SJ[TB].split("#")[0]+"】"+T_A_SJ[TB].split("#")[1];
+										}
+									}
+									
+								</script>	
+							</td>
+							
+			  <!--SUBJECTNO END---------------------------->
+							
+							<input type="hidden" name="MOVETYPE_2" value="6">
+		<!--A9---------------------------->
+		
+							<td class="st3" align="center">
+								<input type="hidden" name="A9_2" value="">
+				
+							<input type="button" name="VA9_2" onclick="BC_2();" maxlength="9" class="STYVA9">
+								<script language="javascript">
+									function BC_2()
+									{
+										var TMP_AM=0;
+										
+											if(!FORM1.D_AMOUNT_1.value=="0")
+											{
+												if(FORM1.BUGCODE_2.value==FORM1.BUGCODE_1.value&&FORM1.BUGETNO_2.value==FORM1.BUGETNO_1.value)
+												{
+													TMP_AM=parseInt(TMP_AM)+parseInt(FORM1.D_AMOUNT_1.value);
+												}
+											}
+										
+												parent.parent.LA_AM.FORM1.APYNO.value="";
+												parent.parent.LA_AM.FORM1.APYADD.value="";
+												parent.parent.LA_AM.FORM1.T_APYNO.value="";
+												parent.parent.LA_AM.FORM1.T_APYADD.value="";
+											
+												//複製用
+												parent.parent.LA_AM.FORM1.APYNO.value="";
+												parent.parent.LA_AM.FORM1.APYADD.value="";
+												parent.parent.LA_AM.FORM1.T_APYNO.value="";
+												parent.parent.LA_AM.FORM1.T_APYADD.value="";
+											
+										parent.parent.LA_AM.FORM1.USERNO.value="56006";
+										parent.parent.LA_AM.FORM1.BUGCODE.value=FORM1.BUGCODE_2.value;
+										parent.parent.LA_AM.FORM1.BUGETNO.value=FORM1.BUGETNO_2.value;
+										parent.parent.LA_AM.FORM1.INITMOVE.value=FORM1.MOVETYPE_2.value;
+										
+										parent.parent.LA_AM.FORM1.SUM_AM.value=TMP_AM;
+										parent.parent.LA_AM.FORM1.RE_HAND.value="parent.MAIN.APPY.FORM1";
+										parent.parent.LA_AM.FORM1.I_J.value="_2";
+										parent.parent.LA_AM.FORM1.submit();
+									}
+								</script>
+					
+							</td>
+		
+		<!--A9 END---------------------------->
+		<!--D_AMOUNT--------------------------->
+							<td class="st3" align="center"> 
+								<input type="text" name="D_AMOUNT_2" value="0" onclick="this.value=&quot;&quot;;" onblur="CA_2();if(isNaN(this.value)){alert('請輸入數字');this.value='0';} if(this.value==''){this.value='0';} SUM_SUM();" onfocus="this.click();" maxlength="10" class="APPYAMOUNT">
+ 								<script language="javascript">
+										function CA_2()
+										{
+											if (parseInt(FORM1.D_AMOUNT_2.value)>parseInt(FORM1.A9_2.value))
+											{
+												
+													alert("所選金額已超出經費用途餘額,若確定以超出金額則點選【存入】!!");
+												
+											}
+										}
+										
+								</script>
+							</td>
+		<!--D_AMOUNT END---------------------------->
+			  			</tr>
+		   			</tbody></table>
+				
+		   		</div>
+		   	
+				<div id="OutL3" style="display:none">
+		   		<table border="0" width="900" cellpadding="0" cellspacing="0" style="table-layout:fixed;border-collapse: collapse"> 
+				<colgroup><col width="30"><col width="260"><col width="160"><col width="80"><col width="80"><col width="100"><col width="90"><col width="100">
+						</colgroup><tbody><tr style="background-color:#F0F0F0;cursor:hand"> 
+							<td class="st3" align="center">
+								<font class="size3DB">3</font>
+								</td> 
+							<td class="st3" align="center"> 
+					
+		<!--BUGETNO---------------------------->
+					
+									<select name="BUGETNO_3" onchange="BN_3();" onblur="BN_3();" class="OutT3" style="background:#BBFFFF ; FONT-SIZE: 12pt;color: darkblue; FONT-STYLE: normal; FONT-VARIANT: normal; FONT-WEIGHT: normal; LINE-HEIGHT:normal; WIDTH:400pt">
+									<option value="" style="color: red;">請先【點選本格】下拉選擇經費</option><option value="">【】</option></select>
+									<script language="javascript">
+										FORM1.BUGETNO_3.length=N_CO_BUGET_VA;
+										//跑回圈加入到SELECT中
+										FORM1.BUGETNO_3.options[0].value="";
+										FORM1.BUGETNO_3.options[0].text="請先【點選本格】下拉選擇經費";
+										FORM1.BUGETNO_3.options[0].style.color="red";
+										for(TB=0;TB<N_CO_BUGET_VA-1;TB++)
+										{
+											FORM1.BUGETNO_3.options[TB+1].value=A_CO_BUGET_VA[TB].split("#")[0];
+											FORM1.BUGETNO_3.options[TB+1].text="【"+A_CO_BUGET_VA[TB].split("#")[0]+"】"+A_CO_BUGET_VA[TB].split("#")[1];
+										}
+											
+									</script>
+							
+							</td>
+			<!--BUGET END-------------------------->
+			<!--BUGCODE---------------------------->
+							<td class="st3" align="center"> 		
+					
+								<select name="BUGCODE_3" onblur="BC_3();" onclick="FORM1.SERSUB_3.click();" style="background:#BBFFFF ; FONT-SIZE:12pt;color: darkblue; FONT-STYLE: normal; FONT-VARIANT: normal; FONT-WEIGHT: normal; LINE-HEIGHT:normal; WIDTH:260pt">
+								</select>
+								<script language="javascript">
+								
+								//建立一個
+								function BN_3()
+								{
+									var TQS_1="##下拉選擇經費用途#@";
+									//將BUGETNO.VALUE送到HI
+									for(TQ=0;TQ<T_N_BS-1;TQ++)
+									{
+										//組出可用之bugets之字串
+										T_A_BS_A=T_A_BS[TQ].split("#");
+										if(T_A_BS_A[0]==FORM1.BUGETNO_3.value)
+										{
+											TQS_1=TQS_1+T_A_BS[TQ]+"@";
+										}
+									}
+									//再把字串切Array放到BUGCODE_?中
+									A_BGC=new Array();
+									A_BGC=TQS_1.split("@");
+									N_BGC=A_BGC.length;
+									//設定BUGCODE_之option數
+										FORM1.BUGCODE_3.length=N_BGC-1;
+										FORM1.BUGCODE_3.options[0].style.color="red";
+										for(TC=0;TC<N_BGC-1;TC++)
+										{
+											FORM1.BUGCODE_3.options[TC].value=A_BGC[TC].split("#")[1];
+											FORM1.BUGCODE_3.options[TC].text="【"+A_BGC[TC].split("#")[1]+"】"+A_BGC[TC].split("#")[2];
+										}
+																		
+								}
+								</script>
+							
+							</td>
+				<!--BUGCODE END------------------------>
+				<!--APYKIND---------------------------->
+					
+							<td class="st3" align="center">
+							
+								<select name="D_APYKIND_3" class="STYAPYKIND">
+								<option></option><option value="">【】</option></select>
+								<script language="javascript">
+									FORM1.D_APYKIND_3.length=T_N_AK;
+									for(AK=0;AK<T_N_AK-1;AK++)
+									{
+										FORM1.D_APYKIND_3.options[AK+1].value=T_A_AK[AK].split("$")[0];
+										FORM1.D_APYKIND_3.options[AK+1].text=T_A_AK[AK].split("$")[0]+"【"+T_A_AK[AK].split("$")[1]+"】";
+									}
+									
+								</script>
+							
+							</td>
+					
+				<!--APYKIND END------------------------>
+				<!--SUBJECTNO---------------------------->
+							
+							<td class="st3" align="center">
+							<input type="text" name="SUBJECTNO_3" maxlength="13" onclick="SS_3();" onblur="SERSUBJ_3();" title="此欄位輸入七級科目代碼將自動尋找出七級科目名稱" value="" class="STYSUBTEXT">
+									<script language="javascript">
+										function SERSUBJ_3()
+										{
+											//980902karen==>輸入科目轉成大寫及檢驗會計科目是否屬下拉清單有的
+											FORM1.SERSUB_3.value=FORM1.SUBJECTNO_3.value.toUpperCase();
+											FORM1.SUBJECTNO_3.value=FORM1.SUBJECTNO_3.value.toUpperCase();
+											NO_MSG_3="N"
+											if(!FORM1.SUBJECTNO_3.value=="" && FORM1.SERSUB_3.value=="")
+											{
+											 alert("請填入或下拉選擇正確的會計科目!!!");
+											 
+											 //1030903Pan==>依輸入科目停在最近似的會計科目==>start
+											 S_3_LEN=FORM1.SUBJECTNO_3.value.length;
+											 for(i=0;i<FORM1.SERSUB_3.length;i++)
+											 {
+												if (FORM1.SUBJECTNO_3.value.toUpperCase()==FORM1.SERSUB_3[i].value.substr(0,S_3_LEN))
+													{
+														FORM1.SERSUB_3[i].selected=true;
+														FORM1.SUBJECTNO_3.value="";
+														NO_MSG_3="N"
+														return;
+													}
+												else
+												   {
+												    NO_MSG_3="Y"
+												   }
+										    }
+											if(NO_MSG_3="Y")
+											{
+											  FORM1.SUBJECTNO_3.value="";
+											}
+											//1030903Pan==>依輸入科目停在最近似的會計科目==>end											 
+											 
+											}
+										}
+									</script>
+							</td>
+							<td class="st3" align="center">
+								<select name="SERSUB_3" onclick="SS_3();SUBJECTNO_3.value=this.value;" class="STYSUBJECT">
+								</select>
+								<script language="javascript">		
+									function SS_3()
+									{
+										//定義select之option之數量
+										FORM1.SERSUB_3.length=T_N_SJ;
+										//跑回圈加入到SELECT中
+										FORM1.SERSUB_3.options[0].value="";
+										FORM1.SERSUB_3.options[0].text="查詢會計科目";
+										FORM1.SERSUB_3.options[0].style.color="red";
+										SJ_CO=1
+										for(TB=0;TB<T_N_SJ-1;TB++)
+										{
+											FORM1.SERSUB_3.options[TB+1].value=T_A_SJ[TB].split("#")[0];
+											FORM1.SERSUB_3.options[TB+1].text="【"+T_A_SJ[TB].split("#")[0]+"】"+T_A_SJ[TB].split("#")[1];
+										}
+									}
+									
+								</script>	
+							</td>
+							
+			  <!--SUBJECTNO END---------------------------->
+							
+							<input type="hidden" name="MOVETYPE_3" value="6">
+		<!--A9---------------------------->
+		
+							<td class="st3" align="center">
+								<input type="hidden" name="A9_3" value="">
+				
+							<input type="button" name="VA9_3" onclick="BC_3();" maxlength="9" class="STYVA9">
+								<script language="javascript">
+									function BC_3()
+									{
+										var TMP_AM=0;
+										
+											if(!FORM1.D_AMOUNT_1.value=="0")
+											{
+												if(FORM1.BUGCODE_3.value==FORM1.BUGCODE_1.value&&FORM1.BUGETNO_3.value==FORM1.BUGETNO_1.value)
+												{
+													TMP_AM=parseInt(TMP_AM)+parseInt(FORM1.D_AMOUNT_1.value);
+												}
+											}
+										
+											if(!FORM1.D_AMOUNT_2.value=="0")
+											{
+												if(FORM1.BUGCODE_3.value==FORM1.BUGCODE_2.value&&FORM1.BUGETNO_3.value==FORM1.BUGETNO_2.value)
+												{
+													TMP_AM=parseInt(TMP_AM)+parseInt(FORM1.D_AMOUNT_2.value);
+												}
+											}
+										
+												parent.parent.LA_AM.FORM1.APYNO.value="";
+												parent.parent.LA_AM.FORM1.APYADD.value="";
+												parent.parent.LA_AM.FORM1.T_APYNO.value="";
+												parent.parent.LA_AM.FORM1.T_APYADD.value="";
+											
+												//複製用
+												parent.parent.LA_AM.FORM1.APYNO.value="";
+												parent.parent.LA_AM.FORM1.APYADD.value="";
+												parent.parent.LA_AM.FORM1.T_APYNO.value="";
+												parent.parent.LA_AM.FORM1.T_APYADD.value="";
+											
+										parent.parent.LA_AM.FORM1.USERNO.value="56006";
+										parent.parent.LA_AM.FORM1.BUGCODE.value=FORM1.BUGCODE_3.value;
+										parent.parent.LA_AM.FORM1.BUGETNO.value=FORM1.BUGETNO_3.value;
+										parent.parent.LA_AM.FORM1.INITMOVE.value=FORM1.MOVETYPE_3.value;
+										
+										parent.parent.LA_AM.FORM1.SUM_AM.value=TMP_AM;
+										parent.parent.LA_AM.FORM1.RE_HAND.value="parent.MAIN.APPY.FORM1";
+										parent.parent.LA_AM.FORM1.I_J.value="_3";
+										parent.parent.LA_AM.FORM1.submit();
+									}
+								</script>
+					
+							</td>
+		
+		<!--A9 END---------------------------->
+		<!--D_AMOUNT--------------------------->
+							<td class="st3" align="center"> 
+								<input type="text" name="D_AMOUNT_3" value="0" onclick="this.value=&quot;&quot;;" onblur="CA_3();if(isNaN(this.value)){alert('請輸入數字');this.value='0';} if(this.value==''){this.value='0';} SUM_SUM();" onfocus="this.click();" maxlength="10" class="APPYAMOUNT">
+ 								<script language="javascript">
+										function CA_3()
+										{
+											if (parseInt(FORM1.D_AMOUNT_3.value)>parseInt(FORM1.A9_3.value))
+											{
+												
+													alert("所選金額已超出經費用途餘額,若確定以超出金額則點選【存入】!!");
+												
+											}
+										}
+										
+								</script>
+							</td>
+		<!--D_AMOUNT END---------------------------->
+			  			</tr>
+		   			</tbody></table>
+				
+		   		</div>
+		   	
+				<div id="OutL4" style="display:none">
+		   		<table border="0" width="900" cellpadding="0" cellspacing="0" style="table-layout:fixed;border-collapse: collapse"> 
+				<colgroup><col width="30"><col width="260"><col width="160"><col width="80"><col width="80"><col width="100"><col width="90"><col width="100">
+						</colgroup><tbody><tr style="background-color:#F0F0F0;cursor:hand"> 
+							<td class="st3" align="center">
+								<font class="size3DB">4</font>
+								</td> 
+							<td class="st3" align="center"> 
+					
+		<!--BUGETNO---------------------------->
+					
+									<select name="BUGETNO_4" onchange="BN_4();" onblur="BN_4();" class="OutT4" style="background:#BBFFFF ; FONT-SIZE: 12pt;color: darkblue; FONT-STYLE: normal; FONT-VARIANT: normal; FONT-WEIGHT: normal; LINE-HEIGHT:normal; WIDTH:400pt">
+									<option value="" style="color: red;">請先【點選本格】下拉選擇經費</option><option value="">【】</option></select>
+									<script language="javascript">
+										FORM1.BUGETNO_4.length=N_CO_BUGET_VA;
+						
