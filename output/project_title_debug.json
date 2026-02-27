@@ -1,0 +1,207 @@
+{
+  "selects": [
+    {
+      "name": "YEARLY",
+      "id": "YEARLY",
+      "options": [
+        {
+          "v": "112",
+          "t": "112"
+        },
+        {
+          "v": "113",
+          "t": "113"
+        },
+        {
+          "v": "114",
+          "t": "114"
+        },
+        {
+          "v": "115",
+          "t": "115"
+        }
+      ]
+    },
+    {
+      "name": "BUGETNO",
+      "id": "BUGETNO",
+      "options": [
+        {
+          "v": "",
+          "t": "請下拉選擇預算"
+        },
+        {
+          "v": "115T945",
+          "t": "【115T945】智慧自動化工程系"
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "name": "SBT1",
+      "text": "",
+      "href": "https://account.ncut.edu.tw/APSWIS_Q/Dept_Add_Q/javascript.void(0);",
+      "onclick": "openSBT1(this);",
+      "visible": true
+    },
+    {
+      "name": "SBT2",
+      "text": "",
+      "href": "https://account.ncut.edu.tw/APSWIS_Q/Dept_Add_Q/javascript.void(0);",
+      "onclick": "openSBT2(this);",
+      "visible": true
+    },
+    {
+      "name": "SBT7",
+      "text": "",
+      "href": "https://account.ncut.edu.tw/APSWIS_Q/Dept_Add_Q/javascript.void(0);",
+      "onclick": "openSBT7(this);",
+      "visible": true
+    },
+    {
+      "name": "SBT3",
+      "text": "",
+      "href": "https://account.ncut.edu.tw/APSWIS_Q/Dept_Add_Q/javascript.void(0);",
+      "onclick": "openSBT3(this);",
+      "visible": true
+    },
+    {
+      "name": "SBT8",
+      "text": "",
+      "href": "https://account.ncut.edu.tw/APSWIS_Q/Dept_Add_Q/javascript.void(0);",
+      "onclick": "openSBT8(this);",
+      "visible": true
+    },
+    {
+      "name": "SBT9",
+      "text": "",
+      "href": "https://account.ncut.edu.tw/APSWIS_Q/Dept_Add_Q/javascript.void(0);",
+      "onclick": "openSBT9(this);",
+      "visible": true
+    },
+    {
+      "name": "SBT4",
+      "text": "",
+      "href": "https://account.ncut.edu.tw/APSWIS_Q/Dept_Add_Q/javascript.void(0);",
+      "onclick": "openSBT4(this);",
+      "visible": true
+    }
+  ],
+  "buttons": [
+    {
+      "name": "",
+      "value": " 選擇請購年度",
+      "type": "button",
+      "onclick": "LIS1( );"
+    },
+    {
+      "name": "",
+      "value": " 部門請購查詢",
+      "type": "button",
+      "onclick": "LIS2( );"
+    },
+    {
+      "name": "",
+      "value": " 計畫請購查詢",
+      "type": "button",
+      "onclick": "LIS4( );"
+    },
+    {
+      "name": "",
+      "value": " 輔助項目服務",
+      "type": "button",
+      "onclick": "LIS7( );"
+    },
+    {
+      "name": "",
+      "value": "登出系統  ",
+      "type": "button",
+      "onclick": "LIS8( );"
+    },
+    {
+      "name": "BUT1",
+      "value": "計畫清單",
+      "type": "button",
+      "onclick": "parent.FM.rows=\"15%,*,0,0,0,0,0\";SBT1.click();"
+    },
+    {
+      "name": "BUT2",
+      "value": "用途明細",
+      "type": "button",
+      "onclick": "parent.FM.rows=\"15%,*,0,0,0,0,0\";SBT2.click();"
+    },
+    {
+      "name": "BUT7",
+      "value": "收支明細",
+      "type": "button",
+      "onclick": "parent.FM.rows=\"15%,*,0,0,0,0,0\";SBT7.click();"
+    },
+    {
+      "name": "BUT3",
+      "value": "請購明細",
+      "type": "button",
+      "onclick": "parent.FM.rows=\"15%,*,0,0,0,0,0\";SBT3.click();"
+    },
+    {
+      "name": "BUT4",
+      "value": "流用明細",
+      "type": "button",
+      "onclick": "parent.FM.rows=\"15%,*,0,0,0,0,0\";SBT4.click();"
+    },
+    {
+      "name": "BUT8",
+      "value": "購案品項",
+      "type": "button",
+      "onclick": "parent.FM.rows=\"15%,*,0,0,0,0,0\";SBT8.click();"
+    }
+  ],
+  "forms": [
+    {
+      "name": "F1",
+      "action": "https://account.ncut.edu.tw/APSWIS_Q/Dept_Add_Q/DA_SerFun_Q.asp?COM=YT&LOM=Y",
+      "method": "get"
+    }
+  ],
+  "functions": [
+    "function disableInfo",
+    "function showBackground",
+    "function closeWindow",
+    "function PALERT",
+    "function P_alert",
+    "function POPEN",
+    "function P_OPEN",
+    "function P_WCLOSE",
+    "function WINCLOSE",
+    "function WIN_COLSE",
+    "function WIN_OPEN",
+    "function AS1",
+    "function F1",
+    "function CHG_DEPT",
+    "function openSBT1",
+    "function openSBT2",
+    "function openSBT7",
+    "function openSBT3",
+    "function openSBT8",
+    "function openSBT9",
+    "function openSBT4",
+    "function LIS1",
+    "function LIS2",
+    "function LIS3",
+    "function LIS4",
+    "function LIS5",
+    "function LIS6",
+    "function LIS7",
+    "function LIS8"
+  ],
+  "sbt_sources": {
+    "openSBT1": "function openSBT1(Obj)\n\t\t\t\t{\n\t\t\t\t\tObj.target=\"MAIN\";\n\t\t\t\t\tObj.href=\"../Dept_Ser_Q/P_BUGET_PR_Q.asp?SRK=N022632626&STYPE=BT1&BYEAR=115&BUGETNO=\"+F1.BUGETNO.value+\"&SER_USERNO=&QSTR=115T945$\";\n\t\t\t\t\tObj.click();\n\t\t\t\t}",
+    "openSBT2": "function openSBT2(Obj)\n\t\t\t\t{\n\t\t\t\t\tObj.target=\"MAIN\";\n\t\t\t\t\tObj.href=\"../Dept_Ser_Q/P_BUGETS_PR_Q.asp?SRK=N022632626&STYPE=BT2&BYEAR=115&BUGETNO=\"+F1.BUGETNO.value+\"&SER_USERNO=&QSTR=115T945$\";\n\t\t\t\t\tObj.click();\n\t\t\t\t}",
+    "openSBT3": "function openSBT3(Obj)\n\t\t\t\t{\n\t\t\t\t\tObj.target=\"MAIN\";\n\t\t\t\t\tObj.href=\"../Dept_Ser_Q/P_BUGETS_FILTER_Q.asp?SRK=N022632626&STYPE=BT3&BYEAR=115&BUGETNO=\"+F1.BUGETNO.value+\"&SER_USERNO=\";\n\t\t\t\t\tObj.click();\n\t\t\t\t}",
+    "openSBT4": "function openSBT4(Obj)\n\t\t\t\t{\n\t\t\t\t\tObj.target=\"MAIN\";\n\t\t\t\t\tObj.href=\"../Dept_Ser_Q/CDVS_PR_Q.asp?SRK=N022632626&BYEAR=115&BUGETNO=\"+F1.BUGETNO.value+\"&SER_USERNO=&QSTR=115T945$\";\n\t\t\t\t\tObj.click();\n\t\t\t\t}",
+    "openSBT7": "function openSBT7(Obj)\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\tObj.target=\"MAIN\";\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\tObj.href=\"../Dept_Ser_Q/P_VTRS_PR_Q.asp?SRK=N022632626&STYPE=BT3&BYEAR=115&BUGETNO=\"+F1.BUGETNO.value+\"&SER_USERNO=\";\n\t\t\t\t\t\t\t\tObj.click();\n\t\t\t\t\t\t\t}",
+    "openSBT8": "function openSBT8(Obj)\n\t\t\t\t{\n\t\t\t\t\tObj.target=\"MAIN\";\n\t\t\t\t\tObj.href=\"../Dept_Ser_Q/P_BUGETS_FILTER_Q.asp?SRK=N022632626&STYPE=BT5&BYEAR=115&BUGETNO=\"+F1.BUGETNO.value+\"&SER_USERNO=\";\n\t\t\t\t\tObj.click();\n\t\t\t\t}",
+    "openSBT9": "function openSBT9(Obj)\n\t\t\t\t{\n\t\t\t\t\tObj.target=\"MAIN\";\n\t\t\t\t\tObj.href=\"../DELVE_Q/D_BUGETS_Filter_Q.asp?COM=YT&BYEAR=115&STYPE=1\";\n\t\t\t\t\tObj.click();\n\t\t\t\t}"
+  },
+  "url": "https://account.ncut.edu.tw/APSWIS_Q/Dept_Add_Q/DA_SerFun_Q.asp?COM=YT&LOM=Y"
+}

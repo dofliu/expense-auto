@@ -1,0 +1,494 @@
+{
+  "appy_buttons": [
+    {
+      "tag": "INPUT",
+      "name": "",
+      "value": "共同供應契約",
+      "onclick": "if(ABSTRACT.value.substring(0,8)!='【共同供應契約】'){ABSTRACT.value='【共同供應契約】'+ABSTRACT.value;}",
+      "type": "button"
+    },
+    {
+      "tag": "INPUT",
+      "name": "",
+      "value": "電子支付",
+      "onclick": "if(ABSTRACT.value.substring(0,6)!='【電子支付】'){ABSTRACT.value='【電子支付】'+ABSTRACT.value;}",
+      "type": "button"
+    },
+    {
+      "tag": "INPUT",
+      "name": "",
+      "value": "編輯經費",
+      "onclick": "parent.DD.rows=\"*,0\";parent.QQ.cols=\"*,0,0\";",
+      "type": "button"
+    },
+    {
+      "tag": "INPUT",
+      "name": "SUM_LIST",
+      "value": "加總:$120",
+      "onclick": "SUM_SUM();",
+      "type": "button"
+    },
+    {
+      "tag": "INPUT",
+      "name": "",
+      "value": "存 入",
+      "onclick": "SUM_ALERT();",
+      "type": "button"
+    },
+    {
+      "tag": "INPUT",
+      "name": "",
+      "value": "取 消",
+      "onclick": "parent.parent.TITLE.BUTA2.click();",
+      "type": "button"
+    },
+    {
+      "tag": "INPUT",
+      "name": "F1",
+      "value": "編輯品名",
+      "onclick": "parent.DD.rows=\"160,*\";parent.QQ.cols=\"*,0,0\";",
+      "type": "button"
+    },
+    {
+      "tag": "INPUT",
+      "name": "SUM_APPP",
+      "value": "加總:$0",
+      "onclick": "CHK_APPP();",
+      "type": "button"
+    },
+    {
+      "tag": "INPUT",
+      "name": "VQ",
+      "value": "編輯受款人",
+      "onclick": "parent.DD.rows=\"160,*\";parent.QQ.cols=\"0,*,0\";",
+      "type": "button"
+    },
+    {
+      "tag": "INPUT",
+      "name": "SUM_APPA",
+      "value": "加總:$120",
+      "onclick": "CHK_APPA();",
+      "type": "button"
+    },
+    {
+      "tag": "INPUT",
+      "name": "VA9_1",
+      "value": "120476",
+      "onclick": "BC_1();",
+      "type": "button"
+    },
+    {
+      "tag": "INPUT",
+      "name": "VA9_2",
+      "value": "",
+      "onclick": "BC_2();",
+      "type": "button"
+    },
+    {
+      "tag": "INPUT",
+      "name": "VA9_3",
+      "value": "",
+      "onclick": "BC_3();",
+      "type": "button"
+    },
+    {
+      "tag": "INPUT",
+      "name": "VA9_4",
+      "value": "",
+      "onclick": "BC_4();",
+      "type": "button"
+    },
+    {
+      "tag": "INPUT",
+      "name": "VA9_5",
+      "value": "",
+      "onclick": "BC_5();",
+      "type": "button"
+    },
+    {
+      "tag": "INPUT",
+      "name": "VA9_6",
+      "value": "",
+      "onclick": "BC_6();",
+      "type": "button"
+    },
+    {
+      "tag": "INPUT",
+      "name": "VA9_7",
+      "value": "",
+      "onclick": "BC_7();",
+      "type": "button"
+    },
+    {
+      "tag": "INPUT",
+      "name": "VA9_8",
+      "value": "",
+      "onclick": "BC_8();",
+      "type": "button"
+    },
+    {
+      "tag": "INPUT",
+      "name": "VA9_9",
+      "value": "",
+      "onclick": "BC_9();",
+      "type": "button"
+    },
+    {
+      "tag": "INPUT",
+      "name": "VA9_10",
+      "value": "",
+      "onclick": "BC_10();",
+      "type": "button"
+    },
+    {
+      "tag": "INPUT",
+      "name": "VA9_11",
+      "value": "",
+      "onclick": "BC_11();",
+      "type": "button"
+    },
+    {
+      "tag": "INPUT",
+      "name": "VA9_12",
+      "value": "",
+      "onclick": "BC_12();",
+      "type": "button"
+    },
+    {
+      "tag": "INPUT",
+      "name": "VA9_13",
+      "value": "",
+      "onclick": "BC_13();",
+      "type": "button"
+    },
+    {
+      "tag": "INPUT",
+      "name": "VA9_14",
+      "value": "",
+      "onclick": "BC_14();",
+      "type": "button"
+    },
+    {
+      "tag": "INPUT",
+      "name": "VA9_15",
+      "value": "",
+      "onclick": "BC_15();",
+      "type": "button"
+    },
+    {
+      "tag": "INPUT",
+      "name": "VA9_16",
+      "value": "",
+      "onclick": "BC_16();",
+      "type": "button"
+    },
+    {
+      "tag": "INPUT",
+      "name": "VA9_17",
+      "value": "",
+      "onclick": "BC_17();",
+      "type": "button"
+    },
+    {
+      "tag": "INPUT",
+      "name": "VA9_18",
+      "value": "",
+      "onclick": "BC_18();",
+      "type": "button"
+    },
+    {
+      "tag": "INPUT",
+      "name": "VA9_19",
+      "value": "",
+      "onclick": "BC_19();",
+      "type": "button"
+    },
+    {
+      "tag": "INPUT",
+      "name": "VA9_20",
+      "value": "",
+      "onclick": "BC_20();",
+      "type": "button"
+    }
+  ],
+  "appp_buttons": [
+    {
+      "tag": "INPUT",
+      "name": "FILE_LIST",
+      "value": "轉入CSV檔",
+      "onclick": "window.open(\"FILE_UP_Q.asp?ISNEW=Y&APYNO=&APYADD=&APPYSET=13&W_CLASS=STD_APPP_Q&OPENER=STD_APPP_Q&IS_PRAPPY=\", \"FILE_UP\", \"top=1,left=1,width=500,height=150,toolbar=no,menubar=no,location=no,directori"
+    },
+    {
+      "tag": "INPUT",
+      "name": "PLACE_1",
+      "value": "",
+      "onclick": "window.open(\"SEAR_PLACE_Q.asp?OBNUM=1&PLACE=\"+FORM1.PLACE_1.value+\"&DEPTNO=945\",\"\",\"left=0,top=0,width=460,height=400,toolbar=no,menubar=1,location=no,directories=no,status=no,resizable=1,scrollbars=1"
+    },
+    {
+      "tag": "INPUT",
+      "name": "KEEPER_1",
+      "value": "",
+      "onclick": "window.open(\"SEAR_KEEPER_Q.asp?FIRST=Y&OBNUM=1&KEEPER=\"+FORM1.KEEPER_1.value+\"&DEPTNO=945\",\"\",\"left=0,top=0,width=460,height=400,toolbar=no,menubar=1,location=no,directories=no,status=no,resizable=1,s"
+    },
+    {
+      "tag": "INPUT",
+      "name": "PLACE_2",
+      "value": "",
+      "onclick": "window.open(\"SEAR_PLACE_Q.asp?OBNUM=2&PLACE=\"+FORM1.PLACE_2.value+\"&DEPTNO=945\",\"\",\"left=0,top=0,width=460,height=400,toolbar=no,menubar=1,location=no,directories=no,status=no,resizable=1,scrollbars=1"
+    },
+    {
+      "tag": "INPUT",
+      "name": "KEEPER_2",
+      "value": "",
+      "onclick": "window.open(\"SEAR_KEEPER_Q.asp?FIRST=Y&OBNUM=2&KEEPER=\"+FORM1.KEEPER_2.value+\"&DEPTNO=945\",\"\",\"left=0,top=0,width=460,height=400,toolbar=no,menubar=1,location=no,directories=no,status=no,resizable=1,s"
+    },
+    {
+      "tag": "INPUT",
+      "name": "PLACE_3",
+      "value": "",
+      "onclick": "window.open(\"SEAR_PLACE_Q.asp?OBNUM=3&PLACE=\"+FORM1.PLACE_3.value+\"&DEPTNO=945\",\"\",\"left=0,top=0,width=460,height=400,toolbar=no,menubar=1,location=no,directories=no,status=no,resizable=1,scrollbars=1"
+    },
+    {
+      "tag": "INPUT",
+      "name": "KEEPER_3",
+      "value": "",
+      "onclick": "window.open(\"SEAR_KEEPER_Q.asp?FIRST=Y&OBNUM=3&KEEPER=\"+FORM1.KEEPER_3.value+\"&DEPTNO=945\",\"\",\"left=0,top=0,width=460,height=400,toolbar=no,menubar=1,location=no,directories=no,status=no,resizable=1,s"
+    },
+    {
+      "tag": "INPUT",
+      "name": "PLACE_4",
+      "value": "",
+      "onclick": "window.open(\"SEAR_PLACE_Q.asp?OBNUM=4&PLACE=\"+FORM1.PLACE_4.value+\"&DEPTNO=945\",\"\",\"left=0,top=0,width=460,height=400,toolbar=no,menubar=1,location=no,directories=no,status=no,resizable=1,scrollbars=1"
+    },
+    {
+      "tag": "INPUT",
+      "name": "KEEPER_4",
+      "value": "",
+      "onclick": "window.open(\"SEAR_KEEPER_Q.asp?FIRST=Y&OBNUM=4&KEEPER=\"+FORM1.KEEPER_4.value+\"&DEPTNO=945\",\"\",\"left=0,top=0,width=460,height=400,toolbar=no,menubar=1,location=no,directories=no,status=no,resizable=1,s"
+    },
+    {
+      "tag": "INPUT",
+      "name": "PLACE_5",
+      "value": "",
+      "onclick": "window.open(\"SEAR_PLACE_Q.asp?OBNUM=5&PLACE=\"+FORM1.PLACE_5.value+\"&DEPTNO=945\",\"\",\"left=0,top=0,width=460,height=400,toolbar=no,menubar=1,location=no,directories=no,status=no,resizable=1,scrollbars=1"
+    },
+    {
+      "tag": "INPUT",
+      "name": "KEEPER_5",
+      "value": "",
+      "onclick": "window.open(\"SEAR_KEEPER_Q.asp?FIRST=Y&OBNUM=5&KEEPER=\"+FORM1.KEEPER_5.value+\"&DEPTNO=945\",\"\",\"left=0,top=0,width=460,height=400,toolbar=no,menubar=1,location=no,directories=no,status=no,resizable=1,s"
+    },
+    {
+      "tag": "INPUT",
+      "name": "PLACE_6",
+      "value": "",
+      "onclick": "window.open(\"SEAR_PLACE_Q.asp?OBNUM=6&PLACE=\"+FORM1.PLACE_6.value+\"&DEPTNO=945\",\"\",\"left=0,top=0,width=460,height=400,toolbar=no,menubar=1,location=no,directories=no,status=no,resizable=1,scrollbars=1"
+    },
+    {
+      "tag": "INPUT",
+      "name": "KEEPER_6",
+      "value": "",
+      "onclick": "window.open(\"SEAR_KEEPER_Q.asp?FIRST=Y&OBNUM=6&KEEPER=\"+FORM1.KEEPER_6.value+\"&DEPTNO=945\",\"\",\"left=0,top=0,width=460,height=400,toolbar=no,menubar=1,location=no,directories=no,status=no,resizable=1,s"
+    },
+    {
+      "tag": "INPUT",
+      "name": "PLACE_7",
+      "value": "",
+      "onclick": "window.open(\"SEAR_PLACE_Q.asp?OBNUM=7&PLACE=\"+FORM1.PLACE_7.value+\"&DEPTNO=945\",\"\",\"left=0,top=0,width=460,height=400,toolbar=no,menubar=1,location=no,directories=no,status=no,resizable=1,scrollbars=1"
+    },
+    {
+      "tag": "INPUT",
+      "name": "KEEPER_7",
+      "value": "",
+      "onclick": "window.open(\"SEAR_KEEPER_Q.asp?FIRST=Y&OBNUM=7&KEEPER=\"+FORM1.KEEPER_7.value+\"&DEPTNO=945\",\"\",\"left=0,top=0,width=460,height=400,toolbar=no,menubar=1,location=no,directories=no,status=no,resizable=1,s"
+    },
+    {
+      "tag": "INPUT",
+      "name": "PLACE_8",
+      "value": "",
+      "onclick": "window.open(\"SEAR_PLACE_Q.asp?OBNUM=8&PLACE=\"+FORM1.PLACE_8.value+\"&DEPTNO=945\",\"\",\"left=0,top=0,width=460,height=400,toolbar=no,menubar=1,location=no,directories=no,status=no,resizable=1,scrollbars=1"
+    },
+    {
+      "tag": "INPUT",
+      "name": "KEEPER_8",
+      "value": "",
+      "onclick": "window.open(\"SEAR_KEEPER_Q.asp?FIRST=Y&OBNUM=8&KEEPER=\"+FORM1.KEEPER_8.value+\"&DEPTNO=945\",\"\",\"left=0,top=0,width=460,height=400,toolbar=no,menubar=1,location=no,directories=no,status=no,resizable=1,s"
+    },
+    {
+      "tag": "INPUT",
+      "name": "PLACE_9",
+      "value": "",
+      "onclick": "window.open(\"SEAR_PLACE_Q.asp?OBNUM=9&PLACE=\"+FORM1.PLACE_9.value+\"&DEPTNO=945\",\"\",\"left=0,top=0,width=460,height=400,toolbar=no,menubar=1,location=no,directories=no,status=no,resizable=1,scrollbars=1"
+    },
+    {
+      "tag": "INPUT",
+      "name": "KEEPER_9",
+      "value": "",
+      "onclick": "window.open(\"SEAR_KEEPER_Q.asp?FIRST=Y&OBNUM=9&KEEPER=\"+FORM1.KEEPER_9.value+\"&DEPTNO=945\",\"\",\"left=0,top=0,width=460,height=400,toolbar=no,menubar=1,location=no,directories=no,status=no,resizable=1,s"
+    },
+    {
+      "tag": "INPUT",
+      "name": "PLACE_10",
+      "value": "",
+      "onclick": "window.open(\"SEAR_PLACE_Q.asp?OBNUM=10&PLACE=\"+FORM1.PLACE_10.value+\"&DEPTNO=945\",\"\",\"left=0,top=0,width=460,height=400,toolbar=no,menubar=1,location=no,directories=no,status=no,resizable=1,scrollbars"
+    },
+    {
+      "tag": "INPUT",
+      "name": "KEEPER_10",
+      "value": "",
+      "onclick": "window.open(\"SEAR_KEEPER_Q.asp?FIRST=Y&OBNUM=10&KEEPER=\"+FORM1.KEEPER_10.value+\"&DEPTNO=945\",\"\",\"left=0,top=0,width=460,height=400,toolbar=no,menubar=1,location=no,directories=no,status=no,resizable=1"
+    },
+    {
+      "tag": "INPUT",
+      "name": "PLACE_11",
+      "value": "",
+      "onclick": "window.open(\"SEAR_PLACE_Q.asp?OBNUM=11&PLACE=\"+FORM1.PLACE_11.value+\"&DEPTNO=945\",\"\",\"left=0,top=0,width=460,height=400,toolbar=no,menubar=1,location=no,directories=no,status=no,resizable=1,scrollbars"
+    },
+    {
+      "tag": "INPUT",
+      "name": "KEEPER_11",
+      "value": "",
+      "onclick": "window.open(\"SEAR_KEEPER_Q.asp?FIRST=Y&OBNUM=11&KEEPER=\"+FORM1.KEEPER_11.value+\"&DEPTNO=945\",\"\",\"left=0,top=0,width=460,height=400,toolbar=no,menubar=1,location=no,directories=no,status=no,resizable=1"
+    },
+    {
+      "tag": "INPUT",
+      "name": "PLACE_12",
+      "value": "",
+      "onclick": "window.open(\"SEAR_PLACE_Q.asp?OBNUM=12&PLACE=\"+FORM1.PLACE_12.value+\"&DEPTNO=945\",\"\",\"left=0,top=0,width=460,height=400,toolbar=no,menubar=1,location=no,directories=no,status=no,resizable=1,scrollbars"
+    },
+    {
+      "tag": "INPUT",
+      "name": "KEEPER_12",
+      "value": "",
+      "onclick": "window.open(\"SEAR_KEEPER_Q.asp?FIRST=Y&OBNUM=12&KEEPER=\"+FORM1.KEEPER_12.value+\"&DEPTNO=945\",\"\",\"left=0,top=0,width=460,height=400,toolbar=no,menubar=1,location=no,directories=no,status=no,resizable=1"
+    },
+    {
+      "tag": "INPUT",
+      "name": "PLACE_13",
+      "value": "",
+      "onclick": "window.open(\"SEAR_PLACE_Q.asp?OBNUM=13&PLACE=\"+FORM1.PLACE_13.value+\"&DEPTNO=945\",\"\",\"left=0,top=0,width=460,height=400,toolbar=no,menubar=1,location=no,directories=no,status=no,resizable=1,scrollbars"
+    },
+    {
+      "tag": "INPUT",
+      "name": "KEEPER_13",
+      "value": "",
+      "onclick": "window.open(\"SEAR_KEEPER_Q.asp?FIRST=Y&OBNUM=13&KEEPER=\"+FORM1.KEEPER_13.value+\"&DEPTNO=945\",\"\",\"left=0,top=0,width=460,height=400,toolbar=no,menubar=1,location=no,directories=no,status=no,resizable=1"
+    },
+    {
+      "tag": "INPUT",
+      "name": "PLACE_14",
+      "value": "",
+      "onclick": "window.open(\"SEAR_PLACE_Q.asp?OBNUM=14&PLACE=\"+FORM1.PLACE_14.value+\"&DEPTNO=945\",\"\",\"left=0,top=0,width=460,height=400,toolbar=no,menubar=1,location=no,directories=no,status=no,resizable=1,scrollbars"
+    },
+    {
+      "tag": "INPUT",
+      "name": "KEEPER_14",
+      "value": "",
+      "onclick": "window.open(\"SEAR_KEEPER_Q.asp?FIRST=Y&OBNUM=14&KEEPER=\"+FORM1.KEEPER_14.value+\"&DEPTNO=945\",\"\",\"left=0,top=0,width=460,height=400,toolbar=no,menubar=1,location=no,directories=no,status=no,resizable=1"
+    },
+    {
+      "tag": "INPUT",
+      "name": "PLACE_15",
+      "value": "",
+      "onclick": "window.open(\"SEAR_PLACE_Q.asp?OBNUM=15&PLACE=\"+FORM1.PLACE_15.value+\"&DEPTNO=945\",\"\",\"left=0,top=0,width=460,height=400,toolbar=no,menubar=1,location=no,directories=no,status=no,resizable=1,scrollbars"
+    },
+    {
+      "tag": "INPUT",
+      "name": "KEEPER_15",
+      "value": "",
+      "onclick": "window.open(\"SEAR_KEEPER_Q.asp?FIRST=Y&OBNUM=15&KEEPER=\"+FORM1.KEEPER_15.value+\"&DEPTNO=945\",\"\",\"left=0,top=0,width=460,height=400,toolbar=no,menubar=1,location=no,directories=no,status=no,resizable=1"
+    },
+    {
+      "tag": "INPUT",
+      "name": "",
+      "value": "導引申請",
+      "onclick": "window.location = ('../QA_Q/QA_PUR_FLOW.asp?QA_ID=56006&IsNew=Y&APYNO=&APYADD=&ISPURC=False&APPYSET=13'); parent.DD.rows = '0,*'; parent.QQ.cols = '*,0,0';"
+    },
+    {
+      "tag": "INPUT",
+      "name": "",
+      "value": "引用舊採購案",
+      "onclick": "window.location = ('../QA_Q/QA_PUR_FLOW_LIST.asp?IsNew=Y&APYNO=&APYADD=&ISPURC=False&APPYSET=13&QA_ID=56006'); parent.DD.rows = '0,*'; parent.QQ.cols = '*,0,0';"
+    },
+    {
+      "tag": "INPUT",
+      "name": "EMAIL",
+      "value": "電子郵件",
+      "onclick": "EMAIL_C();"
+    },
+    {
+      "tag": "A",
+      "name": "",
+      "value": "政府電子採購網頁",
+      "onclick": "",
+      "href": "https://web.pcc.gov.tw/vms/rvlm/rvlmPublicSearch/indexSearchRvlmPublic"
+    },
+    {
+      "tag": "A",
+      "name": "",
+      "value": "【說明】",
+      "onclick": "AA=window.open(\"http://greenmark.epa.gov.tw/main4.asp\",\"\",\"top=1,left=1,width=400,height=400,resizable=1\");",
+      "href": "https://account.ncut.edu.tw/APSWIS_Q/Dept_Add_Q/STD_APPP_Q.asp?APPYYEAR=115&ISNEW=Y&APYNO=&APYADD=&A"
+    }
+  ],
+  "appa_buttons": [
+    {
+      "tag": "INPUT",
+      "name": "",
+      "value": "借支現金",
+      "onclick": "FORM1.INVOICENO_1.value='已借支';FORM1.VENDORID_1.value=CharToAsc('XX04');FORM1.VENDORID_S_1.value='XX04';FORM1.VENNAME_1.value='借支現金';"
+    },
+    {
+      "tag": "INPUT",
+      "name": "",
+      "value": "填入收據",
+      "onclick": "ATOREC();"
+    },
+    {
+      "tag": "INPUT",
+      "name": "",
+      "value": "詳如清冊",
+      "onclick": "ATOLIS();"
+    }
+  ],
+  "appy_data": {
+    "bugetno": "AA14945002N",
+    "bugcode": "300",
+    "amount": "120",
+    "sum_list": "加總:$120"
+  },
+  "appp_data": {
+    "items": [
+      {
+        "row": 1,
+        "product": "測試品項A",
+        "amount": "80"
+      },
+      {
+        "row": 2,
+        "product": "測試品項B",
+        "amount": "40"
+      }
+    ],
+    "content": "測試商店-按鈕測試 - 測試品項A, 測試品項B",
+    "sum": "加總:$0"
+  },
+  "appa_data": {
+    "venname": "劉瑞弘",
+    "vendorid_s": "56006",
+    "vendorid": "53※54※48※48※54",
+    "bankno": "0073134",
+    "account": "31368194812",
+    "amount": "120",
+    "invoiceno": "收據115021199",
+    "idate": "1150211",
+    "paykind": "2",
+    "sum": "加總:$120"
+  },
+  "serialized": {
+    "D_STR": "1#AA14945002N#300#120###6@",
+    "P_STR": "1◎測試品項A○○○◎1◎式◎80◎◎◎◎◎@2◎測試品項B○○○◎1◎式◎40◎◎◎◎◎@",
+    "A_STR": "1#56006#劉瑞弘#1150211#收據115021199#120#0#2#0073134#31368194812#劉瑞弘##@",
+    "dialogs": []
+  }
+}

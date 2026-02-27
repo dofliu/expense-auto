@@ -1,0 +1,50 @@
+{
+  "appy_bugetno_options": [
+    {
+      "index": 0,
+      "value": "",
+      "text": "請先【點選本格】下拉選擇經費"
+    },
+    {
+      "index": 1,
+      "value": "",
+      "text": "【】"
+    }
+  ],
+  "title_selects": [
+    {
+      "name": "YEARLY",
+      "options": [
+        {
+          "value": "112",
+          "text": "112"
+        },
+        {
+          "value": "113",
+          "text": "113"
+        },
+        {
+          "value": "114",
+          "text": "114"
+        },
+        {
+          "value": "115",
+          "text": "115"
+        }
+      ]
+    },
+    {
+      "name": "BUGETNO",
+      "options": [
+        {
+          "value": "",
+          "text": "請下拉選擇預算"
+        },
+        {
+          "value": "無授權計畫",
+          "text": "無授權計畫"
+        }
+      ]
+    }
+  ]
+}

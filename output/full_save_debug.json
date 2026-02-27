@@ -1,0 +1,317 @@
+{
+  "ps_info": {
+    "form_action": "https://account.ncut.edu.tw/APSWIS_Q/Dept_Add_Q/STD_SAVE_SE1_Q.asp",
+    "form_method": "post",
+    "form_enctype": "application/x-www-form-urlencoded",
+    "form_encoding": "application/x-www-form-urlencoded",
+    "form_acceptCharset": "",
+    "doc_charset": "Big5",
+    "doc_contentType": "text/html",
+    "meta_charset": "text-html; charset=big5",
+    "hidden_fields": [
+      {
+        "name": "SAMPLENO",
+        "type": "hidden",
+        "valueLen": 0,
+        "valueSample": ""
+      },
+      {
+        "name": "APPU",
+        "type": "hidden",
+        "valueLen": 0,
+        "valueSample": ""
+      },
+      {
+        "name": "IsNew",
+        "type": "hidden",
+        "valueLen": 0,
+        "valueSample": ""
+      },
+      {
+        "name": "APPYYEAR",
+        "type": "hidden",
+        "valueLen": 0,
+        "valueSample": ""
+      },
+      {
+        "name": "APYNO",
+        "type": "hidden",
+        "valueLen": 0,
+        "valueSample": ""
+      },
+      {
+        "name": "APYADD",
+        "type": "hidden",
+        "valueLen": 0,
+        "valueSample": ""
+      },
+      {
+        "name": "ADATE",
+        "type": "hidden",
+        "valueLen": 0,
+        "valueSample": ""
+      },
+      {
+        "name": "APYDEP",
+        "type": "hidden",
+        "valueLen": 0,
+        "valueSample": ""
+      },
+      {
+        "name": "APYUSERNO",
+        "type": "hidden",
+        "valueLen": 0,
+        "valueSample": ""
+      },
+      {
+        "name": "ISAPPY",
+        "type": "hidden",
+        "valueLen": 0,
+        "valueSample": ""
+      },
+      {
+        "name": "ISVOUC",
+        "type": "hidden",
+        "valueLen": 0,
+        "valueSample": ""
+      },
+      {
+        "name": "ISTEMP",
+        "type": "hidden",
+        "valueLen": 0,
+        "valueSample": ""
+      },
+      {
+        "name": "ISCASH",
+        "type": "hidden",
+        "valueLen": 0,
+        "valueSample": ""
+      },
+      {
+        "name": "ISPURC",
+        "type": "hidden",
+        "valueLen": 0,
+        "valueSample": ""
+      },
+      {
+        "name": "APPYSET",
+        "type": "hidden",
+        "valueLen": 0,
+        "valueSample": ""
+      },
+      {
+        "name": "APPYBUY",
+        "type": "hidden",
+        "valueLen": 0,
+        "valueSample": ""
+      },
+      {
+        "name": "MOVETYPE",
+        "type": "hidden",
+        "valueLen": 0,
+        "valueSample": ""
+      },
+      {
+        "name": "SETNAME",
+        "type": "hidden",
+        "valueLen": 0,
+        "valueSample": ""
+      },
+      {
+        "name": "ABSTRACT",
+        "type": "hidden",
+        "valueLen": 0,
+        "valueSample": ""
+      },
+      {
+        "name": "D_STR",
+        "type": "hidden",
+        "valueLen": 0,
+        "valueSample": ""
+      },
+      {
+        "name": "A_STR",
+        "type": "hidden",
+        "valueLen": 0,
+        "valueSample": ""
+      },
+      {
+        "name": "P_STR",
+        "type": "hidden",
+        "valueLen": 0,
+        "valueSample": ""
+      },
+      {
+        "name": "ALL_DEPT",
+        "type": "hidden",
+        "valueLen": 0,
+        "valueSample": ""
+      },
+      {
+        "name": "NO_MATH",
+        "type": "hidden",
+        "valueLen": 0,
+        "valueSample": ""
+      },
+      {
+        "name": "VOUSERNO",
+        "type": "hidden",
+        "valueLen": 0,
+        "valueSample": ""
+      },
+      {
+        "name": "ISPERI",
+        "type": "hidden",
+        "valueLen": 0,
+        "valueSample": ""
+      },
+      {
+        "name": "ISESS",
+        "type": "hidden",
+        "valueLen": 0,
+        "valueSample": ""
+      },
+      {
+        "name": "Y_METHODS",
+        "type": "hidden",
+        "valueLen": 0,
+        "valueSample": ""
+      },
+      {
+        "name": "ACCORDING",
+        "type": "hidden",
+        "valueLen": 0,
+        "valueSample": ""
+      }
+    ],
+    "ps_url": "https://account.ncut.edu.tw/APSWIS_Q/Dept_Add_Q/PR_SAVE_Q.asp"
+  },
+  "initial_appy": {
+    "bugetno": "AA14945002N",
+    "bugcode": "300",
+    "amount": "120",
+    "sum_list": "加總:$120",
+    "appybuy": "",
+    "no_math": "N"
+  },
+  "initial_appp": {
+    "items": [
+      {
+        "row": 1,
+        "product": "測試品項A",
+        "quantity": "1",
+        "serunit": "式",
+        "amount": "80"
+      },
+      {
+        "row": 2,
+        "product": "測試品項B",
+        "quantity": "1",
+        "serunit": "式",
+        "amount": "40"
+      }
+    ],
+    "content": "",
+    "sum": "加總:$0"
+  },
+  "initial_appa": {
+    "venname": "劉瑞弘",
+    "vendorid_s": "56006",
+    "vendorid": "53※54※48※48※54",
+    "bankno": "0073134",
+    "account": "31368194812",
+    "accountnam": "劉瑞弘",
+    "amount": "120",
+    "invoiceno": "收據115021188",
+    "idate": "1150211",
+    "paykind": "2",
+    "sum": "加總:$120"
+  },
+  "sums": {
+    "budget": "加總:$120",
+    "items": "加總:$120",
+    "payee": "加總:$120"
+  },
+  "serialization_preview": {
+    "D_STR": "1#AA14945002N#300#120###6@",
+    "P_STR": "1◎測試品項A○○○◎1◎式◎80◎◎◎◎◎@2◎測試品項B○○○◎1◎式◎40◎◎◎◎◎@",
+    "A_STR": "1#56006#劉瑞弘#1150211#收據115021188#120#0#2#0073134#31368194812#劉瑞弘##@"
+  },
+  "dialog_messages": [],
+  "captured_requests": [
+    {
+      "url": "https://account.ncut.edu.tw/APSWIS_Q/Dept_Add_Q/STD_SAVE_SE1_Q.asp",
+      "method": "POST",
+      "content_type": "application/x-www-form-urlencoded",
+      "text_length": 726,
+      "bytes_length": 726,
+      "parsed_utf8": {
+        "SAMPLENO": "",
+        "APPU": "",
+        "IsNew": "Y",
+        "APPYYEAR": "115",
+        "APYNO": "",
+        "APYADD": "",
+        "ADATE": "1150227",
+        "APYDEP": "945",
+        "APYUSERNO": "56006",
+        "ISAPPY": "True",
+        "ISVOUC": "True",
+        "ISTEMP": "False",
+        "ISCASH": "True",
+        "ISPURC": "False",
+        "APPYSET": "13",
+        "APPYBUY": "",
+        "MOVETYPE": "6",
+        "SETNAME": "�����־P(�s�Ϊ�)",
+        "ABSTRACT": "",
+        "D_STR": "1#AA14945002N#300#120###6@",
+        "A_STR": "1#56006#�B�祰#1150211#����115021188#120#0#2#0073134#31368194812#�B�祰##@",
+        "P_STR": "1�����ի~��A��������1������80����������@2�����ի~��B��������1������40����������@",
+        "ALL_DEPT": "",
+        "NO_MATH": "N",
+        "VOUSERNO": "",
+        "ISPERI": "N",
+        "ISESS": "N",
+        "Y_METHODS": "",
+        "ACCORDING": ""
+      },
+      "parsed_big5": {
+        "SAMPLENO": "",
+        "APPU": "",
+        "IsNew": "Y",
+        "APPYYEAR": "115",
+        "APYNO": "",
+        "APYADD": "",
+        "ADATE": "1150227",
+        "APYDEP": "945",
+        "APYUSERNO": "56006",
+        "ISAPPY": "True",
+        "ISVOUC": "True",
+        "ISTEMP": "False",
+        "ISCASH": "True",
+        "ISPURC": "False",
+        "APPYSET": "13",
+        "APPYBUY": "",
+        "MOVETYPE": "6",
+        "SETNAME": "直接核銷(零用金)",
+        "ABSTRACT": "",
+        "D_STR": "1#AA14945002N#300#120###6@",
+        "A_STR": "1#56006#劉瑞弘#1150211#收據115021188#120#0#2#0073134#31368194812#劉瑞弘##@",
+        "P_STR": "1◎測試品項A○○○◎1◎式◎80◎◎◎◎◎@2◎測試品項B○○○◎1◎式◎40◎◎◎◎◎@",
+        "ALL_DEPT": "",
+        "NO_MATH": "N",
+        "VOUSERNO": "",
+        "ISPERI": "N",
+        "ISESS": "N",
+        "Y_METHODS": "",
+        "ACCORDING": ""
+      },
+      "raw_hex_samples": {
+        "D_STR": "1%23AA14945002N%23300%23120%23%23%236%40",
+        "A_STR": "1%2356006%23%BCB%B7%E7%A5%B0%231150211%23%A6%AC%BE%DA115021188%23120%230%232%230073134%2331368194812%23%BCB%B7%E7%A5%B0%23%23%40",
+        "P_STR": "1%A1%B7%B4%FA%B8%D5%AB%7E%B6%B5A%A1%B3%A1%B3%A1%B3%A1%B71%A1%B7%A6%A1%A1%B780%A1%B7%A1%B7%A1%B7%A1%B7%A1%B7%402%A1%B7%B4%FA%B8%D5%AB%7E%B6%B5B%A1%B3%A1%B3%A1%B3%A1%B71%A1%B7%A6%A1%A1%B740%A1%B7%A1%B7%A1%B7%A1%B7%A1%B7%40"
+      }
+    }
+  ]
+}

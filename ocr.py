@@ -1,11 +1,15 @@
-"""發票/收據圖片辨識，使用 Google Gemini Vision API。"""
+"""發票/收據圖片辨識，使用 Google Gemini Vision API（google.genai 新套件）。"""
 
 import json
 import os
 from pathlib import Path
 
-import google.generativeai as genai
+from google import genai
 from PIL import Image
+
+
+# 使用 gemini-2.5-flash：速度快、支援 vision、適合 OCR
+MODEL_NAME = "gemini-2.5-flash"
 
 
 def extract_receipt_data(image_path: str) -> dict:
@@ -22,9 +26,7 @@ def extract_receipt_data(image_path: str) -> dict:
             "items": [{"name": "文具用品", "quantity": 1, "price": 150}]
         }
     """
-    genai.configure(api_key=os.environ["GEMINI_API_KEY"])
-
-    model = genai.GenerativeModel("gemini-3.1-pro-preview")
+    client = genai.Client(api_key=os.environ["GEMINI_API_KEY"])
     image = Image.open(image_path)
 
     prompt = (
@@ -34,11 +36,14 @@ def extract_receipt_data(image_path: str) -> dict:
         "- amount: 總金額 (數字)\n"
         "- tax_id: 統一編號 (8碼，若無則為空字串)\n"
         "- invoice_no: 發票號碼 (若無則為空字串)\n"
-        "- items: 品項列表，每項含 name, quantity, price\n"
+        "- items: 品項列表，每項含 name, quantity, price（price 是單價）\n"
         "只回傳 JSON，不要其他文字，不要用 markdown code block。"
     )
 
-    response = model.generate_content([prompt, image])
+    response = client.models.generate_content(
+        model=MODEL_NAME,
+        contents=[prompt, image],
+    )
     raw = response.text.strip()
 
     # 移除可能的 markdown code block 包裹

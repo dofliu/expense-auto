@@ -1,0 +1,275 @@
+{
+  "url": "https://account.ncut.edu.tw/APSWIS_Q/Dept_Add_Q/DA_SerFun_Q.asp?COM=NT",
+  "selects": [
+    {
+      "name": "BUGETNO",
+      "id": "BUGETNO",
+      "options": [
+        {
+          "v": "",
+          "t": "請下拉選擇計畫"
+        },
+        {
+          "v": "AA13945004N",
+          "t": "【AA13945004N】劉瑞弘-社團法人中華民國管理科學學會-台比職訓機構合作領域之"
+        },
+        {
+          "v": "AA13945009N",
+          "t": "【AA13945009N】劉瑞弘-工業技術研究院-離岸風電場運轉模式驗證暨故障警報事件"
+        },
+        {
+          "v": "AA13945013N",
+          "t": "【AA13945013N】劉瑞弘-工業技術研究院-風機SCADA資料採集與監視系統解析"
+        },
+        {
+          "v": "AA13945018N",
+          "t": "【AA13945018N】劉瑞弘-財團法人工業技術研究院-沖壓設備之驅動馬達控制系統旋"
+        },
+        {
+          "v": "AA14945002N",
+          "t": "【AA14945002N】劉瑞弘-工業技術研究院-定位量測驗證技術相關模組及元件委託設"
+        },
+        {
+          "v": "AE14945007",
+          "t": "【AE14945007】劉瑞弘-經濟部產業發展署-智慧製造創新加值應用輔導計畫-刀具"
+        },
+        {
+          "v": "BB14945005",
+          "t": "【BB14945005】基於大型語言模型之風力發電機警報資訊分析與維修決策支援系統開"
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "name": "aBT2",
+      "text": "",
+      "href": "https://account.ncut.edu.tw/APSWIS_Q/Dept_Add_Q/DA_APP_Q.asp?RNK=N022640459&SerKind=0&APPYYEAR=115&AUTO_PURCHASE=",
+      "onclick": "",
+      "visible": true
+    },
+    {
+      "name": "aBT1",
+      "text": "",
+      "href": "https://account.ncut.edu.tw/APSWIS_Q/Dept_Add_Q/DA_SerStart_Q.asp?RNK=N022640459&APPYYEAR=115",
+      "onclick": "",
+      "visible": true
+    },
+    {
+      "name": "SBT6",
+      "text": "",
+      "href": "https://account.ncut.edu.tw/APSWIS_Q/Dept_Ser_Q/P_BUGETS_FILTER_Q.asp?SRK=N022640459&STYPE=BT4&BYEAR=&SER_USERNO=&QSTR=",
+      "onclick": "",
+      "visible": true
+    },
+    {
+      "name": "SBTB15",
+      "text": "",
+      "href": "https://account.ncut.edu.tw/APSWIS_Q/Dept_Ser_Q/USERIGHT_LIST_Q.asp?SRK=N022640459&BYEAR=115&SER_USERNO=56006&COM=NT",
+      "onclick": "",
+      "visible": true
+    },
+    {
+      "name": "QBT1",
+      "text": "",
+      "href": "https://account.ncut.edu.tw/APSWIS_Q/OTHER_LIST_Q/PapMain_Q.asp?RNK=N022640459&ISNEW=N&SerKind=3&APPYYEAR=115",
+      "onclick": "",
+      "visible": true
+    },
+    {
+      "name": "DT",
+      "text": "",
+      "href": "https://account.ncut.edu.tw/APSWIS_Q/Dept_Add_Q/DA_SerFun_Q.asp?COM=NT",
+      "onclick": "",
+      "visible": true
+    },
+    {
+      "name": "SBT1",
+      "text": "",
+      "href": "https://account.ncut.edu.tw/APSWIS_Q/Dept_Add_Q/javascript.void(0);",
+      "onclick": "openSBT1(this);",
+      "visible": true
+    },
+    {
+      "name": "SBT2",
+      "text": "",
+      "href": "https://account.ncut.edu.tw/APSWIS_Q/Dept_Add_Q/javascript.void(0);",
+      "onclick": "openSBT2(this);",
+      "visible": true
+    },
+    {
+      "name": "SBT7",
+      "text": "",
+      "href": "https://account.ncut.edu.tw/APSWIS_Q/Dept_Add_Q/javascript.void(0);",
+      "onclick": "openSBT7(this);",
+      "visible": true
+    },
+    {
+      "name": "SBT3",
+      "text": "",
+      "href": "https://account.ncut.edu.tw/APSWIS_Q/Dept_Add_Q/javascript.void(0);",
+      "onclick": "openSBT3(this);",
+      "visible": true
+    },
+    {
+      "name": "SBT8",
+      "text": "",
+      "href": "https://account.ncut.edu.tw/APSWIS_Q/Dept_Add_Q/javascript.void(0);",
+      "onclick": "openSBT8(this);",
+      "visible": true
+    },
+    {
+      "name": "SBT9",
+      "text": "",
+      "href": "https://account.ncut.edu.tw/APSWIS_Q/Dept_Add_Q/javascript.void(0);",
+      "onclick": "openSBT9(this);",
+      "visible": true
+    },
+    {
+      "name": "SBT4",
+      "text": "",
+      "href": "https://account.ncut.edu.tw/APSWIS_Q/Dept_Add_Q/javascript.void(0);",
+      "onclick": "openSBT4(this);",
+      "visible": true
+    }
+  ],
+  "buttons": [
+    {
+      "name": "",
+      "value": " 選擇請購年度",
+      "type": "button",
+      "onclick": "LIS1( );"
+    },
+    {
+      "name": "",
+      "value": " 部門請購查詢",
+      "type": "button",
+      "onclick": "LIS2( );"
+    },
+    {
+      "name": "",
+      "value": " 計畫請購查詢",
+      "type": "button",
+      "onclick": "LIS4( );"
+    },
+    {
+      "name": "",
+      "value": " 輔助項目服務",
+      "type": "button",
+      "onclick": "LIS7( );"
+    },
+    {
+      "name": "",
+      "value": "登出系統  ",
+      "type": "button",
+      "onclick": "LIS8( );"
+    },
+    {
+      "name": "BUTA2",
+      "value": "新增請購",
+      "type": "button",
+      "onclick": "parent.FM.rows=\"15%,*,0,0,0,0,0\";aBT2.click();"
+    },
+    {
+      "name": "BUTA1",
+      "value": "購案管理",
+      "type": "button",
+      "onclick": "parent.FM.rows=\"15%,*,0,0,0,0,0\";aBT1.click();"
+    },
+    {
+      "name": "BUTA8",
+      "value": "經費授權",
+      "type": "button",
+      "onclick": "parent.FM.rows=\"15%,0,*,0,0,0,0\";parent.OT.T.Q.click();"
+    },
+    {
+      "name": "BUT6",
+      "value": "購案查詢",
+      "type": "button",
+      "onclick": "parent.FM.rows=\"15%,*,0,0,0,0,0\";SBT6.click();"
+    },
+    {
+      "name": "BUTB15",
+      "value": "授權查詢",
+      "type": "button",
+      "onclick": "parent.FM.rows=\"15%,*,0,0,0,0,0\";SBTB15.click();"
+    },
+    {
+      "name": "BUTA7",
+      "value": "其他清單",
+      "type": "button",
+      "onclick": "parent.FM.rows=\"15%,*,0,0,0,0,0\";QBT1.click();"
+    },
+    {
+      "name": "BUT1",
+      "value": "計畫清單",
+      "type": "button",
+      "onclick": "parent.FM.rows=\"15%,*,0,0,0,0,0\";SBT1.click();"
+    },
+    {
+      "name": "BUT2",
+      "value": "用途明細",
+      "type": "button",
+      "onclick": "parent.FM.rows=\"15%,*,0,0,0,0,0\";SBT2.click();"
+    },
+    {
+      "name": "BUT7",
+      "value": "收支明細",
+      "type": "button",
+      "onclick": "parent.FM.rows=\"15%,*,0,0,0,0,0\";SBT7.click();"
+    },
+    {
+      "name": "BUT3",
+      "value": "請購明細",
+      "type": "button",
+      "onclick": "parent.FM.rows=\"15%,*,0,0,0,0,0\";SBT3.click();"
+    },
+    {
+      "name": "BUTH4",
+      "value": "收支報告表",
+      "type": "button",
+      "onclick": "window.open(\"../Dept_Ser_Q/VOUC_LIST_PR_Q.asp?BUGETNO=\"+F1.BUGETNO.value+\"\",\"null\",\"left=0,top=0,width=460,height=420,toolbar=no,menubar=1,location=no,directories=no,status=no,resizable=1,scrollbars=1\");"
+    },
+    {
+      "name": "BUT8",
+      "value": "購案品項",
+      "type": "button",
+      "onclick": "parent.FM.rows=\"15%,*,0,0,0,0,0\";SBT8.click();"
+    }
+  ],
+  "forms": [
+    {
+      "name": "F1",
+      "action": "https://account.ncut.edu.tw/APSWIS_Q/Dept_Add_Q/DA_SerFun_Q.asp?COM=NT"
+    }
+  ],
+  "functions": [
+    "function disableInfo",
+    "function showBackground",
+    "function closeWindow",
+    "function PALERT",
+    "function P_alert",
+    "function POPEN",
+    "function P_OPEN",
+    "function P_WCLOSE",
+    "function WINCLOSE",
+    "function WIN_COLSE",
+    "function WIN_OPEN",
+    "function openSBT1",
+    "function openSBT2",
+    "function openSBT7",
+    "function openSBT3",
+    "function openSBT8",
+    "function openSBT9",
+    "function openSBT4",
+    "function LIS1",
+    "function LIS2",
+    "function LIS3",
+    "function LIS4",
+    "function LIS5",
+    "function LIS6",
+    "function LIS7",
+    "function LIS8"
+  ],
+  "abt_sources": {}
+}

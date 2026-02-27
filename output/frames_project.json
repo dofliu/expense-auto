@@ -1,0 +1,42 @@
+[
+  {
+    "name": "",
+    "url": "https://account.ncut.edu.tw/APSWIS_Q/Dept_Add_Q/DA_SerBug_Menu_Q.asp?Firstload=Y"
+  },
+  {
+    "name": "TITLE",
+    "url": "https://account.ncut.edu.tw/APSWIS_Q/Dept_Add_Q/DA_SerFun_Q.asp?COM=YT&LOM=Y"
+  },
+  {
+    "name": "MAIN",
+    "url": "https://account.ncut.edu.tw/APSWIS_Q/BLANK_Q.asp?COM=YT&LOM=Y"
+  },
+  {
+    "name": "OT",
+    "url": "https://account.ncut.edu.tw/APSWIS_Q/SHAR_BUG_Q/SHAR_BUG_STR_Q.asp?COM=YT&LOM=Y"
+  },
+  {
+    "name": "CK_VN",
+    "url": "https://account.ncut.edu.tw/APSWIS_Q/Dept_Add_Q/CHK_VEN_Q.asp"
+  },
+  {
+    "name": "LA_AM",
+    "url": "https://account.ncut.edu.tw/APSWIS_Q/Dept_Add_Q/LAST_AM_Q.asp"
+  },
+  {
+    "name": "TRAN",
+    "url": "https://account.ncut.edu.tw/APSWIS_Q/Dept_Add_Q/TRAN_Q.asp?COM=YT&LOM=Y"
+  },
+  {
+    "name": "OTHER",
+    "url": "https://account.ncut.edu.tw/APSWIS_Q/BLANK_Q.asp"
+  },
+  {
+    "name": "T",
+    "url": "https://account.ncut.edu.tw/APSWIS_Q/SHAR_BUG_Q/SHAR_BUG_Q.asp"
+  },
+  {
+    "name": "M",
+    "url": "https://account.ncut.edu.tw/APSWIS_Q/SHAR_BUG_Q/SHR_USERIGHT_LIST_Q.asp"
+  }
+]

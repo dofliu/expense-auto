@@ -97,6 +97,42 @@ APPY_FIELDS = {
     "amount": "D_AMOUNT",       # 金額 text input
 }
 
+# ── APPA frame (受款人) 欄位 ─────────────────────────
+# 每行 N (1~20):
+#   PROX_N         — 代墊 checkbox (onclick=CP_N(); PAYKIND_N toggled 1↔2)
+#   PAYKIND_N      — hidden: 1=一般, 2=代墊
+#   TAX_N          — hidden: 稅額 (預設 0)
+#   INVOICENO_N    — 發票/收據號碼 (text, 前2碼須為文字)
+#   IDATE_N        — 發票/收據日期 (text, 6~7位數字: 如 "1150226")
+#   VENDORID_S_N   — 受款人代碼 (visible text, onblur=CHK_P_N())
+#   VENDORID_N     — 受款人代碼 (hidden, encoded by CharToAsc)
+#   BANKNO_N       — 銀行代碼 (hidden, CK_VN 回填)
+#   ACCOUNT_N      — 帳號 (hidden, CK_VN 回填)
+#   ACCOUNTNAM_N   — 帳戶名稱 (hidden, CK_VN 回填)
+#   VENNAME_N      — 受款人姓名 (text, CK_VN 回填)
+#   AMOUNT_N       — 含稅金額 (text, onblur=SUM_SUM())
+APPA_FIELDS = {
+    "advance_chk": "PROX",          # 代墊 checkbox
+    "paykind": "PAYKIND",           # 付款類型 hidden (1=一般, 2=代墊)
+    "invoiceno": "INVOICENO",       # 發票/收據號碼
+    "idate": "IDATE",               # 發票/收據日期 (7位: 1150226)
+    "vendorid_s": "VENDORID_S",     # 受款人代碼 (visible)
+    "vendorid": "VENDORID",         # 受款人代碼 (hidden)
+    "bankno": "BANKNO",             # 銀行代碼 (hidden)
+    "account": "ACCOUNT",           # 帳號 (hidden)
+    "accountnam": "ACCOUNTNAM",     # 帳戶名稱 (hidden)
+    "venname": "VENNAME",           # 受款人姓名
+    "amount": "AMOUNT",             # 含稅金額
+}
+
+# ── 收據號碼設定 ──────────────────────────────────────
+# 格式: "收據115022601"  = 收據 + 民國年(115) + 月(02) + 日(26) + 流水號(01)
+RECEIPT_PREFIX = "收據"
+
+# ── 受款人設定（代墊情境）─────────────────────────────
+PAYEE_CODE = USERNAME  # 代墊者帳號 = 登入帳號 (e.g. "56006")
+BANK_KEYWORD = "一銀竹北"  # 銀行帳戶彈窗中要選的選項
+
 # ── 預設會計科目 ──────────────────────────────────────
 # 常用科目對照：
 #   110704-8012 管理及總務費用-材料及用品費 (辦公用品、文具)

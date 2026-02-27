@@ -1,0 +1,93 @@
+{
+  "links": [],
+  "forms": [],
+  "buttons": [
+    {
+      "name": "",
+      "value": "選定",
+      "onclick": "\n\t\t\topener.parent.MAIN.APPA.FORM1.VENDORID_S_1.value='56006';\n\t\t\topener.parent.MAIN.APPA.FORM1.VENDORID_1.value=CharToAsc('56006');\t\t\t\n\t\t\topener.parent.MAIN.APPA.FORM1.VENNAME_1.value='劉瑞弘';\n\t\t\topener.parent.MAIN.APPA.FORM1.BANKNO_1.value='0051563';\n\t\t\topener.parent.MAIN.APPA.FORM1.ACCOUNT_1.value='156008727490';\n\t\t\topener.parent.MAIN.APPA.FORM1.ACCOUNTNAM_1.value='劉瑞弘';\n\t\t\t\n\t\t\twindow.close();"
+    },
+    {
+      "name": "",
+      "value": "選定",
+      "onclick": "\n\t\t\topener.parent.MAIN.APPA.FORM1.VENDORID_S_1.value='56006';\n\t\t\topener.parent.MAIN.APPA.FORM1.VENDORID_1.value=CharToAsc('56006');\t\t\t\n\t\t\topener.parent.MAIN.APPA.FORM1.VENNAME_1.value='劉瑞弘';\n\t\t\topener.parent.MAIN.APPA.FORM1.BANKNO_1.value='0073134';\n\t\t\topener.parent.MAIN.APPA.FORM1.ACCOUNT_1.value='31368194812';\n\t\t\topener.parent.MAIN.APPA.FORM1.ACCOUNTNAM_1.value='劉瑞弘';\n\t\t\t\n\t\t\twindow.close();"
+    }
+  ],
+  "rows": [
+    [
+      {
+        "text": "",
+        "html": "\n\t\t\t<font color=\"YELLOW\" style=\"font-size: 12pt;font-family:新細明體;\">&nbsp;</font>\n\t\t"
+      },
+      {
+        "text": "受款人部門",
+        "html": "\n\t\t\t<font color=\"YELLOW\" style=\"font-size: 12pt;font-family:新細明體;\">受款人部門</font>\n\t\t"
+      },
+      {
+        "text": "受款人代碼",
+        "html": "\n\t\t\t<font color=\"YELLOW\" style=\"font-size: 12pt;font-family:新細明體;\">受款人代碼</font>\n\t\t"
+      },
+      {
+        "text": "受款人名稱",
+        "html": "\n\t\t\t<font color=\"YELLOW\" style=\"font-size: 12pt;font-family:新細明體;\">受款人名稱</font>\n\t\t"
+      },
+      {
+        "text": "受款人帳戶",
+        "html": "\n\t\t\t<font color=\"YELLOW\" style=\"font-size: 12pt;font-family:新細明體;\">受款人帳戶</font>\n\t\t"
+      }
+    ],
+    [
+      {
+        "text": "",
+        "html": "\n\t\t\t<input type=\"button\" value=\"選定\" onclick=\"\n\t\t\topener.parent.MAIN.APPA.FORM1.VENDORID_S_1.value='56006';\n\t\t\topener.parent.MAIN.APPA.FORM1.VENDORID_1.value=CharToAsc('56006');\t\t\t\n\t\t\topener.parent.MAI"
+      },
+      {
+        "text": "",
+        "html": "\n\t\t\t<font color=\"darkRED\" style=\"font-size: 12pt;font-family:新細明體;\">\n\t\t\t\t\n\t\t\t</font>\n\t\t"
+      },
+      {
+        "text": "56006",
+        "html": "\n\t\t\t<font color=\"darkRED\" style=\"font-size: 12pt;font-family:新細明體;\">56006</font>\n\t\t"
+      },
+      {
+        "text": "劉瑞弘(A1****7176)",
+        "html": "\n\t\t\t<font color=\"darkblue\" style=\"font-size: 12pt;font-family:新細明體;\">劉瑞弘(A1****7176)\n\t\t\t</font>\n\t\t\t\t\t\t\n\t\t"
+      },
+      {
+        "text": "土銀工研院\n0051563-*********27490",
+        "html": "\n\t\t\t<font color=\"darkblue\" style=\"font-size: 12pt;font-family:新細明體;\">\n\t\t\t土銀工研院<br>\n\t\t\t0051563-*********27490\n\t\t\t</font>\n\t\t"
+      }
+    ],
+    [
+      {
+        "text": "",
+        "html": "\n\t\t\t<input type=\"button\" value=\"選定\" onclick=\"\n\t\t\topener.parent.MAIN.APPA.FORM1.VENDORID_S_1.value='56006';\n\t\t\topener.parent.MAIN.APPA.FORM1.VENDORID_1.value=CharToAsc('56006');\t\t\t\n\t\t\topener.parent.MAI"
+      },
+      {
+        "text": "",
+        "html": "\n\t\t\t<font color=\"darkRED\" style=\"font-size: 12pt;font-family:新細明體;\">\n\t\t\t\t\n\t\t\t</font>\n\t\t"
+      },
+      {
+        "text": "56006",
+        "html": "\n\t\t\t<font color=\"darkRED\" style=\"font-size: 12pt;font-family:新細明體;\">56006</font>\n\t\t"
+      },
+      {
+        "text": "劉瑞弘(A1****7176)",
+        "html": "\n\t\t\t<font color=\"darkblue\" style=\"font-size: 12pt;font-family:新細明體;\">劉瑞弘(A1****7176)\n\t\t\t</font>\n\t\t\t\t\t\t\n\t\t"
+      },
+      {
+        "text": "一銀竹北\n0073134-*********94812",
+        "html": "\n\t\t\t<font color=\"darkblue\" style=\"font-size: 12pt;font-family:新細明體;\">\n\t\t\t一銀竹北<br>\n\t\t\t0073134-*********94812\n\t\t\t</font>\n\t\t"
+      }
+    ]
+  ],
+  "bodyText": "\n\n \t受款人部門\t受款人代碼\t受款人名稱\t受款人帳戶\n\t\t56006\t劉瑞弘(A1****7176)\t土銀工研院\n0051563-*********27490\n\t\t56006\t劉瑞弘(A1****7176)\t一銀竹北\n0073134-*********94812",
+  "scripts": [
+    "var isIe=(document.all)?true:false;\n//讓背景漸漸變暗\nfunction showBackground(obj,endInt)\n{\n\tif(isIe)\n\t{\n\t\tobj.filters.alpha.opacity+=20;\n\t\tif(obj.filters.alpha.opacity<endInt)\n\t\t{\n\t\t\tsetTimeout(function(){showBackground(obj,endInt)},5);\n\t\t}\n\t}else{\n\t\tvar al=parseFloat(obj.style.opacity);al+=0.01;\n\t\tobj.style.opacity=al;\n\t\tif(al<(endInt/100))\n\t\t{setTimeout(function(){showBackground(obj,endInt)},5);}\n\t\t}\n}\n\n//關閉視窗\nfunction closeWindow()\n{\nif(document.getElementById('back')!=null)\n{\ndocument.getElementByI",
+    "if(screen.availWidth>1024)\n\t{\t   \n\t   document.write(\"<link rel=stylesheet href=../CSS_Q/1280LSTY.css type=text/css>\");\n\t   document.write(\"<body background=../APS_IMG_Q/PCG/AccSQLWEB1280_BOTTOM.gif>\"); \n\t }\n\t else\n\t {\t   \n\t   document.write(\"<link rel=stylesheet href=../CSS_Q/1024LSTY.css type=text/css>\");\n\t   document.write(\"<body background=../APS_IMG_Q/PCG/AccSQLWEB1024_BOTTOM.gif>\");\t   \n\t }",
+    "function disableInfo() {  \n    document.onkeydown = function() {  \n        var e = window.event || arguments[0];  \n        //F12  \n        if(e.keyCode == 123) {  \n\t\t\talert(\"禁用F12\");\n            return false;  \n            //Ctrl+Shift+I  \n        } else if((e.ctrlKey) && (e.shiftKey) && (e.keyCode == 73)) {  \n\t\t    alert(\"禁用鍵\");\n            return false;  \n            //Shift+F10  \n        } else if((e.shiftKey) && (e.keyCode == 121)){  \n\t\t    alert(\"禁用F10\");\n            return false;  \n       ",
+    "function CharToAsc(STR)\n    {\n        var X_STR = \"\";\n        for(var i =0;i<STR.length;i++){\n           X_STR = X_STR +\"※\"+STR[i].charCodeAt(0).toString();\n        }\n        X_STR=X_STR.substr(1,X_STR.length-1)\n\t\treturn X_STR;\n\t}",
+    "function AscToChar(STR)\n    {\n        Ascs = STR.split(\"※\");\n        var A_STR = \"\";\n        for(var i =0;i<Ascs.length;i++){\n           A_STR = A_STR+String.fromCharCode(Ascs[i]);\n        }\n\t\treturn A_STR;\n\t}",
+    "self.moveTo(140,80);\nself.resizeTo(620,360);"
+  ]
+}

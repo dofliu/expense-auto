@@ -1,0 +1,1363 @@
+{
+  "sum_alert_functions": {
+    "SUM_ALERT": "function SUM_ALERT()\n                        {\n                          \n\t\t\t\t\t\t\t\t\t//alert(\"清單筆數太多(超過100),請耐心等候!!!\");\n\t\t\t\t\t\t  \n\t\t\t\t\t\t  parent.DD.rows=\"0,*\";\n\t\t\t\t\t\t  \n\t\t\t\t\t\t  \tparent.QQ.cols=\"0,0,*\";\n\t\t\t\t\t\t  \n\t\t\t\t\t\t      //將APPY,APPA,APPP之資料組給PR_SAVE\n                                  \n                              \n\t\t\t\t\t\t  parent.PS.FORM1.SAMPLENO.value=FORM1.SAMPLENO.value;\n\t\t\t\t\t\t  parent.PS.FORM1.APPU.value=FORM1.APPU.value;\n\t\t\t\t\t\t  parent.PS.FORM1.IsNew.value=FORM1.IsNew.value;\n\t\t\t\t\t\t  parent.PS.FORM1.APPYYEAR.value=FORM1.APPYYEAR.value;\n\t\t\t\t\t\t  parent.PS.FORM1.APYNO.value=FORM1.APYNO.value;\n\t\t\t\t\t\t  parent.PS.FORM1.APYADD.value=FORM1.APYADD.value;\n\t\t\t\t\t\t  parent.PS.FORM1.ADATE.value=FORM1.ADATE.value;\n\t\t\t\t\t\t  parent.PS.FORM1.APYDEP.value=FORM1.APYDEP.value;\n\t\t\t\t\t\t  parent.PS.FORM1.APYUSERNO.value=FORM1.APYUSERNO.value;\n\t\t\t\t\t\t  parent.PS.FORM1.ISAPPY.value=FORM1.ISAPPY.value;\n\t\t\t\t\t\t  parent.PS.FORM1.ISVOUC.value=FORM1.ISVOUC.value;\n\t\t\t\t\t\t  parent.PS.FORM1.ISTEMP.value=FORM1.ISTEMP.value;\n\t\t\t\t\t\t  parent.PS.FORM1.ISCASH.value=FORM1.ISCASH.value;\n\t\t\t\t\t\t  parent.PS.FORM1.ISPURC.value=FORM1.ISPURC.value;\n\t\t\t\t\t\t  parent.PS.FORM1.APPYSET.value=FORM1.APPYSET.value;\n\t\t\t\t\t\t  parent.PS.FORM1.MOVETYPE.value=FORM1.MOVETYPE.value;\n\t\t\t\t\t\t  parent.PS.FORM1.SETNAME.value=FORM1.SETNAME.value;\n\t\t\t\t\t\t  parent.PS.FORM1.ABSTRACT.value=FORM1.ABSTRACT.value;\n\t\t\t\t\t\t  parent.PS.FORM1.NO_MATH.value=FORM1.NO_MATH.value;\n\t\t\t\t\t\t  parent.PS.FORM1.VOUSERNO.value=FORM1.VOU_SERNO.value;\n\t\t\t\t\t\t   \n\t\t\t\t\t\t   parent.PS.FORM1.ISPERI.value=FORM1.ISPERI.value;\n\t\t\t\t\t\t   parent.PS.FORM1.ISESS.value=FORM1.ISESS.value;\n\t\t\t\t\t\t   //1020710Karen==>APPY增加兩欄位\n\t\t\t\t\t\t   parent.PS.FORM1.Y_METHODS.value=FORM1.Y_METHODS.value;\n\t\t\t\t\t\t   parent.PS.FORM1.ACCORDING.value=FORM1.ACCORDING.value;\n\t\t\t\t\t\t  \t\t\t\t\t\t   \n\t\t\t\t\t\t  //若金額是0且沒有會簽則不可存入\n\t\t\t\t\t\t  if(FORM1.ALL_DEPT.value==\"\")\n\t\t\t\t\t\t  {\n\t\t\t\t\t\t\t if(FORM1.D_AMOUNT_1.value==\"\")\n\t\t\t\t\t\t\t {\n\t\t\t\t\t\t\t\talert(\"請購金額不得為0\");\n\t\t\t\t\t\t\t\tparent.DD.rows=\"160,*\";\n\t\t\t\t\t\t  \t\t\n\t\t\t\t\t\t  \t\t\tparent.QQ.cols=\"*,0,0\";\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\treturn;\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t  }\n\t\t\t\t\t\t  //APPYBUY\n\t\t\t\t\t\t  //990419Karen==>已經越來越多學校有用清冊,且以下購案類型已固定為清冊類型,故改直接由購案類別判斷\n\t\t\t\t\t\t \n\t\t\t\t\t\t  //作APPY之部分\n\t\t\t\t\t\t  T_APPY=\"\";\n\t\t\t\t\t\t  T_BUG_AMT=0;\n\t\t\t\t\t\t  \n\t\t\t\t\t\t  \tif(!FORM1.BUGETNO_1.value==\"\"&&!FORM1.BUGCODE_1.value==\"\"&&!FORM1.D_AMOUNT_1.value==\"\")\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\tT_APPY=T_APPY+\"1#\"+FORM1.BUGETNO_1.value+\"#\"+FORM1.BUGCODE_1.value+\"#\"+FORM1.D_AMOUNT_1.value+\"#\"+FORM1.D_APYKIND_1.value+\"#\"+FORM1.SUBJECTNO_1.value+\"#\"+FORM1.MOVETYPE_1.value+\"@\"\n\t\t\t\t\t\t  \t\tT_BUG_AMT=T_BUG_AMT+parseInt(FORM1.D_AMOUNT_1.value);\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t  \n\t\t\t\t\t\t  \tif(!FORM1.BUGETNO_2.value==\"\"&&!FORM1.BUGCODE_2.value==\"\"&&!FORM1.D_AMOUNT_2.value==\"\")\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\tT_APPY=T_APPY+\"2#\"+FORM1.BUGETNO_2.value+\"#\"+FORM1.BUGCODE_2.value+\"#\"+FORM1.D_AMOUNT_2.value+\"#\"+FORM1.D_APYKIND_2.value+\"#\"+FORM1.SUBJECTNO_2.value+\"#\"+FORM1.MOVETYPE_2.value+\"@\"\n\t\t\t\t\t\t  \t\tT_BUG_AMT=T_BUG_AMT+parseInt(FORM1.D_AMOUNT_2.value);\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t  \n\t\t\t\t\t\t  \tif(!FORM1.BUGETNO_3.value==\"\"&&!FORM1.BUGCODE_3.value==\"\"&&!FORM1.D_AMOUNT_3.value==\"\")\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\tT_APPY=T_APPY+\"3#\"+FORM1.BUGETNO_3.value+\"#\"+FORM1.BUGCODE_3.value+\"#\"+FORM1.D_AMOUNT_3.value+\"#\"+FORM1.D_APYKIND_3.value+\"#\"+FORM1.SUBJECTNO_3.value+\"#\"+FORM1.MOVETYPE_3.value+\"@\"\n\t\t\t\t\t\t  \t\tT_BUG_AMT=T_BUG_AMT+parseInt(FORM1.D_AMOUNT_3.value);\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t  \n\t\t\t\t\t\t  \tif(!FORM1.BUGETNO_4.value==\"\"&&!FORM1.BUGCODE_4.value==\"\"&&!FORM1.D_AMOUNT_4.value==\"\")\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\tT_APPY=T_APPY+\"4#\"+FORM1.BUGETNO_4.value+\"#\"+FORM1.BUGCODE_4.value+\"#\"+FORM1.D_AMOUNT_4.value+\"#\"+FORM1.D_APYKIND_4.value+\"#\"+FORM1.SUBJECTNO_4.value+\"#\"+FORM1.MOVETYPE_4.value+\"@\"\n\t\t\t\t\t\t  \t\tT_BUG_AMT=T_BUG_AMT+parseInt(FORM1.D_AMOUNT_4.value);\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t  \n\t\t\t\t\t\t  \tif(!FORM1.BUGETNO_5.value==\"\"&&!FORM1.BUGCODE_5.value==\"\"&&!FORM1.D_AMOUNT_5.value==\"\")\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\tT_APPY=T_APPY+\"5#\"+FORM1.BUGETNO_5.value+\"#\"+FORM1.BUGCODE_5.value+\"#\"+FORM1.D_AMOUNT_5.value+\"#\"+FORM1.D_APYKIND_5.value+\"#\"+FORM1.SUBJECTNO_5.value+\"#\"+FORM1.MOVETYPE_5.value+\"@\"\n\t\t\t\t\t\t  \t\tT_BUG_AMT=T_BUG_AMT+parseInt(FORM1.D_AMOUNT_5.value);\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t  \n\t\t\t\t\t\t  \tif(!FORM1.BUGETNO_6.value==\"\"&&!FORM1.BUGCODE_6.value==\"\"&&!FORM1.D_AMOUNT_6.value==\"\")\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\tT_APPY=T_APPY+\"6#\"+FORM1.BUGETNO_6.value+\"#\"+FORM1.BUGCODE_6.value+\"#\"+FORM1.D_AMOUNT_6.value+\"#\"+FORM1.D_APYKIND_6.value+\"#\"+FORM1.SUBJECTNO_6.value+\"#\"+FORM1.MOVETYPE_6.value+\"@\"\n\t\t\t\t\t\t  \t\tT_BUG_AMT=T_BUG_AMT+parseInt(FORM1.D_AMOUNT_6.value);\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t  \n\t\t\t\t\t\t  \tif(!FORM1.BUGETNO_7.value==\"\"&&!FORM1.BUGCODE_7.value==\"\"&&!FORM1.D_AMOUNT_7.value==\"\")\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\tT_APPY=T_APPY+\"7#\"+FORM1.BUGETNO_7.value+\"#\"+FORM1.BUGCODE_7.value+\"#\"+FORM1.D_AMOUNT_7.value+\"#\"+FORM1.D_APYKIND_7.value+\"#\"+FORM1.SUBJECTNO_7.value+\"#\"+FORM1.MOVETYPE_7.value+\"@\"\n\t\t\t\t\t\t  \t\tT_BUG_AMT=T_BUG_AMT+parseInt(FORM1.D_AMOUNT_7.value);\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t  \n\t\t\t\t\t\t  \tif(!FORM1.BUGETNO_8.value==\"\"&&!FORM1.BUGCODE_8.value==\"\"&&!FORM1.D_AMOUNT_8.value==\"\")\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\tT_APPY=T_APPY+\"8#\"+FORM1.BUGETNO_8.value+\"#\"+FORM1.BUGCODE_8.value+\"#\"+FORM1.D_AMOUNT_8.value+\"#\"+FORM1.D_APYKIND_8.value+\"#\"+FORM1.SUBJECTNO_8.value+\"#\"+FORM1.MOVETYPE_8.value+\"@\"\n\t\t\t\t\t\t  \t\tT_BUG_AMT=T_BUG_AMT+parseInt(FORM1.D_AMOUNT_8.value);\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t  \n\t\t\t\t\t\t  \tif(!FORM1.BUGETNO_9.value==\"\"&&!FORM1.BUGCODE_9.value==\"\"&&!FORM1.D_AMOUNT_9.value==\"\")\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\tT_APPY=T_APPY+\"9#\"+FORM1.BUGETNO_9.value+\"#\"+FORM1.BUGCODE_9.value+\"#\"+FORM1.D_AMOUNT_9.value+\"#\"+FORM1.D_APYKIND_9.value+\"#\"+FORM1.SUBJECTNO_9.value+\"#\"+FORM1.MOVETYPE_9.value+\"@\"\n\t\t\t\t\t\t  \t\tT_BUG_AMT=T_BUG_AMT+parseInt(FORM1.D_AMOUNT_9.value);\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t  \n\t\t\t\t\t\t  \tif(!FORM1.BUGETNO_10.value==\"\"&&!FORM1.BUGCODE_10.value==\"\"&&!FORM1.D_AMOUNT_10.value==\"\")\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\tT_APPY=T_APPY+\"10#\"+FORM1.BUGETNO_10.value+\"#\"+FORM1.BUGCODE_10.value+\"#\"+FORM1.D_AMOUNT_10.value+\"#\"+FORM1.D_APYKIND_10.value+\"#\"+FORM1.SUBJECTNO_10.value+\"#\"+FORM1.MOVETYPE_10.value+\"@\"\n\t\t\t\t\t\t  \t\tT_BUG_AMT=T_BUG_AMT+parseInt(FORM1.D_AMOUNT_10.value);\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t  \n\t\t\t\t\t\t  \tif(!FORM1.BUGETNO_11.value==\"\"&&!FORM1.BUGCODE_11.value==\"\"&&!FORM1.D_AMOUNT_11.value==\"\")\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\tT_APPY=T_APPY+\"11#\"+FORM1.BUGETNO_11.value+\"#\"+FORM1.BUGCODE_11.value+\"#\"+FORM1.D_AMOUNT_11.value+\"#\"+FORM1.D_APYKIND_11.value+\"#\"+FORM1.SUBJECTNO_11.value+\"#\"+FORM1.MOVETYPE_11.value+\"@\"\n\t\t\t\t\t\t  \t\tT_BUG_AMT=T_BUG_AMT+parseInt(FORM1.D_AMOUNT_11.value);\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t  \n\t\t\t\t\t\t  \tif(!FORM1.BUGETNO_12.value==\"\"&&!FORM1.BUGCODE_12.value==\"\"&&!FORM1.D_AMOUNT_12.value==\"\")\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\tT_APPY=T_APPY+\"12#\"+FORM1.BUGETNO_12.value+\"#\"+FORM1.BUGCODE_12.value+\"#\"+FORM1.D_AMOUNT_12.value+\"#\"+FORM1.D_APYKIND_12.value+\"#\"+FORM1.SUBJECTNO_12.value+\"#\"+FORM1.MOVETYPE_12.value+\"@\"\n\t\t\t\t\t\t  \t\tT_BUG_AMT=T_BUG_AMT+parseInt(FORM1.D_AMOUNT_12.value);\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t  \n\t\t\t\t\t\t  \tif(!FORM1.BUGETNO_13.value==\"\"&&!FORM1.BUGCODE_13.value==\"\"&&!FORM1.D_AMOUNT_13.value==\"\")\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\tT_APPY=T_APPY+\"13#\"+FORM1.BUGETNO_13.value+\"#\"+FORM1.BUGCODE_13.value+\"#\"+FORM1.D_AMOUNT_13.value+\"#\"+FORM1.D_APYKIND_13.value+\"#\"+FORM1.SUBJECTNO_13.value+\"#\"+FORM1.MOVETYPE_13.value+\"@\"\n\t\t\t\t\t\t  \t\tT_BUG_AMT=T_BUG_AMT+parseInt(FORM1.D_AMOUNT_13.value);\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t  \n\t\t\t\t\t\t  \tif(!FORM1.BUGETNO_14.value==\"\"&&!FORM1.BUGCODE_14.value==\"\"&&!FORM1.D_AMOUNT_14.value==\"\")\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\tT_APPY=T_APPY+\"14#\"+FORM1.BUGETNO_14.value+\"#\"+FORM1.BUGCODE_14.value+\"#\"+FORM1.D_AMOUNT_14.value+\"#\"+FORM1.D_APYKIND_14.value+\"#\"+FORM1.SUBJECTNO_14.value+\"#\"+FORM1.MOVETYPE_14.value+\"@\"\n\t\t\t\t\t\t  \t\tT_BUG_AMT=T_BUG_AMT+parseInt(FORM1.D_AMOUNT_14.value);\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t  \n\t\t\t\t\t\t  \tif(!FORM1.BUGETNO_15.value==\"\"&&!FORM1.BUGCODE_15.value==\"\"&&!FORM1.D_AMOUNT_15.value==\"\")\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\tT_APPY=T_APPY+\"15#\"+FORM1.BUGETNO_15.value+\"#\"+FORM1.BUGCODE_15.value+\"#\"+FORM1.D_AMOUNT_15.value+\"#\"+FORM1.D_APYKIND_15.value+\"#\"+FORM1.SUBJECTNO_15.value+\"#\"+FORM1.MOVETYPE_15.value+\"@\"\n\t\t\t\t\t\t  \t\tT_BUG_AMT=T_BUG_AMT+parseInt(FORM1.D_AMOUNT_15.value);\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t  \n\t\t\t\t\t\t  \tif(!FORM1.BUGETNO_16.value==\"\"&&!FORM1.BUGCODE_16.value==\"\"&&!FORM1.D_AMOUNT_16.value==\"\")\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\tT_APPY=T_APPY+\"16#\"+FORM1.BUGETNO_16.value+\"#\"+FORM1.BUGCODE_16.value+\"#\"+FORM1.D_AMOUNT_16.value+\"#\"+FORM1.D_APYKIND_16.value+\"#\"+FORM1.SUBJECTNO_16.value+\"#\"+FORM1.MOVETYPE_16.value+\"@\"\n\t\t\t\t\t\t  \t\tT_BUG_AMT=T_BUG_AMT+parseInt(FORM1.D_AMOUNT_16.value);\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t  \n\t\t\t\t\t\t  \tif(!FORM1.BUGETNO_17.value==\"\"&&!FORM1.BUGCODE_17.value==\"\"&&!FORM1.D_AMOUNT_17.value==\"\")\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\tT_APPY=T_APPY+\"17#\"+FORM1.BUGETNO_17.value+\"#\"+FORM1.BUGCODE_17.value+\"#\"+FORM1.D_AMOUNT_17.value+\"#\"+FORM1.D_APYKIND_17.value+\"#\"+FORM1.SUBJECTNO_17.value+\"#\"+FORM1.MOVETYPE_17.value+\"@\"\n\t\t\t\t\t\t  \t\tT_BUG_AMT=T_BUG_AMT+parseInt(FORM1.D_AMOUNT_17.value);\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t  \n\t\t\t\t\t\t  \tif(!FORM1.BUGETNO_18.value==\"\"&&!FORM1.BUGCODE_18.value==\"\"&&!FORM1.D_AMOUNT_18.value==\"\")\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\tT_APPY=T_APPY+\"18#\"+FORM1.BUGETNO_18.value+\"#\"+FORM1.BUGCODE_18.value+\"#\"+FORM1.D_AMOUNT_18.value+\"#\"+FORM1.D_APYKIND_18.value+\"#\"+FORM1.SUBJECTNO_18.value+\"#\"+FORM1.MOVETYPE_18.value+\"@\"\n\t\t\t\t\t\t  \t\tT_BUG_AMT=T_BUG_AMT+parseInt(FORM1.D_AMOUNT_18.value);\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t  \n\t\t\t\t\t\t  \tif(!FORM1.BUGETNO_19.value==\"\"&&!FORM1.BUGCODE_19.value==\"\"&&!FORM1.D_AMOUNT_19.value==\"\")\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\tT_APPY=T_APPY+\"19#\"+FORM1.BUGETNO_19.value+\"#\"+FORM1.BUGCODE_19.value+\"#\"+FORM1.D_AMOUNT_19.value+\"#\"+FORM1.D_APYKIND_19.value+\"#\"+FORM1.SUBJECTNO_19.value+\"#\"+FORM1.MOVETYPE_19.value+\"@\"\n\t\t\t\t\t\t  \t\tT_BUG_AMT=T_BUG_AMT+parseInt(FORM1.D_AMOUNT_19.value);\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t  \n\t\t\t\t\t\t  \tif(!FORM1.BUGETNO_20.value==\"\"&&!FORM1.BUGCODE_20.value==\"\"&&!FORM1.D_AMOUNT_20.value==\"\")\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\tT_APPY=T_APPY+\"20#\"+FORM1.BUGETNO_20.value+\"#\"+FORM1.BUGCODE_20.value+\"#\"+FORM1.D_AMOUNT_20.value+\"#\"+FORM1.D_APYKIND_20.value+\"#\"+FORM1.SUBJECTNO_20.value+\"#\"+FORM1.MOVETYPE_20.value+\"@\"\n\t\t\t\t\t\t  \t\tT_BUG_AMT=T_BUG_AMT+parseInt(FORM1.D_AMOUNT_20.value);\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t  \n\t\t\t\t\t\t  parent.PS.FORM1.D_STR.value=T_APPY;\n\t\t\t\t\t\n\t\t\t\t\t\t  //作APPA之部分\n\t\t\t\t\t\t  T_APPA=\"\";\n\t\t\t\t\t\t  TMA_AMOUNT=0;\n\t\t\t\t\t\t  //先判斷是否APPA只有一個若是則將第一個之AMOUNT定為T_BUG_AMT\n\t\t\t\t\t\t  //karen970426==>清冊有代墊人,金額不自動帶總額,依各明細輸入金額為準\n\t\t\t\t\t\t  \n\t\t\t\t\t\t  if(parent.APPA.FORM1.VENNAME_2.value==\"\")\n\t\t\t\t\t\t  {\n\t\t\t\t\t\t  \tif( FORM1.NO_MATH.value==\"N\")\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t  parent.APPA.FORM1.AMOUNT_1.value=T_BUG_AMT;\n\t\t\t\t\t\t\t }\t\t\t\t\t\t\t\n\t\t\t\t\t\t  }\t\t\n\t\t\t\t\t\t  \n\t\t\t\t\t\t  \tif(!parent.APPA.FORM1.VENNAME_1.value==\"\" && !parent.APPA.FORM1.VENDORID_1.value==\"\")\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\tT_APPA=T_APPA+\"1#\"+AscToChar(parent.APPA.FORM1.VENDORID_1.value)+\"#\"+parent.APPA.FORM1.VENNAME_1.value+\"#\"+parent.APPA.FORM1.IDATE_1.value+\"#\"+parent.APPA.FORM1.INVOICENO_1.value+\"#\"+parent.APPA.FORM1.AMOUNT_1.value+\"#\"+parent.APPA.FORM1.TAX_1.value+\"#\"+parent.APPA.FORM1.PAYKIND_1.value+\"#\"+parent.APPA.FORM1.BANKNO_1.value+\"#\"+parent.APPA.FORM1.ACCOUNT_1.value+\"#\"+parent.APPA.FORM1.ACCOUNTNAM_1.value+\"#\"+parent.APPA.FORM1.I_VENDORID_1.value+\"#\"+\"@\";\n\t\t\t\t\t\t  \t\tTMA_AMOUNT=TMA_AMOUNT+parseInt(parent.APPA.FORM1.AMOUNT_1.value);\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t  \n\t\t\t\t\t\t  \tif(!parent.APPA.FORM1.VENNAME_2.value==\"\" && !parent.APPA.FORM1.VENDORID_2.value==\"\")\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\tT_APPA=T_APPA+\"2#\"+AscToChar(parent.APPA.FORM1.VENDORID_2.value)+\"#\"+parent.APPA.FORM1.VENNAME_2.value+\"#\"+parent.APPA.FORM1.IDATE_2.value+\"#\"+parent.APPA.FORM1.INVOICENO_2.value+\"#\"+parent.APPA.FORM1.AMOUNT_2.value+\"#\"+parent.APPA.FORM1.TAX_2.value+\"#\"+parent.APPA.FORM1.PAYKIND_2.value+\"#\"+parent.APPA.FORM1.BANKNO_2.value+\"#\"+parent.APPA.FORM1.ACCOUNT_2.value+\"#\"+parent.APPA.FORM1.ACCOUNTNAM_2.value+\"#\"+parent.APPA.FORM1.I_VENDORID_2.value+\"#\"+\"@\";\n\t\t\t\t\t\t  \t\tTMA_AMOUNT=TMA_AMOUNT+parseInt(parent.APPA.FORM1.AMOUNT_2.value);\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t  \n\t\t\t\t\t\t  \tif(!parent.APPA.FORM1.VENNAME_3.value==\"\" && !parent.APPA.FORM1.VENDORID_3.value==\"\")\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\tT_APPA=T_APPA+\"3#\"+AscToChar(parent.APPA.FORM1.VENDORID_3.value)+\"#\"+parent.APPA.FORM1.VENNAME_3.value+\"#\"+parent.APPA.FORM1.IDATE_3.value+\"#\"+parent.APPA.FORM1.INVOICENO_3.value+\"#\"+parent.APPA.FORM1.AMOUNT_3.value+\"#\"+parent.APPA.FORM1.TAX_3.value+\"#\"+parent.APPA.FORM1.PAYKIND_3.value+\"#\"+parent.APPA.FORM1.BANKNO_3.value+\"#\"+parent.APPA.FORM1.ACCOUNT_3.value+\"#\"+parent.APPA.FORM1.ACCOUNTNAM_3.value+\"#\"+parent.APPA.FORM1.I_VENDORID_3.value+\"#\"+\"@\";\n\t\t\t\t\t\t  \t\tTMA_AMOUNT=TMA_AMOUNT+parseInt(parent.APPA.FORM1.AMOUNT_3.value);\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t  \n\t\t\t\t\t\t  \tif(!parent.APPA.FORM1.VENNAME_4.value==\"\" && !parent.APPA.FORM1.VENDORID_4.value==\"\")\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\tT_APPA=T_APPA+\"4#\"+AscToChar(parent.APPA.FORM1.VENDORID_4.value)+\"#\"+parent.APPA.FORM1.VENNAME_4.value+\"#\"+parent.APPA.FORM1.IDATE_4.value+\"#\"+parent.APPA.FORM1.INVOICENO_4.value+\"#\"+parent.APPA.FORM1.AMOUNT_4.value+\"#\"+parent.APPA.FORM1.TAX_4.value+\"#\"+parent.APPA.FORM1.PAYKIND_4.value+\"#\"+parent.APPA.FORM1.BANKNO_4.value+\"#\"+parent.APPA.FORM1.ACCOUNT_4.value+\"#\"+parent.APPA.FORM1.ACCOUNTNAM_4.value+\"#\"+parent.APPA.FORM1.I_VENDORID_4.value+\"#\"+\"@\";\n\t\t\t\t\t\t  \t\tTMA_AMOUNT=TMA_AMOUNT+parseInt(parent.APPA.FORM1.AMOUNT_4.value);\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t  \n\t\t\t\t\t\t  \tif(!parent.APPA.FORM1.VENNAME_5.value==\"\" && !parent.APPA.FORM1.VENDORID_5.value==\"\")\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\tT_APPA=T_APPA+\"5#\"+AscToChar(parent.APPA.FORM1.VENDORID_5.value)+\"#\"+parent.APPA.FORM1.VENNAME_5.value+\"#\"+parent.APPA.FORM1.IDATE_5.value+\"#\"+parent.APPA.FORM1.INVOICENO_5.value+\"#\"+parent.APPA.FORM1.AMOUNT_5.value+\"#\"+parent.APPA.FORM1.TAX_5.value+\"#\"+parent.APPA.FORM1.PAYKIND_5.value+\"#\"+parent.APPA.FORM1.BANKNO_5.value+\"#\"+parent.APPA.FORM1.ACCOUNT_5.value+\"#\"+parent.APPA.FORM1.ACCOUNTNAM_5.value+\"#\"+parent.APPA.FORM1.I_VENDORID_5.value+\"#\"+\"@\";\n\t\t\t\t\t\t  \t\tTMA_AMOUNT=TMA_AMOUNT+parseInt(parent.APPA.FORM1.AMOUNT_5.value);\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t  \n\t\t\t\t\t\t  \tif(!parent.APPA.FORM1.VENNAME_6.value==\"\" && !parent.APPA.FORM1.VENDORID_6.value==\"\")\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\tT_APPA=T_APPA+\"6#\"+AscToChar(parent.APPA.FORM1.VENDORID_6.value)+\"#\"+parent.APPA.FORM1.VENNAME_6.value+\"#\"+parent.APPA.FORM1.IDATE_6.value+\"#\"+parent.APPA.FORM1.INVOICENO_6.value+\"#\"+parent.APPA.FORM1.AMOUNT_6.value+\"#\"+parent.APPA.FORM1.TAX_6.value+\"#\"+parent.APPA.FORM1.PAYKIND_6.value+\"#\"+parent.APPA.FORM1.BANKNO_6.value+\"#\"+parent.APPA.FORM1.ACCOUNT_6.value+\"#\"+parent.APPA.FORM1.ACCOUNTNAM_6.value+\"#\"+parent.APPA.FORM1.I_VENDORID_6.value+\"#\"+\"@\";\n\t\t\t\t\t\t  \t\tTMA_AMOUNT=TMA_AMOUNT+parseInt(parent.APPA.FORM1.AMOUNT_6.value);\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t  \n\t\t\t\t\t\t  \tif(!parent.APPA.FORM1.VENNAME_7.value==\"\" && !parent.APPA.FORM1.VENDORID_7.value==\"\")\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\tT_APPA=T_APPA+\"7#\"+AscToChar(parent.APPA.FORM1.VENDORID_7.value)+\"#\"+parent.APPA.FORM1.VENNAME_7.value+\"#\"+parent.APPA.FORM1.IDATE_7.value+\"#\"+parent.APPA.FORM1.INVOICENO_7.value+\"#\"+parent.APPA.FORM1.AMOUNT_7.value+\"#\"+parent.APPA.FORM1.TAX_7.value+\"#\"+parent.APPA.FORM1.PAYKIND_7.value+\"#\"+parent.APPA.FORM1.BANKNO_7.value+\"#\"+parent.APPA.FORM1.ACCOUNT_7.value+\"#\"+parent.APPA.FORM1.ACCOUNTNAM_7.value+\"#\"+parent.APPA.FORM1.I_VENDORID_7.value+\"#\"+\"@\";\n\t\t\t\t\t\t  \t\tTMA_AMOUNT=TMA_AMOUNT+parseInt(parent.APPA.FORM1.AMOUNT_7.value);\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t  \n\t\t\t\t\t\t  \tif(!parent.APPA.FORM1.VENNAME_8.value==\"\" && !parent.APPA.FORM1.VENDORID_8.value==\"\")\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\tT_APPA=T_APPA+\"8#\"+AscToChar(parent.APPA.FORM1.VENDORID_8.value)+\"#\"+parent.APPA.FORM1.VENNAME_8.value+\"#\"+parent.APPA.FORM1.IDATE_8.value+\"#\"+parent.APPA.FORM1.INVOICENO_8.value+\"#\"+parent.APPA.FORM1.AMOUNT_8.value+\"#\"+parent.APPA.FORM1.TAX_8.value+\"#\"+parent.APPA.FORM1.PAYKIND_8.value+\"#\"+parent.APPA.FORM1.BANKNO_8.value+\"#\"+parent.APPA.FORM1.ACCOUNT_8.value+\"#\"+parent.APPA.FORM1.ACCOUNTNAM_8.value+\"#\"+parent.APPA.FORM1.I_VENDORID_8.value+\"#\"+\"@\";\n\t\t\t\t\t\t  \t\tTMA_AMOUNT=TMA_AMOUNT+parseInt(parent.APPA.FORM1.AMOUNT_8.value);\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t  \n\t\t\t\t\t\t  \tif(!parent.APPA.FORM1.VENNAME_9.value==\"\" && !parent.APPA.FORM1.VENDORID_9.value==\"\")\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\tT_APPA=T_APPA+\"9#\"+AscToChar(parent.APPA.FORM1.VENDORID_9.value)+\"#\"+parent.APPA.FORM1.VENNAME_9.value+\"#\"+parent.APPA.FORM1.IDATE_9.value+\"#\"+parent.APPA.FORM1.INVOICENO_9.value+\"#\"+parent.APPA.FORM1.AMOUNT_9.value+\"#\"+parent.APPA.FORM1.TAX_9.value+\"#\"+parent.APPA.FORM1.PAYKIND_9.value+\"#\"+parent.APPA.FORM1.BANKNO_9.value+\"#\"+parent.APPA.FORM1.ACCOUNT_9.value+\"#\"+parent.APPA.FORM1.ACCOUNTNAM_9.value+\"#\"+parent.APPA.FORM1.I_VENDORID_9.value+\"#\"+\"@\";\n\t\t\t\t\t\t  \t\tTMA_AMOUNT=TMA_AMOUNT+parseInt(parent.APPA.FORM1.AMOUNT_9.value);\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t  \n\t\t\t\t\t\t  \tif(!parent.APPA.FORM1.VENNAME_10.value==\"\" && !parent.APPA.FORM1.VENDORID_10.value==\"\")\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\tT_APPA=T_APPA+\"10#\"+AscToChar(parent.APPA.FORM1.VENDORID_10.value)+\"#\"+parent.APPA.FORM1.VENNAME_10.value+\"#\"+parent.APPA.FORM1.IDATE_10.value+\"#\"+parent.APPA.FORM1.INVOICENO_10.value+\"#\"+parent.APPA.FORM1.AMOUNT_10.value+\"#\"+parent.APPA.FORM1.TAX_10.value+\"#\"+parent.APPA.FORM1.PAYKIND_10.value+\"#\"+parent.APPA.FORM1.BANKNO_10.value+\"#\"+parent.APPA.FORM1.ACCOUNT_10.value+\"#\"+parent.APPA.FORM1.ACCOUNTNAM_10.value+\"#\"+parent.APPA.FORM1.I_VENDORID_10.value+\"#\"+\"@\";\n\t\t\t\t\t\t  \t\tTMA_AMOUNT=TMA_AMOUNT+parseInt(parent.APPA.FORM1.AMOUNT_10.value);\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t  \n\t\t\t\t\t\t  \tif(!parent.APPA.FORM1.VENNAME_11.value==\"\" && !parent.APPA.FORM1.VENDORID_11.value==\"\")\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\tT_APPA=T_APPA+\"11#\"+AscToChar(parent.APPA.FORM1.VENDORID_11.value)+\"#\"+parent.APPA.FORM1.VENNAME_11.value+\"#\"+parent.APPA.FORM1.IDATE_11.value+\"#\"+parent.APPA.FORM1.INVOICENO_11.value+\"#\"+parent.APPA.FORM1.AMOUNT_11.value+\"#\"+parent.APPA.FORM1.TAX_11.value+\"#\"+parent.APPA.FORM1.PAYKIND_11.value+\"#\"+parent.APPA.FORM1.BANKNO_11.value+\"#\"+parent.APPA.FORM1.ACCOUNT_11.value+\"#\"+parent.APPA.FORM1.ACCOUNTNAM_11.value+\"#\"+parent.APPA.FORM1.I_VENDORID_11.value+\"#\"+\"@\";\n\t\t\t\t\t\t  \t\tTMA_AMOUNT=TMA_AMOUNT+parseInt(parent.APPA.FORM1.AMOUNT_11.value);\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t  \n\t\t\t\t\t\t  \tif(!parent.APPA.FORM1.VENNAME_12.value==\"\" && !parent.APPA.FORM1.VENDORID_12.value==\"\")\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\tT_APPA=T_APPA+\"12#\"+AscToChar(parent.APPA.FORM1.VENDORID_12.value)+\"#\"+parent.APPA.FORM1.VENNAME_12.value+\"#\"+parent.APPA.FORM1.IDATE_12.value+\"#\"+parent.APPA.FORM1.INVOICENO_12.value+\"#\"+parent.APPA.FORM1.AMOUNT_12.value+\"#\"+parent.APPA.FORM1.TAX_12.value+\"#\"+parent.APPA.FORM1.PAYKIND_12.value+\"#\"+parent.APPA.FORM1.BANKNO_12.value+\"#\"+parent.APPA.FORM1.ACCOUNT_12.value+\"#\"+parent.APPA.FORM1.ACCOUNTNAM_12.value+\"#\"+parent.APPA.FORM1.I_VENDORID_12.value+\"#\"+\"@\";\n\t\t\t\t\t\t  \t\tTMA_AMOUNT=TMA_AMOUNT+parseInt(parent.APPA.FORM1.AMOUNT_12.value);\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t  \n\t\t\t\t\t\t  \tif(!parent.APPA.FORM1.VENNAME_13.value==\"\" && !parent.APPA.FORM1.VENDORID_13.value==\"\")\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\tT_APPA=T_APPA+\"13#\"+AscToChar(parent.APPA.FORM1.VENDORID_13.value)+\"#\"+parent.APPA.FORM1.VENNAME_13.value+\"#\"+parent.APPA.FORM1.IDATE_13.value+\"#\"+parent.APPA.FORM1.INVOICENO_13.value+\"#\"+parent.APPA.FORM1.AMOUNT_13.value+\"#\"+parent.APPA.FORM1.TAX_13.value+\"#\"+parent.APPA.FORM1.PAYKIND_13.value+\"#\"+parent.APPA.FORM1.BANKNO_13.value+\"#\"+parent.APPA.FORM1.ACCOUNT_13.value+\"#\"+parent.APPA.FORM1.ACCOUNTNAM_13.value+\"#\"+parent.APPA.FORM1.I_VENDORID_13.value+\"#\"+\"@\";\n\t\t\t\t\t\t  \t\tTMA_AMOUNT=TMA_AMOUNT+parseInt(parent.APPA.FORM1.AMOUNT_13.value);\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t  \n\t\t\t\t\t\t  \tif(!parent.APPA.FORM1.VENNAME_14.value==\"\" && !parent.APPA.FORM1.VENDORID_14.value==\"\")\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\tT_APPA=T_APPA+\"14#\"+AscToChar(parent.APPA.FORM1.VENDORID_14.value)+\"#\"+parent.APPA.FORM1.VENNAME_14.value+\"#\"+parent.APPA.FORM1.IDATE_14.value+\"#\"+parent.APPA.FORM1.INVOICENO_14.value+\"#\"+parent.APPA.FORM1.AMOUNT_14.value+\"#\"+parent.APPA.FORM1.TAX_14.value+\"#\"+parent.APPA.FORM1.PAYKIND_14.value+\"#\"+parent.APPA.FORM1.BANKNO_14.value+\"#\"+parent.APPA.FORM1.ACCOUNT_14.value+\"#\"+parent.APPA.FORM1.ACCOUNTNAM_14.value+\"#\"+parent.APPA.FORM1.I_VENDORID_14.value+\"#\"+\"@\";\n\t\t\t\t\t\t  \t\tTMA_AMOUNT=TMA_AMOUNT+parseInt(parent.APPA.FORM1.AMOUNT_14.value);\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t  \n\t\t\t\t\t\t  \tif(!parent.APPA.FORM1.VENNAME_15.value==\"\" && !parent.APPA.FORM1.VENDORID_15.value==\"\")\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\tT_APPA=T_APPA+\"15#\"+AscToChar(parent.APPA.FORM1.VENDORID_15.value)+\"#\"+parent.APPA.FORM1.VENNAME_15.value+\"#\"+parent.APPA.FORM1.IDATE_15.value+\"#\"+parent.APPA.FORM1.INVOICENO_15.value+\"#\"+parent.APPA.FORM1.AMOUNT_15.value+\"#\"+parent.APPA.FORM1.TAX_15.value+\"#\"+parent.APPA.FORM1.PAYKIND_15.value+\"#\"+parent.APPA.FORM1.BANKNO_15.value+\"#\"+parent.APPA.FORM1.ACCOUNT_15.value+\"#\"+parent.APPA.FORM1.ACCOUNTNAM_15.value+\"#\"+parent.APPA.FORM1.I_VENDORID_15.value+\"#\"+\"@\";\n\t\t\t\t\t\t  \t\tTMA_AMOUNT=TMA_AMOUNT+parseInt(parent.APPA.FORM1.AMOUNT_15.value);\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t  \n\t\t\t\t\t\t  \tif(!parent.APPA.FORM1.VENNAME_16.value==\"\" && !parent.APPA.FORM1.VENDORID_16.value==\"\")\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\tT_APPA=T_APPA+\"16#\"+AscToChar(parent.APPA.FORM1.VENDORID_16.value)+\"#\"+parent.APPA.FORM1.VENNAME_16.value+\"#\"+parent.APPA.FORM1.IDATE_16.value+\"#\"+parent.APPA.FORM1.INVOICENO_16.value+\"#\"+parent.APPA.FORM1.AMOUNT_16.value+\"#\"+parent.APPA.FORM1.TAX_16.value+\"#\"+parent.APPA.FORM1.PAYKIND_16.value+\"#\"+parent.APPA.FORM1.BANKNO_16.value+\"#\"+parent.APPA.FORM1.ACCOUNT_16.value+\"#\"+parent.APPA.FORM1.ACCOUNTNAM_16.value+\"#\"+parent.APPA.FORM1.I_VENDORID_16.value+\"#\"+\"@\";\n\t\t\t\t\t\t  \t\tTMA_AMOUNT=TMA_AMOUNT+parseInt(parent.APPA.FORM1.AMOUNT_16.value);\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t  \n\t\t\t\t\t\t  \tif(!parent.APPA.FORM1.VENNAME_17.value==\"\" && !parent.APPA.FORM1.VENDORID_17.value==\"\")\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\tT_APPA=T_APPA+\"17#\"+AscToChar(parent.APPA.FORM1.VENDORID_17.value)+\"#\"+parent.APPA.FORM1.VENNAME_17.value+\"#\"+parent.APPA.FORM1.IDATE_17.value+\"#\"+parent.APPA.FORM1.INVOICENO_17.value+\"#\"+parent.APPA.FORM1.AMOUNT_17.value+\"#\"+parent.APPA.FORM1.TAX_17.value+\"#\"+parent.APPA.FORM1.PAYKIND_17.value+\"#\"+parent.APPA.FORM1.BANKNO_17.value+\"#\"+parent.APPA.FORM1.ACCOUNT_17.value+\"#\"+parent.APPA.FORM1.ACCOUNTNAM_17.value+\"#\"+parent.APPA.FORM1.I_VENDORID_17.value+\"#\"+\"@\";\n\t\t\t\t\t\t  \t\tTMA_AMOUNT=TMA_AMOUNT+parseInt(parent.APPA.FORM1.AMOUNT_17.value);\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t  \n\t\t\t\t\t\t  \tif(!parent.APPA.FORM1.VENNAME_18.value==\"\" && !parent.APPA.FORM1.VENDORID_18.value==\"\")\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\tT_APPA=T_APPA+\"18#\"+AscToChar(parent.APPA.FORM1.VENDORID_18.value)+\"#\"+parent.APPA.FORM1.VENNAME_18.value+\"#\"+parent.APPA.FORM1.IDATE_18.value+\"#\"+parent.APPA.FORM1.INVOICENO_18.value+\"#\"+parent.APPA.FORM1.AMOUNT_18.value+\"#\"+parent.APPA.FORM1.TAX_18.value+\"#\"+parent.APPA.FORM1.PAYKIND_18.value+\"#\"+parent.APPA.FORM1.BANKNO_18.value+\"#\"+parent.APPA.FORM1.ACCOUNT_18.value+\"#\"+parent.APPA.FORM1.ACCOUNTNAM_18.value+\"#\"+parent.APPA.FORM1.I_VENDORID_18.value+\"#\"+\"@\";\n\t\t\t\t\t\t  \t\tTMA_AMOUNT=TMA_AMOUNT+parseInt(parent.APPA.FORM1.AMOUNT_18.value);\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t  \n\t\t\t\t\t\t  \tif(!parent.APPA.FORM1.VENNAME_19.value==\"\" && !parent.APPA.FORM1.VENDORID_19.value==\"\")\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\tT_APPA=T_APPA+\"19#\"+AscToChar(parent.APPA.FORM1.VENDORID_19.value)+\"#\"+parent.APPA.FORM1.VENNAME_19.value+\"#\"+parent.APPA.FORM1.IDATE_19.value+\"#\"+parent.APPA.FORM1.INVOICENO_19.value+\"#\"+parent.APPA.FORM1.AMOUNT_19.value+\"#\"+parent.APPA.FORM1.TAX_19.value+\"#\"+parent.APPA.FORM1.PAYKIND_19.value+\"#\"+parent.APPA.FORM1.BANKNO_19.value+\"#\"+parent.APPA.FORM1.ACCOUNT_19.value+\"#\"+parent.APPA.FORM1.ACCOUNTNAM_19.value+\"#\"+parent.APPA.FORM1.I_VENDORID_19.value+\"#\"+\"@\";\n\t\t\t\t\t\t  \t\tTMA_AMOUNT=TMA_AMOUNT+parseInt(parent.APPA.FORM1.AMOUNT_19.value);\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t  \n\t\t\t\t\t\t  \tif(!parent.APPA.FORM1.VENNAME_20.value==\"\" && !parent.APPA.FORM1.VENDORID_20.value==\"\")\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\tT_APPA=T_APPA+\"20#\"+AscToChar(parent.APPA.FORM1.VENDORID_20.value)+\"#\"+parent.APPA.FORM1.VENNAME_20.value+\"#\"+parent.APPA.FORM1.IDATE_20.value+\"#\"+parent.APPA.FORM1.INVOICENO_20.value+\"#\"+parent.APPA.FORM1.AMOUNT_20.value+\"#\"+parent.APPA.FORM1.TAX_20.value+\"#\"+parent.APPA.FORM1.PAYKIND_20.value+\"#\"+parent.APPA.FORM1.BANKNO_20.value+\"#\"+parent.APPA.FORM1.ACCOUNT_20.value+\"#\"+parent.APPA.FORM1.ACCOUNTNAM_20.value+\"#\"+parent.APPA.FORM1.I_VENDORID_20.value+\"#\"+\"@\";\n\t\t\t\t\t\t  \t\tTMA_AMOUNT=TMA_AMOUNT+parseInt(parent.APPA.FORM1.AMOUNT_20.value);\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t  \n\t\t\t\t\t\t   parent.PS.FORM1.A_STR.value=T_APPA;\n\t\t\t\t\t\t  \n\t\t\t\t\t\t   if (T_APPA.length==0)\n\t\t\t\t\t\t   {\n\t\t\t\t\t\t\tA=confirm(\"受款人尚未編輯，要編輯受款人嗎?\")\n\t\t\t\t\t\t\tif(A)\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\tparent.APPA.FORM1.AMOUNT_1.value=T_BUG_AMT;\n\t\t\t\t\t\t\t\tparent.DD.rows=\"160,*\";\n\t\t\t\t\t\t  \t\t\n\t\t\t\t\t\t  \t\t\tparent.QQ.cols=\"0,*,0\";\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\treturn;\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t   }\n\t\t\t\t\t\t  \t//若是受款人有編輯則必需相符且不為會簽\n\t\t\t\t\t\t\tif(FORM1.ALL_DEPT.value==\"\" && FORM1.NO_MATH.value==\"N\" )\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\tif(TMA_AMOUNT!=T_BUG_AMT && parseInt(T_APPA.length)!=0)\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\talert(\"【請購金額與受款人金額加總不相符合,請調整受款人明細金額與所使用經費金額相符】\");\n\t\t\t\t\t\t\t\t\tparent.DD.rows=\"160,*\";\n\t\t\t\t\t\t  \t\t\t\n\t\t\t\t\t\t  \t\t\t\tparent.QQ.cols=\"0,*,0\";\n\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\treturn;\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t  \n\t\t\t\t\t\t  \n\t//start 必須判斷是STD_APPP,STD_WorkList,STD_TRAVEL-------------------------------------------------------------------------------------------- \n\t\t\t\t\t\t  //作APPP之部分(財物請購)--------------------------\n\t\t\t\t\t\t  if(FORM1.APPYBUY.value==\"\"||FORM1.APPYBUY.value==\"1\")\n\t\t\t\t\t\t  {\n\t\t\t\t\t\t  \tT_APPP=\"\";\n\t\t\t\t\t\t  \tTMP_AMOUNT=0;\n\t\t\t\t\t\t\t REAL_ITEMS=0;\n\t\t\t\t\t\t\t \n\t\t\t\t\t\t\t//先判斷是否APPP只有一個若是則將第一個之AMOUNT定為T_BUG_AMT\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t//if(parent.APPP.FORM1.PRODUCT_2.value==\"\")\t\t\t\t\t\t\t\n\t\t\t\t\t\t  \t//{\n\t\t\t\t\t\t\t  //if(FORM1.NO_MATH.value==\"N\")\n\t\t\t\t\t\t\t  //{\n\t\t\t\t\t\t  \t\t//parent.APPP.FORM1.AMOUNT_1.value=T_BUG_AMT;\n\t\t\t\t\t\t\t  //}\n\t\t\t\t\t\t  \t//}\t\n\t\t\t\t\t\t\t//1020605Karen==>多筆品項，剛好要清第二筆時，若用上述判斷方式，會出現將請購總額一直帶到第一筆的狀況，故需重新掃過品名明細\n\t\t\t\t\t\t\tONEPICE=\"Y\";\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t   \n\t\t\t\t\t\t\t   if(parent.APPP.FORM1.PRODUCT_2.value!=\"\")\n\t\t\t\t\t\t\t   {\n\t\t\t\t\t\t\t    ONEPICE=\"N\";\n\t\t\t\t\t\t\t   }\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t   \n\t\t\t\t\t\t\t   if(parent.APPP.FORM1.PRODUCT_3.value!=\"\")\n\t\t\t\t\t\t\t   {\n\t\t\t\t\t\t\t    ONEPICE=\"N\";\n\t\t\t\t\t\t\t   }\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t   \n\t\t\t\t\t\t\t   if(parent.APPP.FORM1.PRODUCT_4.value!=\"\")\n\t\t\t\t\t\t\t   {\n\t\t\t\t\t\t\t    ONEPICE=\"N\";\n\t\t\t\t\t\t\t   }\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t   \n\t\t\t\t\t\t\t   if(parent.APPP.FORM1.PRODUCT_5.value!=\"\")\n\t\t\t\t\t\t\t   {\n\t\t\t\t\t\t\t    ONEPICE=\"N\";\n\t\t\t\t\t\t\t   }\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t   \n\t\t\t\t\t\t\t   if(parent.APPP.FORM1.PRODUCT_6.value!=\"\")\n\t\t\t\t\t\t\t   {\n\t\t\t\t\t\t\t    ONEPICE=\"N\";\n\t\t\t\t\t\t\t   }\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t   \n\t\t\t\t\t\t\t   if(parent.APPP.FORM1.PRODUCT_7.value!=\"\")\n\t\t\t\t\t\t\t   {\n\t\t\t\t\t\t\t    ONEPICE=\"N\";\n\t\t\t\t\t\t\t   }\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t   \n\t\t\t\t\t\t\t   if(parent.APPP.FORM1.PRODUCT_8.value!=\"\")\n\t\t\t\t\t\t\t   {\n\t\t\t\t\t\t\t    ONEPICE=\"N\";\n\t\t\t\t\t\t\t   }\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t   \n\t\t\t\t\t\t\t   if(parent.APPP.FORM1.PRODUCT_9.value!=\"\")\n\t\t\t\t\t\t\t   {\n\t\t\t\t\t\t\t    ONEPICE=\"N\";\n\t\t\t\t\t\t\t   }\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t   \n\t\t\t\t\t\t\t   if(parent.APPP.FORM1.PRODUCT_10.value!=\"\")\n\t\t\t\t\t\t\t   {\n\t\t\t\t\t\t\t    ONEPICE=\"N\";\n\t\t\t\t\t\t\t   }\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t   \n\t\t\t\t\t\t\t   if(parent.APPP.FORM1.PRODUCT_11.value!=\"\")\n\t\t\t\t\t\t\t   {\n\t\t\t\t\t\t\t    ONEPICE=\"N\";\n\t\t\t\t\t\t\t   }\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t   \n\t\t\t\t\t\t\t   if(parent.APPP.FORM1.PRODUCT_12.value!=\"\")\n\t\t\t\t\t\t\t   {\n\t\t\t\t\t\t\t    ONEPICE=\"N\";\n\t\t\t\t\t\t\t   }\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t   \n\t\t\t\t\t\t\t   if(parent.APPP.FORM1.PRODUCT_13.value!=\"\")\n\t\t\t\t\t\t\t   {\n\t\t\t\t\t\t\t    ONEPICE=\"N\";\n\t\t\t\t\t\t\t   }\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t   \n\t\t\t\t\t\t\t   if(parent.APPP.FORM1.PRODUCT_14.value!=\"\")\n\t\t\t\t\t\t\t   {\n\t\t\t\t\t\t\t    ONEPICE=\"N\";\n\t\t\t\t\t\t\t   }\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t   \n\t\t\t\t\t\t\t   if(parent.APPP.FORM1.PRODUCT_15.value!=\"\")\n\t\t\t\t\t\t\t   {\n\t\t\t\t\t\t\t    ONEPICE=\"N\";\n\t\t\t\t\t\t\t   }\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\tif(ONEPICE==\"Y\" && FORM1.NO_MATH.value==\"N\")\n\t\t\t\t\t\t  \t{\n\t\t\t\t\t\t\t  parent.APPP.FORM1.AMOUNT_1.value=T_BUG_AMT;\n\t\t\t\t\t\t  \t}\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t  \t\n\t\t\t\t\t\t  \t\tif(!parent.APPP.FORM1.PRODUCT_1.value==\"\"&&!parent.APPP.FORM1.AMOUNT_1.value==\"\")\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t    \n\t\t\t\t\t\t\t\t      T_APPP=T_APPP+\"1◎\"+parent.APPP.FORM1.PRODUCT_1.value+\"○\"+parent.APPP.FORM1.PRODUCT1_1.value+\"○\"+parent.APPP.FORM1.PRODUCT2_1.value+\"○\"+\"◎\"+parent.APPP.FORM1.QUANTITY_1.value+\"◎\"+parent.APPP.FORM1.SERUNIT_1.value+\"◎\"+parent.APPP.FORM1.AMOUNT_1.value+\"◎\"+parent.APPP.FORM1.PLACE_1.value+\"◎\"+parent.APPP.FORM1.PTYPE_1.value+\"◎\"+parent.APPP.FORM1.KEEPER_1.value+\"◎\"+parent.APPP.FORM1.KEEPERID_1.value+\"◎\"+parent.APPP.FORM1.KEEPERDNO_1.value+\"@\";\n\t\t\t\t\t\t\t\t   \n\t\t\t\t\t\t\t\t\tTMP_AMOUNT=TMP_AMOUNT+parseFloat(parent.APPP.FORM1.AMOUNT_1.value);\n\t\t\t\t\t\t\t\t\tREAL_ITEMS=1;\n\t\t\t\t\t\t  \t\t}\n\t\t\t\t\t\t  \t\n\t\t\t\t\t\t  \t\tif(!parent.APPP.FORM1.PRODUCT_2.value==\"\"&&!parent.APPP.FORM1.AMOUNT_2.value==\"\")\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t    \n\t\t\t\t\t\t\t\t      T_APPP=T_APPP+\"2◎\"+parent.APPP.FORM1.PRODUCT_2.value+\"○\"+parent.APPP.FORM1.PRODUCT1_2.value+\"○\"+parent.APPP.FORM1.PRODUCT2_2.value+\"○\"+\"◎\"+parent.APPP.FORM1.QUANTITY_2.value+\"◎\"+parent.APPP.FORM1.SERUNIT_2.value+\"◎\"+parent.APPP.FORM1.AMOUNT_2.value+\"◎\"+parent.APPP.FORM1.PLACE_2.value+\"◎\"+parent.APPP.FORM1.PTYPE_2.value+\"◎\"+parent.APPP.FORM1.KEEPER_2.value+\"◎\"+parent.APPP.FORM1.KEEPERID_2.value+\"◎\"+parent.APPP.FORM1.KEEPERDNO_2.value+\"@\";\n\t\t\t\t\t\t\t\t   \n\t\t\t\t\t\t\t\t\tTMP_AMOUNT=TMP_AMOUNT+parseFloat(parent.APPP.FORM1.AMOUNT_2.value);\n\t\t\t\t\t\t\t\t\tREAL_ITEMS=2;\n\t\t\t\t\t\t  \t\t}\n\t\t\t\t\t\t  \t\n\t\t\t\t\t\t  \t\tif(!parent.APPP.FORM1.PRODUCT_3.value==\"\"&&!parent.APPP.FORM1.AMOUNT_3.value==\"\")\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t    \n\t\t\t\t\t\t\t\t      T_APPP=T_APPP+\"3◎\"+parent.APPP.FORM1.PRODUCT_3.value+\"○\"+parent.APPP.FORM1.PRODUCT1_3.value+\"○\"+parent.APPP.FORM1.PRODUCT2_3.value+\"○\"+\"◎\"+parent.APPP.FORM1.QUANTITY_3.value+\"◎\"+parent.APPP.FORM1.SERUNIT_3.value+\"◎\"+parent.APPP.FORM1.AMOUNT_3.value+\"◎\"+parent.APPP.FORM1.PLACE_3.value+\"◎\"+parent.APPP.FORM1.PTYPE_3.value+\"◎\"+parent.APPP.FORM1.KEEPER_3.value+\"◎\"+parent.APPP.FORM1.KEEPERID_3.value+\"◎\"+parent.APPP.FORM1.KEEPERDNO_3.value+\"@\";\n\t\t\t\t\t\t\t\t   \n\t\t\t\t\t\t\t\t\tTMP_AMOUNT=TMP_AMOUNT+parseFloat(parent.APPP.FORM1.AMOUNT_3.value);\n\t\t\t\t\t\t\t\t\tREAL_ITEMS=3;\n\t\t\t\t\t\t  \t\t}\n\t\t\t\t\t\t  \t\n\t\t\t\t\t\t  \t\tif(!parent.APPP.FORM1.PRODUCT_4.value==\"\"&&!parent.APPP.FORM1.AMOUNT_4.value==\"\")\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t    \n\t\t\t\t\t\t\t\t      T_APPP=T_APPP+\"4◎\"+parent.APPP.FORM1.PRODUCT_4.value+\"○\"+parent.APPP.FORM1.PRODUCT1_4.value+\"○\"+parent.APPP.FORM1.PRODUCT2_4.value+\"○\"+\"◎\"+parent.APPP.FORM1.QUANTITY_4.value+\"◎\"+parent.APPP.FORM1.SERUNIT_4.value+\"◎\"+parent.APPP.FORM1.AMOUNT_4.value+\"◎\"+parent.APPP.FORM1.PLACE_4.value+\"◎\"+parent.APPP.FORM1.PTYPE_4.value+\"◎\"+parent.APPP.FORM1.KEEPER_4.value+\"◎\"+parent.APPP.FORM1.KEEPERID_4.value+\"◎\"+parent.APPP.FORM1.KEEPERDNO_4.value+\"@\";\n\t\t\t\t\t\t\t\t   \n\t\t\t\t\t\t\t\t\tTMP_AMOUNT=TMP_AMOUNT+parseFloat(parent.APPP.FORM1.AMOUNT_4.value);\n\t\t\t\t\t\t\t\t\tREAL_ITEMS=4;\n\t\t\t\t\t\t  \t\t}\n\t\t\t\t\t\t  \t\n\t\t\t\t\t\t  \t\tif(!parent.APPP.FORM1.PRODUCT_5.value==\"\"&&!parent.APPP.FORM1.AMOUNT_5.value==\"\")\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t    \n\t\t\t\t\t\t\t\t      T_APPP=T_APPP+\"5◎\"+parent.APPP.FORM1.PRODUCT_5.value+\"○\"+parent.APPP.FORM1.PRODUCT1_5.value+\"○\"+parent.APPP.FORM1.PRODUCT2_5.value+\"○\"+\"◎\"+parent.APPP.FORM1.QUANTITY_5.value+\"◎\"+parent.APPP.FORM1.SERUNIT_5.value+\"◎\"+parent.APPP.FORM1.AMOUNT_5.value+\"◎\"+parent.APPP.FORM1.PLACE_5.value+\"◎\"+parent.APPP.FORM1.PTYPE_5.value+\"◎\"+parent.APPP.FORM1.KEEPER_5.value+\"◎\"+parent.APPP.FORM1.KEEPERID_5.value+\"◎\"+parent.APPP.FORM1.KEEPERDNO_5.value+\"@\";\n\t\t\t\t\t\t\t\t   \n\t\t\t\t\t\t\t\t\tTMP_AMOUNT=TMP_AMOUNT+parseFloat(parent.APPP.FORM1.AMOUNT_5.value);\n\t\t\t\t\t\t\t\t\tREAL_ITEMS=5;\n\t\t\t\t\t\t  \t\t}\n\t\t\t\t\t\t  \t\n\t\t\t\t\t\t  \t\tif(!parent.APPP.FORM1.PRODUCT_6.value==\"\"&&!parent.APPP.FORM1.AMOUNT_6.value==\"\")\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t    \n\t\t\t\t\t\t\t\t      T_APPP=T_APPP+\"6◎\"+parent.APPP.FORM1.PRODUCT_6.value+\"○\"+parent.APPP.FORM1.PRODUCT1_6.value+\"○\"+parent.APPP.FORM1.PRODUCT2_6.value+\"○\"+\"◎\"+parent.APPP.FORM1.QUANTITY_6.value+\"◎\"+parent.APPP.FORM1.SERUNIT_6.value+\"◎\"+parent.APPP.FORM1.AMOUNT_6.value+\"◎\"+parent.APPP.FORM1.PLACE_6.value+\"◎\"+parent.APPP.FORM1.PTYPE_6.value+\"◎\"+parent.APPP.FORM1.KEEPER_6.value+\"◎\"+parent.APPP.FORM1.KEEPERID_6.value+\"◎\"+parent.APPP.FORM1.KEEPERDNO_6.value+\"@\";\n\t\t\t\t\t\t\t\t   \n\t\t\t\t\t\t\t\t\tTMP_AMOUNT=TMP_AMOUNT+parseFloat(parent.APPP.FORM1.AMOUNT_6.value);\n\t\t\t\t\t\t\t\t\tREAL_ITEMS=6;\n\t\t\t\t\t\t  \t\t}\n\t\t\t\t\t\t  \t\n\t\t\t\t\t\t  \t\tif(!parent.APPP.FORM1.PRODUCT_7.value==\"\"&&!parent.APPP.FORM1.AMOUNT_7.value==\"\")\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t    \n\t\t\t\t\t\t\t\t      T_APPP=T_APPP+\"7◎\"+parent.APPP.FORM1.PRODUCT_7.value+\"○\"+parent.APPP.FORM1.PRODUCT1_7.value+\"○\"+parent.APPP.FORM1.PRODUCT2_7.value+\"○\"+\"◎\"+parent.APPP.FORM1.QUANTITY_7.value+\"◎\"+parent.APPP.FORM1.SERUNIT_7.value+\"◎\"+parent.APPP.FORM1.AMOUNT_7.value+\"◎\"+parent.APPP.FORM1.PLACE_7.value+\"◎\"+parent.APPP.FORM1.PTYPE_7.value+\"◎\"+parent.APPP.FORM1.KEEPER_7.value+\"◎\"+parent.APPP.FORM1.KEEPERID_7.value+\"◎\"+parent.APPP.FORM1.KEEPERDNO_7.value+\"@\";\n\t\t\t\t\t\t\t\t   \n\t\t\t\t\t\t\t\t\tTMP_AMOUNT=TMP_AMOUNT+parseFloat(parent.APPP.FORM1.AMOUNT_7.value);\n\t\t\t\t\t\t\t\t\tREAL_ITEMS=7;\n\t\t\t\t\t\t  \t\t}\n\t\t\t\t\t\t  \t\n\t\t\t\t\t\t  \t\tif(!parent.APPP.FORM1.PRODUCT_8.value==\"\"&&!parent.APPP.FORM1.AMOUNT_8.value==\"\")\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t    \n\t\t\t\t\t\t\t\t      T_APPP=T_APPP+\"8◎\"+parent.APPP.FORM1.PRODUCT_8.value+\"○\"+parent.APPP.FORM1.PRODUCT1_8.value+\"○\"+parent.APPP.FORM1.PRODUCT2_8.value+\"○\"+\"◎\"+parent.APPP.FORM1.QUANTITY_8.value+\"◎\"+parent.APPP.FORM1.SERUNIT_8.value+\"◎\"+parent.APPP.FORM1.AMOUNT_8.value+\"◎\"+parent.APPP.FORM1.PLACE_8.value+\"◎\"+parent.APPP.FORM1.PTYPE_8.value+\"◎\"+parent.APPP.FORM1.KEEPER_8.value+\"◎\"+parent.APPP.FORM1.KEEPERID_8.value+\"◎\"+parent.APPP.FORM1.KEEPERDNO_8.value+\"@\";\n\t\t\t\t\t\t\t\t   \n\t\t\t\t\t\t\t\t\tTMP_AMOUNT=TMP_AMOUNT+parseFloat(parent.APPP.FORM1.AMOUNT_8.value);\n\t\t\t\t\t\t\t\t\tREAL_ITEMS=8;\n\t\t\t\t\t\t  \t\t}\n\t\t\t\t\t\t  \t\n\t\t\t\t\t\t  \t\tif(!parent.APPP.FORM1.PRODUCT_9.value==\"\"&&!parent.APPP.FORM1.AMOUNT_9.value==\"\")\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t    \n\t\t\t\t\t\t\t\t      T_APPP=T_APPP+\"9◎\"+parent.APPP.FORM1.PRODUCT_9.value+\"○\"+parent.APPP.FORM1.PRODUCT1_9.value+\"○\"+parent.APPP.FORM1.PRODUCT2_9.value+\"○\"+\"◎\"+parent.APPP.FORM1.QUANTITY_9.value+\"◎\"+parent.APPP.FORM1.SERUNIT_9.value+\"◎\"+parent.APPP.FORM1.AMOUNT_9.value+\"◎\"+parent.APPP.FORM1.PLACE_9.value+\"◎\"+parent.APPP.FORM1.PTYPE_9.value+\"◎\"+parent.APPP.FORM1.KEEPER_9.value+\"◎\"+parent.APPP.FORM1.KEEPERID_9.value+\"◎\"+parent.APPP.FORM1.KEEPERDNO_9.value+\"@\";\n\t\t\t\t\t\t\t\t   \n\t\t\t\t\t\t\t\t\tTMP_AMOUNT=TMP_AMOUNT+parseFloat(parent.APPP.FORM1.AMOUNT_9.value);\n\t\t\t\t\t\t\t\t\tREAL_ITEMS=9;\n\t\t\t\t\t\t  \t\t}\n\t\t\t\t\t\t  \t\n\t\t\t\t\t\t  \t\tif(!parent.APPP.FORM1.PRODUCT_10.value==\"\"&&!parent.APPP.FORM1.AMOUNT_10.value==\"\")\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t    \n\t\t\t\t\t\t\t\t      T_APPP=T_APPP+\"10◎\"+parent.APPP.FORM1.PRODUCT_10.value+\"○\"+parent.APPP.FORM1.PRODUCT1_10.value+\"○\"+parent.APPP.FORM1.PRODUCT2_10.value+\"○\"+\"◎\"+parent.APPP.FORM1.QUANTITY_10.value+\"◎\"+parent.APPP.FORM1.SERUNIT_10.value+\"◎\"+parent.APPP.FORM1.AMOUNT_10.value+\"◎\"+parent.APPP.FORM1.PLACE_10.value+\"◎\"+parent.APPP.FORM1.PTYPE_10.value+\"◎\"+parent.APPP.FORM1.KEEPER_10.value+\"◎\"+parent.APPP.FORM1.KEEPERID_10.value+\"◎\"+parent.APPP.FORM1.KEEPERDNO_10.value+\"@\";\n\t\t\t\t\t\t\t\t   \n\t\t\t\t\t\t\t\t\tTMP_AMOUNT=TMP_AMOUNT+parseFloat(parent.APPP.FORM1.AMOUNT_10.value);\n\t\t\t\t\t\t\t\t\tREAL_ITEMS=10;\n\t\t\t\t\t\t  \t\t}\n\t\t\t\t\t\t  \t\n\t\t\t\t\t\t  \t\tif(!parent.APPP.FORM1.PRODUCT_11.value==\"\"&&!parent.APPP.FORM1.AMOUNT_11.value==\"\")\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t    \n\t\t\t\t\t\t\t\t      T_APPP=T_APPP+\"11◎\"+parent.APPP.FORM1.PRODUCT_11.value+\"○\"+parent.APPP.FORM1.PRODUCT1_11.value+\"○\"+parent.APPP.FORM1.PRODUCT2_11.value+\"○\"+\"◎\"+parent.APPP.FORM1.QUANTITY_11.value+\"◎\"+parent.APPP.FORM1.SERUNIT_11.value+\"◎\"+parent.APPP.FORM1.AMOUNT_11.value+\"◎\"+parent.APPP.FORM1.PLACE_11.value+\"◎\"+parent.APPP.FORM1.PTYPE_11.value+\"◎\"+parent.APPP.FORM1.KEEPER_11.value+\"◎\"+parent.APPP.FORM1.KEEPERID_11.value+\"◎\"+parent.APPP.FORM1.KEEPERDNO_11.value+\"@\";\n\t\t\t\t\t\t\t\t   \n\t\t\t\t\t\t\t\t\tTMP_AMOUNT=TMP_AMOUNT+parseFloat(parent.APPP.FORM1.AMOUNT_11.value);\n\t\t\t\t\t\t\t\t\tREAL_ITEMS=11;\n\t\t\t\t\t\t  \t\t}\n\t\t\t\t\t\t  \t\n\t\t\t\t\t\t  \t\tif(!parent.APPP.FORM1.PRODUCT_12.value==\"\"&&!parent.APPP.FORM1.AMOUNT_12.value==\"\")\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t    \n\t\t\t\t\t\t\t\t      T_APPP=T_APPP+\"12◎\"+parent.APPP.FORM1.PRODUCT_12.value+\"○\"+parent.APPP.FORM1.PRODUCT1_12.value+\"○\"+parent.APPP.FORM1.PRODUCT2_12.value+\"○\"+\"◎\"+parent.APPP.FORM1.QUANTITY_12.value+\"◎\"+parent.APPP.FORM1.SERUNIT_12.value+\"◎\"+parent.APPP.FORM1.AMOUNT_12.value+\"◎\"+parent.APPP.FORM1.PLACE_12.value+\"◎\"+parent.APPP.FORM1.PTYPE_12.value+\"◎\"+parent.APPP.FORM1.KEEPER_12.value+\"◎\"+parent.APPP.FORM1.KEEPERID_12.value+\"◎\"+parent.APPP.FORM1.KEEPERDNO_12.value+\"@\";\n\t\t\t\t\t\t\t\t   \n\t\t\t\t\t\t\t\t\tTMP_AMOUNT=TMP_AMOUNT+parseFloat(parent.APPP.FORM1.AMOUNT_12.value);\n\t\t\t\t\t\t\t\t\tREAL_ITEMS=12;\n\t\t\t\t\t\t  \t\t}\n\t\t\t\t\t\t  \t\n\t\t\t\t\t\t  \t\tif(!parent.APPP.FORM1.PRODUCT_13.value==\"\"&&!parent.APPP.FORM1.AMOUNT_13.value==\"\")\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t    \n\t\t\t\t\t\t\t\t      T_APPP=T_APPP+\"13◎\"+parent.APPP.FORM1.PRODUCT_13.value+\"○\"+parent.APPP.FORM1.PRODUCT1_13.value+\"○\"+parent.APPP.FORM1.PRODUCT2_13.value+\"○\"+\"◎\"+parent.APPP.FORM1.QUANTITY_13.value+\"◎\"+parent.APPP.FORM1.SERUNIT_13.value+\"◎\"+parent.APPP.FORM1.AMOUNT_13.value+\"◎\"+parent.APPP.FORM1.PLACE_13.value+\"◎\"+parent.APPP.FORM1.PTYPE_13.value+\"◎\"+parent.APPP.FORM1.KEEPER_13.value+\"◎\"+parent.APPP.FORM1.KEEPERID_13.value+\"◎\"+parent.APPP.FORM1.KEEPERDNO_13.value+\"@\";\n\t\t\t\t\t\t\t\t   \n\t\t\t\t\t\t\t\t\tTMP_AMOUNT=TMP_AMOUNT+parseFloat(parent.APPP.FORM1.AMOUNT_13.value);\n\t\t\t\t\t\t\t\t\tREAL_ITEMS=13;\n\t\t\t\t\t\t  \t\t}\n\t\t\t\t\t\t  \t\n\t\t\t\t\t\t  \t\tif(!parent.APPP.FORM1.PRODUCT_14.value==\"\"&&!parent.APPP.FORM1.AMOUNT_14.value==\"\")\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t    \n\t\t\t\t\t\t\t\t      T_APPP=T_APPP+\"14◎\"+parent.APPP.FORM1.PRODUCT_14.value+\"○\"+parent.APPP.FORM1.PRODUCT1_14.value+\"○\"+parent.APPP.FORM1.PRODUCT2_14.value+\"○\"+\"◎\"+parent.APPP.FORM1.QUANTITY_14.value+\"◎\"+parent.APPP.FORM1.SERUNIT_14.value+\"◎\"+parent.APPP.FORM1.AMOUNT_14.value+\"◎\"+parent.APPP.FORM1.PLACE_14.value+\"◎\"+parent.APPP.FORM1.PTYPE_14.value+\"◎\"+parent.APPP.FORM1.KEEPER_14.value+\"◎\"+parent.APPP.FORM1.KEEPERID_14.value+\"◎\"+parent.APPP.FORM1.KEEPERDNO_14.value+\"@\";\n\t\t\t\t\t\t\t\t   \n\t\t\t\t\t\t\t\t\tTMP_AMOUNT=TMP_AMOUNT+parseFloat(parent.APPP.FORM1.AMOUNT_14.value);\n\t\t\t\t\t\t\t\t\tREAL_ITEMS=14;\n\t\t\t\t\t\t  \t\t}\n\t\t\t\t\t\t  \t\n\t\t\t\t\t\t  \t\tif(!parent.APPP.FORM1.PRODUCT_15.value==\"\"&&!parent.APPP.FORM1.AMOUNT_15.value==\"\")\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t    \n\t\t\t\t\t\t\t\t      T_APPP=T_APPP+\"15◎\"+parent.APPP.FORM1.PRODUCT_15.value+\"○\"+parent.APPP.FORM1.PRODUCT1_15.value+\"○\"+parent.APPP.FORM1.PRODUCT2_15.value+\"○\"+\"◎\"+parent.APPP.FORM1.QUANTITY_15.value+\"◎\"+parent.APPP.FORM1.SERUNIT_15.value+\"◎\"+parent.APPP.FORM1.AMOUNT_15.value+\"◎\"+parent.APPP.FORM1.PLACE_15.value+\"◎\"+parent.APPP.FORM1.PTYPE_15.value+\"◎\"+parent.APPP.FORM1.KEEPER_15.value+\"◎\"+parent.APPP.FORM1.KEEPERID_15.value+\"◎\"+parent.APPP.FORM1.KEEPERDNO_15.value+\"@\";\n\t\t\t\t\t\t\t\t   \n\t\t\t\t\t\t\t\t\tTMP_AMOUNT=TMP_AMOUNT+parseFloat(parent.APPP.FORM1.AMOUNT_15.value);\n\t\t\t\t\t\t\t\t\tREAL_ITEMS=15;\n\t\t\t\t\t\t  \t\t}\n\t\t\t\t\t\t  \t\n\t\t\t\t\t\t\t   TMP_AMOUNT=Math.round(TMP_AMOUNT);\t\t\t\t\t\t\t  \t\t\t\t\t\t   \n\t\t\t\t\t\t \t\n\t\t\t\t\t\t  \tif(FORM1.ALL_DEPT.value==\"\")\n\t\t\t\t\t\t  \t{\n\t\t\t\t\t\t    \t //若是第一項詳如附件但第二項沒有打資料則判斷金額\n\t\t\t\t\t\t\t\t//'判斷是否是由採購介面+明細近來的,若是則H必須忽略計算'pan961213\t\n\t\t\t\t\t\t\t\tif(parent.APPP.FORM1.PRODUCT_1.value!=\"詳如附件\" && parent.APPP.FORM1.PRODUCT_1.value.substr(1,3)!=\"採購單\" )\n\t\t\t\t\t\t  \t\t{\n\t\t\t\t\t\t\t\t\tif(TMP_AMOUNT!=T_BUG_AMT  && FORM1.NO_MATH.value!=\"Y\")\n\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\talert(\"【請購金額$\"+T_BUG_AMT+\"與品名加總金額$\"+TMP_AMOUNT+\"不相符合,請調整品名加總金額與所使用經費金額相符】\");\n\t\t\t\t\t\t\t\t\t\tparent.DD.rows=\"160,*\";\n\t\t\t\t\t\t  \t\t\t\t\n\t\t\t\t\t\t  \t\t\t\t\tparent.QQ.cols=\"*,0,0\";\n\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\treturn;\n\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t  \t\t}\n\t\t\t\t\t\t\t\t//若是第一項詳如附件但第二項又有打資料則判斷金額\n\t\t\t\t\t\t\t\tif(parent.APPP.FORM1.PRODUCT_1.value==\"詳如附件\" && parent.APPP.FORM1.PRODUCT_2.value!=\"\")\n\t\t\t\t\t\t  \t\t{\n\t\t\t\t\t\t\t\t\tif(TMP_AMOUNT!=T_BUG_AMT  && FORM1.NO_MATH.value!=\"Y\")\n\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\talert(\"【請購金額$\"+T_BUG_AMT+\"與品名加總金額$\"+TMP_AMOUNT+\"不相符合,請調整品名加總金額與所使用經費金額相符】\");\n\t\t\t\t\t\t\t\t\t\tparent.DD.rows=\"160,*\";\n\t\t\t\t\t\t  \t\t\t\t\n\t\t\t\t\t\t  \t\t\t\t\tparent.QQ.cols=\"*,0,0\";\n\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\treturn;\n\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t  \t\t}\n\t\t\t\t\t\t  \t}\n\t\t\t\t\t\t  \t\n\t\t\t\t\t\t   \tparent.PS.FORM1.P_STR.value=T_APPP;\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\tif (REAL_ITEMS>100)\n\t\t\t\t\t\t\t{alert(\"品項資料筆數較多(超過100筆),請耐心等候!!!\");}\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t  }\n\t\t\t\t\t\t  //作APPP之部分end--------------------------\n\t\t\t\t\t\t  //990419Karen==>已經越來越多學校有用清冊,且以下購案類型已固定為清冊類型,故改直接由購案類別判斷\n\t\t\t\n\t//end 必須判斷是STD_APPP,STD_WorkList,STD_TRAVEL-------------------------------------------------------------------------------------------- \n\t\t\t\t\t\t \n\t\t\t\t\t \n\t\t\t\t\t\t  \t\tparent.PS.FORM1.submit();\n\t\t\t\t\t\t}",
+    "CHK_APPP": "function CHK_APPP()\n\t\t\t\t{\n\t\t\t\t  parent.APPP.FORM1.SUM_LIST.click();\n\t\t\t\t  FORM1.SUM_APPP.value=parent.APPP.FORM1.SUM_LIST.value;\n\t\t\t\t}",
+    "CHK_APPA": "function CHK_APPA()\n\t\t\t\t{\n\t\t\t\t  parent.APPA.FORM1.SUM_LIST.click();\n\t\t\t\t  FORM1.SUM_APPA.value=parent.APPA.SUM_LIST.value;\n\t\t\t\t}",
+    "SUM_SUM": "function SUM_SUM()\n\t\t\t{\n\t\t\t\tSUM_AMOUNT=0;\n\t\t\t\t\n\t\t\t\tif(!FORM1.D_AMOUNT_1.value==\"0\")\n\t\t\t\t\t{SUM_AMOUNT=SUM_AMOUNT+(parseFloat(FORM1.D_AMOUNT_1.value));}\n\t\t\t\t\n\t\t\t\tif(!FORM1.D_AMOUNT_2.value==\"0\")\n\t\t\t\t\t{SUM_AMOUNT=SUM_AMOUNT+(parseFloat(FORM1.D_AMOUNT_2.value));}\n\t\t\t\t\n\t\t\t\tif(!FORM1.D_AMOUNT_3.value==\"0\")\n\t\t\t\t\t{SUM_AMOUNT=SUM_AMOUNT+(parseFloat(FORM1.D_AMOUNT_3.value));}\n\t\t\t\t\n\t\t\t\tif(!FORM1.D_AMOUNT_4.value==\"0\")\n\t\t\t\t\t{SUM_AMOUNT=SUM_AMOUNT+(parseFloat(FORM1.D_AMOUNT_4.value));}\n\t\t\t\t\n\t\t\t\tif(!FORM1.D_AMOUNT_5.value==\"0\")\n\t\t\t\t\t{SUM_AMOUNT=SUM_AMOUNT+(parseFloat(FORM1.D_AMOUNT_5.value));}\n\t\t\t\t\n\t\t\t\tif(!FORM1.D_AMOUNT_6.value==\"0\")\n\t\t\t\t\t{SUM_AMOUNT=SUM_AMOUNT+(parseFloat(FORM1.D_AMOUNT_6.value));}\n\t\t\t\t\n\t\t\t\tif(!FORM1.D_AMOUNT_7.value==\"0\")\n\t\t\t\t\t{SUM_AMOUNT=SUM_AMOUNT+(parseFloat(FORM1.D_AMOUNT_7.value));}\n\t\t\t\t\n\t\t\t\tif(!FORM1.D_AMOUNT_8.value==\"0\")\n\t\t\t\t\t{SUM_AMOUNT=SUM_AMOUNT+(parseFloat(FORM1.D_AMOUNT_8.value));}\n\t\t\t\t\n\t\t\t\tif(!FORM1.D_AMOUNT_9.value==\"0\")\n\t\t\t\t\t{SUM_AMOUNT=SUM_AMOUNT+(parseFloat(FORM1.D_AMOUNT_9.value));}\n\t\t\t\t\n\t\t\t\tif(!FORM1.D_AMOUNT_10.value==\"0\")\n\t\t\t\t\t{SUM_AMOUNT=SUM_AMOUNT+(parseFloat(FORM1.D_AMOUNT_10.value));}\n\t\t\t\t\n\t\t\t\tif(!FORM1.D_AMOUNT_11.value==\"0\")\n\t\t\t\t\t{SUM_AMOUNT=SUM_AMOUNT+(parseFloat(FORM1.D_AMOUNT_11.value));}\n\t\t\t\t\n\t\t\t\tif(!FORM1.D_AMOUNT_12.value==\"0\")\n\t\t\t\t\t{SUM_AMOUNT=SUM_AMOUNT+(parseFloat(FORM1.D_AMOUNT_12.value));}\n\t\t\t\t\n\t\t\t\tif(!FORM1.D_AMOUNT_13.value==\"0\")\n\t\t\t\t\t{SUM_AMOUNT=SUM_AMOUNT+(parseFloat(FORM1.D_AMOUNT_13.value));}\n\t\t\t\t\n\t\t\t\tif(!FORM1.D_AMOUNT_14.value==\"0\")\n\t\t\t\t\t{SUM_AMOUNT=SUM_AMOUNT+(parseFloat(FORM1.D_AMOUNT_14.value));}\n\t\t\t\t\n\t\t\t\tif(!FORM1.D_AMOUNT_15.value==\"0\")\n\t\t\t\t\t{SUM_AMOUNT=SUM_AMOUNT+(parseFloat(FORM1.D_AMOUNT_15.value));}\n\t\t\t\t\n\t\t\t\tif(!FORM1.D_AMOUNT_16.value==\"0\")\n\t\t\t\t\t{SUM_AMOUNT=SUM_AMOUNT+(parseFloat(FORM1.D_AMOUNT_16.value));}\n\t\t\t\t\n\t\t\t\tif(!FORM1.D_AMOUNT_17.value==\"0\")\n\t\t\t\t\t{SUM_AMOUNT=SUM_AMOUNT+(parseFloat(FORM1.D_AMOUNT_17.value));}\n\t\t\t\t\n\t\t\t\tif(!FORM1.D_AMOUNT_18.value==\"0\")\n\t\t\t\t\t{SUM_AMOUNT=SUM_AMOUNT+(parseFloat(FORM1.D_AMOUNT_18.value));}\n\t\t\t\t\n\t\t\t\tif(!FORM1.D_AMOUNT_19.value==\"0\")\n\t\t\t\t\t{SUM_AMOUNT=SUM_AMOUNT+(parseFloat(FORM1.D_AMOUNT_19.value));}\n\t\t\t\t\n\t\t\t\tif(!FORM1.D_AMOUNT_20.value==\"0\")\n\t\t\t\t\t{SUM_AMOUNT=SUM_AMOUNT+(parseFloat(FORM1.D_AMOUNT_20.value));}\n\t\t\t\t\n\t\t\t\tFORM1.SUM_LIST.value=\"加總:$\"+SUM_AMOUNT;\n\t\t\t}",
+    "FORM1_action": "https://account.ncut.edu.tw/APSWIS_Q/Dept_Add_Q/STD_APPY_Q.asp?COPY=&APPYYEAR=115&ISNEW=Y&APYNO=&APYADD=&APPYSET=13&MOVETYPE=6&ISAPPY=True&ISVOUC=True&ISTEMP=False&ISCASH=True&ISPURC=False&SETNAME=%AA%BD%B1%B5%AE%D6%BEP(%B9s%A5%CE%AA%F7)%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20&APPU=&DECI=&SHOWVEN=True&SHOWPRO=True&APPYBUY=&VOUSERNO=",
+    "FORM1_target": "",
+    "FORM1_method": "post"
+  },
+  "appp_functions": {
+    "FORM1_action": "https://account.ncut.edu.tw/APSWIS_Q/Dept_Add_Q/STD_APPP_Q.asp?APPYYEAR=115&ISNEW=Y&APYNO=&APYADD=&APPYSET=13&ISPURC=False&MOVETYPE=6&ISAPPY=True&ISVOUC=True&ISPERIOD=False&SHOWVEN=True",
+    "FORM1_target": "",
+    "FORM1_method": "post",
+    "SUM_SUM": "function SUM_SUM() {\n                SUM_AMOUNT = 0;\n\t\t\t\t\n\t\t\t\tif (!FORM1.PRODUCT_1.value == \"\")\n                { SUM_AMOUNT = SUM_AMOUNT + (parseFloat(FORM1.AMOUNT_1.value)); }\n\t\t\t\t\n\t\t\t\tif (!FORM1.PRODUCT_2.value == \"\")\n                { SUM_AMOUNT = SUM_AMOUNT + (parseFloat(FORM1.AMOUNT_2.value)); }\n\t\t\t\t\n\t\t\t\tif (!FORM1.PRODUCT_3.value == \"\")\n                { SUM_AMOUNT = SUM_AMOUNT + (parseFloat(FORM1.AMOUNT_3.value)); }\n\t\t\t\t\n\t\t\t\tif (!FORM1.PRODUCT_4.value == \"\")\n                { SUM_AMOUNT ",
+    "hiddenInputs": [
+      {
+        "name": "",
+        "value": "引用先前之請購案"
+      },
+      {
+        "name": "SUM_LIST",
+        "value": "加總:$0"
+      },
+      {
+        "name": "IDATE_1",
+        "value": ""
+      },
+      {
+        "name": "INVOICENO_1",
+        "value": ""
+      },
+      {
+        "name": "BUYID_1",
+        "value": ""
+      },
+      {
+        "name": "BUYNAME_1",
+        "value": ""
+      },
+      {
+        "name": "PTYPE_1",
+        "value": ""
+      },
+      {
+        "name": "KEEPERID_1",
+        "value": ""
+      },
+      {
+        "name": "KEEPERDNO_1",
+        "value": ""
+      },
+      {
+        "name": "IDATE_2",
+        "value": ""
+      },
+      {
+        "name": "INVOICENO_2",
+        "value": ""
+      },
+      {
+        "name": "BUYID_2",
+        "value": ""
+      },
+      {
+        "name": "BUYNAME_2",
+        "value": ""
+      },
+      {
+        "name": "PTYPE_2",
+        "value": ""
+      },
+      {
+        "name": "KEEPERID_2",
+        "value": ""
+      },
+      {
+        "name": "KEEPERDNO_2",
+        "value": ""
+      },
+      {
+        "name": "IDATE_3",
+        "value": ""
+      },
+      {
+        "name": "INVOICENO_3",
+        "value": ""
+      },
+      {
+        "name": "BUYID_3",
+        "value": ""
+      },
+      {
+        "name": "BUYNAME_3",
+        "value": ""
+      },
+      {
+        "name": "PTYPE_3",
+        "value": ""
+      },
+      {
+        "name": "KEEPERID_3",
+        "value": ""
+      },
+      {
+        "name": "KEEPERDNO_3",
+        "value": ""
+      },
+      {
+        "name": "IDATE_4",
+        "value": ""
+      },
+      {
+        "name": "INVOICENO_4",
+        "value": ""
+      },
+      {
+        "name": "BUYID_4",
+        "value": ""
+      },
+      {
+        "name": "BUYNAME_4",
+        "value": ""
+      },
+      {
+        "name": "PTYPE_4",
+        "value": ""
+      },
+      {
+        "name": "KEEPERID_4",
+        "value": ""
+      },
+      {
+        "name": "KEEPERDNO_4",
+        "value": ""
+      },
+      {
+        "name": "IDATE_5",
+        "value": ""
+      },
+      {
+        "name": "INVOICENO_5",
+        "value": ""
+      },
+      {
+        "name": "BUYID_5",
+        "value": ""
+      },
+      {
+        "name": "BUYNAME_5",
+        "value": ""
+      },
+      {
+        "name": "PTYPE_5",
+        "value": ""
+      },
+      {
+        "name": "KEEPERID_5",
+        "value": ""
+      },
+      {
+        "name": "KEEPERDNO_5",
+        "value": ""
+      },
+      {
+        "name": "IDATE_6",
+        "value": ""
+      },
+      {
+        "name": "INVOICENO_6",
+        "value": ""
+      },
+      {
+        "name": "BUYID_6",
+        "value": ""
+      },
+      {
+        "name": "BUYNAME_6",
+        "value": ""
+      },
+      {
+        "name": "PTYPE_6",
+        "value": ""
+      },
+      {
+        "name": "KEEPERID_6",
+        "value": ""
+      },
+      {
+        "name": "KEEPERDNO_6",
+        "value": ""
+      },
+      {
+        "name": "IDATE_7",
+        "value": ""
+      },
+      {
+        "name": "INVOICENO_7",
+        "value": ""
+      },
+      {
+        "name": "BUYID_7",
+        "value": ""
+      },
+      {
+        "name": "BUYNAME_7",
+        "value": ""
+      },
+      {
+        "name": "PTYPE_7",
+        "value": ""
+      },
+      {
+        "name": "KEEPERID_7",
+        "value": ""
+      },
+      {
+        "name": "KEEPERDNO_7",
+        "value": ""
+      },
+      {
+        "name": "IDATE_8",
+        "value": ""
+      },
+      {
+        "name": "INVOICENO_8",
+        "value": ""
+      },
+      {
+        "name": "BUYID_8",
+        "value": ""
+      },
+      {
+        "name": "BUYNAME_8",
+        "value": ""
+      },
+      {
+        "name": "PTYPE_8",
+        "value": ""
+      },
+      {
+        "name": "KEEPERID_8",
+        "value": ""
+      },
+      {
+        "name": "KEEPERDNO_8",
+        "value": ""
+      },
+      {
+        "name": "IDATE_9",
+        "value": ""
+      },
+      {
+        "name": "INVOICENO_9",
+        "value": ""
+      },
+      {
+        "name": "BUYID_9",
+        "value": ""
+      },
+      {
+        "name": "BUYNAME_9",
+        "value": ""
+      },
+      {
+        "name": "PTYPE_9",
+        "value": ""
+      },
+      {
+        "name": "KEEPERID_9",
+        "value": ""
+      },
+      {
+        "name": "KEEPERDNO_9",
+        "value": ""
+      },
+      {
+        "name": "IDATE_10",
+        "value": ""
+      },
+      {
+        "name": "INVOICENO_10",
+        "value": ""
+      },
+      {
+        "name": "BUYID_10",
+        "value": ""
+      },
+      {
+        "name": "BUYNAME_10",
+        "value": ""
+      },
+      {
+        "name": "PTYPE_10",
+        "value": ""
+      },
+      {
+        "name": "KEEPERID_10",
+        "value": ""
+      },
+      {
+        "name": "KEEPERDNO_10",
+        "value": ""
+      },
+      {
+        "name": "IDATE_11",
+        "value": ""
+      },
+      {
+        "name": "INVOICENO_11",
+        "value": ""
+      },
+      {
+        "name": "BUYID_11",
+        "value": ""
+      },
+      {
+        "name": "BUYNAME_11",
+        "value": ""
+      },
+      {
+        "name": "PTYPE_11",
+        "value": ""
+      },
+      {
+        "name": "KEEPERID_11",
+        "value": ""
+      },
+      {
+        "name": "KEEPERDNO_11",
+        "value": ""
+      },
+      {
+        "name": "IDATE_12",
+        "value": ""
+      },
+      {
+        "name": "INVOICENO_12",
+        "value": ""
+      },
+      {
+        "name": "BUYID_12",
+        "value": ""
+      },
+      {
+        "name": "BUYNAME_12",
+        "value": ""
+      },
+      {
+        "name": "PTYPE_12",
+        "value": ""
+      },
+      {
+        "name": "KEEPERID_12",
+        "value": ""
+      },
+      {
+        "name": "KEEPERDNO_12",
+        "value": ""
+      },
+      {
+        "name": "IDATE_13",
+        "value": ""
+      },
+      {
+        "name": "INVOICENO_13",
+        "value": ""
+      },
+      {
+        "name": "BUYID_13",
+        "value": ""
+      },
+      {
+        "name": "BUYNAME_13",
+        "value": ""
+      },
+      {
+        "name": "PTYPE_13",
+        "value": ""
+      },
+      {
+        "name": "KEEPERID_13",
+        "value": ""
+      },
+      {
+        "name": "KEEPERDNO_13",
+        "value": ""
+      },
+      {
+        "name": "IDATE_14",
+        "value": ""
+      },
+      {
+        "name": "INVOICENO_14",
+        "value": ""
+      },
+      {
+        "name": "BUYID_14",
+        "value": ""
+      },
+      {
+        "name": "BUYNAME_14",
+        "value": ""
+      },
+      {
+        "name": "PTYPE_14",
+        "value": ""
+      },
+      {
+        "name": "KEEPERID_14",
+        "value": ""
+      },
+      {
+        "name": "KEEPERDNO_14",
+        "value": ""
+      },
+      {
+        "name": "IDATE_15",
+        "value": ""
+      },
+      {
+        "name": "INVOICENO_15",
+        "value": ""
+      },
+      {
+        "name": "BUYID_15",
+        "value": ""
+      },
+      {
+        "name": "BUYNAME_15",
+        "value": ""
+      },
+      {
+        "name": "PTYPE_15",
+        "value": ""
+      },
+      {
+        "name": "KEEPERID_15",
+        "value": ""
+      },
+      {
+        "name": "KEEPERDNO_15",
+        "value": ""
+      },
+      {
+        "name": "TOG_APYADD",
+        "value": ""
+      },
+      {
+        "name": "APPYSET",
+        "value": "13"
+      },
+      {
+        "name": "POFFICE",
+        "value": ""
+      },
+      {
+        "name": "PUR_NUMBER",
+        "value": "1"
+      },
+      {
+        "name": "PUR_AMOUNT",
+        "value": ""
+      },
+      {
+        "name": "CTYPE",
+        "value": ""
+      },
+      {
+        "name": "CTYPE_2",
+        "value": ""
+      },
+      {
+        "name": "LTYPE",
+        "value": ""
+      },
+      {
+        "name": "LTYPE_1",
+        "value": ""
+      },
+      {
+        "name": "OTYPE",
+        "value": ""
+      },
+      {
+        "name": "OTYPE_1",
+        "value": ""
+      },
+      {
+        "name": "OTYPE_2",
+        "value": ""
+      },
+      {
+        "name": "CPUR",
+        "value": ""
+      },
+      {
+        "name": "RPUR",
+        "value": ""
+      },
+      {
+        "name": "RPUR_1",
+        "value": ""
+      },
+      {
+        "name": "SPUR",
+        "value": ""
+      },
+      {
+        "name": "SPUR_1",
+        "value": ""
+      },
+      {
+        "name": "GPUR",
+        "value": ""
+      },
+      {
+        "name": "UPUR",
+        "value": ""
+      },
+      {
+        "name": "UTYPE",
+        "value": "1"
+      },
+      {
+        "name": "RCDAT",
+        "value": ""
+      },
+      {
+        "name": "RCDATB",
+        "value": ""
+      },
+      {
+        "name": "RCDATE",
+        "value": ""
+      },
+      {
+        "name": "NDAYS",
+        "value": ""
+      },
+      {
+        "name": "TRANS",
+        "value": ""
+      },
+      {
+        "name": "ADDPURCNT",
+        "value": ""
+      },
+      {
+        "name": "CONSULT",
+        "value": ""
+      },
+      {
+        "name": "STYPE",
+        "value": ""
+      },
+      {
+        "name": "ACHK9",
+        "value": "1"
+      },
+      {
+        "name": "ACHK_9",
+        "value": ""
+      },
+      {
+        "name": "ACHK6",
+        "value": ""
+      },
+      {
+        "name": "ACHK_6",
+        "value": ""
+      },
+      {
+        "name": "ACHK7",
+        "value": ""
+      },
+      {
+        "name": "ACHK_7",
+        "value": ""
+      },
+      {
+        "name": "ACHK8",
+        "value": ""
+      },
+      {
+        "name": "ACHK_8",
+        "value": ""
+      },
+      {
+        "name": "ACHK10",
+        "value": ""
+      },
+      {
+        "name": "ACHK_10",
+        "value": ""
+      },
+      {
+        "name": "ACHK1FN",
+        "value": ""
+      },
+      {
+        "name": "ACHK1",
+        "value": ""
+      },
+      {
+        "name": "ACHK_1",
+        "value": ""
+      },
+      {
+        "name": "ACHK2FN",
+        "value": ""
+      },
+      {
+        "name": "ACHK2",
+        "value": ""
+      },
+      {
+        "name": "ACHK_2",
+        "value": ""
+      },
+      {
+        "name": "ACHK5",
+        "value": ""
+      },
+      {
+        "name": "ACHK_5",
+        "value": ""
+      },
+      {
+        "name": "ACHK3FN",
+        "value": ""
+      },
+      {
+        "name": "ACHK3",
+        "value": ""
+      },
+      {
+        "name": "ACHK_3",
+        "value": ""
+      },
+      {
+        "name": "ACHK11",
+        "value": ""
+      },
+      {
+        "name": "ACHK_11",
+        "value": ""
+      },
+      {
+        "name": "ACHK4",
+        "value": ""
+      },
+      {
+        "name": "PTYPE1",
+        "value": ""
+      },
+      {
+        "name": "PTYPE3",
+        "value": ""
+      },
+      {
+        "name": "PTYPE2",
+        "value": ""
+      },
+      {
+        "name": "PTYPE6",
+        "value": ""
+      },
+      {
+        "name": "PTYPE7",
+        "value": ""
+      },
+      {
+        "name": "PTYPE9",
+        "value": ""
+      },
+      {
+        "name": "APYUSERNO",
+        "value": ""
+      },
+      {
+        "name": "APYUNIT",
+        "value": ""
+      },
+      {
+        "name": "APYUNITNO",
+        "value": ""
+      },
+      {
+        "name": "SAVE_SAMPLE",
+        "value": "作成範本"
+      }
+    ]
+  },
+  "appa_functions": {
+    "FORM1_action": "https://account.ncut.edu.tw/APSWIS_Q/Dept_Add_Q/STD_APPA_Q.asp?COPY=&APPYYEAR=115&ISNEW=Y&APYNO=&APYADD=&APPYSET=13&ISCASH=True&ISPERIOD=False&SHOWPRO=True&APPU=",
+    "FORM1_target": "",
+    "FORM1_method": "post",
+    "SUM_SUM": "function SUM_SUM()\n\t\t\t{\n\t\t\t\tSUM_AMOUNT=0;\n\t\t\t\t\n\t\t\t\tif(!FORM1.VENDORID_1.value==\"\")\n\t\t\t\t\t{SUM_AMOUNT=SUM_AMOUNT+(parseFloat(FORM1.AMOUNT_1.value));}\n\t\t\t\t\n\t\t\t\tif(!FORM1.VENDORID_2.value==\"\")\n\t\t\t\t\t{SUM_AMOUNT=SUM_AMOUNT+(parseFloat(FORM1.AMOUNT_2.value));}\n\t\t\t\t\n\t\t\t\tif(!FORM1.VENDORID_3.value==\"\")\n\t\t\t\t\t{SUM_AMOUNT=SUM_AMOUNT+(parseFloat(FORM1.AMOUNT_3.value));}\n\t\t\t\t\n\t\t\t\tif(!FORM1.VENDORID_4.value==\"\")\n\t\t\t\t\t{SUM_AMOUNT=SUM_AMOUNT+(parseFloat(FORM1.AMOUNT_4.value));}\n\t\t\t\t\n\t\t\t\tif(!FORM1.VENDORID_5.valu",
+    "hiddenInputs": [
+      {
+        "name": "",
+        "value": "引用先前之請購案"
+      },
+      {
+        "name": "SUM_LIST",
+        "value": ""
+      },
+      {
+        "name": "PAYKIND_1",
+        "value": "1"
+      },
+      {
+        "name": "TAX_1",
+        "value": "0"
+      },
+      {
+        "name": "VENDORID_1",
+        "value": ""
+      },
+      {
+        "name": "BANKNO_1",
+        "value": ""
+      },
+      {
+        "name": "ACCOUNT_1",
+        "value": ""
+      },
+      {
+        "name": "ACCOUNTNAM_1",
+        "value": ""
+      },
+      {
+        "name": "I_VENDORID_S_1",
+        "value": ""
+      },
+      {
+        "name": "I_VENDORID_1",
+        "value": ""
+      },
+      {
+        "name": "PAYKIND_2",
+        "value": "1"
+      },
+      {
+        "name": "TAX_2",
+        "value": "0"
+      },
+      {
+        "name": "VENDORID_2",
+        "value": ""
+      },
+      {
+        "name": "BANKNO_2",
+        "value": ""
+      },
+      {
+        "name": "ACCOUNT_2",
+        "value": ""
+      },
+      {
+        "name": "ACCOUNTNAM_2",
+        "value": ""
+      },
+      {
+        "name": "I_VENDORID_S_2",
+        "value": ""
+      },
+      {
+        "name": "I_VENDORID_2",
+        "value": ""
+      },
+      {
+        "name": "PAYKIND_3",
+        "value": "1"
+      },
+      {
+        "name": "TAX_3",
+        "value": "0"
+      },
+      {
+        "name": "VENDORID_3",
+        "value": ""
+      },
+      {
+        "name": "BANKNO_3",
+        "value": ""
+      },
+      {
+        "name": "ACCOUNT_3",
+        "value": ""
+      },
+      {
+        "name": "ACCOUNTNAM_3",
+        "value": ""
+      },
+      {
+        "name": "I_VENDORID_S_3",
+        "value": ""
+      },
+      {
+        "name": "I_VENDORID_3",
+        "value": ""
+      },
+      {
+        "name": "PAYKIND_4",
+        "value": "1"
+      },
+      {
+        "name": "TAX_4",
+        "value": "0"
+      },
+      {
+        "name": "VENDORID_4",
+        "value": ""
+      },
+      {
+        "name": "BANKNO_4",
+        "value": ""
+      },
+      {
+        "name": "ACCOUNT_4",
+        "value": ""
+      },
+      {
+        "name": "ACCOUNTNAM_4",
+        "value": ""
+      },
+      {
+        "name": "I_VENDORID_S_4",
+        "value": ""
+      },
+      {
+        "name": "I_VENDORID_4",
+        "value": ""
+      },
+      {
+        "name": "PAYKIND_5",
+        "value": "1"
+      },
+      {
+        "name": "TAX_5",
+        "value": "0"
+      },
+      {
+        "name": "VENDORID_5",
+        "value": ""
+      },
+      {
+        "name": "BANKNO_5",
+        "value": ""
+      },
+      {
+        "name": "ACCOUNT_5",
+        "value": ""
+      },
+      {
+        "name": "ACCOUNTNAM_5",
+        "value": ""
+      },
+      {
+        "name": "I_VENDORID_S_5",
+        "value": ""
+      },
+      {
+        "name": "I_VENDORID_5",
+        "value": ""
+      },
+      {
+        "name": "PAYKIND_6",
+        "value": "1"
+      },
+      {
+        "name": "TAX_6",
+        "value": "0"
+      },
+      {
+        "name": "VENDORID_6",
+        "value": ""
+      },
+      {
+        "name": "BANKNO_6",
+        "value": ""
+      },
+      {
+        "name": "ACCOUNT_6",
+        "value": ""
+      },
+      {
+        "name": "ACCOUNTNAM_6",
+        "value": ""
+      },
+      {
+        "name": "I_VENDORID_S_6",
+        "value": ""
+      },
+      {
+        "name": "I_VENDORID_6",
+        "value": ""
+      },
+      {
+        "name": "PAYKIND_7",
+        "value": "1"
+      },
+      {
+        "name": "TAX_7",
+        "value": "0"
+      },
+      {
+        "name": "VENDORID_7",
+        "value": ""
+      },
+      {
+        "name": "BANKNO_7",
+        "value": ""
+      },
+      {
+        "name": "ACCOUNT_7",
+        "value": ""
+      },
+      {
+        "name": "ACCOUNTNAM_7",
+        "value": ""
+      },
+      {
+        "name": "I_VENDORID_S_7",
+        "value": ""
+      },
+      {
+        "name": "I_VENDORID_7",
+        "value": ""
+      },
+      {
+        "name": "PAYKIND_8",
+        "value": "1"
+      },
+      {
+        "name": "TAX_8",
+        "value": "0"
+      },
+      {
+        "name": "VENDORID_8",
+        "value": ""
+      },
+      {
+        "name": "BANKNO_8",
+        "value": ""
+      },
+      {
+        "name": "ACCOUNT_8",
+        "value": ""
+      },
+      {
+        "name": "ACCOUNTNAM_8",
+        "value": ""
+      },
+      {
+        "name": "I_VENDORID_S_8",
+        "value": ""
+      },
+      {
+        "name": "I_VENDORID_8",
+        "value": ""
+      },
+      {
+        "name": "PAYKIND_9",
+        "value": "1"
+      },
+      {
+        "name": "TAX_9",
+        "value": "0"
+      },
+      {
+        "name": "VENDORID_9",
+        "value": ""
+      },
+      {
+        "name": "BANKNO_9",
+        "value": ""
+      },
+      {
+        "name": "ACCOUNT_9",
+        "value": ""
+      },
+      {
+        "name": "ACCOUNTNAM_9",
+        "value": ""
+      },
+      {
+        "name": "I_VENDORID_S_9",
+        "value": ""
+      },
+      {
+        "name": "I_VENDORID_9",
+        "value": ""
+      },
+      {
+        "name": "PAYKIND_10",
+        "value": "1"
+      },
+      {
+        "name": "TAX_10",
+        "value": "0"
+      },
+      {
+        "name": "VENDORID_10",
+        "value": ""
+      },
+      {
+        "name": "BANKNO_10",
+        "value": ""
+      },
+      {
+        "name": "ACCOUNT_10",
+        "value": ""
+      },
+      {
+        "name": "ACCOUNTNAM_10",
+        "value": ""
+      },
+      {
+        "name": "I_VENDORID_S_10",
+        "value": ""
+      },
+      {
+        "name": "I_VENDORID_10",
+        "value": ""
+      },
+      {
+        "name": "PAYKIND_11",
+        "value": "1"
+      },
+      {
+        "name": "TAX_11",
+        "value": "0"
+      },
+      {
+        "name": "VENDORID_11",
+        "value": ""
+      },
+      {
+        "name": "BANKNO_11",
+        "value": ""
+      },
+      {
+        "name": "ACCOUNT_11",
+        "value": ""
+      },
+      {
+        "name": "ACCOUNTNAM_11",
+        "value": ""
+      },
+      {
+        "name": "I_VENDORID_S_11",
+        "value": ""
+      },
+      {
+        "name": "I_VENDORID_11",
+        "value": ""
+      },
+      {
+        "name": "PAYKIND_12",
+        "value": "1"
+      },
+      {
+        "name": "TAX_12",
+        "value": "0"
+      },
+      {
+        "name": "VENDORID_12",
+        "value": ""
+      },
+      {
+        "name": "BANKNO_12",
+        "value": ""
+      },
+      {
+        "name": "ACCOUNT_12",
+        "value": ""
+      },
+      {
+        "name": "ACCOUNTNAM_12",
+        "value": ""
+      },
+      {
+        "name": "I_VENDORID_S_12",
+        "value": ""
+      },
+      {
+        "name": "I_VENDORID_12",
+        "value": ""
+      },
+      {
+        "name": "PAYKIND_13",
+        "value": "1"
+      },
+      {
+        "name": "TAX_13",
+        "value": "0"
+      },
+      {
+        "name": "VENDORID_13",
+        "value": ""
+      },
+      {
+        "name": "BANKNO_13",
+        "value": ""
+      },
+      {
+        "name": "ACCOUNT_13",
+        "value": ""
+      },
+      {
+        "name": "ACCOUNTNAM_13",
+        "value": ""
+      },
+      {
+        "name": "I_VENDORID_S_13",
+        "value": ""
+      },
+      {
+        "name": "I_VENDORID_13",
+        "value": ""
+      },
+      {
+        "name": "PAYKIND_14",
+        "value": "1"
+      },
+      {
+        "name": "TAX_14",
+        "value": "0"
+      },
+      {
+        "name": "VENDORID_14",
+        "value": ""
+      },
+      {
+        "name": "BANKNO_14",
+        "value": ""
+      },
+      {
+        "name": "ACCOUNT_14",
+        "value": ""
+      },
+      {
+        "name": "ACCOUNTNAM_14",
+        "value": ""
+      },
+      {
+        "name": "I_VENDORID_S_14",
+        "value": ""
+      },
+      {
+        "name": "I_VENDORID_14",
+        "value": ""
+      },
+      {
+        "name": "PAYKIND_15",
+        "value": "1"
+      },
+      {
+        "name": "TAX_15",
+        "value": "0"
+      },
+      {
+        "name": "VENDORID_15",
+        "value": ""
+      },
+      {
+        "name": "BANKNO_15",
+        "value": ""
+      },
+      {
+        "name": "ACCOUNT_15",
+        "value": ""
+      },
+      {
+        "name": "ACCOUNTNAM_15",
+        "value": ""
+      },
+      {
+        "name": "I_VENDORID_S_15",
+        "value": ""
+      },
+      {
+        "name": "I_VENDORID_15",
+        "value": ""
+      },
+      {
+        "name": "PAYKIND_16",
+        "value": "1"
+      },
+      {
+        "name": "TAX_16",
+        "value": "0"
+      },
+      {
+        "name": "VENDORID_16",
+        "value": ""
+      },
+      {
+        "name": "BANKNO_16",
+        "value": ""
+      },
+      {
+        "name": "ACCOUNT_16",
+        "value": ""
+      },
+      {
+        "name": "ACCOUNTNAM_16",
+        "value": ""
+      },
+      {
+        "name": "I_VENDORID_S_16",
+        "value": ""
+      },
+      {
+        "name": "I_VENDORID_16",
+        "value": ""
+      },
+      {
+        "name": "PAYKIND_17",
+        "value": "1"
+      },
+      {
+        "name": "TAX_17",
+        "value": "0"
+      },
+      {
+        "name": "VENDORID_17",
+        "value": ""
+      },
+      {
+        "name": "BANKNO_17",
+        "value": ""
+      },
+      {
+        "name": "ACCOUNT_17",
+        "value": ""
+      },
+      {
+        "name": "ACCOUNTNAM_17",
+        "value": ""
+      },
+      {
+        "name": "I_VENDORID_S_17",
+        "value": ""
+      },
+      {
+        "name": "I_VENDORID_17",
+        "value": ""
+      },
+      {
+        "name": "PAYKIND_18",
+        "value": "1"
+      },
+      {
+        "name": "TAX_18",
+        "value": "0"
+      },
+      {
+        "name": "VENDORID_18",
+        "value": ""
+      },
+      {
+        "name": "BANKNO_18",
+        "value": ""
+      },
+      {
+        "name": "ACCOUNT_18",
+        "value": ""
+      },
+      {
+        "name": "ACCOUNTNAM_18",
+        "value": ""
+      },
+      {
+        "name": "I_VENDORID_S_18",
+        "value": ""
+      },
+      {
+        "name": "I_VENDORID_18",
+        "value": ""
+      },
+      {
+        "name": "PAYKIND_19",
+        "value": "1"
+      },
+      {
+        "name": "TAX_19",
+        "value": "0"
+      },
+      {
+        "name": "VENDORID_19",
+        "value": ""
+      },
+      {
+        "name": "BANKNO_19",
+        "value": ""
+      },
+      {
+        "name": "ACCOUNT_19",
+        "value": ""
+      },
+      {
+        "name": "ACCOUNTNAM_19",
+        "value": ""
+      },
+      {
+        "name": "I_VENDORID_S_19",
+        "value": ""
+      },
+      {
+        "name": "I_VENDORID_19",
+        "value": ""
+      },
+      {
+        "name": "PAYKIND_20",
+        "value": "1"
+      },
+      {
+        "name": "TAX_20",
+        "value": "0"
+      },
+      {
+        "name": "VENDORID_20",
+        "value": ""
+      },
+      {
+        "name": "BANKNO_20",
+        "value": ""
+      },
+      {
+        "name": "ACCOUNT_20",
+        "value": ""
+      },
+      {
+        "name": "ACCOUNTNAM_20",
+        "value": ""
+      },
+      {
+        "name": "I_VENDORID_S_20",
+        "value": ""
+      },
+      {
+        "name": "I_VENDORID_20",
+        "value": ""
+      }
+    ]
+  },
+  "appy_save_functions": [
+    "CHK_APPA",
+    "CHK_APPP",
+    "CHK_VOUSERNO",
+    "PALERT",
+    "P_alert",
+    "SUM_ALERT",
+    "SUM_SUM",
+    "TOL_SUM",
+    "alert",
+    "showSaveFilePicker"
+  ]
+}

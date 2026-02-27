@@ -1,0 +1,41 @@
+{
+  "selects": [
+    {
+      "name": "YEARLY",
+      "id": "YEARLY",
+      "options": [
+        {
+          "value": "112",
+          "text": "112"
+        },
+        {
+          "value": "113",
+          "text": "113"
+        },
+        {
+          "value": "114",
+          "text": "114"
+        },
+        {
+          "value": "115",
+          "text": "115"
+        }
+      ]
+    },
+    {
+      "name": "BUGETNO",
+      "id": "BUGETNO",
+      "options": [
+        {
+          "value": "",
+          "text": "請下拉選擇預算"
+        },
+        {
+          "value": "115T945",
+          "text": "【115T945】智慧自動化工程系"
+        }
+      ]
+    }
+  ],
+  "sbt_script": "\n\t\t\t\tfunction openSBT1(Obj)\n\t\t\t\t{\n\t\t\t\t\tObj.target=\"MAIN\";\n\t\t\t\t\tObj.href=\"../Dept_Ser_Q/P_BUGET_PR_Q.asp?SRK=N022612327&STYPE=BT1&BYEAR=115&BUGETNO=\"+F1.BUGETNO.value+\"&SER_USERNO=&QSTR=115T945$\";\n\t\t\t\t\tObj.click();\n\t\t\t\t}\n\t\t\t"
+}

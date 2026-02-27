@@ -1,0 +1,44 @@
+[
+  {
+    "name": "SBT1",
+    "text": "",
+    "href": "https://account.ncut.edu.tw/APSWIS_Q/Dept_Add_Q/javascript.void(0);",
+    "onclick": "openSBT1(this);"
+  },
+  {
+    "name": "SBT2",
+    "text": "",
+    "href": "https://account.ncut.edu.tw/APSWIS_Q/Dept_Add_Q/javascript.void(0);",
+    "onclick": "openSBT2(this);"
+  },
+  {
+    "name": "SBT7",
+    "text": "",
+    "href": "https://account.ncut.edu.tw/APSWIS_Q/Dept_Add_Q/javascript.void(0);",
+    "onclick": "openSBT7(this);"
+  },
+  {
+    "name": "SBT3",
+    "text": "",
+    "href": "https://account.ncut.edu.tw/APSWIS_Q/Dept_Add_Q/javascript.void(0);",
+    "onclick": "openSBT3(this);"
+  },
+  {
+    "name": "SBT8",
+    "text": "",
+    "href": "https://account.ncut.edu.tw/APSWIS_Q/Dept_Add_Q/javascript.void(0);",
+    "onclick": "openSBT8(this);"
+  },
+  {
+    "name": "SBT9",
+    "text": "",
+    "href": "https://account.ncut.edu.tw/APSWIS_Q/Dept_Add_Q/javascript.void(0);",
+    "onclick": "openSBT9(this);"
+  },
+  {
+    "name": "SBT4",
+    "text": "",
+    "href": "https://account.ncut.edu.tw/APSWIS_Q/Dept_Add_Q/javascript.void(0);",
+    "onclick": "openSBT4(this);"
+  }
+]

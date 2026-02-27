@@ -1,0 +1,609 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"><html><head><meta http-equiv="Content-Type" content="text-html; charset=big5">
+
+
+<style type="text/css">
+  <!--
+    body{
+	        background-position: center 0%;
+			background-repeat: no-repeat;
+			background-attachment: fixed;
+			}
+  -->
+</style><script language="javascript">
+   if(screen.availWidth>1024)
+	{
+	   document.write("<link rel=stylesheet href=../CSS_Q/1280LSTY.css type=text/css>");
+	   document.write("<body background=../APS_IMG_Q/PCG/AccFUN1280_TOP.gif>"); 
+	 }
+	 else
+	 {
+	   document.write("<link rel=stylesheet href=../CSS_Q/1024LSTY.css type=text/css>");
+	   document.write("<body background=../APS_IMG_Q/PCG/AccFUN_TOP.gif >");	   
+	 }
+</script><link rel="stylesheet" href="../CSS_Q/1280LSTY.css" type="text/css"></head>
+
+
+<body background="../APS_IMG_Q/PCG/AccFUN1280_TOP.gif" marginwidth="6" marginheight="8">
+
+<script type="text/javascript">
+function disableInfo() {  
+    document.onkeydown = function() {  
+        var e = window.event || arguments[0];  
+        //F12  
+        if(e.keyCode == 123) {  
+			alert("禁用F12");
+            return false;  
+            //Ctrl+Shift+I  
+        } else if((e.ctrlKey) && (e.shiftKey) && (e.keyCode == 73)) {  
+		    alert("禁用鍵");
+            return false;  
+            //Shift+F10  
+        } else if((e.shiftKey) && (e.keyCode == 121)){  
+		    alert("禁用F10");
+            return false;  
+        }  
+    };  
+    //右鍵  
+    document.oncontextmenu = function() { 
+		alert("禁用右鍵"); 
+        return false;  
+    }  
+}
+</script>
+
+<!--<link rel=stylesheet href=../CSS_Q/1024LSTY.css type=text/css>
+<body  style="background-image: url('../APS_IMG_Q/PCG/AccFUN_TOP.gif');background-position: center 0%;background-repeat: no-repeat;background-attachment: fixed;">-->
+
+
+<meta http-equiv="Content-Type" content="text-html; charset=big5">
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<httpcookies httponlycookies="true" lockitem="true">
+<style>
+html,body{font-size:12px;margin:0px;height:100%;}
+.mesWindow{border:#666 1px solid;background:#fff;}
+.mesWindowTop{border-bottom:#eee 1px solid;margin-left:4px;padding:3px;font-weight:bold;text-align:left;font-size:12px;}
+.mesWindowContent{margin:4px;font-size:12px;}
+.mesWindow .close{height:15px;width:28px;border:none;cursor:pointer;text-decoration:underline;background:#fff}
+</style>
+<script>
+var isIe=(document.all)?true:false;
+//讓背景漸漸變暗
+function showBackground(obj,endInt)
+{
+	if(isIe)
+	{
+		obj.filters.alpha.opacity+=20;
+		if(obj.filters.alpha.opacity<endInt)
+		{
+			setTimeout(function(){showBackground(obj,endInt)},5);
+		}
+	}else{
+		var al=parseFloat(obj.style.opacity);al+=0.01;
+		obj.style.opacity=al;
+		if(al<(endInt/100))
+		{setTimeout(function(){showBackground(obj,endInt)},5);}
+		}
+}
+
+//關閉視窗
+function closeWindow()
+{
+if(document.getElementById('back')!=null)
+{
+document.getElementById('back').parentNode.removeChild(document.getElementById('back'));
+}
+if(document.getElementById('mesWindow')!=null)
+{
+document.getElementById('mesWindow').parentNode.removeChild(document.getElementById('mesWindow'));
+}
+}
+
+//彈出訊息 START=============================================================================
+function PALERT(wTitle,content,pos,wWidth,GoURL,EXT_BUTTON)
+{
+	closeWindow();
+	var bWidth=parseInt(document.documentElement.scrollWidth);
+	var bHeight=parseInt(document.documentElement.scrollHeight);
+	var back=document.createElement("div");
+	back.id="back";
+	var styleStr="top:0px;left:0px;position:absolute;background:#666;width:"+bWidth+"px;height:"+bHeight+"px;";
+	styleStr+=(isIe)?"filter:alpha(opacity=0);":"opacity:0;";
+	back.style.cssText=styleStr;
+	document.body.appendChild(back);
+	showBackground(back,80);
+	var mesW=document.createElement("div");
+	mesW.id="mesWindow";
+	mesW.className="mesWindow";
+	mesW.innerHTML="<div class='mesWindowTop' ><table width='100%' height='100%' style='background:darkblue;'><tr><td style='background:darkblue;' align=center><font color=yellow>"+wTitle+"</font></td><td style='width:1px;background:darkblue;fontcolor:yellow;'><input type='button' name='btt' id='btt' onclick='"+GoURL+"'' title='關閉視窗' class='close' value='關閉' /></td></tr></table></div>";
+	mesW.innerHTML=mesW.innerHTML+"<div class='mesWindowContent' id='mesWindowContent' ><center><font color=darkblue size=3>"+content+"</center></div><div class='mesWindowBottom'><center>"+EXT_BUTTON+"</center></div>";
+	//跟物件
+	//styleStr="left:"+(((pos.x-wWidth)>0)?(pos.x-wWidth):pos.x)+"px;top:"+(pos.y)+"px;position:absolute;width:"+wWidth+"px;";
+	//置中
+	styleStr="left:"+(bWidth/2-wWidth/2)+"px;top:"+(bHeight/2-100)+"px;position:absolute;width:"+wWidth+"px;";
+	mesW.style.cssText=styleStr;
+	document.body.appendChild(mesW);
+	btt.focus();
+}
+
+function P_alert(CONT,TITLE,GoURL,EXT_BUTTON)
+{
+if(TITLE=='')
+{
+	TITLE='提示訊息';
+}
+	messContent="<div style='padding:20px 0 20px 0;text-align:center'>"+CONT+"</div>";
+	PALERT(TITLE,messContent,"x:100;y:100",250,GoURL,EXT_BUTTON);
+}
+//彈出訊息 END=============================================================================
+
+//開新網頁 START==================================================================================
+function POPEN(wTitle,content,pos,wWidth)
+{
+	closeWindow();
+	var bWidth=parseInt(document.documentElement.scrollWidth);
+	var bHeight=parseInt(document.documentElement.scrollHeight);
+	var back=document.createElement("div");
+	back.id="back";
+	var styleStr="top:0px;left:0px;position:absolute;background:#666;width:"+bWidth+"px;height:"+bHeight+"px;";
+	styleStr+=(isIe)?"filter:alpha(opacity=0);":"opacity:0;";
+	back.style.cssText=styleStr;
+	document.body.appendChild(back);
+	showBackground(back,80);
+	var mesW=document.createElement("div");
+	mesW.id="mesWindow";
+	mesW.className="mesWindow";
+	mesW.innerHTML="<div class='mesWindowTop' ><table width='100%' height='100%' style='background:darkblue;'><tr><td style='background:darkblue;' align=center><font color=yellow>"+wTitle+"</font></td><td style='width:1px;background:darkblue;fontcolor:yellow;'><input type='button' name='btt' id='btt' onclick='closeWindow();' title='關閉視窗' class='close' value='關閉' /></td></tr></table></div>";
+	mesW.innerHTML=mesW.innerHTML+"<div class='mesWindowContent' id='mesWindowContent' ><center><font color=darkblue size=3><iframe name=I1 id=I1 width=700 height=500 src="+content+"></iframe></center></div>";
+	//跟物件
+	//styleStr="left:"+(((pos.x-wWidth)>0)?(pos.x-wWidth):pos.x)+"px;top:"+(pos.y)+"px;position:absolute;width:"+wWidth+"px;";
+	//置中
+	styleStr="left:"+(bWidth/2-wWidth/2)+"px;top:0px;position:absolute;width:"+wWidth+"px;";
+	mesW.style.cssText=styleStr;
+	document.body.appendChild(mesW);
+	btt.focus();
+}
+
+function P_OPEN(URL,TITLE)
+{
+if(TITLE=='')
+{
+	TITLE='網頁';
+}
+	messContent="<div style='padding:20px 0 20px 0;text-align:center'>"+URL+"</div>";
+	POPEN(TITLE,messContent,"x:100;y:100",700);
+}
+
+function P_WCLOSE(URL,TITLE)
+{
+if(TITLE=='')
+{
+	TITLE='網頁';
+}
+	messContent="<div style='padding:20px 0 20px 0;text-align:center'>"+URL+"</div>";
+	POPEN(TITLE,messContent,"x:100;y:100",700);
+}
+//開新網頁 END==================================================================================
+
+//開網頁 START============================================================================
+function WINCLOSE(wTitle,content,pos,wWidth)
+{
+	closeWindow();
+	var bWidth=parseInt(document.documentElement.scrollWidth);
+	var bHeight=parseInt(document.documentElement.scrollHeight);
+	var back=document.createElement("div");
+	back.id="back";
+	var styleStr="top:0px;left:0px;position:absolute;background:#666;width:"+bWidth+"px;height:"+bHeight+"px;";
+	styleStr+=(isIe)?"filter:alpha(opacity=0);":"opacity:0;";
+	back.style.cssText=styleStr;
+	document.body.appendChild(back);
+	showBackground(back,80);
+	var mesW=document.createElement("div");
+	mesW.id="mesWindow";
+	mesW.className="mesWindow";
+	mesW.innerHTML="<div class='mesWindowTop' ><table width='100%' height='100%' style='background:darkblue;'><tr><td style='background:darkblue;' align=center><font color=yellow>"+wTitle+"</font></td></tr></table></div>";
+	mesW.innerHTML=mesW.innerHTML+"<div class='mesWindowContent' id='mesWindowContent' ><center><font color=darkblue size=3>"+content+"</center></div>";
+	//跟物件
+	//styleStr="left:"+(((pos.x-wWidth)>0)?(pos.x-wWidth):pos.x)+"px;top:"+(pos.y)+"px;position:absolute;width:"+wWidth+"px;";
+	//置中
+	styleStr="left:"+(bWidth/2-wWidth/2)+"px;top:"+(bHeight/2-100)+"px;position:absolute;width:"+wWidth+"px;";
+	mesW.style.cssText=styleStr;
+	document.body.appendChild(mesW);
+}
+
+function WIN_COLSE(CONT)
+{
+	TITLE='處理中，請稍候';
+	messContent="<div style='padding:20px 0 20px 0;text-align:center'>"+CONT+"</div>";
+	WINCLOSE(TITLE,messContent,"x:100;y:100",250);
+}
+
+function WIN_OPEN()
+{
+	closeWindow();
+}
+//鎖/開網頁 END================================================================================
+</script>
+
+
+
+<!--<script>
+//罕見字集 start ===========================================================
+//var WFCIP = "140.124.13.81";
+//var getWebHost = (("http:" == document.location.protocol) ? "http://" : "https://");
+//if(document.all){
+ //document.write(unescape("%3Cscript src='" + getWebHost + WFCIP + "/wfs/js/lib/wfs.js' type='text/javascript'%3E%3C/script%3E"));
+//}else{
+ //document.write(unescape("%3Cscript src='" + getWebHost + WFCIP + "/wfs/js/lib/jquery.js' type='text/javascript'%3E%3C/script%3E"));
+ //document.write(unescape("%3Cscript src='" + getWebHost + WFCIP + "/wfs/js/lib/jQwfs.js' type='text/javascript'%3E%3C/script%3E"));
+//}
+//罕見字集 end ======================================================
+</script>-->
+<meta http-equiv="pragma" content="no-cache">
+
+	<link rel="stylesheet" href="../CSS_Q/1024LSTY.css" type="text/css">
+
+
+<center>
+<table border="0" width="900" cellpadding="0" cellspacing="0" style="table-layout:fixed;border-collapse: collapse"> 
+<colgroup><col width="100"><col width="100"><col width="100"><col width="100"><col width="100">
+<col width="100"><col width="100"><col width="100">
+</colgroup><tbody><tr height="30">
+	
+		<!--<td  align="center"  id="D11" align="center"  style="padding-top:3pt;border-left:solid windowtext 1pt;border-right:solid windowtext 1pt;"  background="../APS_IMG_Q/PCG/bg_02.gif" onclick="LIS1( );"><font  id="c1" color="white" style="font-size:12pt;">選擇請購年度</font></td>-->
+		<td align="center" id="D11">
+		<input type="button" value=" 選擇請購年度" style="width:90pt;height:30pt;font-size:12pt;font-family:微軟正黑體;text-align:left;color:white;padding-bottom:3pt;border-left:solid windowtext 1pt;border-right:solid windowtext 1pt;border-top:solid windowtext 1pt;background:transparent url('../APS_IMG_Q/PCG/bg_02.gif');" onclick="LIS1( );">
+		</td>
+	
+			<!--<td align="center" style="padding-top:3pt;border-left:solid windowtext 1pt;border-right:solid windowtext 1pt;" id="D12" background="../APS_IMG_Q/PCG/bg_02.gif" onclick="LIS2( );"><font  id="c2" color="white" style="font-size:12pt;">部門請購查詢</font></td>-->
+			<td align="center" id="D12">
+			<input type="button" value=" 部門請購查詢" style="width:90pt;height:30pt;font-size:12pt;font-family:微軟正黑體;text-align:left;color:white;padding-bottom:3pt;border-left:solid windowtext 1pt;border-right:solid windowtext 1pt;border-top:solid windowtext 1pt;background:transparent url('../APS_IMG_Q/PCG/bg_02.gif');" onclick="LIS2( );">
+			</td>
+		
+			<!--<td align="center" style="padding-top:3pt;border-left:solid windowtext 1pt;border-right:solid windowtext 1pt;" id="D14" background="../APS_IMG_Q/PCG/obj_02_02.gif" onclick="LIS4( );"><font  id="c4" color="white" style="font-size:12pt;">計畫請購查詢</font></td>-->
+			<td align="center" id="D14">
+			<input type="button" value=" 計畫請購查詢" style="width:90pt;height:30pt;font-size:12pt;font-family:微軟正黑體;text-align:left;color:white;padding-bottom:3pt;border-left:solid windowtext 1pt;border-right:solid windowtext 1pt;border-top:solid windowtext 1pt;background:transparent url('../APS_IMG_Q/PCG/obj_02_02.gif');" onclick="LIS4( );">
+			</td>
+		
+	    <!--<td  align="center" style="padding-top:3pt;border-left:solid windowtext 1pt;border-right:solid windowtext 1pt;" id="D17" background="../APS_IMG_Q/PCG/bg_02.gif" onclick="LIS7( );"><font  id="c6" color="white" style="font-size:12pt;">輔助項目服務</font></td>-->
+		<td align="center" id="D17">
+		<input type="button" value=" 輔助項目服務" style="width:90pt;height:30pt;font-size:12pt;font-family:微軟正黑體;text-align:left;color:white;padding-bottom:3pt;border-left:solid windowtext 1pt;border-right:solid windowtext 1pt;border-top:solid windowtext 1pt;background:transparent url('../APS_IMG_Q/PCG/bg_02.gif');" onclick="LIS7( );">
+		</td>
+		
+		<!--<td  align="center" style="padding-top:3pt;border-left:solid windowtext 1pt;border-right:solid windowtext 1pt;" id="D18" background="../APS_IMG_Q/PCG/bg_02.gif" onclick="LIS8( );"><font  id="c6" color="white" style="font-size:12pt;">登出系統</font></td>-->
+		<td align="center" id="D18">
+		<input type="button" value="登出系統  " style="width:90pt;height:30pt;font-size:12pt;font-family:微軟正黑體;text-align:center;color:white;padding-bottom:3pt;border-left:solid windowtext 1pt;border-right:solid windowtext 1pt;border-top:solid windowtext 1pt;background:transparent url('../APS_IMG_Q/PCG/bg_02.gif');" onclick="LIS8( );">
+		</td>
+</tr>
+</tbody></table>
+
+<table border="0" width="900" cellpadding="0" cellspacing="0" style="table-layout:fixed;border-collapse: collapse"> 
+<colgroup><col width="900">
+<!---karen990106 ==>取消限制高度<tr height=90><tr height=60>-->
+</colgroup><tbody><tr>
+	<td background="../APS_IMG_Q/PCG/obj_02_02.gif">
+	<!--第2TABLE 開始-->
+<!--	
+	
+-->
+	<table border="0" cellspacing="0" cellpadding="0" width="900" style="table-layout:fixed;border-collapse: collapse;background-color:transparent "> 
+	<colgroup><col width="100"><col width="180"><col width="620">
+	
+		</colgroup><tbody><tr align="left" valign="middle"> 
+ 			<td class="st3" align="center"> 
+				<font color="YELLOW" style="font-size:12pt;">請購：</font><font color="WHITE" style="font-size:12pt;">115年</font>
+			</td>
+			<td colspan="2" class="st3" style="padding-top:1.5pt;">
+			    <!--Karen981210 ==> 61設定為"管制請購"時,依74設定是否請購時下拉計畫是否看得到,故需顯示會計關帳處理中-->
+			    
+				
+				<input type="button" name="BUTA2" id="BUTA2" value="新增請購" onclick="parent.FM.rows=&quot;15%,*,0,0,0,0,0&quot;;aBT2.click();" title="依照請購之類別提出請購案件，並印出請購單,經會計審核通過後即可報銷。" class="BT04">
+					<a href="DA_APP_Q.asp?RNK=N022757191&amp;SerKind=0&amp;APPYYEAR=115&amp;AUTO_PURCHASE=" target="MAIN" name="aBT2" id="aBT2"></a>
+					
+				<input type="button" name="BUTA1" id="BUTA1" value="購案管理" onclick="parent.FM.rows=&quot;15%,*,0,0,0,0,0&quot;;aBT1.click();" title="查詢購案之申請狀況並可修改、刪除、執行核銷、追加減及印表等功能。" class="BT04">
+    				<a href="DA_SerStart_Q.asp?RNK=N022757191&amp;APPYYEAR=115" target="MAIN" name="aBT1" id="aBT1"></a>
+				
+				<input type="button" name="BUTA8" id="BUTA8" value="經費授權" onclick="parent.FM.rows=&quot;15%,0,*,0,0,0,0&quot;;parent.OT.T.Q.click();" title="經費授權管理。" class="BT04">
+				
+				<input type="button" name="BUT6" id="BUT6" onclick="parent.FM.rows=&quot;15%,*,0,0,0,0,0&quot;;SBT6.click();" value="購案查詢" title="將您所申請之請購案依所設定之條件列出經費明細" class="BT04">
+				<a href="../Dept_Ser_Q/P_BUGETS_FILTER_Q.asp?SRK=N022757191&amp;STYPE=BT4&amp;BYEAR=&amp;SER_USERNO=&amp;QSTR=" target="MAIN" name="SBT6" id="SBT6"></a>
+				
+				
+				 <input type="button" name="BUTB15" id="BUTB15" onclick="parent.FM.rows=&quot;15%,*,0,0,0,0,0&quot;;SBTB15.click();" value="授權查詢" title="列出被授權明細" class="BT04">
+				 <a href="../Dept_Ser_Q/USERIGHT_LIST_Q.asp?SRK=N022757191&amp;BYEAR=115&amp;SER_USERNO=56006&amp;COM=NT" target="MAIN" name="SBTB15" id="SBTB15"></a>
+				
+					<input type="button" name="BUTA7" id="BUTA7" value="其他清單" onclick="parent.FM.rows=&quot;15%,*,0,0,0,0,0&quot;;QBT1.click();" class="BT04">
+					<a href="../OTHER_LIST_Q/PapMain_Q.asp?RNK=N022757191&amp;ISNEW=N&amp;SerKind=3&amp;APPYYEAR=115" target="MAIN" name="QBT1" id="QBT1"></a>
+					<!--暫用不到karen960710
+					<input type="button"  name="BUTA18" id="BUTA18" value="帳號管理" onclick="QBT18.click();"  class="BT04">
+					<a href="../SHAR_BUG/MAINTAIN69.asp?SRK=&USERNO="  target="MAIN" name="QBT18" id="QBT18"></a>
+					-->
+				
+				<!--連續作報銷動作用-->
+				<input type="hidden" name="DTB" id="DTB" value="" onclick="parent.FM.rows=&quot;15%,*,0,0,0,0,0&quot;;DT.click();" style="width=0;height=0">
+				<a href="" target="MAIN" name="DT" id="DT"></a>
+			</td>
+		</tr>
+			
+</tbody></table>
+
+<div id="HAVE_SER">	
+<table border="0" cellspacing="0" cellpadding="0" width="900" style="table-layout:fixed;border-collapse: collapse;background-color:transparent;"> 
+<colgroup><col width="100"><col width="40"><col width="233"><col width="628">
+
+	</colgroup><form action="" name="F1" id="F1"></form>
+	<input type="hidden" name="LOM" id="LOM" value="">
+
+    <tbody><tr> 
+ 		<td class="top" align="center">				
+			<font color="YELLOW" style="font-size:12pt;">查詢：</font><font color="white" style="font-size:12pt;">計畫</font>
+		</td>
+		
+<!----------------------------------------------------------------------------------------------------------------------------->
+		<td colspan="2" class="top" style="padding-top:1pt;">
+									
+					<select name="BUGETNO" id="BUGETNO" style="background:#BBFFFF ; FONT-SIZE: 12pt;color: darkblue; FONT-STYLE: normal; FONT-VARIANT: normal; FONT-WEIGHT: normal; LINE-HEIGHT:normal; WIDTH:360pt;">
+					<option style="color=red" value="">請下拉選擇計畫</option>
+					
+						   <option value="AA13945004N">【AA13945004N】劉瑞弘-社團法人中華民國管理科學學會-台比職訓機構合作領域之</option>
+					    
+						   <option value="AA13945009N">【AA13945009N】劉瑞弘-工業技術研究院-離岸風電場運轉模式驗證暨故障警報事件</option>
+					    
+						   <option value="AA13945013N">【AA13945013N】劉瑞弘-工業技術研究院-風機SCADA資料採集與監視系統解析</option>
+					    
+						   <option value="AA13945018N">【AA13945018N】劉瑞弘-財團法人工業技術研究院-沖壓設備之驅動馬達控制系統旋</option>
+					    
+						   <option value="AA14945002N">【AA14945002N】劉瑞弘-工業技術研究院-定位量測驗證技術相關模組及元件委託設</option>
+					    
+						   <option value="AE14945007">【AE14945007】劉瑞弘-經濟部產業發展署-智慧製造創新加值應用輔導計畫-刀具</option>
+					    
+						   <option value="BB14945005">【BB14945005】基於大型語言模型之風力發電機警報資訊分析與維修決策支援系統開</option>
+					    
+				</select>
+				<input type="hidden" name="BUG_STR" id="BUG_STR" value="AA13945004N$AA13945009N$AA13945013N$AA13945018N$AA14945002N$AE14945007$BB14945005$">
+	</td>
+<!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+
+		<td class="top" style="padding-top:1.5pt;">
+		
+		<input type="button" name="BUT1" id="BUT1" onclick="parent.FM.rows=&quot;15%,*,0,0,0,0,0&quot;;SBT1.click();" value="計畫清單" title="呈現查詢者所屬計畫之預算截至目前為止的執行狀況。" class="BT04">
+		<input type="button" name="BUT2" id="BUT2" onclick="parent.FM.rows=&quot;15%,*,0,0,0,0,0&quot;;SBT2.click();" value="用途明細" title="呈現查詢者所屬計畫之經費用途截至目前為止的動支及執行狀況。" class="BT04">
+		<input type="button" name="BUT7" id="BUT7" onclick="parent.FM.rows=&quot;15%,*,0,0,0,0,0&quot;;SBT7.click();" value="收支明細" title="呈現查詢者所屬計畫截至目前為止的所有傳票明細並可印表。" class="BT04">
+		<input type="button" name="BUT3" id="BUT3" onclick="parent.FM.rows=&quot;15%,*,0,0,0,0,0&quot;;SBT3.click();" value="請購明細" title="呈現查詢者所屬計畫截至目前為止的所有請購明細並可印表。" class="BT04">
+		
+				<input type="button" name="BUTH4" id="BUTH4" value="收支報告表" onclick="window.open(&quot;../Dept_Ser_Q/VOUC_LIST_PR_Q.asp?BUGETNO=&quot;+F1.BUGETNO.value+&quot;&quot;,&quot;null&quot;,&quot;left=0,top=0,width=460,height=420,toolbar=no,menubar=1,location=no,directories=no,status=no,resizable=1,scrollbars=1&quot;);" title="國科會收支報告表" class="BT04">
+            
+		<input type="button" name="BUT8" id="BUT8" onclick="parent.FM.rows=&quot;15%,*,0,0,0,0,0&quot;;SBT8.click();" value="購案品項" title="呈現查詢者所屬計畫目前請購年度所有請購品明明細並可印表。" class="BT04">
+		
+		<!--<input type="button" name="BUT5" onclick=parent.FM.rows="15%,*,0,0,0,0,0";SBT5.click(); value="請購紀錄" title="" class="BT04">-->
+		
+		
+			<a href="javascript.void(0);" onclick="openSBT1(this);" name="SBT1" id="SBT1"></a>
+			<script language="javascript">
+				function openSBT1(Obj)
+				{
+					Obj.target="MAIN";
+					Obj.href="../Dept_Ser_Q/P_BUGET_PR_Q.asp?SRK=N022757238&STYPE=BT1&BYEAR=115&BUGETNO="+F1.BUGETNO.value+"&SER_USERNO=&QSTR=AA13945004N$AA13945009N$AA13945013N$AA13945018N$AA14945002N$AE14945007$BB14945005$";
+					Obj.click();
+				}
+			</script>
+			<a href="javascript.void(0);" onclick="openSBT2(this);" name="SBT2" id="SBT2"></a>
+			<script language="javascript">
+				function openSBT2(Obj)
+				{
+					Obj.target="MAIN";
+					Obj.href="../Dept_Ser_Q/P_BUGETS_PR_Q.asp?SRK=N022757238&STYPE=BT2&BYEAR=115&BUGETNO="+F1.BUGETNO.value+"&SER_USERNO=&QSTR=AA13945004N$AA13945009N$AA13945013N$AA13945018N$AA14945002N$AE14945007$BB14945005$";
+					Obj.click();
+				}
+			</script>
+			<a href="javascript.void(0);" onclick="openSBT7(this);" name="SBT7" id="SBT7"></a>			
+			
+					<script language="javascript">
+						function openSBT7(Obj)
+						{
+							Obj.target="MAIN";
+							Obj.href="../Dept_Ser_Q/P_VTRS_PR_Q.asp?SRK=N022757238&STYPE=BT3&BYEAR=115&BUGETNO="+F1.BUGETNO.value+"&SER_USERNO=";
+							Obj.click();
+						}
+					</script>
+						
+			<a href="javascript.void(0);" onclick="openSBT3(this);" name="SBT3" id="SBT3"></a>
+			<script language="javascript">
+			function openSBT3(Obj)
+				{
+					Obj.target="MAIN";
+					Obj.href="../Dept_Ser_Q/P_BUGETS_FILTER_Q.asp?SRK=N022757238&STYPE=BT3&BYEAR=115&BUGETNO="+F1.BUGETNO.value+"&SER_USERNO=";
+					Obj.click();
+				}
+			</script>
+			<!--Karen990506==>增加購案品項查詢-->
+			<a href="javascript.void(0);" onclick="openSBT8(this);" name="SBT8" id="SBT8"></a>
+			<script language="javascript">
+			function openSBT8(Obj)
+				{
+					Obj.target="MAIN";
+					Obj.href="../Dept_Ser_Q/P_BUGETS_FILTER_Q.asp?SRK=N022757238&STYPE=BT5&BYEAR=115&BUGETNO="+F1.BUGETNO.value+"&SER_USERNO=";
+					Obj.click();
+				}
+			</script>			
+			<!--karen1000429 ==>增加"研發處功能-查詢部門及計畫基本資料檔"功能-->
+			<a href="javascript.void(0);" onclick="openSBT9(this);" name="SBT9" id="SBT9"></a>
+			<script language="javascript">
+			function openSBT9(Obj)
+				{
+					Obj.target="MAIN";
+					Obj.href="../DELVE_Q/D_BUGETS_Filter_Q.asp?COM=NT&BYEAR=115&STYPE=1";
+					Obj.click();
+				}
+			</script>
+		
+		
+		<a href="javascript.void(0);" onclick="openSBT4(this);" name="SBT4" id="SBT4"></a>
+		<script language="javascript">
+			  	 function openSBT4(Obj)
+				{
+					Obj.target="MAIN";
+					Obj.href="../Dept_Ser_Q/CDVS_PR_Q.asp?SRK=N022757238&BYEAR=115&BUGETNO="+F1.BUGETNO.value+"&SER_USERNO=&QSTR=AA13945004N$AA13945009N$AA13945013N$AA13945018N$AA14945002N$AE14945007$BB14945005$";
+					Obj.click();
+				}
+		</script>
+		
+		
+		</td>
+	</tr>
+
+
+		</tbody></table>
+		</div></td></tr></tbody></table>
+<!--第2TABLE 結束-->
+	
+
+
+
+
+<script language="javascript">
+	function LIS1( )
+	{
+		
+		parent.FM.rows="15%,*,0,0,0,0,0";
+		
+		parent.MAIN.location=('../CONFIRM_YAER_Q.asp?MED=redir');
+		window.location=('DA_SerFun_Q.asp?CONFIRM_YEAR=Y&COM=&LOM=');
+		if(D11.background='../APS_IMG_Q/PCG/bg_02.gif')
+			{
+				D11.background='../APS_IMG_Q/PCG/obj_02_02.gif';D12.background='../APS_IMG_Q/PCG/bg_02.gif';D14.background='../APS_IMG_Q/PCG/bg_02.gif';D17.background='../APS_IMG_Q/PCG/bg_02.gif';D18.background='../APS_IMG_Q/PCG/bg_02.gif';
+			}
+		else
+			{
+				D11.background='../APS_IMG_Q/PCG/bg_02.gif';
+			}
+	}
+	function LIS2( )
+	{
+		
+		parent.FM.rows="15%,*,0,0,0,0,0";
+		
+		parent.MAIN.location=('../BLANK_Q.asp?COM=YT');
+		parent.OT.location=('../SHAR_BUG_Q/SHAR_BUG_STR_Q.asp?COM=YT');
+		parent.TRAN.location=('TRAN_Q.asp?COM=YT');		
+		window.location=('DA_SerFun_Q.asp?COM=YT');
+		if(D12.background='../APS_IMG_Q/PCG/bg_02.gif')
+			{
+				D11.background='../APS_IMG_Q/PCG/bg_02.gif';D12.background='../APS_IMG_Q/PCG/obj_02_02.gif';D14.background='../APS_IMG_Q/PCG/bg_02.gif';D17.background='../APS_IMG_Q/PCG/bg_02.gif';D18.background='../APS_IMG_Q/PCG/bg_02.gif';
+			}
+		else
+			{
+				D12.background='../APS_IMG_Q/PCG/bg_02.gif';
+			}
+	}
+	function LIS3( )
+	{
+		
+		parent.FM.rows="15%,*,0,0,0,0,0";
+		
+		parent.MAIN.location=('../BLANK_Q.asp?COM=YT&LOM=Y');
+		
+		parent.TRAN.location=('TRAN_Q.asp?COM=YT&LOM=Y');
+		parent.OT.location=('../SHAR_BUG_Q/SHAR_BUG_STR_Q.asp?COM=YT&LOM=Y');
+		window.location=('DA_SerFun_Q.asp?COM=YT&LOM=Y');
+		if(D13.background='../APS_IMG_Q/PCG/bg_02.gif')
+			{
+				D11.background='../APS_IMG_Q/PCG/bg_02.gif';D12.background='../APS_IMG_Q/PCG/bg_02.gif';D14.background='../APS_IMG_Q/PCG/bg_02.gif';D17.background='../APS_IMG_Q/PCG/bg_02.gif';D18.background='../APS_IMG_Q/PCG/bg_02.gif';
+			}
+		else
+			{
+				
+			}
+	}
+	function LIS4( )
+	{
+		
+		parent.FM.rows="15%,*,0,0,0,0,0";
+		
+		parent.MAIN.location=('../BLANK_Q.asp?COM=NT');
+		parent.OT.location=('../SHAR_BUG_Q/SHAR_BUG_STR_Q.asp?COM=NT');
+		parent.TRAN.location=('TRAN_Q.asp?COM=NT');
+		window.location=('DA_SerFun_Q.asp?COM=NT');
+		if(D14.background='../APS_IMG_Q/PCG/bg_02.gif')
+			{
+				D11.background='../APS_IMG_Q/PCG/bg_02.gif';D12.background='../APS_IMG_Q/PCG/bg_02.gif';D14.background='../APS_IMG_Q/PCG/obj_02_02.gif';D17.background='../APS_IMG_Q/PCG/bg_02.gif';D18.background='../APS_IMG_Q/PCG/bg_02.gif';
+			}
+		else
+			{
+				D14.background='../APS_IMG_Q/PCG/bg_02.gif';
+			}
+	}
+	function LIS5( )
+	{
+		
+		parent.FM.rows="15%,*,0,0,0,0,0";
+		
+		parent.MAIN.location=('../BLANK_Q.asp?COM=NT&LOM=Y');
+		
+		parent.OT.location=('../SHAR_BUG_Q/SHAR_BUG_STR_Q.asp?COM=NT&LOM=Y');
+		parent.TRAN.location=('TRAN_Q.asp?COM=NT&LOM=Y');		
+		window.location=('DA_SerFun_Q.asp?COM=NT&LOM=Y');
+		if(D14.background='../APS_IMG_Q/PCG/bg_02.gif')
+			{
+				D11.background='../APS_IMG_Q/PCG/bg_02.gif';D12.background='../APS_IMG_Q/PCG/bg_02.gif';D14.background='../APS_IMG_Q/PCG/bg_02.gif';D17.background='../APS_IMG_Q/PCG/bg_02.gif';D18.background='../APS_IMG_Q/PCG/bg_02.gif';
+			}
+		else
+			{
+				D14.background='../APS_IMG_Q/PCG/bg_02.gif';
+			}
+	}
+	function LIS6( )
+	{
+		
+		parent.FM.rows="15%,*,0,0,0,0,0";
+		
+		parent.MAIN.location=('../QA_Q/QAFRM.asp');
+		window.location=('DA_SerFun_Q.asp?DO_QA=Y&COM=&LOM=');
+		if(D14.background='../APS_IMG_Q/PCG/bg_02.gif')
+			{
+				D11.background='../APS_IMG_Q/PCG/bg_02.gif';D12.background='../APS_IMG_Q/PCG/bg_02.gif';D14.background='../APS_IMG_Q/PCG/bg_02.gif';D17.background='../APS_IMG_Q/PCG/bg_02.gif';D18.background='../APS_IMG_Q/PCG/bg_02.gif';
+			}
+		else
+			{
+				D14.background='../APS_IMG_Q/PCG/bg_02.gif';
+			}
+	}
+	
+	function LIS7( )
+	{
+		
+		parent.FM.rows="15%,*,0,0,0,0,0";
+		
+		parent.MAIN.location=('../BLANK_Q.asp?HELPING=Y&COM=&LOM=');
+		window.location=('DA_SerFun_Q.asp?HELPING=Y&COM=&LOM=');
+		if(D17.background='../APS_IMG_Q/PCG/bg_02.gif')
+			{
+				D11.background='../APS_IMG_Q/PCG/bg_02.gif';D12.background='../APS_IMG_Q/PCG/bg_02.gif';D14.background='../APS_IMG_Q/PCG/bg_02.gif';D17.background='../APS_IMG_Q/PCG/obj_02_02.gif';D18.background='../APS_IMG_Q/PCG/bg_02.gif';
+			}
+		else
+			{
+				D17.background='../APS_IMG_Q/PCG/bg_02.gif';
+			}
+	}
+	
+	function LIS8( )
+	{
+		parent.MAIN.location=('winclo_Q.asp');
+		window.location=('DA_SerFun_Q.asp?HELPING=&COM=&LOM=');
+		if(D18.background='../APS_IMG_Q/PCG/bg_02.gif')
+			{
+				D11.background='../APS_IMG_Q/PCG/bg_02.gif';D12.background='../APS_IMG_Q/PCG/bg_02.gif';D14.background='../APS_IMG_Q/PCG/bg_02.gif';D17.background='../APS_IMG_Q/PCG/bg_02.gif';D18.background='../APS_IMG_Q/PCG/obj_02_02.gif';
+				
+			}
+		else
+			{
+				D17.background='../APS_IMG_Q/PCG/bg_02.gif';
+			}	   
+	}
+</script>
+
+<!----------------------------------------------->
+
+
+</center>
+
+</httpcookies></body></html>

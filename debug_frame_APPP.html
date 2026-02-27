@@ -1,0 +1,3579 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"><html><head><meta http-equiv="Content-Type" content="text-html; charset=big5">
+
+<meta http-equiv="Content-Type" content="text-html; charset=big5">
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+</head><body marginwidth="6" marginheight="8" background="../APS_IMG_Q/PCG/ACCAPP1280_BOTTOM.gif"><httpcookies httponlycookies="true" lockitem="true">
+<style>
+html,body{font-size:12px;margin:0px;height:100%;}
+.mesWindow{border:#666 1px solid;background:#fff;}
+.mesWindowTop{border-bottom:#eee 1px solid;margin-left:4px;padding:3px;font-weight:bold;text-align:left;font-size:12px;}
+.mesWindowContent{margin:4px;font-size:12px;}
+.mesWindow .close{height:15px;width:28px;border:none;cursor:pointer;text-decoration:underline;background:#fff}
+</style>
+<script>
+var isIe=(document.all)?true:false;
+//讓背景漸漸變暗
+function showBackground(obj,endInt)
+{
+	if(isIe)
+	{
+		obj.filters.alpha.opacity+=20;
+		if(obj.filters.alpha.opacity<endInt)
+		{
+			setTimeout(function(){showBackground(obj,endInt)},5);
+		}
+	}else{
+		var al=parseFloat(obj.style.opacity);al+=0.01;
+		obj.style.opacity=al;
+		if(al<(endInt/100))
+		{setTimeout(function(){showBackground(obj,endInt)},5);}
+		}
+}
+
+//關閉視窗
+function closeWindow()
+{
+if(document.getElementById('back')!=null)
+{
+document.getElementById('back').parentNode.removeChild(document.getElementById('back'));
+}
+if(document.getElementById('mesWindow')!=null)
+{
+document.getElementById('mesWindow').parentNode.removeChild(document.getElementById('mesWindow'));
+}
+}
+
+//彈出訊息 START=============================================================================
+function PALERT(wTitle,content,pos,wWidth,GoURL,EXT_BUTTON)
+{
+	closeWindow();
+	var bWidth=parseInt(document.documentElement.scrollWidth);
+	var bHeight=parseInt(document.documentElement.scrollHeight);
+	var back=document.createElement("div");
+	back.id="back";
+	var styleStr="top:0px;left:0px;position:absolute;background:#666;width:"+bWidth+"px;height:"+bHeight+"px;";
+	styleStr+=(isIe)?"filter:alpha(opacity=0);":"opacity:0;";
+	back.style.cssText=styleStr;
+	document.body.appendChild(back);
+	showBackground(back,80);
+	var mesW=document.createElement("div");
+	mesW.id="mesWindow";
+	mesW.className="mesWindow";
+	mesW.innerHTML="<div class='mesWindowTop' ><table width='100%' height='100%' style='background:darkblue;'><tr><td style='background:darkblue;' align=center><font color=yellow>"+wTitle+"</font></td><td style='width:1px;background:darkblue;fontcolor:yellow;'><input type='button' name='btt' id='btt' onclick='"+GoURL+"'' title='關閉視窗' class='close' value='關閉' /></td></tr></table></div>";
+	mesW.innerHTML=mesW.innerHTML+"<div class='mesWindowContent' id='mesWindowContent' ><center><font color=darkblue size=3>"+content+"</center></div><div class='mesWindowBottom'><center>"+EXT_BUTTON+"</center></div>";
+	//跟物件
+	//styleStr="left:"+(((pos.x-wWidth)>0)?(pos.x-wWidth):pos.x)+"px;top:"+(pos.y)+"px;position:absolute;width:"+wWidth+"px;";
+	//置中
+	styleStr="left:"+(bWidth/2-wWidth/2)+"px;top:"+(bHeight/2-100)+"px;position:absolute;width:"+wWidth+"px;";
+	mesW.style.cssText=styleStr;
+	document.body.appendChild(mesW);
+	btt.focus();
+}
+
+function P_alert(CONT,TITLE,GoURL,EXT_BUTTON)
+{
+if(TITLE=='')
+{
+	TITLE='提示訊息';
+}
+	messContent="<div style='padding:20px 0 20px 0;text-align:center'>"+CONT+"</div>";
+	PALERT(TITLE,messContent,"x:100;y:100",250,GoURL,EXT_BUTTON);
+}
+//彈出訊息 END=============================================================================
+
+//開新網頁 START==================================================================================
+function POPEN(wTitle,content,pos,wWidth)
+{
+	closeWindow();
+	var bWidth=parseInt(document.documentElement.scrollWidth);
+	var bHeight=parseInt(document.documentElement.scrollHeight);
+	var back=document.createElement("div");
+	back.id="back";
+	var styleStr="top:0px;left:0px;position:absolute;background:#666;width:"+bWidth+"px;height:"+bHeight+"px;";
+	styleStr+=(isIe)?"filter:alpha(opacity=0);":"opacity:0;";
+	back.style.cssText=styleStr;
+	document.body.appendChild(back);
+	showBackground(back,80);
+	var mesW=document.createElement("div");
+	mesW.id="mesWindow";
+	mesW.className="mesWindow";
+	mesW.innerHTML="<div class='mesWindowTop' ><table width='100%' height='100%' style='background:darkblue;'><tr><td style='background:darkblue;' align=center><font color=yellow>"+wTitle+"</font></td><td style='width:1px;background:darkblue;fontcolor:yellow;'><input type='button' name='btt' id='btt' onclick='closeWindow();' title='關閉視窗' class='close' value='關閉' /></td></tr></table></div>";
+	mesW.innerHTML=mesW.innerHTML+"<div class='mesWindowContent' id='mesWindowContent' ><center><font color=darkblue size=3><iframe name=I1 id=I1 width=700 height=500 src="+content+"></iframe></center></div>";
+	//跟物件
+	//styleStr="left:"+(((pos.x-wWidth)>0)?(pos.x-wWidth):pos.x)+"px;top:"+(pos.y)+"px;position:absolute;width:"+wWidth+"px;";
+	//置中
+	styleStr="left:"+(bWidth/2-wWidth/2)+"px;top:0px;position:absolute;width:"+wWidth+"px;";
+	mesW.style.cssText=styleStr;
+	document.body.appendChild(mesW);
+	btt.focus();
+}
+
+function P_OPEN(URL,TITLE)
+{
+if(TITLE=='')
+{
+	TITLE='網頁';
+}
+	messContent="<div style='padding:20px 0 20px 0;text-align:center'>"+URL+"</div>";
+	POPEN(TITLE,messContent,"x:100;y:100",700);
+}
+
+function P_WCLOSE(URL,TITLE)
+{
+if(TITLE=='')
+{
+	TITLE='網頁';
+}
+	messContent="<div style='padding:20px 0 20px 0;text-align:center'>"+URL+"</div>";
+	POPEN(TITLE,messContent,"x:100;y:100",700);
+}
+//開新網頁 END==================================================================================
+
+//開網頁 START============================================================================
+function WINCLOSE(wTitle,content,pos,wWidth)
+{
+	closeWindow();
+	var bWidth=parseInt(document.documentElement.scrollWidth);
+	var bHeight=parseInt(document.documentElement.scrollHeight);
+	var back=document.createElement("div");
+	back.id="back";
+	var styleStr="top:0px;left:0px;position:absolute;background:#666;width:"+bWidth+"px;height:"+bHeight+"px;";
+	styleStr+=(isIe)?"filter:alpha(opacity=0);":"opacity:0;";
+	back.style.cssText=styleStr;
+	document.body.appendChild(back);
+	showBackground(back,80);
+	var mesW=document.createElement("div");
+	mesW.id="mesWindow";
+	mesW.className="mesWindow";
+	mesW.innerHTML="<div class='mesWindowTop' ><table width='100%' height='100%' style='background:darkblue;'><tr><td style='background:darkblue;' align=center><font color=yellow>"+wTitle+"</font></td></tr></table></div>";
+	mesW.innerHTML=mesW.innerHTML+"<div class='mesWindowContent' id='mesWindowContent' ><center><font color=darkblue size=3>"+content+"</center></div>";
+	//跟物件
+	//styleStr="left:"+(((pos.x-wWidth)>0)?(pos.x-wWidth):pos.x)+"px;top:"+(pos.y)+"px;position:absolute;width:"+wWidth+"px;";
+	//置中
+	styleStr="left:"+(bWidth/2-wWidth/2)+"px;top:"+(bHeight/2-100)+"px;position:absolute;width:"+wWidth+"px;";
+	mesW.style.cssText=styleStr;
+	document.body.appendChild(mesW);
+}
+
+function WIN_COLSE(CONT)
+{
+	TITLE='處理中，請稍候';
+	messContent="<div style='padding:20px 0 20px 0;text-align:center'>"+CONT+"</div>";
+	WINCLOSE(TITLE,messContent,"x:100;y:100",250);
+}
+
+function WIN_OPEN()
+{
+	closeWindow();
+}
+//鎖/開網頁 END================================================================================
+</script>
+
+
+
+<!--<script>
+//罕見字集 start ===========================================================
+//var WFCIP = "140.124.13.81";
+//var getWebHost = (("http:" == document.location.protocol) ? "http://" : "https://");
+//if(document.all){
+ //document.write(unescape("%3Cscript src='" + getWebHost + WFCIP + "/wfs/js/lib/wfs.js' type='text/javascript'%3E%3C/script%3E"));
+//}else{
+ //document.write(unescape("%3Cscript src='" + getWebHost + WFCIP + "/wfs/js/lib/jquery.js' type='text/javascript'%3E%3C/script%3E"));
+ //document.write(unescape("%3Cscript src='" + getWebHost + WFCIP + "/wfs/js/lib/jQwfs.js' type='text/javascript'%3E%3C/script%3E"));
+//}
+//罕見字集 end ======================================================
+</script>-->
+<meta http-equiv="pragma" content="no-cache">
+
+	<link rel="stylesheet" href="../CSS_Q/1024LSTY.css" type="text/css">
+
+
+
+    <title>編輯品名</title>
+
+
+<style type="text/css">
+    <!--
+    body {
+        background-position: center 0%;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+    -->
+</style>
+<script language="javascript">
+    if (screen.availWidth > 1024) {
+        document.write("<link rel=stylesheet href=../CSS_Q/1280LSTY.css type=text/css>");
+        document.write("<body background=../APS_IMG_Q/PCG/ACCAPP1280_BOTTOM.gif>");
+    }
+    else {
+        document.write("<link rel=stylesheet href=../CSS_Q/1024LSTY.css type=text/css>");
+        document.write("<body background=../APS_IMG_Q/PCG/ACCAPP_BOTTOM.gif>");
+    }
+</script><link rel="stylesheet" href="../CSS_Q/1280LSTY.css" type="text/css">
+
+<script type="text/javascript">
+function disableInfo() {  
+    document.onkeydown = function() {  
+        var e = window.event || arguments[0];  
+        //F12  
+        if(e.keyCode == 123) {  
+			alert("禁用F12");
+            return false;  
+            //Ctrl+Shift+I  
+        } else if((e.ctrlKey) && (e.shiftKey) && (e.keyCode == 73)) {  
+		    alert("禁用鍵");
+            return false;  
+            //Shift+F10  
+        } else if((e.shiftKey) && (e.keyCode == 121)){  
+		    alert("禁用F10");
+            return false;  
+        }  
+    };  
+    //右鍵  
+    document.oncontextmenu = function() { 
+		alert("禁用右鍵"); 
+        return false;  
+    }  
+}
+</script>
+
+<center>
+<!----品名編輯------------------------------------------------------->
+
+<div id="PRODUCT">
+   
+	<div id="TO1" style="">
+		</div><div id="TO2" style="display:none">
+			<font class="size3W">詳細規格或請購特殊需求</font>
+		</div><table background="../APS_IMG_Q/PCG/BC01.gif" border="0" width="1000" cellpadding="0" cellspacing="0" style="table-layout:fixed;border-collapse: collapse"> 
+	<colgroup><col width="20"><col width="210"><col width="100"><col width="100"><col width="50"><col width="40"><col width="80"><col width="70"><col width="70">
+	</colgroup><form name="FORM1" method="post"></form>
+	
+	<tbody><tr>	  
+	  <td colspan="9" background="../APS_IMG_Q/PCG/Sobj3_02.gif">&nbsp;
+	    <input type="hidden" value="引用先前之請購案" onclick="window.location = ('../P_ACPPY_Q/P_ACPPY_LIST_Q.asp?ISPERIOD=False&amp;IsNew=Y&amp;APYNO=&amp;APYADD=&amp;ISPURC=False&amp;APPYSET=13&amp;QA_ID=56006&amp;SHOWVEN=True'); parent.DD.rows = '0,*'; parent.QQ.cols = '*,0,0';" class="BT06">
+		
+		 <input type="button" name="FILE_LIST" id="FILE_LIST" onclick="window.open(&quot;FILE_UP_Q.asp?ISNEW=Y&amp;APYNO=&amp;APYADD=&amp;APPYSET=13&amp;W_CLASS=STD_APPP_Q&amp;OPENER=STD_APPP_Q&amp;IS_PRAPPY=&quot;, &quot;FILE_UP&quot;, &quot;top=1,left=1,width=500,height=150,toolbar=no,menubar=no,location=no,directories=no,status=no,resizable=no,scrollbars=no&quot;);" value="轉入CSV檔" class="STYLISTCSV">
+         
+	  </td>
+	</tr>
+	
+	<script language="javascript">
+        function ATOREC() {
+
+            if (FORM1.PRODUCT_1.value == "") {
+                FORM1.PRODUCT_1.value = "詳如附件";
+                return;
+            }
+        }
+		</script>
+	<tr bgcolor="#004080" height="20" align="center" style="padding-top:1px;border-top:none;border-left:none;border-bottom:none;border-right:none;">		
+		 <td class="st3" height="20" align="center" style="background:transparent url('../APS_IMG_Q/PCG/icon_list.gif')  no-repeat center;">
+ 					
+			<input type="hidden" name="SUM_LIST" onclick="SUM_SUM();" value="加總:$0" style="width:0;">
+		 </td>
+		
+		<td class="st3" align="center" background="../APS_IMG_Q/PCG/ekp_bg_1.jpg">
+			<font class="size3W">品名</font>
+		</td>
+		<td class="st3" align="center" background="../APS_IMG_Q/PCG/ekp_bg_1.jpg">
+			<font class="size3W">詳細規格</font>
+		</td>
+		<td class="st3" align="center" background="../APS_IMG_Q/PCG/ekp_bg_1.jpg">
+			<font class="size3W">廠牌型號</font>
+		</td>
+		
+		
+						
+		<td class="st3" align="center" background="../APS_IMG_Q/PCG/ekp_bg_1.jpg">
+			<font class="size3W">單位</font>
+ 		</td>
+		<td class="st3" align="center" background="../APS_IMG_Q/PCG/ekp_bg_1.jpg">
+			<font class="size3W">數量</font>
+ 		</td>
+		<td class="st3" align="center" background="../APS_IMG_Q/PCG/ekp_bg_1.jpg">
+			<font class="size3W">總價</font>
+ 		</td>
+		
+		<td class="st3" align="center" background="../APS_IMG_Q/PCG/ekp_bg_1.jpg">
+			<font class="size3W">置放地點</font>
+ 		</td>
+		
+		<!--1020924Karen==>增加選取財產保管人-->
+		
+		<td class="st3" align="center" background="../APS_IMG_Q/PCG/ekp_bg_1.jpg">
+			<font class="size3W">保管人</font>
+ 		</td>
+		
+	</tr>
+		
+			<tr height="28" bgcolor="#F0F0F0"> 
+			    <!--<input type="hidden" name="PTYPE_" value="">-->	
+				<td class="st3" align="center"> 	
+					  <font class="size3DB">1</font>					  						
+ 				</td>
+				
+				<td class="st3" style="padding-left:1pt;"> 	
+					<input type="text" name="PRODUCT_1" value="" maxlength="500" onblur="this.value=this.value.replace(&quot;'&quot;,&quot;吋&quot;).replace(&quot;#&quot;,&quot;號&quot;);" class="STYPRODUCT31">					
+				</td>
+				<td class="st3" style="padding-left:1pt;"> 	 
+					<input type="text" name="PRODUCT1_1" value="" maxlength="500" onblur="this.value=this.value.replace(&quot;'&quot;,&quot;吋&quot;).replace(&quot;#&quot;,&quot;號&quot;);" class="STYPRODUCT32">
+				</td>
+				<td class="st3" style="padding-left:1pt;"> 	 
+					<input type="text" name="PRODUCT2_1" value="" maxlength="500" onblur="this.value=this.value.replace(&quot;'&quot;,&quot;吋&quot;).replace(&quot;#&quot;,&quot;號&quot;);" class="STYPRODUCT33">					
+				</td>  
+								
+				<td class="st3" align="center"> 	 
+					<input type="text" name="SERUNIT_1" value="個" maxlength="2" onblur="this.value=this.value.replace(&quot;'&quot;,&quot;吋&quot;).replace(&quot;#&quot;,&quot;號&quot;).replace(&quot;琇&quot;,&quot;秀&quot;);" class="APPPUNIT">
+								
+								<!--<script language="javascript">
+								function FORM1.UNIT_.onchange()
+								{
+									FORM1.SERUNIT_.value=FORM1.UNIT_.value;									
+								}								
+								</script>-->
+				</td>
+				<td class="st3" align="center"> 	 
+					<input type="text" name="QUANTITY_1" value="1" onclick="this.value=&quot;&quot;;" onblur="if(isNaN(this.value)){alert('請輸入數字');this.value='1';} if(this.value==''){this.value='1';} " "="" maxlength="6" class="STYQUANTITY">	
+				</td>
+				<td class="st3" align="center"> 	 
+					<input type="text" name="AMOUNT_1" maxlength="10" value="0" onclick="this.value=&quot;&quot;;" onblur="if(isNaN(this.value)){alert('請輸入數字');this.value='0';} if(this.value==''){this.value='0';} SUM_SUM();" class="STYAMOUNT">	
+					<input type="hidden" name="IDATE_1" value="">
+					<input type="hidden" name="INVOICENO_1" value="">
+				</td>
+				
+				
+				<td class="st3" align="center"> 	
+				 
+					<input type="button" name="PLACE_1" value="" onclick="window.open(&quot;SEAR_PLACE_Q.asp?OBNUM=1&amp;PLACE=&quot;+FORM1.PLACE_1.value+&quot;&amp;DEPTNO=945&quot;,&quot;&quot;,&quot;left=0,top=0,width=460,height=400,toolbar=no,menubar=1,location=no,directories=no,status=no,resizable=1,scrollbars=1&quot;);" class="BT04">							
+ 				 
+				</td>
+				
+				     <input type="hidden" name="BUYID_1" value="">
+					 <input type="hidden" name="BUYNAME_1" value="">
+				
+				
+				<!--1001128Karen==>一般請購品名編輯是否需顯示物品分類-->
+				
+				    <input type="hidden" name="PTYPE_1" value="">
+				
+				<!--1020924Karen==>增加選取財產保管人-->
+				
+                    <td class="st3" align="center">
+                        				  		
+					        <input type="button" name="KEEPER_1" value="" onclick="window.open(&quot;SEAR_KEEPER_Q.asp?FIRST=Y&amp;OBNUM=1&amp;KEEPER=&quot;+FORM1.KEEPER_1.value+&quot;&amp;DEPTNO=945&quot;,&quot;&quot;,&quot;left=0,top=0,width=460,height=400,toolbar=no,menubar=1,location=no,directories=no,status=no,resizable=1,scrollbars=1&quot;);" class="BT04">							
+ 				            <input type="hidden" name="KEEPERID_1" value="">
+					        <input type="hidden" name="KEEPERDNO_1" value="">
+ 				        
+                    </td>
+				
+			</tr>
+			
+			<tr height="28" bgcolor="#F0F0F0"> 
+			    <!--<input type="hidden" name="PTYPE_" value="">-->	
+				<td class="st3" align="center"> 	
+					  <font class="size3DB">2</font>					  						
+ 				</td>
+				
+				<td class="st3" style="padding-left:1pt;"> 	
+					<input type="text" name="PRODUCT_2" value="" maxlength="500" onblur="this.value=this.value.replace(&quot;'&quot;,&quot;吋&quot;).replace(&quot;#&quot;,&quot;號&quot;);" class="STYPRODUCT31">					
+				</td>
+				<td class="st3" style="padding-left:1pt;"> 	 
+					<input type="text" name="PRODUCT1_2" value="" maxlength="500" onblur="this.value=this.value.replace(&quot;'&quot;,&quot;吋&quot;).replace(&quot;#&quot;,&quot;號&quot;);" class="STYPRODUCT32">
+				</td>
+				<td class="st3" style="padding-left:1pt;"> 	 
+					<input type="text" name="PRODUCT2_2" value="" maxlength="500" onblur="this.value=this.value.replace(&quot;'&quot;,&quot;吋&quot;).replace(&quot;#&quot;,&quot;號&quot;);" class="STYPRODUCT33">					
+				</td>  
+								
+				<td class="st3" align="center"> 	 
+					<input type="text" name="SERUNIT_2" value="個" maxlength="2" onblur="this.value=this.value.replace(&quot;'&quot;,&quot;吋&quot;).replace(&quot;#&quot;,&quot;號&quot;).replace(&quot;琇&quot;,&quot;秀&quot;);" class="APPPUNIT">
+								
+								<!--<script language="javascript">
+								function FORM1.UNIT_.onchange()
+								{
+									FORM1.SERUNIT_.value=FORM1.UNIT_.value;									
+								}								
+								</script>-->
+				</td>
+				<td class="st3" align="center"> 	 
+					<input type="text" name="QUANTITY_2" value="1" onclick="this.value=&quot;&quot;;" onblur="if(isNaN(this.value)){alert('請輸入數字');this.value='1';} if(this.value==''){this.value='1';} " "="" maxlength="6" class="STYQUANTITY">	
+				</td>
+				<td class="st3" align="center"> 	 
+					<input type="text" name="AMOUNT_2" maxlength="10" value="0" onclick="this.value=&quot;&quot;;" onblur="if(isNaN(this.value)){alert('請輸入數字');this.value='0';} if(this.value==''){this.value='0';} SUM_SUM();" class="STYAMOUNT">	
+					<input type="hidden" name="IDATE_2" value="">
+					<input type="hidden" name="INVOICENO_2" value="">
+				</td>
+				
+				
+				<td class="st3" align="center"> 	
+				 
+					<input type="button" name="PLACE_2" value="" onclick="window.open(&quot;SEAR_PLACE_Q.asp?OBNUM=2&amp;PLACE=&quot;+FORM1.PLACE_2.value+&quot;&amp;DEPTNO=945&quot;,&quot;&quot;,&quot;left=0,top=0,width=460,height=400,toolbar=no,menubar=1,location=no,directories=no,status=no,resizable=1,scrollbars=1&quot;);" class="BT04">							
+ 				 
+				</td>
+				
+				     <input type="hidden" name="BUYID_2" value="">
+					 <input type="hidden" name="BUYNAME_2" value="">
+				
+				
+				<!--1001128Karen==>一般請購品名編輯是否需顯示物品分類-->
+				
+				    <input type="hidden" name="PTYPE_2" value="">
+				
+				<!--1020924Karen==>增加選取財產保管人-->
+				
+                    <td class="st3" align="center">
+                        				  		
+					        <input type="button" name="KEEPER_2" value="" onclick="window.open(&quot;SEAR_KEEPER_Q.asp?FIRST=Y&amp;OBNUM=2&amp;KEEPER=&quot;+FORM1.KEEPER_2.value+&quot;&amp;DEPTNO=945&quot;,&quot;&quot;,&quot;left=0,top=0,width=460,height=400,toolbar=no,menubar=1,location=no,directories=no,status=no,resizable=1,scrollbars=1&quot;);" class="BT04">							
+ 				            <input type="hidden" name="KEEPERID_2" value="">
+					        <input type="hidden" name="KEEPERDNO_2" value="">
+ 				        
+                    </td>
+				
+			</tr>
+			
+			<tr height="28" bgcolor="#F0F0F0"> 
+			    <!--<input type="hidden" name="PTYPE_" value="">-->	
+				<td class="st3" align="center"> 	
+					  <font class="size3DB">3</font>					  						
+ 				</td>
+				
+				<td class="st3" style="padding-left:1pt;"> 	
+					<input type="text" name="PRODUCT_3" value="" maxlength="500" onblur="this.value=this.value.replace(&quot;'&quot;,&quot;吋&quot;).replace(&quot;#&quot;,&quot;號&quot;);" class="STYPRODUCT31">					
+				</td>
+				<td class="st3" style="padding-left:1pt;"> 	 
+					<input type="text" name="PRODUCT1_3" value="" maxlength="500" onblur="this.value=this.value.replace(&quot;'&quot;,&quot;吋&quot;).replace(&quot;#&quot;,&quot;號&quot;);" class="STYPRODUCT32">
+				</td>
+				<td class="st3" style="padding-left:1pt;"> 	 
+					<input type="text" name="PRODUCT2_3" value="" maxlength="500" onblur="this.value=this.value.replace(&quot;'&quot;,&quot;吋&quot;).replace(&quot;#&quot;,&quot;號&quot;);" class="STYPRODUCT33">					
+				</td>  
+								
+				<td class="st3" align="center"> 	 
+					<input type="text" name="SERUNIT_3" value="個" maxlength="2" onblur="this.value=this.value.replace(&quot;'&quot;,&quot;吋&quot;).replace(&quot;#&quot;,&quot;號&quot;).replace(&quot;琇&quot;,&quot;秀&quot;);" class="APPPUNIT">
+								
+								<!--<script language="javascript">
+								function FORM1.UNIT_.onchange()
+								{
+									FORM1.SERUNIT_.value=FORM1.UNIT_.value;									
+								}								
+								</script>-->
+				</td>
+				<td class="st3" align="center"> 	 
+					<input type="text" name="QUANTITY_3" value="1" onclick="this.value=&quot;&quot;;" onblur="if(isNaN(this.value)){alert('請輸入數字');this.value='1';} if(this.value==''){this.value='1';} " "="" maxlength="6" class="STYQUANTITY">	
+				</td>
+				<td class="st3" align="center"> 	 
+					<input type="text" name="AMOUNT_3" maxlength="10" value="0" onclick="this.value=&quot;&quot;;" onblur="if(isNaN(this.value)){alert('請輸入數字');this.value='0';} if(this.value==''){this.value='0';} SUM_SUM();" class="STYAMOUNT">	
+					<input type="hidden" name="IDATE_3" value="">
+					<input type="hidden" name="INVOICENO_3" value="">
+				</td>
+				
+				
+				<td class="st3" align="center"> 	
+				 
+					<input type="button" name="PLACE_3" value="" onclick="window.open(&quot;SEAR_PLACE_Q.asp?OBNUM=3&amp;PLACE=&quot;+FORM1.PLACE_3.value+&quot;&amp;DEPTNO=945&quot;,&quot;&quot;,&quot;left=0,top=0,width=460,height=400,toolbar=no,menubar=1,location=no,directories=no,status=no,resizable=1,scrollbars=1&quot;);" class="BT04">							
+ 				 
+				</td>
+				
+				     <input type="hidden" name="BUYID_3" value="">
+					 <input type="hidden" name="BUYNAME_3" value="">
+				
+				
+				<!--1001128Karen==>一般請購品名編輯是否需顯示物品分類-->
+				
+				    <input type="hidden" name="PTYPE_3" value="">
+				
+				<!--1020924Karen==>增加選取財產保管人-->
+				
+                    <td class="st3" align="center">
+                        				  		
+					        <input type="button" name="KEEPER_3" value="" onclick="window.open(&quot;SEAR_KEEPER_Q.asp?FIRST=Y&amp;OBNUM=3&amp;KEEPER=&quot;+FORM1.KEEPER_3.value+&quot;&amp;DEPTNO=945&quot;,&quot;&quot;,&quot;left=0,top=0,width=460,height=400,toolbar=no,menubar=1,location=no,directories=no,status=no,resizable=1,scrollbars=1&quot;);" class="BT04">							
+ 				            <input type="hidden" name="KEEPERID_3" value="">
+					        <input type="hidden" name="KEEPERDNO_3" value="">
+ 				        
+                    </td>
+				
+			</tr>
+			
+			<tr height="28" bgcolor="#F0F0F0"> 
+			    <!--<input type="hidden" name="PTYPE_" value="">-->	
+				<td class="st3" align="center"> 	
+					  <font class="size3DB">4</font>					  						
+ 				</td>
+				
+				<td class="st3" style="padding-left:1pt;"> 	
+					<input type="text" name="PRODUCT_4" value="" maxlength="500" onblur="this.value=this.value.replace(&quot;'&quot;,&quot;吋&quot;).replace(&quot;#&quot;,&quot;號&quot;);" class="STYPRODUCT31">					
+				</td>
+				<td class="st3" style="padding-left:1pt;"> 	 
+					<input type="text" name="PRODUCT1_4" value="" maxlength="500" onblur="this.value=this.value.replace(&quot;'&quot;,&quot;吋&quot;).replace(&quot;#&quot;,&quot;號&quot;);" class="STYPRODUCT32">
+				</td>
+				<td class="st3" style="padding-left:1pt;"> 	 
+					<input type="text" name="PRODUCT2_4" value="" maxlength="500" onblur="this.value=this.value.replace(&quot;'&quot;,&quot;吋&quot;).replace(&quot;#&quot;,&quot;號&quot;);" class="STYPRODUCT33">					
+				</td>  
+								
+				<td class="st3" align="center"> 	 
+					<input type="text" name="SERUNIT_4" value="個" maxlength="2" onblur="this.value=this.value.replace(&quot;'&quot;,&quot;吋&quot;).replace(&quot;#&quot;,&quot;號&quot;).replace(&quot;琇&quot;,&quot;秀&quot;);" class="APPPUNIT">
+								
+								<!--<script language="javascript">
+								function FORM1.UNIT_.onchange()
+								{
+									FORM1.SERUNIT_.value=FORM1.UNIT_.value;									
+								}								
+								</script>-->
+				</td>
+				<td class="st3" align="center"> 	 
+					<input type="text" name="QUANTITY_4" value="1" onclick="this.value=&quot;&quot;;" onblur="if(isNaN(this.value)){alert('請輸入數字');this.value='1';} if(this.value==''){this.value='1';} " "="" maxlength="6" class="STYQUANTITY">	
+				</td>
+				<td class="st3" align="center"> 	 
+					<input type="text" name="AMOUNT_4" maxlength="10" value="0" onclick="this.value=&quot;&quot;;" onblur="if(isNaN(this.value)){alert('請輸入數字');this.value='0';} if(this.value==''){this.value='0';} SUM_SUM();" class="STYAMOUNT">	
+					<input type="hidden" name="IDATE_4" value="">
+					<input type="hidden" name="INVOICENO_4" value="">
+				</td>
+				
+				
+				<td class="st3" align="center"> 	
+				 
+					<input type="button" name="PLACE_4" value="" onclick="window.open(&quot;SEAR_PLACE_Q.asp?OBNUM=4&amp;PLACE=&quot;+FORM1.PLACE_4.value+&quot;&amp;DEPTNO=945&quot;,&quot;&quot;,&quot;left=0,top=0,width=460,height=400,toolbar=no,menubar=1,location=no,directories=no,status=no,resizable=1,scrollbars=1&quot;);" class="BT04">							
+ 				 
+				</td>
+				
+				     <input type="hidden" name="BUYID_4" value="">
+					 <input type="hidden" name="BUYNAME_4" value="">
+				
+				
+				<!--1001128Karen==>一般請購品名編輯是否需顯示物品分類-->
+				
+				    <input type="hidden" name="PTYPE_4" value="">
+				
+				<!--1020924Karen==>增加選取財產保管人-->
+				
+                    <td class="st3" align="center">
+                        				  		
+					        <input type="button" name="KEEPER_4" value="" onclick="window.open(&quot;SEAR_KEEPER_Q.asp?FIRST=Y&amp;OBNUM=4&amp;KEEPER=&quot;+FORM1.KEEPER_4.value+&quot;&amp;DEPTNO=945&quot;,&quot;&quot;,&quot;left=0,top=0,width=460,height=400,toolbar=no,menubar=1,location=no,directories=no,status=no,resizable=1,scrollbars=1&quot;);" class="BT04">							
+ 				            <input type="hidden" name="KEEPERID_4" value="">
+					        <input type="hidden" name="KEEPERDNO_4" value="">
+ 				        
+                    </td>
+				
+			</tr>
+			
+			<tr height="28" bgcolor="#F0F0F0"> 
+			    <!--<input type="hidden" name="PTYPE_" value="">-->	
+				<td class="st3" align="center"> 	
+					  <font class="size3DB">5</font>					  						
+ 				</td>
+				
+				<td class="st3" style="padding-left:1pt;"> 	
+					<input type="text" name="PRODUCT_5" value="" maxlength="500" onblur="this.value=this.value.replace(&quot;'&quot;,&quot;吋&quot;).replace(&quot;#&quot;,&quot;號&quot;);" class="STYPRODUCT31">					
+				</td>
+				<td class="st3" style="padding-left:1pt;"> 	 
+					<input type="text" name="PRODUCT1_5" value="" maxlength="500" onblur="this.value=this.value.replace(&quot;'&quot;,&quot;吋&quot;).replace(&quot;#&quot;,&quot;號&quot;);" class="STYPRODUCT32">
+				</td>
+				<td class="st3" style="padding-left:1pt;"> 	 
+					<input type="text" name="PRODUCT2_5" value="" maxlength="500" onblur="this.value=this.value.replace(&quot;'&quot;,&quot;吋&quot;).replace(&quot;#&quot;,&quot;號&quot;);" class="STYPRODUCT33">					
+				</td>  
+								
+				<td class="st3" align="center"> 	 
+					<input type="text" name="SERUNIT_5" value="個" maxlength="2" onblur="this.value=this.value.replace(&quot;'&quot;,&quot;吋&quot;).replace(&quot;#&quot;,&quot;號&quot;).replace(&quot;琇&quot;,&quot;秀&quot;);" class="APPPUNIT">
+								
+								<!--<script language="javascript">
+								function FORM1.UNIT_.onchange()
+								{
+									FORM1.SERUNIT_.value=FORM1.UNIT_.value;									
+								}								
+								</script>-->
+				</td>
+				<td class="st3" align="center"> 	 
+					<input type="text" name="QUANTITY_5" value="1" onclick="this.value=&quot;&quot;;" onblur="if(isNaN(this.value)){alert('請輸入數字');this.value='1';} if(this.value==''){this.value='1';} " "="" maxlength="6" class="STYQUANTITY">	
+				</td>
+				<td class="st3" align="center"> 	 
+					<input type="text" name="AMOUNT_5" maxlength="10" value="0" onclick="this.value=&quot;&quot;;" onblur="if(isNaN(this.value)){alert('請輸入數字');this.value='0';} if(this.value==''){this.value='0';} SUM_SUM();" class="STYAMOUNT">	
+					<input type="hidden" name="IDATE_5" value="">
+					<input type="hidden" name="INVOICENO_5" value="">
+				</td>
+				
+				
+				<td class="st3" align="center"> 	
+				 
+					<input type="button" name="PLACE_5" value="" onclick="window.open(&quot;SEAR_PLACE_Q.asp?OBNUM=5&amp;PLACE=&quot;+FORM1.PLACE_5.value+&quot;&amp;DEPTNO=945&quot;,&quot;&quot;,&quot;left=0,top=0,width=460,height=400,toolbar=no,menubar=1,location=no,directories=no,status=no,resizable=1,scrollbars=1&quot;);" class="BT04">							
+ 				 
+				</td>
+				
+				     <input type="hidden" name="BUYID_5" value="">
+					 <input type="hidden" name="BUYNAME_5" value="">
+				
+				
+				<!--1001128Karen==>一般請購品名編輯是否需顯示物品分類-->
+				
+				    <input type="hidden" name="PTYPE_5" value="">
+				
+				<!--1020924Karen==>增加選取財產保管人-->
+				
+                    <td class="st3" align="center">
+                        				  		
+					        <input type="button" name="KEEPER_5" value="" onclick="window.open(&quot;SEAR_KEEPER_Q.asp?FIRST=Y&amp;OBNUM=5&amp;KEEPER=&quot;+FORM1.KEEPER_5.value+&quot;&amp;DEPTNO=945&quot;,&quot;&quot;,&quot;left=0,top=0,width=460,height=400,toolbar=no,menubar=1,location=no,directories=no,status=no,resizable=1,scrollbars=1&quot;);" class="BT04">							
+ 				            <input type="hidden" name="KEEPERID_5" value="">
+					        <input type="hidden" name="KEEPERDNO_5" value="">
+ 				        
+                    </td>
+				
+			</tr>
+			
+			<tr height="28" bgcolor="#F0F0F0"> 
+			    <!--<input type="hidden" name="PTYPE_" value="">-->	
+				<td class="st3" align="center"> 	
+					  <font class="size3DB">6</font>					  						
+ 				</td>
+				
+				<td class="st3" style="padding-left:1pt;"> 	
+					<input type="text" name="PRODUCT_6" value="" maxlength="500" onblur="this.value=this.value.replace(&quot;'&quot;,&quot;吋&quot;).replace(&quot;#&quot;,&quot;號&quot;);" class="STYPRODUCT31">					
+				</td>
+				<td class="st3" style="padding-left:1pt;"> 	 
+					<input type="text" name="PRODUCT1_6" value="" maxlength="500" onblur="this.value=this.value.replace(&quot;'&quot;,&quot;吋&quot;).replace(&quot;#&quot;,&quot;號&quot;);" class="STYPRODUCT32">
+				</td>
+				<td class="st3" style="padding-left:1pt;"> 	 
+					<input type="text" name="PRODUCT2_6" value="" maxlength="500" onblur="this.value=this.value.replace(&quot;'&quot;,&quot;吋&quot;).replace(&quot;#&quot;,&quot;號&quot;);" class="STYPRODUCT33">					
+				</td>  
+								
+				<td class="st3" align="center"> 	 
+					<input type="text" name="SERUNIT_6" value="個" maxlength="2" onblur="this.value=this.value.replace(&quot;'&quot;,&quot;吋&quot;).replace(&quot;#&quot;,&quot;號&quot;).replace(&quot;琇&quot;,&quot;秀&quot;);" class="APPPUNIT">
+								
+								<!--<script language="javascript">
+								function FORM1.UNIT_.onchange()
+								{
+									FORM1.SERUNIT_.value=FORM1.UNIT_.value;									
+								}								
+								</script>-->
+				</td>
+				<td class="st3" align="center"> 	 
+					<input type="text" name="QUANTITY_6" value="1" onclick="this.value=&quot;&quot;;" onblur="if(isNaN(this.value)){alert('請輸入數字');this.value='1';} if(this.value==''){this.value='1';} " "="" maxlength="6" class="STYQUANTITY">	
+				</td>
+				<td class="st3" align="center"> 	 
+					<input type="text" name="AMOUNT_6" maxlength="10" value="0" onclick="this.value=&quot;&quot;;" onblur="if(isNaN(this.value)){alert('請輸入數字');this.value='0';} if(this.value==''){this.value='0';} SUM_SUM();" class="STYAMOUNT">	
+					<input type="hidden" name="IDATE_6" value="">
+					<input type="hidden" name="INVOICENO_6" value="">
+				</td>
+				
+				
+				<td class="st3" align="center"> 	
+				 
+					<input type="button" name="PLACE_6" value="" onclick="window.open(&quot;SEAR_PLACE_Q.asp?OBNUM=6&amp;PLACE=&quot;+FORM1.PLACE_6.value+&quot;&amp;DEPTNO=945&quot;,&quot;&quot;,&quot;left=0,top=0,width=460,height=400,toolbar=no,menubar=1,location=no,directories=no,status=no,resizable=1,scrollbars=1&quot;);" class="BT04">							
+ 				 
+				</td>
+				
+				     <input type="hidden" name="BUYID_6" value="">
+					 <input type="hidden" name="BUYNAME_6" value="">
+				
+				
+				<!--1001128Karen==>一般請購品名編輯是否需顯示物品分類-->
+				
+				    <input type="hidden" name="PTYPE_6" value="">
+				
+				<!--1020924Karen==>增加選取財產保管人-->
+				
+                    <td class="st3" align="center">
+                        				  		
+					        <input type="button" name="KEEPER_6" value="" onclick="window.open(&quot;SEAR_KEEPER_Q.asp?FIRST=Y&amp;OBNUM=6&amp;KEEPER=&quot;+FORM1.KEEPER_6.value+&quot;&amp;DEPTNO=945&quot;,&quot;&quot;,&quot;left=0,top=0,width=460,height=400,toolbar=no,menubar=1,location=no,directories=no,status=no,resizable=1,scrollbars=1&quot;);" class="BT04">							
+ 				            <input type="hidden" name="KEEPERID_6" value="">
+					        <input type="hidden" name="KEEPERDNO_6" value="">
+ 				        
+                    </td>
+				
+			</tr>
+			
+			<tr height="28" bgcolor="#F0F0F0"> 
+			    <!--<input type="hidden" name="PTYPE_" value="">-->	
+				<td class="st3" align="center"> 	
+					  <font class="size3DB">7</font>					  						
+ 				</td>
+				
+				<td class="st3" style="padding-left:1pt;"> 	
+					<input type="text" name="PRODUCT_7" value="" maxlength="500" onblur="this.value=this.value.replace(&quot;'&quot;,&quot;吋&quot;).replace(&quot;#&quot;,&quot;號&quot;);" class="STYPRODUCT31">					
+				</td>
+				<td class="st3" style="padding-left:1pt;"> 	 
+					<input type="text" name="PRODUCT1_7" value="" maxlength="500" onblur="this.value=this.value.replace(&quot;'&quot;,&quot;吋&quot;).replace(&quot;#&quot;,&quot;號&quot;);" class="STYPRODUCT32">
+				</td>
+				<td class="st3" style="padding-left:1pt;"> 	 
+					<input type="text" name="PRODUCT2_7" value="" maxlength="500" onblur="this.value=this.value.replace(&quot;'&quot;,&quot;吋&quot;).replace(&quot;#&quot;,&quot;號&quot;);" class="STYPRODUCT33">					
+				</td>  
+								
+				<td class="st3" align="center"> 	 
+					<input type="text" name="SERUNIT_7" value="個" maxlength="2" onblur="this.value=this.value.replace(&quot;'&quot;,&quot;吋&quot;).replace(&quot;#&quot;,&quot;號&quot;).replace(&quot;琇&quot;,&quot;秀&quot;);" class="APPPUNIT">
+								
+								<!--<script language="javascript">
+								function FORM1.UNIT_.onchange()
+								{
+									FORM1.SERUNIT_.value=FORM1.UNIT_.value;									
+								}								
+								</script>-->
+				</td>
+				<td class="st3" align="center"> 	 
+					<input type="text" name="QUANTITY_7" value="1" onclick="this.value=&quot;&quot;;" onblur="if(isNaN(this.value)){alert('請輸入數字');this.value='1';} if(this.value==''){this.value='1';} " "="" maxlength="6" class="STYQUANTITY">	
+				</td>
+				<td class="st3" align="center"> 	 
+					<input type="text" name="AMOUNT_7" maxlength="10" value="0" onclick="this.value=&quot;&quot;;" onblur="if(isNaN(this.value)){alert('請輸入數字');this.value='0';} if(this.value==''){this.value='0';} SUM_SUM();" class="STYAMOUNT">	
+					<input type="hidden" name="IDATE_7" value="">
+					<input type="hidden" name="INVOICENO_7" value="">
+				</td>
+				
+				
+				<td class="st3" align="center"> 	
+				 
+					<input type="button" name="PLACE_7" value="" onclick="window.open(&quot;SEAR_PLACE_Q.asp?OBNUM=7&amp;PLACE=&quot;+FORM1.PLACE_7.value+&quot;&amp;DEPTNO=945&quot;,&quot;&quot;,&quot;left=0,top=0,width=460,height=400,toolbar=no,menubar=1,location=no,directories=no,status=no,resizable=1,scrollbars=1&quot;);" class="BT04">							
+ 				 
+				</td>
+				
+				     <input type="hidden" name="BUYID_7" value="">
+					 <input type="hidden" name="BUYNAME_7" value="">
+				
+				
+				<!--1001128Karen==>一般請購品名編輯是否需顯示物品分類-->
+				
+				    <input type="hidden" name="PTYPE_7" value="">
+				
+				<!--1020924Karen==>增加選取財產保管人-->
+				
+                    <td class="st3" align="center">
+                        				  		
+					        <input type="button" name="KEEPER_7" value="" onclick="window.open(&quot;SEAR_KEEPER_Q.asp?FIRST=Y&amp;OBNUM=7&amp;KEEPER=&quot;+FORM1.KEEPER_7.value+&quot;&amp;DEPTNO=945&quot;,&quot;&quot;,&quot;left=0,top=0,width=460,height=400,toolbar=no,menubar=1,location=no,directories=no,status=no,resizable=1,scrollbars=1&quot;);" class="BT04">							
+ 				            <input type="hidden" name="KEEPERID_7" value="">
+					        <input type="hidden" name="KEEPERDNO_7" value="">
+ 				        
+                    </td>
+				
+			</tr>
+			
+			<tr height="28" bgcolor="#F0F0F0"> 
+			    <!--<input type="hidden" name="PTYPE_" value="">-->	
+				<td class="st3" align="center"> 	
+					  <font class="size3DB">8</font>					  						
+ 				</td>
+				
+				<td class="st3" style="padding-left:1pt;"> 	
+					<input type="text" name="PRODUCT_8" value="" maxlength="500" onblur="this.value=this.value.replace(&quot;'&quot;,&quot;吋&quot;).replace(&quot;#&quot;,&quot;號&quot;);" class="STYPRODUCT31">					
+				</td>
+				<td class="st3" style="padding-left:1pt;"> 	 
+					<input type="text" name="PRODUCT1_8" value="" maxlength="500" onblur="this.value=this.value.replace(&quot;'&quot;,&quot;吋&quot;).replace(&quot;#&quot;,&quot;號&quot;);" class="STYPRODUCT32">
+				</td>
+				<td class="st3" style="padding-left:1pt;"> 	 
+					<input type="text" name="PRODUCT2_8" value="" maxlength="500" onblur="this.value=this.value.replace(&quot;'&quot;,&quot;吋&quot;).replace(&quot;#&quot;,&quot;號&quot;);" class="STYPRODUCT33">					
+				</td>  
+								
+				<td class="st3" align="center"> 	 
+					<input type="text" name="SERUNIT_8" value="個" maxlength="2" onblur="this.value=this.value.replace(&quot;'&quot;,&quot;吋&quot;).replace(&quot;#&quot;,&quot;號&quot;).replace(&quot;琇&quot;,&quot;秀&quot;);" class="APPPUNIT">
+								
+								<!--<script language="javascript">
+								function FORM1.UNIT_.onchange()
+								{
+									FORM1.SERUNIT_.value=FORM1.UNIT_.value;									
+								}								
+								</script>-->
+				</td>
+				<td class="st3" align="center"> 	 
+					<input type="text" name="QUANTITY_8" value="1" onclick="this.value=&quot;&quot;;" onblur="if(isNaN(this.value)){alert('請輸入數字');this.value='1';} if(this.value==''){this.value='1';} " "="" maxlength="6" class="STYQUANTITY">	
+				</td>
+				<td class="st3" align="center"> 	 
+					<input type="text" name="AMOUNT_8" maxlength="10" value="0" onclick="this.value=&quot;&quot;;" onblur="if(isNaN(this.value)){alert('請輸入數字');this.value='0';} if(this.value==''){this.value='0';} SUM_SUM();" class="STYAMOUNT">	
+					<input type="hidden" name="IDATE_8" value="">
+					<input type="hidden" name="INVOICENO_8" value="">
+				</td>
+				
+				
+				<td class="st3" align="center"> 	
+				 
+					<input type="button" name="PLACE_8" value="" onclick="window.open(&quot;SEAR_PLACE_Q.asp?OBNUM=8&amp;PLACE=&quot;+FORM1.PLACE_8.value+&quot;&amp;DEPTNO=945&quot;,&quot;&quot;,&quot;left=0,top=0,width=460,height=400,toolbar=no,menubar=1,location=no,directories=no,status=no,resizable=1,scrollbars=1&quot;);" class="BT04">							
+ 				 
+				</td>
+				
+				     <input type="hidden" name="BUYID_8" value="">
+					 <input type="hidden" name="BUYNAME_8" value="">
+				
+				
+				<!--1001128Karen==>一般請購品名編輯是否需顯示物品分類-->
+				
+				    <input type="hidden" name="PTYPE_8" value="">
+				
+				<!--1020924Karen==>增加選取財產保管人-->
+				
+                    <td class="st3" align="center">
+                        				  		
+					        <input type="button" name="KEEPER_8" value="" onclick="window.open(&quot;SEAR_KEEPER_Q.asp?FIRST=Y&amp;OBNUM=8&amp;KEEPER=&quot;+FORM1.KEEPER_8.value+&quot;&amp;DEPTNO=945&quot;,&quot;&quot;,&quot;left=0,top=0,width=460,height=400,toolbar=no,menubar=1,location=no,directories=no,status=no,resizable=1,scrollbars=1&quot;);" class="BT04">							
+ 				            <input type="hidden" name="KEEPERID_8" value="">
+					        <input type="hidden" name="KEEPERDNO_8" value="">
+ 				        
+                    </td>
+				
+			</tr>
+			
+			<tr height="28" bgcolor="#F0F0F0"> 
+			    <!--<input type="hidden" name="PTYPE_" value="">-->	
+				<td class="st3" align="center"> 	
+					  <font class="size3DB">9</font>					  						
+ 				</td>
+				
+				<td class="st3" style="padding-left:1pt;"> 	
+					<input type="text" name="PRODUCT_9" value="" maxlength="500" onblur="this.value=this.value.replace(&quot;'&quot;,&quot;吋&quot;).replace(&quot;#&quot;,&quot;號&quot;);" class="STYPRODUCT31">					
+				</td>
+				<td class="st3" style="padding-left:1pt;"> 	 
+					<input type="text" name="PRODUCT1_9" value="" maxlength="500" onblur="this.value=this.value.replace(&quot;'&quot;,&quot;吋&quot;).replace(&quot;#&quot;,&quot;號&quot;);" class="STYPRODUCT32">
+				</td>
+				<td class="st3" style="padding-left:1pt;"> 	 
+					<input type="text" name="PRODUCT2_9" value="" maxlength="500" onblur="this.value=this.value.replace(&quot;'&quot;,&quot;吋&quot;).replace(&quot;#&quot;,&quot;號&quot;);" class="STYPRODUCT33">					
+				</td>  
+								
+				<td class="st3" align="center"> 	 
+					<input type="text" name="SERUNIT_9" value="個" maxlength="2" onblur="this.value=this.value.replace(&quot;'&quot;,&quot;吋&quot;).replace(&quot;#&quot;,&quot;號&quot;).replace(&quot;琇&quot;,&quot;秀&quot;);" class="APPPUNIT">
+								
+								<!--<script language="javascript">
+								function FORM1.UNIT_.onchange()
+								{
+									FORM1.SERUNIT_.value=FORM1.UNIT_.value;									
+								}								
+								</script>-->
+				</td>
+				<td class="st3" align="center"> 	 
+					<input type="text" name="QUANTITY_9" value="1" onclick="this.value=&quot;&quot;;" onblur="if(isNaN(this.value)){alert('請輸入數字');this.value='1';} if(this.value==''){this.value='1';} " "="" maxlength="6" class="STYQUANTITY">	
+				</td>
+				<td class="st3" align="center"> 	 
+					<input type="text" name="AMOUNT_9" maxlength="10" value="0" onclick="this.value=&quot;&quot;;" onblur="if(isNaN(this.value)){alert('請輸入數字');this.value='0';} if(this.value==''){this.value='0';} SUM_SUM();" class="STYAMOUNT">	
+					<input type="hidden" name="IDATE_9" value="">
+					<input type="hidden" name="INVOICENO_9" value="">
+				</td>
+				
+				
+				<td class="st3" align="center"> 	
+				 
+					<input type="button" name="PLACE_9" value="" onclick="window.open(&quot;SEAR_PLACE_Q.asp?OBNUM=9&amp;PLACE=&quot;+FORM1.PLACE_9.value+&quot;&amp;DEPTNO=945&quot;,&quot;&quot;,&quot;left=0,top=0,width=460,height=400,toolbar=no,menubar=1,location=no,directories=no,status=no,resizable=1,scrollbars=1&quot;);" class="BT04">							
+ 				 
+				</td>
+				
+				     <input type="hidden" name="BUYID_9" value="">
+					 <input type="hidden" name="BUYNAME_9" value="">
+				
+				
+				<!--1001128Karen==>一般請購品名編輯是否需顯示物品分類-->
+				
+				    <input type="hidden" name="PTYPE_9" value="">
+				
+				<!--1020924Karen==>增加選取財產保管人-->
+				
+                    <td class="st3" align="center">
+                        				  		
+					        <input type="button" name="KEEPER_9" value="" onclick="window.open(&quot;SEAR_KEEPER_Q.asp?FIRST=Y&amp;OBNUM=9&amp;KEEPER=&quot;+FORM1.KEEPER_9.value+&quot;&amp;DEPTNO=945&quot;,&quot;&quot;,&quot;left=0,top=0,width=460,height=400,toolbar=no,menubar=1,location=no,directories=no,status=no,resizable=1,scrollbars=1&quot;);" class="BT04">							
+ 				            <input type="hidden" name="KEEPERID_9" value="">
+					        <input type="hidden" name="KEEPERDNO_9" value="">
+ 				        
+                    </td>
+				
+			</tr>
+			
+			<tr height="28" bgcolor="#F0F0F0"> 
+			    <!--<input type="hidden" name="PTYPE_" value="">-->	
+				<td class="st3" align="center"> 	
+					  <font class="size3DB">10</font>					  						
+ 				</td>
+				
+				<td class="st3" style="padding-left:1pt;"> 	
+					<input type="text" name="PRODUCT_10" value="" maxlength="500" onblur="this.value=this.value.replace(&quot;'&quot;,&quot;吋&quot;).replace(&quot;#&quot;,&quot;號&quot;);" class="STYPRODUCT31">					
+				</td>
+				<td class="st3" style="padding-left:1pt;"> 	 
+					<input type="text" name="PRODUCT1_10" value="" maxlength="500" onblur="this.value=this.value.replace(&quot;'&quot;,&quot;吋&quot;).replace(&quot;#&quot;,&quot;號&quot;);" class="STYPRODUCT32">
+				</td>
+				<td class="st3" style="padding-left:1pt;"> 	 
+					<input type="text" name="PRODUCT2_10" value="" maxlength="500" onblur="this.value=this.value.replace(&quot;'&quot;,&quot;吋&quot;).replace(&quot;#&quot;,&quot;號&quot;);" class="STYPRODUCT33">					
+				</td>  
+								
+				<td class="st3" align="center"> 	 
+					<input type="text" name="SERUNIT_10" value="個" maxlength="2" onblur="this.value=this.value.replace(&quot;'&quot;,&quot;吋&quot;).replace(&quot;#&quot;,&quot;號&quot;).replace(&quot;琇&quot;,&quot;秀&quot;);" class="APPPUNIT">
+								
+								<!--<script language="javascript">
+								function FORM1.UNIT_.onchange()
+								{
+									FORM1.SERUNIT_.value=FORM1.UNIT_.value;									
+								}								
+								</script>-->
+				</td>
+				<td class="st3" align="center"> 	 
+					<input type="text" name="QUANTITY_10" value="1" onclick="this.value=&quot;&quot;;" onblur="if(isNaN(this.value)){alert('請輸入數字');this.value='1';} if(this.value==''){this.value='1';} " "="" maxlength="6" class="STYQUANTITY">	
+				</td>
+				<td class="st3" align="center"> 	 
+					<input type="text" name="AMOUNT_10" maxlength="10" value="0" onclick="this.value=&quot;&quot;;" onblur="if(isNaN(this.value)){alert('請輸入數字');this.value='0';} if(this.value==''){this.value='0';} SUM_SUM();" class="STYAMOUNT">	
+					<input type="hidden" name="IDATE_10" value="">
+					<input type="hidden" name="INVOICENO_10" value="">
+				</td>
+				
+				
+				<td class="st3" align="center"> 	
+				 
+					<input type="button" name="PLACE_10" value="" onclick="window.open(&quot;SEAR_PLACE_Q.asp?OBNUM=10&amp;PLACE=&quot;+FORM1.PLACE_10.value+&quot;&amp;DEPTNO=945&quot;,&quot;&quot;,&quot;left=0,top=0,width=460,height=400,toolbar=no,menubar=1,location=no,directories=no,status=no,resizable=1,scrollbars=1&quot;);" class="BT04">							
+ 				 
+				</td>
+				
+				     <input type="hidden" name="BUYID_10" value="">
+					 <input type="hidden" name="BUYNAME_10" value="">
+				
+				
+				<!--1001128Karen==>一般請購品名編輯是否需顯示物品分類-->
+				
+				    <input type="hidden" name="PTYPE_10" value="">
+				
+				<!--1020924Karen==>增加選取財產保管人-->
+				
+                    <td class="st3" align="center">
+                        				  		
+					        <input type="button" name="KEEPER_10" value="" onclick="window.open(&quot;SEAR_KEEPER_Q.asp?FIRST=Y&amp;OBNUM=10&amp;KEEPER=&quot;+FORM1.KEEPER_10.value+&quot;&amp;DEPTNO=945&quot;,&quot;&quot;,&quot;left=0,top=0,width=460,height=400,toolbar=no,menubar=1,location=no,directories=no,status=no,resizable=1,scrollbars=1&quot;);" class="BT04">							
+ 				            <input type="hidden" name="KEEPERID_10" value="">
+					        <input type="hidden" name="KEEPERDNO_10" value="">
+ 				        
+                    </td>
+				
+			</tr>
+			
+			<tr height="28" bgcolor="#F0F0F0"> 
+			    <!--<input type="hidden" name="PTYPE_" value="">-->	
+				<td class="st3" align="center"> 	
+					  <font class="size3DB">11</font>					  						
+ 				</td>
+				
+				<td class="st3" style="padding-left:1pt;"> 	
+					<input type="text" name="PRODUCT_11" value="" maxlength="500" onblur="this.value=this.value.replace(&quot;'&quot;,&quot;吋&quot;).replace(&quot;#&quot;,&quot;號&quot;);" class="STYPRODUCT31">					
+				</td>
+				<td class="st3" style="padding-left:1pt;"> 	 
+					<input type="text" name="PRODUCT1_11" value="" maxlength="500" onblur="this.value=this.value.replace(&quot;'&quot;,&quot;吋&quot;).replace(&quot;#&quot;,&quot;號&quot;);" class="STYPRODUCT32">
+				</td>
+				<td class="st3" style="padding-left:1pt;"> 	 
+					<input type="text" name="PRODUCT2_11" value="" maxlength="500" onblur="this.value=this.value.replace(&quot;'&quot;,&quot;吋&quot;).replace(&quot;#&quot;,&quot;號&quot;);" class="STYPRODUCT33">					
+				</td>  
+								
+				<td class="st3" align="center"> 	 
+					<input type="text" name="SERUNIT_11" value="個" maxlength="2" onblur="this.value=this.value.replace(&quot;'&quot;,&quot;吋&quot;).replace(&quot;#&quot;,&quot;號&quot;).replace(&quot;琇&quot;,&quot;秀&quot;);" class="APPPUNIT">
+								
+								<!--<script language="javascript">
+								function FORM1.UNIT_.onchange()
+								{
+									FORM1.SERUNIT_.value=FORM1.UNIT_.value;									
+								}								
+								</script>-->
+				</td>
+				<td class="st3" align="center"> 	 
+					<input type="text" name="QUANTITY_11" value="1" onclick="this.value=&quot;&quot;;" onblur="if(isNaN(this.value)){alert('請輸入數字');this.value='1';} if(this.value==''){this.value='1';} " "="" maxlength="6" class="STYQUANTITY">	
+				</td>
+				<td class="st3" align="center"> 	 
+					<input type="text" name="AMOUNT_11" maxlength="10" value="0" onclick="this.value=&quot;&quot;;" onblur="if(isNaN(this.value)){alert('請輸入數字');this.value='0';} if(this.value==''){this.value='0';} SUM_SUM();" class="STYAMOUNT">	
+					<input type="hidden" name="IDATE_11" value="">
+					<input type="hidden" name="INVOICENO_11" value="">
+				</td>
+				
+				
+				<td class="st3" align="center"> 	
+				 
+					<input type="button" name="PLACE_11" value="" onclick="window.open(&quot;SEAR_PLACE_Q.asp?OBNUM=11&amp;PLACE=&quot;+FORM1.PLACE_11.value+&quot;&amp;DEPTNO=945&quot;,&quot;&quot;,&quot;left=0,top=0,width=460,height=400,toolbar=no,menubar=1,location=no,directories=no,status=no,resizable=1,scrollbars=1&quot;);" class="BT04">							
+ 				 
+				</td>
+				
+				     <input type="hidden" name="BUYID_11" value="">
+					 <input type="hidden" name="BUYNAME_11" value="">
+				
+				
+				<!--1001128Karen==>一般請購品名編輯是否需顯示物品分類-->
+				
+				    <input type="hidden" name="PTYPE_11" value="">
+				
+				<!--1020924Karen==>增加選取財產保管人-->
+				
+                    <td class="st3" align="center">
+                        				  		
+					        <input type="button" name="KEEPER_11" value="" onclick="window.open(&quot;SEAR_KEEPER_Q.asp?FIRST=Y&amp;OBNUM=11&amp;KEEPER=&quot;+FORM1.KEEPER_11.value+&quot;&amp;DEPTNO=945&quot;,&quot;&quot;,&quot;left=0,top=0,width=460,height=400,toolbar=no,menubar=1,location=no,directories=no,status=no,resizable=1,scrollbars=1&quot;);" class="BT04">							
+ 				            <input type="hidden" name="KEEPERID_11" value="">
+					        <input type="hidden" name="KEEPERDNO_11" value="">
+ 				        
+                    </td>
+				
+			</tr>
+			
+			<tr height="28" bgcolor="#F0F0F0"> 
+			    <!--<input type="hidden" name="PTYPE_" value="">-->	
+				<td class="st3" align="center"> 	
+					  <font class="size3DB">12</font>					  						
+ 				</td>
+				
+				<td class="st3" style="padding-left:1pt;"> 	
+					<input type="text" name="PRODUCT_12" value="" maxlength="500" onblur="this.value=this.value.replace(&quot;'&quot;,&quot;吋&quot;).replace(&quot;#&quot;,&quot;號&quot;);" class="STYPRODUCT31">					
+				</td>
+				<td class="st3" style="padding-left:1pt;"> 	 
+					<input type="text" name="PRODUCT1_12" value="" maxlength="500" onblur="this.value=this.value.replace(&quot;'&quot;,&quot;吋&quot;).replace(&quot;#&quot;,&quot;號&quot;);" class="STYPRODUCT32">
+				</td>
+				<td class="st3" style="padding-left:1pt;"> 	 
+					<input type="text" name="PRODUCT2_12" value="" maxlength="500" onblur="this.value=this.value.replace(&quot;'&quot;,&quot;吋&quot;).replace(&quot;#&quot;,&quot;號&quot;);" class="STYPRODUCT33">					
+				</td>  
+								
+				<td class="st3" align="center"> 	 
+					<input type="text" name="SERUNIT_12" value="個" maxlength="2" onblur="this.value=this.value.replace(&quot;'&quot;,&quot;吋&quot;).replace(&quot;#&quot;,&quot;號&quot;).replace(&quot;琇&quot;,&quot;秀&quot;);" class="APPPUNIT">
+								
+								<!--<script language="javascript">
+								function FORM1.UNIT_.onchange()
+								{
+									FORM1.SERUNIT_.value=FORM1.UNIT_.value;									
+								}								
+								</script>-->
+				</td>
+				<td class="st3" align="center"> 	 
+					<input type="text" name="QUANTITY_12" value="1" onclick="this.value=&quot;&quot;;" onblur="if(isNaN(this.value)){alert('請輸入數字');this.value='1';} if(this.value==''){this.value='1';} " "="" maxlength="6" class="STYQUANTITY">	
+				</td>
+				<td class="st3" align="center"> 	 
+					<input type="text" name="AMOUNT_12" maxlength="10" value="0" onclick="this.value=&quot;&quot;;" onblur="if(isNaN(this.value)){alert('請輸入數字');this.value='0';} if(this.value==''){this.value='0';} SUM_SUM();" class="STYAMOUNT">	
+					<input type="hidden" name="IDATE_12" value="">
+					<input type="hidden" name="INVOICENO_12" value="">
+				</td>
+				
+				
+				<td class="st3" align="center"> 	
+				 
+					<input type="button" name="PLACE_12" value="" onclick="window.open(&quot;SEAR_PLACE_Q.asp?OBNUM=12&amp;PLACE=&quot;+FORM1.PLACE_12.value+&quot;&amp;DEPTNO=945&quot;,&quot;&quot;,&quot;left=0,top=0,width=460,height=400,toolbar=no,menubar=1,location=no,directories=no,status=no,resizable=1,scrollbars=1&quot;);" class="BT04">							
+ 				 
+				</td>
+				
+				     <input type="hidden" name="BUYID_12" value="">
+					 <input type="hidden" name="BUYNAME_12" value="">
+				
+				
+				<!--1001128Karen==>一般請購品名編輯是否需顯示物品分類-->
+				
+				    <input type="hidden" name="PTYPE_12" value="">
+				
+				<!--1020924Karen==>增加選取財產保管人-->
+				
+                    <td class="st3" align="center">
+                        				  		
+					        <input type="button" name="KEEPER_12" value="" onclick="window.open(&quot;SEAR_KEEPER_Q.asp?FIRST=Y&amp;OBNUM=12&amp;KEEPER=&quot;+FORM1.KEEPER_12.value+&quot;&amp;DEPTNO=945&quot;,&quot;&quot;,&quot;left=0,top=0,width=460,height=400,toolbar=no,menubar=1,location=no,directories=no,status=no,resizable=1,scrollbars=1&quot;);" class="BT04">							
+ 				            <input type="hidden" name="KEEPERID_12" value="">
+					        <input type="hidden" name="KEEPERDNO_12" value="">
+ 				        
+                    </td>
+				
+			</tr>
+			
+			<tr height="28" bgcolor="#F0F0F0"> 
+			    <!--<input type="hidden" name="PTYPE_" value="">-->	
+				<td class="st3" align="center"> 	
+					  <font class="size3DB">13</font>					  						
+ 				</td>
+				
+				<td class="st3" style="padding-left:1pt;"> 	
+					<input type="text" name="PRODUCT_13" value="" maxlength="500" onblur="this.value=this.value.replace(&quot;'&quot;,&quot;吋&quot;).replace(&quot;#&quot;,&quot;號&quot;);" class="STYPRODUCT31">					
+				</td>
+				<td class="st3" style="padding-left:1pt;"> 	 
+					<input type="text" name="PRODUCT1_13" value="" maxlength="500" onblur="this.value=this.value.replace(&quot;'&quot;,&quot;吋&quot;).replace(&quot;#&quot;,&quot;號&quot;);" class="STYPRODUCT32">
+				</td>
+				<td class="st3" style="padding-left:1pt;"> 	 
+					<input type="text" name="PRODUCT2_13" value="" maxlength="500" onblur="this.value=this.value.replace(&quot;'&quot;,&quot;吋&quot;).replace(&quot;#&quot;,&quot;號&quot;);" class="STYPRODUCT33">					
+				</td>  
+								
+				<td class="st3" align="center"> 	 
+					<input type="text" name="SERUNIT_13" value="個" maxlength="2" onblur="this.value=this.value.replace(&quot;'&quot;,&quot;吋&quot;).replace(&quot;#&quot;,&quot;號&quot;).replace(&quot;琇&quot;,&quot;秀&quot;);" class="APPPUNIT">
+								
+								<!--<script language="javascript">
+								function FORM1.UNIT_.onchange()
+								{
+									FORM1.SERUNIT_.value=FORM1.UNIT_.value;									
+								}								
+								</script>-->
+				</td>
+				<td class="st3" align="center"> 	 
+					<input type="text" name="QUANTITY_13" value="1" onclick="this.value=&quot;&quot;;" onblur="if(isNaN(this.value)){alert('請輸入數字');this.value='1';} if(this.value==''){this.value='1';} " "="" maxlength="6" class="STYQUANTITY">	
+				</td>
+				<td class="st3" align="center"> 	 
+					<input type="text" name="AMOUNT_13" maxlength="10" value="0" onclick="this.value=&quot;&quot;;" onblur="if(isNaN(this.value)){alert('請輸入數字');this.value='0';} if(this.value==''){this.value='0';} SUM_SUM();" class="STYAMOUNT">	
+					<input type="hidden" name="IDATE_13" value="">
+					<input type="hidden" name="INVOICENO_13" value="">
+				</td>
+				
+				
+				<td class="st3" align="center"> 	
+				 
+					<input type="button" name="PLACE_13" value="" onclick="window.open(&quot;SEAR_PLACE_Q.asp?OBNUM=13&amp;PLACE=&quot;+FORM1.PLACE_13.value+&quot;&amp;DEPTNO=945&quot;,&quot;&quot;,&quot;left=0,top=0,width=460,height=400,toolbar=no,menubar=1,location=no,directories=no,status=no,resizable=1,scrollbars=1&quot;);" class="BT04">							
+ 				 
+				</td>
+				
+				     <input type="hidden" name="BUYID_13" value="">
+					 <input type="hidden" name="BUYNAME_13" value="">
+				
+				
+				<!--1001128Karen==>一般請購品名編輯是否需顯示物品分類-->
+				
+				    <input type="hidden" name="PTYPE_13" value="">
+				
+				<!--1020924Karen==>增加選取財產保管人-->
+				
+                    <td class="st3" align="center">
+                        				  		
+					        <input type="button" name="KEEPER_13" value="" onclick="window.open(&quot;SEAR_KEEPER_Q.asp?FIRST=Y&amp;OBNUM=13&amp;KEEPER=&quot;+FORM1.KEEPER_13.value+&quot;&amp;DEPTNO=945&quot;,&quot;&quot;,&quot;left=0,top=0,width=460,height=400,toolbar=no,menubar=1,location=no,directories=no,status=no,resizable=1,scrollbars=1&quot;);" class="BT04">							
+ 				            <input type="hidden" name="KEEPERID_13" value="">
+					        <input type="hidden" name="KEEPERDNO_13" value="">
+ 				        
+                    </td>
+				
+			</tr>
+			
+			<tr height="28" bgcolor="#F0F0F0"> 
+			    <!--<input type="hidden" name="PTYPE_" value="">-->	
+				<td class="st3" align="center"> 	
+					  <font class="size3DB">14</font>					  						
+ 				</td>
+				
+				<td class="st3" style="padding-left:1pt;"> 	
+					<input type="text" name="PRODUCT_14" value="" maxlength="500" onblur="this.value=this.value.replace(&quot;'&quot;,&quot;吋&quot;).replace(&quot;#&quot;,&quot;號&quot;);" class="STYPRODUCT31">					
+				</td>
+				<td class="st3" style="padding-left:1pt;"> 	 
+					<input type="text" name="PRODUCT1_14" value="" maxlength="500" onblur="this.value=this.value.replace(&quot;'&quot;,&quot;吋&quot;).replace(&quot;#&quot;,&quot;號&quot;);" class="STYPRODUCT32">
+				</td>
+				<td class="st3" style="padding-left:1pt;"> 	 
+					<input type="text" name="PRODUCT2_14" value="" maxlength="500" onblur="this.value=this.value.replace(&quot;'&quot;,&quot;吋&quot;).replace(&quot;#&quot;,&quot;號&quot;);" class="STYPRODUCT33">					
+				</td>  
+								
+				<td class="st3" align="center"> 	 
+					<input type="text" name="SERUNIT_14" value="個" maxlength="2" onblur="this.value=this.value.replace(&quot;'&quot;,&quot;吋&quot;).replace(&quot;#&quot;,&quot;號&quot;).replace(&quot;琇&quot;,&quot;秀&quot;);" class="APPPUNIT">
+								
+								<!--<script language="javascript">
+								function FORM1.UNIT_.onchange()
+								{
+									FORM1.SERUNIT_.value=FORM1.UNIT_.value;									
+								}								
+								</script>-->
+				</td>
+				<td class="st3" align="center"> 	 
+					<input type="text" name="QUANTITY_14" value="1" onclick="this.value=&quot;&quot;;" onblur="if(isNaN(this.value)){alert('請輸入數字');this.value='1';} if(this.value==''){this.value='1';} " "="" maxlength="6" class="STYQUANTITY">	
+				</td>
+				<td class="st3" align="center"> 	 
+					<input type="text" name="AMOUNT_14" maxlength="10" value="0" onclick="this.value=&quot;&quot;;" onblur="if(isNaN(this.value)){alert('請輸入數字');this.value='0';} if(this.value==''){this.value='0';} SUM_SUM();" class="STYAMOUNT">	
+					<input type="hidden" name="IDATE_14" value="">
+					<input type="hidden" name="INVOICENO_14" value="">
+				</td>
+				
+				
+				<td class="st3" align="center"> 	
+				 
+					<input type="button" name="PLACE_14" value="" onclick="window.open(&quot;SEAR_PLACE_Q.asp?OBNUM=14&amp;PLACE=&quot;+FORM1.PLACE_14.value+&quot;&amp;DEPTNO=945&quot;,&quot;&quot;,&quot;left=0,top=0,width=460,height=400,toolbar=no,menubar=1,location=no,directories=no,status=no,resizable=1,scrollbars=1&quot;);" class="BT04">							
+ 				 
+				</td>
+				
+				     <input type="hidden" name="BUYID_14" value="">
+					 <input type="hidden" name="BUYNAME_14" value="">
+				
+				
+				<!--1001128Karen==>一般請購品名編輯是否需顯示物品分類-->
+				
+				    <input type="hidden" name="PTYPE_14" value="">
+				
+				<!--1020924Karen==>增加選取財產保管人-->
+				
+                    <td class="st3" align="center">
+                        				  		
+					        <input type="button" name="KEEPER_14" value="" onclick="window.open(&quot;SEAR_KEEPER_Q.asp?FIRST=Y&amp;OBNUM=14&amp;KEEPER=&quot;+FORM1.KEEPER_14.value+&quot;&amp;DEPTNO=945&quot;,&quot;&quot;,&quot;left=0,top=0,width=460,height=400,toolbar=no,menubar=1,location=no,directories=no,status=no,resizable=1,scrollbars=1&quot;);" class="BT04">							
+ 				            <input type="hidden" name="KEEPERID_14" value="">
+					        <input type="hidden" name="KEEPERDNO_14" value="">
+ 				        
+                    </td>
+				
+			</tr>
+			
+			<tr height="28" bgcolor="#F0F0F0"> 
+			    <!--<input type="hidden" name="PTYPE_" value="">-->	
+				<td class="st3" align="center"> 	
+					  <font class="size3DB">15</font>					  						
+ 				</td>
+				
+				<td class="st3" style="padding-left:1pt;"> 	
+					<input type="text" name="PRODUCT_15" value="" maxlength="500" onblur="this.value=this.value.replace(&quot;'&quot;,&quot;吋&quot;).replace(&quot;#&quot;,&quot;號&quot;);" class="STYPRODUCT31">					
+				</td>
+				<td class="st3" style="padding-left:1pt;"> 	 
+					<input type="text" name="PRODUCT1_15" value="" maxlength="500" onblur="this.value=this.value.replace(&quot;'&quot;,&quot;吋&quot;).replace(&quot;#&quot;,&quot;號&quot;);" class="STYPRODUCT32">
+				</td>
+				<td class="st3" style="padding-left:1pt;"> 	 
+					<input type="text" name="PRODUCT2_15" value="" maxlength="500" onblur="this.value=this.value.replace(&quot;'&quot;,&quot;吋&quot;).replace(&quot;#&quot;,&quot;號&quot;);" class="STYPRODUCT33">					
+				</td>  
+								
+				<td class="st3" align="center"> 	 
+					<input type="text" name="SERUNIT_15" value="個" maxlength="2" onblur="this.value=this.value.replace(&quot;'&quot;,&quot;吋&quot;).replace(&quot;#&quot;,&quot;號&quot;).replace(&quot;琇&quot;,&quot;秀&quot;);" class="APPPUNIT">
+								
+								<!--<script language="javascript">
+								function FORM1.UNIT_.onchange()
+								{
+									FORM1.SERUNIT_.value=FORM1.UNIT_.value;									
+								}								
+								</script>-->
+				</td>
+				<td class="st3" align="center"> 	 
+					<input type="text" name="QUANTITY_15" value="1" onclick="this.value=&quot;&quot;;" onblur="if(isNaN(this.value)){alert('請輸入數字');this.value='1';} if(this.value==''){this.value='1';} " "="" maxlength="6" class="STYQUANTITY">	
+				</td>
+				<td class="st3" align="center"> 	 
+					<input type="text" name="AMOUNT_15" maxlength="10" value="0" onclick="this.value=&quot;&quot;;" onblur="if(isNaN(this.value)){alert('請輸入數字');this.value='0';} if(this.value==''){this.value='0';} SUM_SUM();" class="STYAMOUNT">	
+					<input type="hidden" name="IDATE_15" value="">
+					<input type="hidden" name="INVOICENO_15" value="">
+				</td>
+				
+				
+				<td class="st3" align="center"> 	
+				 
+					<input type="button" name="PLACE_15" value="" onclick="window.open(&quot;SEAR_PLACE_Q.asp?OBNUM=15&amp;PLACE=&quot;+FORM1.PLACE_15.value+&quot;&amp;DEPTNO=945&quot;,&quot;&quot;,&quot;left=0,top=0,width=460,height=400,toolbar=no,menubar=1,location=no,directories=no,status=no,resizable=1,scrollbars=1&quot;);" class="BT04">							
+ 				 
+				</td>
+				
+				     <input type="hidden" name="BUYID_15" value="">
+					 <input type="hidden" name="BUYNAME_15" value="">
+				
+				
+				<!--1001128Karen==>一般請購品名編輯是否需顯示物品分類-->
+				
+				    <input type="hidden" name="PTYPE_15" value="">
+				
+				<!--1020924Karen==>增加選取財產保管人-->
+				
+                    <td class="st3" align="center">
+                        				  		
+					        <input type="button" name="KEEPER_15" value="" onclick="window.open(&quot;SEAR_KEEPER_Q.asp?FIRST=Y&amp;OBNUM=15&amp;KEEPER=&quot;+FORM1.KEEPER_15.value+&quot;&amp;DEPTNO=945&quot;,&quot;&quot;,&quot;left=0,top=0,width=460,height=400,toolbar=no,menubar=1,location=no,directories=no,status=no,resizable=1,scrollbars=1&quot;);" class="BT04">							
+ 				            <input type="hidden" name="KEEPERID_15" value="">
+					        <input type="hidden" name="KEEPERDNO_15" value="">
+ 				        
+                    </td>
+				
+			</tr>
+			
+		<script language="javascript">
+            function SUM_SUM() {
+                SUM_AMOUNT = 0;
+				
+				if (!FORM1.PRODUCT_1.value == "")
+                { SUM_AMOUNT = SUM_AMOUNT + (parseFloat(FORM1.AMOUNT_1.value)); }
+				
+				if (!FORM1.PRODUCT_2.value == "")
+                { SUM_AMOUNT = SUM_AMOUNT + (parseFloat(FORM1.AMOUNT_2.value)); }
+				
+				if (!FORM1.PRODUCT_3.value == "")
+                { SUM_AMOUNT = SUM_AMOUNT + (parseFloat(FORM1.AMOUNT_3.value)); }
+				
+				if (!FORM1.PRODUCT_4.value == "")
+                { SUM_AMOUNT = SUM_AMOUNT + (parseFloat(FORM1.AMOUNT_4.value)); }
+				
+				if (!FORM1.PRODUCT_5.value == "")
+                { SUM_AMOUNT = SUM_AMOUNT + (parseFloat(FORM1.AMOUNT_5.value)); }
+				
+				if (!FORM1.PRODUCT_6.value == "")
+                { SUM_AMOUNT = SUM_AMOUNT + (parseFloat(FORM1.AMOUNT_6.value)); }
+				
+				if (!FORM1.PRODUCT_7.value == "")
+                { SUM_AMOUNT = SUM_AMOUNT + (parseFloat(FORM1.AMOUNT_7.value)); }
+				
+				if (!FORM1.PRODUCT_8.value == "")
+                { SUM_AMOUNT = SUM_AMOUNT + (parseFloat(FORM1.AMOUNT_8.value)); }
+				
+				if (!FORM1.PRODUCT_9.value == "")
+                { SUM_AMOUNT = SUM_AMOUNT + (parseFloat(FORM1.AMOUNT_9.value)); }
+				
+				if (!FORM1.PRODUCT_10.value == "")
+                { SUM_AMOUNT = SUM_AMOUNT + (parseFloat(FORM1.AMOUNT_10.value)); }
+				
+				if (!FORM1.PRODUCT_11.value == "")
+                { SUM_AMOUNT = SUM_AMOUNT + (parseFloat(FORM1.AMOUNT_11.value)); }
+				
+				if (!FORM1.PRODUCT_12.value == "")
+                { SUM_AMOUNT = SUM_AMOUNT + (parseFloat(FORM1.AMOUNT_12.value)); }
+				
+				if (!FORM1.PRODUCT_13.value == "")
+                { SUM_AMOUNT = SUM_AMOUNT + (parseFloat(FORM1.AMOUNT_13.value)); }
+				
+				if (!FORM1.PRODUCT_14.value == "")
+                { SUM_AMOUNT = SUM_AMOUNT + (parseFloat(FORM1.AMOUNT_14.value)); }
+				
+				if (!FORM1.PRODUCT_15.value == "")
+                { SUM_AMOUNT = SUM_AMOUNT + (parseFloat(FORM1.AMOUNT_15.value)); }
+				
+                    FORM1.SUM_LIST.value="加總:$" + SUM_AMOUNT;
+                parent.APPY.FORM1.SUM_APPP.value = "加總:$" + SUM_AMOUNT;
+                //karen950530==>APPP編輯的金額自動帶至第一筆的APPY,但APPY需已點選計畫代碼及經費用途,但如有兩筆經費或經費與品名金額不相符時則不帶
+                if (parent.APPY.FORM1.NO_MATH.value == "N" && !parent.APPY.FORM1.BUGETNO_1.value == "" && !parent.APPY.FORM1.BUGCODE_1.value == "" && parent.APPY.FORM1.BUGCODE_2.value == "") {
+                    parent.APPY.FORM1.D_AMOUNT_1.value = parseInt(SUM_AMOUNT);
+				  //karen960513==>APPP自動帶入時,造成核銷數>請購數問題調整
+				  //980826karen==>配合appy(約1432行)中的判斷
+				
+				}
+            }
+		</script>
+		
+	</tbody></table>
+	<script language="javascript">		
+        document.all("TO1").style.display = "";
+        document.all("TO2").style.display = "none";
+	</script>
+	<script language="javascript">
+        function CCLTAX() {
+            SUM_TOL_AMT = 0;
+		
+		if (FORM1.PRODUCT_1.value != "")
+            {
+                if (FORM1.PRODUCT_1.value != "外含稅")
+                {
+                    SUM_TOL_AMT = parseInt(SUM_TOL_AMT) + parseInt(FORM1.AMOUNT_1.value);
+                }
+            }
+		
+		if (FORM1.PRODUCT_2.value != "")
+            {
+                if (FORM1.PRODUCT_2.value != "外含稅")
+                {
+                    SUM_TOL_AMT = parseInt(SUM_TOL_AMT) + parseInt(FORM1.AMOUNT_2.value);
+                }
+            }
+		
+		if (FORM1.PRODUCT_3.value != "")
+            {
+                if (FORM1.PRODUCT_3.value != "外含稅")
+                {
+                    SUM_TOL_AMT = parseInt(SUM_TOL_AMT) + parseInt(FORM1.AMOUNT_3.value);
+                }
+            }
+		
+		if (FORM1.PRODUCT_4.value != "")
+            {
+                if (FORM1.PRODUCT_4.value != "外含稅")
+                {
+                    SUM_TOL_AMT = parseInt(SUM_TOL_AMT) + parseInt(FORM1.AMOUNT_4.value);
+                }
+            }
+		
+		if (FORM1.PRODUCT_5.value != "")
+            {
+                if (FORM1.PRODUCT_5.value != "外含稅")
+                {
+                    SUM_TOL_AMT = parseInt(SUM_TOL_AMT) + parseInt(FORM1.AMOUNT_5.value);
+                }
+            }
+		
+		if (FORM1.PRODUCT_6.value != "")
+            {
+                if (FORM1.PRODUCT_6.value != "外含稅")
+                {
+                    SUM_TOL_AMT = parseInt(SUM_TOL_AMT) + parseInt(FORM1.AMOUNT_6.value);
+                }
+            }
+		
+		if (FORM1.PRODUCT_7.value != "")
+            {
+                if (FORM1.PRODUCT_7.value != "外含稅")
+                {
+                    SUM_TOL_AMT = parseInt(SUM_TOL_AMT) + parseInt(FORM1.AMOUNT_7.value);
+                }
+            }
+		
+		if (FORM1.PRODUCT_8.value != "")
+            {
+                if (FORM1.PRODUCT_8.value != "外含稅")
+                {
+                    SUM_TOL_AMT = parseInt(SUM_TOL_AMT) + parseInt(FORM1.AMOUNT_8.value);
+                }
+            }
+		
+		if (FORM1.PRODUCT_9.value != "")
+            {
+                if (FORM1.PRODUCT_9.value != "外含稅")
+                {
+                    SUM_TOL_AMT = parseInt(SUM_TOL_AMT) + parseInt(FORM1.AMOUNT_9.value);
+                }
+            }
+		
+		if (FORM1.PRODUCT_10.value != "")
+            {
+                if (FORM1.PRODUCT_10.value != "外含稅")
+                {
+                    SUM_TOL_AMT = parseInt(SUM_TOL_AMT) + parseInt(FORM1.AMOUNT_10.value);
+                }
+            }
+		
+                //=====================================================
+                DOTAX="";
+		
+			if (FORM1.PRODUCT_1.value == "外含稅")
+            {
+                DOTAX = "N";
+            }
+		
+			if (FORM1.PRODUCT_2.value == "外含稅")
+            {
+                DOTAX = "N";
+            }
+		
+			if (FORM1.PRODUCT_3.value == "外含稅")
+            {
+                DOTAX = "N";
+            }
+		
+			if (FORM1.PRODUCT_4.value == "外含稅")
+            {
+                DOTAX = "N";
+            }
+		
+			if (FORM1.PRODUCT_5.value == "外含稅")
+            {
+                DOTAX = "N";
+            }
+		
+			if (FORM1.PRODUCT_6.value == "外含稅")
+            {
+                DOTAX = "N";
+            }
+		
+			if (FORM1.PRODUCT_7.value == "外含稅")
+            {
+                DOTAX = "N";
+            }
+		
+			if (FORM1.PRODUCT_8.value == "外含稅")
+            {
+                DOTAX = "N";
+            }
+		
+			if (FORM1.PRODUCT_9.value == "外含稅")
+            {
+                DOTAX = "N";
+            }
+		
+			if (FORM1.PRODUCT_10.value == "外含稅")
+            {
+                DOTAX = "N";
+            }
+		
+		//=====================================================
+		
+				if (DOTAX == "N") {
+                    if (FORM1.PRODUCT_1.value == "外含稅")
+                    {
+                        FORM1.PRODUCT_1.value="外含稅";
+                        FORM1.QUANTITY_1.value="1";
+                        FORM1.AMOUNT_1.value=parseInt(SUM_TOL_AMT) * 0.05;
+                        return;
+                    }
+                }
+                else {
+                    if (FORM1.PRODUCT_1.value == "")
+                    {
+                        {
+                            if (FORM1.PRODUCT_1.value != "外含稅")
+                            {
+                                FORM1.PRODUCT_1.value="外含稅";
+                                FORM1.QUANTITY_1.value="1";
+                                FORM1.AMOUNT_1.value=parseInt(SUM_TOL_AMT) * 0.05;
+                                return;
+                            }
+                        }
+                    }
+                }
+		
+		
+				if (DOTAX == "N") {
+                    if (FORM1.PRODUCT_2.value == "外含稅")
+                    {
+                        FORM1.PRODUCT_2.value="外含稅";
+                        FORM1.QUANTITY_2.value="1";
+                        FORM1.AMOUNT_2.value=parseInt(SUM_TOL_AMT) * 0.05;
+                        return;
+                    }
+                }
+                else {
+                    if (FORM1.PRODUCT_2.value == "")
+                    {
+                        {
+                            if (FORM1.PRODUCT_2.value != "外含稅")
+                            {
+                                FORM1.PRODUCT_2.value="外含稅";
+                                FORM1.QUANTITY_2.value="1";
+                                FORM1.AMOUNT_2.value=parseInt(SUM_TOL_AMT) * 0.05;
+                                return;
+                            }
+                        }
+                    }
+                }
+		
+		
+				if (DOTAX == "N") {
+                    if (FORM1.PRODUCT_3.value == "外含稅")
+                    {
+                        FORM1.PRODUCT_3.value="外含稅";
+                        FORM1.QUANTITY_3.value="1";
+                        FORM1.AMOUNT_3.value=parseInt(SUM_TOL_AMT) * 0.05;
+                        return;
+                    }
+                }
+                else {
+                    if (FORM1.PRODUCT_3.value == "")
+                    {
+                        {
+                            if (FORM1.PRODUCT_3.value != "外含稅")
+                            {
+                                FORM1.PRODUCT_3.value="外含稅";
+                                FORM1.QUANTITY_3.value="1";
+                                FORM1.AMOUNT_3.value=parseInt(SUM_TOL_AMT) * 0.05;
+                                return;
+                            }
+                        }
+                    }
+                }
+		
+		
+				if (DOTAX == "N") {
+                    if (FORM1.PRODUCT_4.value == "外含稅")
+                    {
+                        FORM1.PRODUCT_4.value="外含稅";
+                        FORM1.QUANTITY_4.value="1";
+                        FORM1.AMOUNT_4.value=parseInt(SUM_TOL_AMT) * 0.05;
+                        return;
+                    }
+                }
+                else {
+                    if (FORM1.PRODUCT_4.value == "")
+                    {
+                        {
+                            if (FORM1.PRODUCT_4.value != "外含稅")
+                            {
+                                FORM1.PRODUCT_4.value="外含稅";
+                                FORM1.QUANTITY_4.value="1";
+                                FORM1.AMOUNT_4.value=parseInt(SUM_TOL_AMT) * 0.05;
+                                return;
+                            }
+                        }
+                    }
+                }
+		
+		
+				if (DOTAX == "N") {
+                    if (FORM1.PRODUCT_5.value == "外含稅")
+                    {
+                        FORM1.PRODUCT_5.value="外含稅";
+                        FORM1.QUANTITY_5.value="1";
+                        FORM1.AMOUNT_5.value=parseInt(SUM_TOL_AMT) * 0.05;
+                        return;
+                    }
+                }
+                else {
+                    if (FORM1.PRODUCT_5.value == "")
+                    {
+                        {
+                            if (FORM1.PRODUCT_5.value != "外含稅")
+                            {
+                                FORM1.PRODUCT_5.value="外含稅";
+                                FORM1.QUANTITY_5.value="1";
+                                FORM1.AMOUNT_5.value=parseInt(SUM_TOL_AMT) * 0.05;
+                                return;
+                            }
+                        }
+                    }
+                }
+		
+		
+				if (DOTAX == "N") {
+                    if (FORM1.PRODUCT_6.value == "外含稅")
+                    {
+                        FORM1.PRODUCT_6.value="外含稅";
+                        FORM1.QUANTITY_6.value="1";
+                        FORM1.AMOUNT_6.value=parseInt(SUM_TOL_AMT) * 0.05;
+                        return;
+                    }
+                }
+                else {
+                    if (FORM1.PRODUCT_6.value == "")
+                    {
+                        {
+                            if (FORM1.PRODUCT_6.value != "外含稅")
+                            {
+                                FORM1.PRODUCT_6.value="外含稅";
+                                FORM1.QUANTITY_6.value="1";
+                                FORM1.AMOUNT_6.value=parseInt(SUM_TOL_AMT) * 0.05;
+                                return;
+                            }
+                        }
+                    }
+                }
+		
+		
+				if (DOTAX == "N") {
+                    if (FORM1.PRODUCT_7.value == "外含稅")
+                    {
+                        FORM1.PRODUCT_7.value="外含稅";
+                        FORM1.QUANTITY_7.value="1";
+                        FORM1.AMOUNT_7.value=parseInt(SUM_TOL_AMT) * 0.05;
+                        return;
+                    }
+                }
+                else {
+                    if (FORM1.PRODUCT_7.value == "")
+                    {
+                        {
+                            if (FORM1.PRODUCT_7.value != "外含稅")
+                            {
+                                FORM1.PRODUCT_7.value="外含稅";
+                                FORM1.QUANTITY_7.value="1";
+                                FORM1.AMOUNT_7.value=parseInt(SUM_TOL_AMT) * 0.05;
+                                return;
+                            }
+                        }
+                    }
+                }
+		
+		
+				if (DOTAX == "N") {
+                    if (FORM1.PRODUCT_8.value == "外含稅")
+                    {
+                        FORM1.PRODUCT_8.value="外含稅";
+                        FORM1.QUANTITY_8.value="1";
+                        FORM1.AMOUNT_8.value=parseInt(SUM_TOL_AMT) * 0.05;
+                        return;
+                    }
+                }
+                else {
+                    if (FORM1.PRODUCT_8.value == "")
+                    {
+                        {
+                            if (FORM1.PRODUCT_8.value != "外含稅")
+                            {
+                                FORM1.PRODUCT_8.value="外含稅";
+                                FORM1.QUANTITY_8.value="1";
+                                FORM1.AMOUNT_8.value=parseInt(SUM_TOL_AMT) * 0.05;
+                                return;
+                            }
+                        }
+                    }
+                }
+		
+		
+				if (DOTAX == "N") {
+                    if (FORM1.PRODUCT_9.value == "外含稅")
+                    {
+                        FORM1.PRODUCT_9.value="外含稅";
+                        FORM1.QUANTITY_9.value="1";
+                        FORM1.AMOUNT_9.value=parseInt(SUM_TOL_AMT) * 0.05;
+                        return;
+                    }
+                }
+                else {
+                    if (FORM1.PRODUCT_9.value == "")
+                    {
+                        {
+                            if (FORM1.PRODUCT_9.value != "外含稅")
+                            {
+                                FORM1.PRODUCT_9.value="外含稅";
+                                FORM1.QUANTITY_9.value="1";
+                                FORM1.AMOUNT_9.value=parseInt(SUM_TOL_AMT) * 0.05;
+                                return;
+                            }
+                        }
+                    }
+                }
+		
+		
+				if (DOTAX == "N") {
+                    if (FORM1.PRODUCT_10.value == "外含稅")
+                    {
+                        FORM1.PRODUCT_10.value="外含稅";
+                        FORM1.QUANTITY_10.value="1";
+                        FORM1.AMOUNT_10.value=parseInt(SUM_TOL_AMT) * 0.05;
+                        return;
+                    }
+                }
+                else {
+                    if (FORM1.PRODUCT_10.value == "")
+                    {
+                        {
+                            if (FORM1.PRODUCT_10.value != "外含稅")
+                            {
+                                FORM1.PRODUCT_10.value="外含稅";
+                                FORM1.QUANTITY_10.value="1";
+                                FORM1.AMOUNT_10.value=parseInt(SUM_TOL_AMT) * 0.05;
+                                return;
+                            }
+                        }
+                    }
+                }
+		
+		
+	}
+	</script>
+<!--明細清單結束-->
+<!--Hidden明細-->
+		
+<!--</FIELDSET>-->
+</div>
+<!----配合款申請------------------------------------------------------->
+<div id="TOGAPP" style="display: none;">
+<br>
+<table border="0" width="900" cellpadding="0" cellspacing="0" style="table-layout:fixed;border-collapse: collapse">
+<tbody><tr align="center"><td>
+<form name="FORM2">
+	
+	<table border="0" bgcolor="#F0F0F0" width="400" cellpadding="0" cellspacing="0" style="table-layout:fixed;border-collapse: collapse" background="../APS_IMG_Q/PCG/BC01.gif">
+  	<colgroup><col width="200"><col width="200">
+	</colgroup><tbody><tr height="30">
+  		<td align="center" class="st3" style="padding-top:4"> 
+				<font class="size3DB">請輸入欲配合之請購單號:</font>
+		</td>
+		<td class="st3"> 
+				<input type="text" name="TOG_APYNO" value="" onblur="SPELL_STR();" maxlength="14" class="STYAPYNO">
+				<!--980728karen==>通常配合款為第一筆,APYADD為空白,先hidden
+				─ <input type="text" name="TOG_APYADD"  value="" onblur="SPELL_STR();" maxlength="2" class="STYAPYADD">-->
+				<input type="hidden" name="TOG_APYADD" value="" onblur="SPELL_STR();" maxlength="2" class="STYAPYADD">
+				<input type="hidden" name="APPYSET" value="13">
+		</td>
+	</tr>
+	</tbody></table>
+</form>
+	
+</td></tr>
+</tbody></table>
+</div>
+<!----配合款申請------------------------------------------------------->
+<!----配合款核銷------------------------------------------------------->
+<div id="TOGVOU" style="display: none;">
+<table border="0" width="900" cellpadding="0" cellspacing="0" style="table-layout:fixed;border-collapse: collapse">
+<tbody><tr align="center"><td>
+<form name="FORM3">
+	<table border="0" bgcolor="#F0F0F0" width="600" cellpadding="0" cellspacing="0" style="table-layout:fixed;border-collapse: collapse">
+  	<colgroup><col width="100"><col width="200"><col width="100"><col width="100"><col width="100">
+	</colgroup><tbody><tr>
+  		<td align="center" colspan="5" class="st3" background="../APS_IMG_Q/PCG/Sobj3_02.gif">
+				<font class="size3DB">配合款核銷經費編輯</font>
+		</td>
+	</tr>
+	<tr>
+  		<td align="center" class="st3" background="../APS_IMG_Q/PCG/ekp_bg_1.jpg">
+				<font class="size3W">配合請購單號</font>
+		</td>
+		<td align="center" class="st3" background="../APS_IMG_Q/PCG/ekp_bg_1.jpg"> 
+				<font class="size3W">配合計畫</font>
+		</td>
+		<td align="center" class="st3" background="../APS_IMG_Q/PCG/ekp_bg_1.jpg">
+				<font class="size3W">配合經費用途</font>
+		</td>
+		<td align="center" class="st3" background="../APS_IMG_Q/PCG/ekp_bg_1.jpg">
+				<font class="size3W">請購餘額</font>
+		</td>
+		<td align="center" class="st3" background="../APS_IMG_Q/PCG/ekp_bg_1.jpg"> 
+				<font class="size3W">核銷金額</font>
+		</td>
+	</tr>
+	
+	</tbody></table>
+<!--</FIELDSET>-->
+</form>
+<script language="javascript">
+    function SPELL_STR_FORM3() {
+        SS_STR = "";
+			
+			//1040810Karen==>當配合核銷金額皆為0時，無品名字串，造成無法存檔，故先給一字串做為品名名稱
+			if (SS_STR == "") {
+            SS_STR = "配合款核銷金額為零"
+        }
+        FORM1.PRODUCT_1.value = SS_STR;
+        //alert(FORM1.PRODUCT_1.value);
+    }
+	</script>
+</td></tr>
+</tbody></table>
+</div>
+<!----配合款核銷------------------------------------------------------->
+<!----????編輯------------------------------------------------------->
+<div id="SAM" style="display: none;">
+
+</div>
+<!----????編輯結束------------------------------------------------------->
+<!----????編輯------------------------------------------------------->
+<div id="PAPER" style="display: none;">
+</div>
+<!----????編輯結束------------------------------------------------------->
+<!----????編輯------------------------------------------------------->
+<div id="PRESS" style="display: none;">
+</div>
+<!----????編輯結束------------------------------------------------------->
+<!----採購申請單編輯--清大範本------------------------------------------------------->
+<div id="NTHU_PUR" style="display: none;">
+<table border="0" width="900" cellpadding="0" cellspacing="0" style="table-layout:fixed;border-collapse: collapse">
+<tbody><tr align="center"><td align="left" background="../APS_IMG_Q/PCG/Sobj3_02.gif">
+<form name="FORM6">
+	<input type="button" value="導引申請" onclick="window.location = ('../QA_Q/QA_PUR_FLOW.asp?QA_ID=56006&amp;IsNew=Y&amp;APYNO=&amp;APYADD=&amp;ISPURC=False&amp;APPYSET=13'); parent.DD.rows = '0,*'; parent.QQ.cols = '*,0,0';" class="BT05">
+	<input type="button" value="引用舊採購案" onclick="window.location = ('../QA_Q/QA_PUR_FLOW_LIST.asp?IsNew=Y&amp;APYNO=&amp;APYADD=&amp;ISPURC=False&amp;APPYSET=13&amp;QA_ID=56006'); parent.DD.rows = '0,*'; parent.QQ.cols = '*,0,0';" class="BT05">
+		
+	<table border="0" bgcolor="#F0F0F0" width="900" cellpadding="0" cellspacing="0" style="table-layout:fixed;border-collapse: collapse" background="../APS_IMG_Q/PCG/BC01.gif"> 
+		<colgroup><col width="200"><col width="620"><col width="40"><col width="40">
+			</colgroup><tbody><tr>
+				<td class="st1" align="right"> 
+					<font class="size3DB">引用範本編號：</font>
+				</td>
+				<td class="st1" colspan="3" align="left">
+					
+						<font class="size3DR">無(若要引用範本請點選上面按鈕【引用先前之採購案】)</font>
+					
+				</td>
+			</tr>
+	</tbody></table>
+	<div id="承辦採購單位">
+	<table border="0" bgcolor="#F0F0F0" width="900" cellpadding="0" cellspacing="0" style="table-layout:fixed;border-collapse: collapse" background="../APS_IMG_Q/PCG/BC01.gif">
+		<colgroup><col width="200"><col width="620"><col width="40"><col width="40">
+			</colgroup><tbody><tr>
+				<td class="st1" align="right"> 
+					<font class="size3DB">承辦採購單位：</font>
+				</td>
+				<td class="st1" colspan="3" align="left">
+					<font class="size3R">
+					
+					<input type="hidden" name="POFFICE" value="">
+					<input type="checkbox" name="POFFICE_1" onclick="POFFICE1_C();" title="說明:依現行學校[採購要點]規定:15萬以下(含)屬請購單位自行辦理。15萬以上案件皆送[採購組]辦理。請依金額及實際狀況(15萬以下外購案件可委請本組辦理)勾選。">採購組
+						<input type="checkbox" name="POFFICE_2" onclick="POFFICE2_C();" title="說明:依現行學校[採購要點]規定:15萬以下(含)屬請購單位自行辦理。15萬以上案件皆送[採購組]辦理。請依金額及實際狀況(15萬以下外購案件可委請本組辦理)勾選。">請購單位(自辦)
+					
+					    <!--
+						<input type="hidden" name="POFFICE_2"  value="">
+						-->
+					
+					<font class="size3R"><!--<img src=../APS_IMG/item1.gif width=15 height=15 border=0 title="說明:依現行學校[採購要點]規定:10萬以下(含)屬請購單位自行辦理。10萬以上案件皆送[採購組]辦理。請依金額及實際狀況(10萬以下外購案件可委請本組辦理)勾選。" >-->
+				    </font>
+					<br><font style="font-family:新細明體;font-size:12pt"><b>注意事項：各單位於逕洽廠商採購時注意勿向拒絕往來廠商購買，相關資訊請至<a href="https://web.pcc.gov.tw/vms/rvlm/rvlmPublicSearch/indexSearchRvlmPublic" target="new"><u>政府電子採購網頁</u></a>查詢</b></font>
+				<!--SCRIPT 在下面-->
+				</font></td>
+			</tr>
+			<tr>
+				<td class="st1" align="right"> 
+					<font class="size3DB">標的名稱與數量：<br>(限填100個中文字)</font><br>
+				</td>
+				<td class="st1" align="left" valign="top" colspan="3"> 
+					<textarea name="CONTENT" onblur="SPELL_PUR()" style=" color: Blue; FONT-STYLE: normal; FONT-VARIANT: normal; FONT-WEIGHT: normal; LINE-HEIGHT:normal; WIDTH: 460px;height:50px"></textarea>
+					<font class="size3R">
+					<font class="size3R"><!--<img src=../APS_IMG/item1.gif width=15 height=15 border=0 title="說明:請書寫中文，僅有英文名稱者，請翻譯成中文以利後續採購作業。此名稱要和[規格書]品名一致。" ></font>-->
+				</font></font></td>
+					<input type="hidden" name="PUR_NUMBER" onblur="SPELL_PUR()" value="1" style=" color: Blue; FONT-STYLE: normal; FONT-VARIANT: normal; FONT-WEIGHT: normal; LINE-HEIGHT:normal; WIDTH: 40px" align="right">
+					<input type="hidden" name="PUR_AMOUNT" value="">
+		   </tr>
+		</tbody></table>
+</div>
+<div id="標的類別">
+	<table border="0" bgcolor="#F0F0F0" width="900" cellpadding="0" cellspacing="0" style="table-layout:fixed;border-collapse: collapse" background="../APS_IMG_Q/PCG/BC01.gif">
+		<colgroup><col width="200"><col width="620"><col width="40"><col width="40">
+			</colgroup><tbody><tr>
+				<td class="st1" align="right"> 
+					<font class="size3DB">標的類別：</font><br>
+				</td>
+				<td class="st1" align="left" colspan="3">
+					<font class="size3R">
+					<input type="hidden" name="CTYPE" value="">
+					<input type="checkbox" name="CTYPE_1" onclick="CTYPE1_C();" title="說明:請依[採購項目]分類勾選">
+					一般財物或勞務
+					<!--<a href="#" onclick='AA=window.open("../QA_Q/QAFRM.asp?KEYSTR=一般財物及勞務&APYDO=說明","","top=1,left=1,width=400,height=400,resizable=1");'>【說明】</a>-->
+					</font>
+					<br>
+					<font class="size3R">
+					<input type="hidden" name="CTYPE_2" onclick="CTYPE2_C();">
+					<!--勞務類-->
+					<!--圖書-->
+					<input type="hidden" name="LTYPE" value="">
+					<input type="hidden" name="LTYPE_1" onclick="LTYPE1_C();" title="說明:圖書採購">
+					<!--圖書採購-->
+					<!--<img src=../APS_IMG/item1.gif width=15 height=15 border=0 title="說明:請依[採購項目]分類勾選" >-->
+					<script language="javascript">
+                        function CTYPE1_C() {
+                            if (FORM6.CTYPE.value == "1") {
+                                FORM6.CTYPE.value = "0";
+                                FORM6.CTYPE_1.checked = false;
+                                FORM6.CTYPE_2.checked = true;
+                                FORM6.LTYPE.value = "1";
+                                FORM6.LTYPE_1.checked = true;
+                                SPELL_PUR();
+                            }
+                            else {
+                                FORM6.CTYPE.value = "1";
+                                FORM6.CTYPE_1.checked = true;
+                                FORM6.CTYPE_2.checked = false;
+                                FORM6.LTYPE.value = "0";
+                                FORM6.LTYPE_1.checked = false;
+                                SPELL_PUR();
+                            }
+                        }
+                        function CTYPE2_C() {
+                            FORM6.CTYPE.value = "2";
+                            FORM6.CTYPE_1.checked = false;
+                            FORM6.CTYPE_2.checked = true;
+                            FORM6.LTYPE.value = "0";
+                            FORM6.LTYPE_1.checked = false;
+                            SPELL_PUR();
+                        }
+                        function LTYPE1_C() {
+                            FORM6.CTYPE.value = "0";
+                            FORM6.CTYPE_1.checked = false;
+                            FORM6.CTYPE_2.checked = false;
+                            FORM6.LTYPE.value = "1";
+                            FORM6.LTYPE_1.checked = true;
+                            SPELL_PUR();
+                        }
+					</script>	
+					<font class="size3R">
+					<input type="hidden" name="OTYPE" value="">
+					<input type="hidden" name="OTYPE_1" onclick="OTYPE1_C();" title="說明:請預先表示採購來源為國內或國外，依採購法之規定在招標作業時不能分國內外，但為本組作業所需，仍請先判別供應來源！">
+					<!--內購案-->
+					<input type="hidden" name="OTYPE_2" onclick="OTYPE2_C();" title="說明:請預先表示採購來源為國內或國外，依採購法之規定在招標作業時不能分國內外，但為本組作業所需，仍請先判別供應來源！">
+					<!--外購案-->
+					</font>
+					<!--<img src=../APS_IMG/item1.gif width=15 height=15 border=0 title="說明:請預先表示採購來源為國內或國外，依採購法之規定在招標作業時不能分國內外，但為本組作業所需，仍請先判別供應來源！" >-->
+					<script language="javascript">
+                        function OTYPE1_C() {
+                            FORM6.OTYPE.value = "1";
+                            FORM6.OTYPE_1.checked = true;
+                            FORM6.OTYPE_2.checked = false;
+                            SPELL_PUR();
+                        }
+                        function OTYPE2_C() {
+                            FORM6.OTYPE.value = "2";
+                            FORM6.OTYPE_1.checked = false;
+                            FORM6.OTYPE_2.checked = true;
+                            SPELL_PUR();
+                        }
+					</script>
+					</font>
+					<font class="size3R">
+					<input type="hidden" name="CPUR" value="">
+					<input type="checkbox" name="CPUR_1" onclick="CPUR1_C();" title="說明:">
+					集中採購
+					<!--<a href="#" onclick='AA=window.open("../QA_Q/QAFRM.asp?KEYSTR=集中採購&APYDO=說明","","top=1,left=1,width=400,height=400,resizable=1");'>【說明】</a>-->
+					<br>
+					<script language="javascript">
+                        function CPUR1_C() {
+                            if (FORM6.CPUR.value == "1") {
+                                FORM6.CPUR.value = "0";
+                                FORM6.CPUR_1.checked = false;
+                                SPELL_PUR();
+                            }
+                            else {
+                                FORM6.CPUR.value = "1";
+                                FORM6.CPUR_1.checked = true;
+                                SPELL_PUR();
+                            }
+                        }
+					</script>
+					<input type="hidden" name="RPUR" value="">
+					<input type="hidden" name="RPUR_1" onclick="RPUR1_C();" title="說明:">
+					<!--租賃-->
+					<script language="javascript">
+                        function RPUR1_C() {
+                            if (FORM6.RPUR.value == "1") {
+                                FORM6.RPUR.value = "0";
+                                FORM6.RPUR_1.checked = false;
+                                SPELL_PUR();
+                            }
+                            else {
+                                FORM6.RPUR.value = "1";
+                                FORM6.RPUR_1.checked = true;
+                                SPELL_PUR();
+                            }
+                        }
+					</script>
+					<input type="hidden" name="SPUR" value="">
+					<input type="hidden" name="SPUR_1" onclick="SPUR1_C();" title="說明:">
+					<!--小額採購(10萬(含)以下)-->
+					<script language="javascript">
+                        function SPUR1_C() {
+                            if (FORM6.SPUR.value == "1") {
+                                FORM6.SPUR.value = "0";
+                                FORM6.SPUR_1.checked = false;
+                                SPELL_PUR();
+                            }
+                            else {
+                                FORM6.SPUR.value = "1";
+                                FORM6.SPUR_1.checked = true;
+                                SPELL_PUR();
+                            }
+                        }
+					</script>
+					</font>
+					<font class="size3R">
+					<!--綠色採購-->
+					<input type="hidden" name="GPUR" value="">
+					<input type="checkbox" name="GPUR_1" onclick="GPUR1_C();" title="說明:">
+					綠色採購
+					<a href="#" onclick="AA=window.open(&quot;http://greenmark.epa.gov.tw/main4.asp&quot;,&quot;&quot;,&quot;top=1,left=1,width=400,height=400,resizable=1&quot;);">【說明】</a>
+					<!--<a href="#" onclick='AA=window.open("../QA/QAFRM.asp?KEYSTR=綠色採購&APYDO=說明","","top=1,left=1,width=400,height=400,resizable=1");'>【說明】</a>-->
+					<br>
+					<script language="javascript">
+                        function GPUR1_C() {
+                            if (FORM6.GPUR.value == "1") {
+                                FORM6.GPUR.value = "0";
+                                FORM6.GPUR_1.checked = false;
+                                SPELL_PUR();
+                            }
+                            else {
+                                FORM6.GPUR.value = "1";
+                                FORM6.GPUR_1.checked = true;
+                                SPELL_PUR();
+                            }
+                        }
+					</script>
+					</font>
+					<font class="size3R">
+					<!--優先採購身心障礙福利機構或團體生產物品及服務-->
+					<input type="hidden" name="UPUR" value="">
+					<input type="checkbox" name="UPUR_1" onclick="UPUR1_C();" title="說明:">
+					優先採購身心障礙福利機構或團體生產物品及服務
+					<!--<a href="#" onclick='AA=window.open("../QA_Q/QAFRM.asp?KEYSTR=優先採購身心障礙福利機構或團體生產物品及服務&APYDO=說明","","top=1,left=1,width=400,height=400,resizable=1");'>【說明】</a>-->
+					<br>
+					<script language="javascript">
+                        function UPUR1_C() {
+                            if (FORM6.UPUR.value == "1") {
+                                FORM6.UPUR.value = "0";
+                                FORM6.UPUR_1.checked = false;
+                                SPELL_PUR();
+                            }
+                            else {
+                                FORM6.UPUR.value = "1";
+                                FORM6.UPUR_1.checked = true;
+                                SPELL_PUR();
+                            }
+                        }
+					</script>
+					</font>
+				</td>
+		   </tr>
+    </tbody></table>
+	</div>
+	<div id="標的用途">
+	<table border="0" bgcolor="#F0F0F0" width="900" cellpadding="0" cellspacing="0" style="table-layout:fixed;border-collapse: collapse" background="../APS_IMG_Q/PCG/BC01.gif">
+		<colgroup><col width="200"><col width="620"><col width="40"><col width="40">	   	
+		   </colgroup><input type="hidden" name="UTYPE" value="1">
+		   <tbody><tr>
+		   <td class="st1" align="right"> 
+					<font class="size3DB">標的用途：</font>
+				</td>
+				<td class="st1" align="left" colspan="3">
+				<font class="size3R">
+					<input type="checkbox" name="UTYPE_1" onclick="UTYPE1_C();" title="說明:請依實際狀況勾選">教學用
+					<input type="checkbox" name="UTYPE_2" onclick="UTYPE2_C();" title="說明:請依實際狀況勾選">研究用
+					<input type="checkbox" name="UTYPE_3" onclick="UTYPE3_C();" title="說明:請依實際狀況勾選">事務用
+					<input type="checkbox" name="UTYPE_4" onclick="UTYPE4_C();" title="說明:請依實際狀況勾選">其他
+				</font>
+				<script language="javascript">
+                    function UTYPE1_C() {
+                        FORM6.UTYPE.value = "1";
+                        FORM6.UTYPE_1.checked = true;
+                        FORM6.UTYPE_2.checked = false;
+                        FORM6.UTYPE_3.checked = false;
+                        FORM6.UTYPE_4.checked = false;
+                        SPELL_PUR();
+                    }
+                    function UTYPE2_C() {
+                        FORM6.UTYPE.value = "2";
+                        FORM6.UTYPE_1.checked = false;
+                        FORM6.UTYPE_2.checked = true;
+                        FORM6.UTYPE_3.checked = false;
+                        FORM6.UTYPE_4.checked = false;
+                        SPELL_PUR();
+                    }
+                    function UTYPE3_C() {
+                        FORM6.UTYPE.value = "3";
+                        FORM6.UTYPE_1.checked = false;
+                        FORM6.UTYPE_2.checked = false;
+                        FORM6.UTYPE_3.checked = true;
+                        FORM6.UTYPE_4.checked = false;
+                        SPELL_PUR();
+                    }
+                    function UTYPE4_C() {
+                        FORM6.UTYPE.value = "4";
+                        FORM6.UTYPE_1.checked = false;
+                        FORM6.UTYPE_2.checked = false;
+                        FORM6.UTYPE_3.checked = false;
+                        FORM6.UTYPE_4.checked = true;
+                        SPELL_PUR();
+                    }
+						
+                        FORM6.UTYPE.value="1";
+                    FORM6.UTYPE_1.checked = true;
+                    FORM6.UTYPE_2.checked = false;
+                    FORM6.UTYPE_3.checked = false;
+                    FORM6.UTYPE_4.checked = false;
+						
+				</script>
+				</td>
+		   </tr>
+	</tbody></table>
+	</div>
+	<div id="預定交貨/履約日期">
+	<table border="0" bgcolor="#F0F0F0" width="900" cellpadding="0" cellspacing="0" style="table-layout:fixed;border-collapse: collapse" background="../APS_IMG_Q/PCG/BC01.gif">
+		<colgroup><col width="200"><col width="620"><col width="40"><col width="40">
+		   </colgroup><tbody><tr>
+				<td class="st1" align="right"> 
+					<font class="size3DB">預定交貨/履約日期：</font><br><font class="size3R">(請擇一填寫)</font>
+				</td>
+				<td class="st1" align="left" colspan="3">
+				 	<font class="size3R">(1)</font>
+					<input type="checkbox" name="RCDAT_1" onclick="RCDAT1_C();">
+					<input type="hidden" name="RCDAT" value="">
+					<select name="RCDAT_Y" style=" FONT-SIZE: 8pt;color:  darkblue; HEIGHT:12pt; WIDTH: 30pt" onchange="FORM6.RCDAT.value=FORM6.RCDAT_Y.value+FORM6.RCDAT_M.value+FORM6.RCDAT_D.value;SPELL_PUR();" title="說明:指財物或勞務的履約期限【請注意要配合請購經費之預算最後執行期限來訂定期限:要扣除可辦理驗收及核銷(履約條件及期限、國內外發票到校、驗收合格)的時間】" disabled="">
+						
+						<option value="115">115</option>
+						
+						<option value="116">116</option>
+						
+						<option value="117">117</option>
+						
+						<option value="118">118</option>
+						
+						<option value="119">119</option>
+						
+						<option value="120">120</option>
+												
+					</select>
+					<font class="size3R">年</font>
+					<select name="RCDAT_M" onchange="FORM6.RCDAT.value=FORM6.RCDAT_Y.value+FORM6.RCDAT_M.value+FORM6.RCDAT_D.value;SPELL_PUR();" style=" FONT-SIZE: 8pt;color:  darkblue; HEIGHT:12pt; WIDTH: 30pt" title="說明:指財物或勞務的履約期限【請注意要配合請購經費之預算最後執行期限來訂定期限:要扣除可辦理驗收及核銷(履約條件及期限、國內外發票到校、驗收合格)的時間】" disabled="">
+						
+						<option value="01">1</option>
+						
+						<option value="02">2</option>
+						
+						<option value="03">3</option>
+						
+						<option value="04">4</option>
+						
+						<option value="05">5</option>
+						
+						<option value="06">6</option>
+						
+						<option value="07">7</option>
+						
+						<option value="08">8</option>
+						
+						<option value="09">9</option>
+						
+						<option value="10">10</option>
+						
+						<option value="11">11</option>
+						
+						<option value="12">12</option>
+						
+					</select>
+					<font class="size3R">月</font>
+					<select name="RCDAT_D" onchange="FORM6.RCDAT.value=FORM6.RCDAT_Y.value+FORM6.RCDAT_M.value+FORM6.RCDAT_D.value;SPELL_PUR();" style=" FONT-SIZE: 8pt;color:  darkblue; HEIGHT:12pt; WIDTH: 30pt" title="說明:指財物或勞務的履約期限【請注意要配合請購經費之預算最後執行期限來訂定期限:要扣除可辦理驗收及核銷(履約條件及期限、國內外發票到校、驗收合格)的時間】" disabled="">
+						
+						<option value="01">1</option>
+						
+						<option value="02">2</option>
+						
+						<option value="03">3</option>
+						
+						<option value="04">4</option>
+						
+						<option value="05">5</option>
+						
+						<option value="06">6</option>
+						
+						<option value="07">7</option>
+						
+						<option value="08">8</option>
+						
+						<option value="09">9</option>
+						
+						<option value="10">10</option>
+						
+						<option value="11">11</option>
+						
+						<option value="12">12</option>
+						
+						<option value="13">13</option>
+						
+						<option value="14">14</option>
+						
+						<option value="15">15</option>
+						
+						<option value="16">16</option>
+						
+						<option value="17">17</option>
+						
+						<option value="18">18</option>
+						
+						<option value="19">19</option>
+						
+						<option value="20">20</option>
+						
+						<option value="21">21</option>
+						
+						<option value="22">22</option>
+						
+						<option value="23">23</option>
+						
+						<option value="24">24</option>
+						
+						<option value="25">25</option>
+						
+						<option value="26">26</option>
+						
+						<option value="27">27</option>
+						
+						<option value="28">28</option>
+						
+						<option value="29">29</option>
+						
+						<option value="30">30</option>
+						
+						<option value="31">31</option>
+						
+					</select>
+					
+					<font class="size3R">日前</font>
+					<br>
+					<font class="size3R">(2)</font>
+					<input type="checkbox" name="PMNDAYS_1" onclick="PMNDAYS1_C();">
+					<font class="size3R">決標後</font>
+					<input type="text" name="PMNDAYS" onblur="SPELL_PUR()" value="" style=" color: Blue; FONT-STYLE: normal; FONT-VARIANT: normal; FONT-WEIGHT: normal; LINE-HEIGHT:normal; WIDTH: 50px;text-align:right" disabled="">
+					<font class="size3R">日內(建議：內購案30天以上；外購案60天以上)</font>
+					<br>
+					<font class="size3R">(3)</font>
+					<input type="checkbox" name="RCDATB_1" onclick="RCDATB1_C();">
+					<input type="hidden" name="RCDATB" value="">
+					<select name="RCDATB_Y" style=" FONT-SIZE: 8pt;color:  darkblue; HEIGHT:12pt; WIDTH: 30pt" onchange="FORM6.RCDATB.value=FORM6.RCDATB_Y.value+FORM6.RCDATB_M.value+FORM6.RCDATB_D.value;SPELL_PUR();" title="說明:指財物或勞務的履約期限【請注意要配合請購經費之預算最後執行期限來訂定期限:要扣除可辦理驗收及核銷(履約條件及期限、國內外發票到校、驗收合格)的時間】" disabled="">
+						
+						<option value="115">115</option>
+						
+						<option value="116">116</option>
+						
+						<option value="117">117</option>
+						
+						<option value="118">118</option>
+						
+						<option value="119">119</option>
+						
+						<option value="120">120</option>
+												
+					</select>
+					<font class="size3R">年</font>
+					<select name="RCDATB_M" onchange="FORM6.RCDATB.value=FORM6.RCDATB_Y.value+FORM6.RCDATB_M.value+FORM6.RCDATB_D.value;SPELL_PUR();" style=" FONT-SIZE: 8pt;color:  darkblue; HEIGHT:12pt; WIDTH: 30pt" title="說明:指財物或勞務的履約期限【請注意要配合請購經費之預算最後執行期限來訂定期限:要扣除可辦理驗收及核銷(履約條件及期限、國內外發票到校、驗收合格)的時間】" disabled="">
+						
+						<option value="01">1</option>
+						
+						<option value="02">2</option>
+						
+						<option value="03">3</option>
+						
+						<option value="04">4</option>
+						
+						<option value="05">5</option>
+						
+						<option value="06">6</option>
+						
+						<option value="07">7</option>
+						
+						<option value="08">8</option>
+						
+						<option value="09">9</option>
+						
+						<option value="10">10</option>
+						
+						<option value="11">11</option>
+						
+						<option value="12">12</option>
+						
+					</select>
+					<font class="size3R">月</font>
+					<select name="RCDATB_D" onchange="FORM6.RCDATB.value=FORM6.RCDATB_Y.value+FORM6.RCDATB_M.value+FORM6.RCDATB_D.value;SPELL_PUR();" style=" FONT-SIZE: 8pt;color:  darkblue; HEIGHT:12pt; WIDTH: 30pt" title="說明:指財物或勞務的履約期限【請注意要配合請購經費之預算最後執行期限來訂定期限:要扣除可辦理驗收及核銷(履約條件及期限、國內外發票到校、驗收合格)的時間】" disabled="">
+						
+						<option value="01">1</option>
+						
+						<option value="02">2</option>
+						
+						<option value="03">3</option>
+						
+						<option value="04">4</option>
+						
+						<option value="05">5</option>
+						
+						<option value="06">6</option>
+						
+						<option value="07">7</option>
+						
+						<option value="08">8</option>
+						
+						<option value="09">9</option>
+						
+						<option value="10">10</option>
+						
+						<option value="11">11</option>
+						
+						<option value="12">12</option>
+						
+						<option value="13">13</option>
+						
+						<option value="14">14</option>
+						
+						<option value="15">15</option>
+						
+						<option value="16">16</option>
+						
+						<option value="17">17</option>
+						
+						<option value="18">18</option>
+						
+						<option value="19">19</option>
+						
+						<option value="20">20</option>
+						
+						<option value="21">21</option>
+						
+						<option value="22">22</option>
+						
+						<option value="23">23</option>
+						
+						<option value="24">24</option>
+						
+						<option value="25">25</option>
+						
+						<option value="26">26</option>
+						
+						<option value="27">27</option>
+						
+						<option value="28">28</option>
+						
+						<option value="29">29</option>
+						
+						<option value="30">30</option>
+						
+						<option value="31">31</option>
+						
+					</select>
+					<font class="size3R">日至</font>
+					<input type="hidden" name="RCDATE" value="">
+					<select name="RCDATE_Y" style=" FONT-SIZE: 8pt;color:  darkblue; HEIGHT:12pt; WIDTH: 30pt" onchange="FORM6.RCDATE.value=FORM6.RCDATE_Y.value+FORM6.RCDATE_M.value+FORM6.RCDATE_D.value;SPELL_PUR();" title="說明:指財物或勞務的履約期限【請注意要配合請購經費之預算最後執行期限來訂定期限:要扣除可辦理驗收及核銷(履約條件及期限、國內外發票到校、驗收合格)的時間】" disabled="">
+						
+						<option value="115">115</option>
+						
+						<option value="116">116</option>
+						
+						<option value="117">117</option>
+						
+						<option value="118">118</option>
+						
+						<option value="119">119</option>
+						
+						<option value="120">120</option>
+												
+					</select>
+					<font class="size3R">年</font>
+					<select name="RCDATE_M" onchange="FORM6.RCDATE.value=FORM6.RCDATE_Y.value+FORM6.RCDATE_M.value+FORM6.RCDATE_D.value;SPELL_PUR();" style=" FONT-SIZE: 8pt;color:  darkblue; HEIGHT:12pt; WIDTH: 30pt" title="說明:指財物或勞務的履約期限【請注意要配合請購經費之預算最後執行期限來訂定期限:要扣除可辦理驗收及核銷(履約條件及期限、國內外發票到校、驗收合格)的時間】" disabled="">
+						
+						<option value="01">1</option>
+						
+						<option value="02">2</option>
+						
+						<option value="03">3</option>
+						
+						<option value="04">4</option>
+						
+						<option value="05">5</option>
+						
+						<option value="06">6</option>
+						
+						<option value="07">7</option>
+						
+						<option value="08">8</option>
+						
+						<option value="09">9</option>
+						
+						<option value="10">10</option>
+						
+						<option value="11">11</option>
+						
+						<option value="12">12</option>
+						
+					</select>
+					<font class="size3R">月</font>
+					<select name="RCDATE_D" onchange="FORM6.RCDATE.value=FORM6.RCDATE_Y.value+FORM6.RCDATE_M.value+FORM6.RCDATE_D.value;SPELL_PUR();" style=" FONT-SIZE: 8pt;color:  darkblue; HEIGHT:12pt; WIDTH: 30pt" title="說明:指財物或勞務的履約期限【請注意要配合請購經費之預算最後執行期限來訂定期限:要扣除可辦理驗收及核銷(履約條件及期限、國內外發票到校、驗收合格)的時間】" disabled="">
+						
+						<option value="01">1</option>
+						
+						<option value="02">2</option>
+						
+						<option value="03">3</option>
+						
+						<option value="04">4</option>
+						
+						<option value="05">5</option>
+						
+						<option value="06">6</option>
+						
+						<option value="07">7</option>
+						
+						<option value="08">8</option>
+						
+						<option value="09">9</option>
+						
+						<option value="10">10</option>
+						
+						<option value="11">11</option>
+						
+						<option value="12">12</option>
+						
+						<option value="13">13</option>
+						
+						<option value="14">14</option>
+						
+						<option value="15">15</option>
+						
+						<option value="16">16</option>
+						
+						<option value="17">17</option>
+						
+						<option value="18">18</option>
+						
+						<option value="19">19</option>
+						
+						<option value="20">20</option>
+						
+						<option value="21">21</option>
+						
+						<option value="22">22</option>
+						
+						<option value="23">23</option>
+						
+						<option value="24">24</option>
+						
+						<option value="25">25</option>
+						
+						<option value="26">26</option>
+						
+						<option value="27">27</option>
+						
+						<option value="28">28</option>
+						
+						<option value="29">29</option>
+						
+						<option value="30">30</option>
+						
+						<option value="31">31</option>
+						
+					</select>
+					<font class="size3R">日</font>
+					<br>
+					<font class="size3R">(4)</font>
+					<input type="checkbox" name="CCDATEC_1" onclick="CCDATEC1_C();">
+					<font class="size3R">其他;說明</font>
+					<input type="text" name="CCDATC" onblur="SPELL_PUR()" value="" style=" color: Blue; FONT-STYLE: normal; FONT-VARIANT: normal; FONT-WEIGHT: normal; LINE-HEIGHT:normal; WIDTH: 150px" disabled="">
+					<input type="hidden" name="NDAYS" onblur="SPELL_PUR()" value="" style=" color: Blue; FONT-STYLE: normal; FONT-VARIANT: normal; FONT-WEIGHT: normal; LINE-HEIGHT:normal; WIDTH: 50px;align=right">
+					<font class="size3R">(例:簽約後5日內，限填10個中文字)</font>
+					
+					<script language="javascript">
+                        function RCDAT1_C() {
+                            if (FORM6.RCDAT.value == "") {
+                                FORM6.RCDAT_1.checked = true;
+                                FORM6.RCDAT.value = FORM6.RCDAT_Y.value + FORM6.RCDAT_M.value + FORM6.RCDAT_D.value;
+                                FORM6.RCDAT_Y.disabled = false;
+                                FORM6.RCDAT_M.disabled = false;
+                                FORM6.RCDAT_D.disabled = false;
+                                //隱藏其他的
+                                FORM6.PMNDAYS_1.checked = false;
+                                FORM6.PMNDAYS.value = "";
+                                FORM6.PMNDAYS.disabled = true;
+                                FORM6.RCDATB.value = "";
+                                FORM6.RCDATB_1.checked = false;
+                                FORM6.RCDATB_Y.disabled = true;
+                                FORM6.RCDATB_M.disabled = true;
+                                FORM6.RCDATB_D.disabled = true;
+                                FORM6.RCDATE.value = "";
+                                FORM6.RCDATE_Y.disabled = true;
+                                FORM6.RCDATE_M.disabled = true;
+                                FORM6.RCDATE_D.disabled = true;
+                                FORM6.CCDATEC_1.checked = false;
+                                FORM6.CCDATC.value = "";
+                                FORM6.CCDATC.disabled = true;
+                            }
+                            else {
+                                FORM6.RCDAT_1.checked = false;
+                                FORM6.RCDAT.value = "";
+                                FORM6.RCDAT_Y.disabled = true;
+                                FORM6.RCDAT_M.disabled = true;
+                                FORM6.RCDAT_D.disabled = true;
+                                //
+                            }
+                        }
+					</script>
+					
+					<script language="javascript">
+                        function PMNDAYS1_C() {
+                            if (FORM6.PMNDAYS.value == "") {
+                                FORM6.PMNDAYS.disabled = false;
+                                //隱藏其他的
+                                FORM6.RCDAT.value = "";
+                                FORM6.RCDAT_1.checked = false;
+                                FORM6.RCDAT_Y.disabled = true;
+                                FORM6.RCDAT_M.disabled = true;
+                                FORM6.RCDAT_D.disabled = true;
+                                FORM6.RCDATB.value = "";
+                                FORM6.RCDATB_1.checked = false;
+                                FORM6.RCDATB_Y.disabled = true;
+                                FORM6.RCDATB_M.disabled = true;
+                                FORM6.RCDATB_D.disabled = true;
+                                FORM6.RCDATE.value = "";
+                                FORM6.RCDATE_Y.disabled = true;
+                                FORM6.RCDATE_M.disabled = true;
+                                FORM6.RCDATE_D.disabled = true;
+                                FORM6.CCDATEC_1.checked = false;
+                                FORM6.CCDATC.value = "";
+                                FORM6.CCDATC.disabled = true;
+                            }
+                            else {
+                                FORM6.PMNDAYS.disabled = true;
+                                FORM6.PMNDAYS.value = "";
+                            }
+                        }
+					</script>
+					
+					<script language="javascript">
+                        function RCDATB1_C() {
+                            if (FORM6.RCDATB.value == "") {
+                                FORM6.RCDATB_1.checked = true;
+                                FORM6.RCDATB.value = FORM6.RCDATB_Y.value + FORM6.RCDATB_M.value + FORM6.RCDATB_D.value;
+                                FORM6.RCDATB_Y.disabled = false;
+                                FORM6.RCDATB_M.disabled = false;
+                                FORM6.RCDATB_D.disabled = false;
+                                FORM6.RCDATE_Y.disabled = false;
+                                FORM6.RCDATE_M.disabled = false;
+                                FORM6.RCDATE_D.disabled = false;
+                                //隱藏其他的
+                                FORM6.RCDAT.value = "";
+                                FORM6.RCDAT_1.checked = false;
+                                FORM6.RCDAT_Y.disabled = true;
+                                FORM6.RCDAT_M.disabled = true;
+                                FORM6.RCDAT_D.disabled = true;
+                                FORM6.PMNDAYS_1.checked = false;
+                                FORM6.PMNDAYS.value = "";
+                                FORM6.PMNDAYS.disabled = true;
+                                FORM6.CCDATEC_1.checked = false;
+                                FORM6.CCDATC.value = "";
+                                FORM6.CCDATC.disabled = true;
+                            }
+                            else {
+                                FORM6.RCDATB_1.checked = false;
+                                FORM6.RCDATB.value = "";
+                                FORM6.RCDATB_Y.disabled = true;
+                                FORM6.RCDATB_M.disabled = true;
+                                FORM6.RCDATB_D.disabled = true;
+                                FORM6.RCDATE.value = "";
+                                FORM6.RCDATE_Y.disabled = true;
+                                FORM6.RCDATE_M.disabled = true;
+                                FORM6.RCDATE_D.disabled = true;
+
+                            }
+                        }
+					</script>
+					
+					<script language="javascript">
+                        function CCDATEC1_C() {
+                            if (FORM6.CCDATC.value == "") {
+                                FORM6.CCDATC.disabled = false;
+                                //隱藏其他的
+                                FORM6.RCDAT.value = "";
+                                FORM6.RCDAT_1.checked = false;
+                                FORM6.RCDAT_Y.disabled = true;
+                                FORM6.RCDAT_M.disabled = true;
+                                FORM6.RCDAT_D.disabled = true;
+                                FORM6.PMNDAYS_1.checked = false;
+                                FORM6.PMNDAYS.value = "";
+                                FORM6.PMNDAYS.disabled = true;
+                                FORM6.RCDATB.value = "";
+                                FORM6.RCDATB_1.checked = false;
+                                FORM6.RCDATB_Y.disabled = true;
+                                FORM6.RCDATB_M.disabled = true;
+                                FORM6.RCDATB_D.disabled = true;
+                                FORM6.RCDATE.value = "";
+                                FORM6.RCDATE_Y.disabled = true;
+                                FORM6.RCDATE_M.disabled = true;
+                                FORM6.RCDATE_D.disabled = true;
+                            }
+                            else {
+                                FORM6.CCDATC.disabled = true;
+                                FORM6.CCDATC.value = "";
+                            }
+                        }
+					</script>
+				</td>
+			</tr>
+	</tbody></table>
+	</div>
+	<div id="交貨或放置地點">
+	<table border="0" bgcolor="#F0F0F0" width="900" cellpadding="0" cellspacing="0" style="table-layout:fixed;border-collapse: collapse" background="../APS_IMG_Q/PCG/BC01.gif"> 
+		<colgroup><col width="200"><col width="620"><col width="40"><col width="40">
+			</colgroup><tbody><tr>
+				<td class="st1" align="right"> 
+					<font class="size3DB">交貨或放置地點：</font>
+				</td>
+				<td class="st1" align="left" colspan="3">
+				<input type="text" name="PP37T1" onblur="SPELL_PUR()" value="" maxlength="50" style=" color: Blue; FONT-STYLE: normal; FONT-VARIANT: normal; FONT-WEIGHT: normal; LINE-HEIGHT:normal; WIDTH: 350px;">
+				<font color="red" size="-1">(限填50個中文字)</font>
+				</td>
+			</tr>
+	</tbody></table>
+	</div>
+	<div id="外購案運送方式">
+	<table border="0" bgcolor="#F0F0F0" width="900" cellpadding="0" cellspacing="0" style="table-layout:fixed;border-collapse: collapse" background="../APS_IMG_Q/PCG/BC01.gif">
+		<colgroup><col width="200"><col width="620"><col width="40"><col width="40">
+			</colgroup><tbody><tr>
+				<td class="st1" align="right"> 
+					<font class="size3DB">國外採購案運送方式：</font>
+				</td>
+				<td class="st1" align="left" colspan="3">
+				<font class="size3R">
+					<input type="hidden" name="TRANS" value="">
+					<input type="checkbox" name="TRANS_1" onclick="TRANS1_C();">空運
+					<input type="checkbox" name="TRANS_2" onclick="TRANS2_C();">海運
+					<input type="checkbox" name="TRANS_3" onclick="TRANS3_C();">國際快遞
+					<input type="checkbox" name="TRANS_4" onclick="TRANS4_C();">線上傳輸
+					<input type="checkbox" name="TRANS_9" onclick="TRANS9_C();">其他
+					<input type="text" name="TRANS9_TEXT" value="" onblur="SPELL_PUR();" style=" color: Blue; FONT-STYLE: normal; FONT-VARIANT: normal; FONT-WEIGHT: normal; LINE-HEIGHT:normal; WIDTH: 100px;">
+					</font>
+					<script language="javascript">
+                        function TRANS1_C() {
+                            FORM6.TRANS.value = "1";
+                            FORM6.TRANS_1.checked = true;
+                            FORM6.TRANS_2.checked = false;
+                            FORM6.TRANS_3.checked = false;
+                            FORM6.TRANS_4.checked = false;
+                            FORM6.TRANS_9.checked = false;
+                            SPELL_PUR();
+                        }
+                        function TRANS2_C() {
+                            FORM6.TRANS.value = "2";
+                            FORM6.TRANS_1.checked = false;
+                            FORM6.TRANS_2.checked = true;
+                            FORM6.TRANS_3.checked = false;
+                            FORM6.TRANS_4.checked = false;
+                            FORM6.TRANS_9.checked = false;
+                            SPELL_PUR();
+                        }
+                        function TRANS3_C() {
+                            FORM6.TRANS.value = "3";
+                            FORM6.TRANS_1.checked = false;
+                            FORM6.TRANS_2.checked = false;
+                            FORM6.TRANS_3.checked = true;
+                            FORM6.TRANS_4.checked = false;
+                            FORM6.TRANS_9.checked = false;
+                            SPELL_PUR();
+                        }
+                        function TRANS4_C() {
+                            FORM6.TRANS.value = "4";
+                            FORM6.TRANS_1.checked = false;
+                            FORM6.TRANS_2.checked = false;
+                            FORM6.TRANS_3.checked = false;
+                            FORM6.TRANS_4.checked = true;
+                            FORM6.TRANS_9.checked = false;
+                            SPELL_PUR();
+                        }
+                        function TRANS9_C() {
+                            FORM6.TRANS.value = "9";
+                            FORM6.TRANS_1.checked = false;
+                            FORM6.TRANS_2.checked = false;
+                            FORM6.TRANS_3.checked = false;
+                            FORM6.TRANS_4.checked = false;
+                            FORM6.TRANS_9.checked = true;
+                            SPELL_PUR();
+                        }
+					</script>
+				</td>
+			</tr>
+	</tbody></table>
+	</div>
+	<div id="保固年限">
+	<table border="0" bgcolor="#F0F0F0" width="900" cellpadding="0" cellspacing="0" style="table-layout:fixed;border-collapse: collapse" background="../APS_IMG_Q/PCG/BC01.gif">
+		<colgroup><col width="200"><col width="620"><col width="40"><col width="40">
+			</colgroup><tbody><tr>
+				<td class="st1" align="right"> 
+					<font class="size3DB">保固年限：</font>
+				</td>
+				<td class="st1" align="left" colspan="3">
+				
+				<select name="PMSMONTH" style=" color: Blue; FONT-STYLE: normal; FONT-VARIANT: normal; FONT-WEIGHT: normal; LINE-HEIGHT:normal; WIDTH: 40px;" onchange="SPELL_PUR();">
+				
+					<option value="0" selected="">0</option>
+				
+					<option value="1">1</option>
+				
+					<option value="2">2</option>
+				
+					<option value="3">3</option>
+				
+					<option value="4">4</option>
+				
+					<option value="5">5</option>
+				
+				</select>
+				<font class="size3R">年</font>
+				</td>
+			</tr>
+	</tbody></table>
+	</div>
+	<div id="增購條款">
+	<table border="0" bgcolor="#F0F0F0" width="900" cellpadding="0" cellspacing="0" style="table-layout:fixed;border-collapse: collapse" background="../APS_IMG_Q/PCG/BC01.gif">
+		<colgroup><col width="200"><col width="620"><col width="40"><col width="40">
+			</colgroup><tbody><tr>
+				<td class="st1" align="right"> 
+					<font class="size3DB">增購條款：</font>
+				</td>
+				<td class="st1" align="left" colspan="3">
+				<input type="checkbox" name="ADDPURYEAR_1" onclick="ADDPURYEAR1_C();" checked="">
+				<font class="size3R">無</font>
+				<input type="text" name="ADDPURYEAR" onblur="SPELL_PUR()" value="" style=" color: Blue; FONT-STYLE: normal; FONT-VARIANT: normal; FONT-WEIGHT: normal; LINE-HEIGHT:normal; WIDTH: 40px;text-align:right">
+				<font class="size3R">年</font>
+				<font class="size3R">;金額</font>
+				<input type="text" name="ADDPURAMT" onblur="SPELL_PUR()" value="" style=" color: Blue; FONT-STYLE: normal; FONT-VARIANT: normal; FONT-WEIGHT: normal; LINE-HEIGHT:normal; WIDTH: 70px;text-align:right">
+				<font class="size3R">或數量</font>
+				<input type="text" name="ADDPURNUM" onblur="SPELL_PUR()" value="" style=" color: Blue; FONT-STYLE: normal; FONT-VARIANT: normal; FONT-WEIGHT: normal; LINE-HEIGHT:normal; WIDTH: 40px;text-align:right">
+				<!--<font class="size3R" >說明:</font>-->
+				<input type="hidden" name="ADDPURCNT" onblur="SPELL_PUR()" value="" style=" color: Blue; FONT-STYLE: normal; FONT-VARIANT: normal; FONT-WEIGHT: normal; LINE-HEIGHT:normal; WIDTH: 200px;text-align:right" disabled="">
+				<font color="red" size="-1">(限填數字)</font>
+				<script language="javascript">
+                    function ADDPURYEAR1_C() {
+                        if (!FORM6.ADDPURYEAR.value == "") {
+                            FORM6.ADDPURYEAR.value = "";
+                            FORM6.ADDPURYEAR.disabled = true;
+                            FORM6.ADDPURAMT.value = "";
+                            FORM6.ADDPURAMT.disabled = true;
+                            FORM6.ADDPURNUM.value = "";
+                            FORM6.ADDPURNUM.disabled = true;
+                        }
+                        else {
+                            FORM6.ADDPURYEAR.disabled = false;
+                            FORM6.ADDPURAMT.disabled = false;
+                            FORM6.ADDPURNUM.disabled = false;
+                        }
+                    }
+				
+                        FORM6.ADDPURYEAR_1.click();
+				
+				</script>
+				<font class="size3DB">
+				<!--<a href="#" onclick='AA=window.open("../QA_Q/QAFRM.asp?KEYSTR=增購條款&APYDO=說明","","top=1,left=1,width=400,height=400,resizable=1" );' title="依據採購法第22條第1項第7款規定原有採購之後續擴充，且已於原招標公告及招標文件敘明擴充之期間、金額或數量者。辦理, 只要在公開招標或公開取得報價單案件之公告及招標文件上註明未來增購權利: 例如:增購項目、增購數量、增購年限、增購金額,以和本次採購標的之內容有關或規格書的內容有提及的項目才可增購。">【說明】</a>-->
+				</font>
+				</td>
+			</tr>
+	</tbody></table>
+	</div>
+	<div id="廠商協商">
+	<table border="0" bgcolor="#F0F0F0" width="900" cellpadding="0" cellspacing="0" style="table-layout:fixed;border-collapse: collapse" background="../APS_IMG_Q/PCG/BC01.gif"> 
+		<colgroup><col width="200"><col width="620"><col width="40"><col width="40">
+			</colgroup><tbody><tr>
+				<td class="st1" align="right"> 
+					<font class="size3DB">是否需對規格等與廠商進行協商：</font>
+				</td>
+				<td class="st1" align="left" colspan="3">
+				    <font class="size3R">
+				    <input type="hidden" name="CONSULT" value="">
+					<input type="checkbox" name="CONSULT_1" onclick="CONSULT1_C();">是
+					<input type="checkbox" name="CONSULT_2" onclick="CONSULT2_C();">否
+					</font>
+					<script language="javascript">
+                        function CONSULT1_C() {
+                            FORM6.CONSULT.value = "1";
+                            FORM6.CONSULT_1.checked = true;
+                            FORM6.CONSULT_2.checked = false;
+                            SPELL_PUR();
+                        }
+                        function CONSULT2_C() {
+                            FORM6.CONSULT.value = "0";
+                            FORM6.CONSULT_1.checked = false;
+                            FORM6.CONSULT_2.checked = true;
+                            SPELL_PUR();
+                        }
+					</script>
+				</td>
+			</tr>
+	</tbody></table>
+	</div>
+	<div id="標的性質">
+	<table border="0" bgcolor="#F0F0F0" width="900" cellpadding="0" cellspacing="0" style="table-layout:fixed;border-collapse: collapse" background="../APS_IMG_Q/PCG/BC01.gif"> 
+		<colgroup><col width="200"><col width="620"><col width="40"><col width="40">
+			</colgroup><tbody><tr>
+				<td class="st1" align="right"> 
+					<font class="size3DB">請購標的之性質種類：</font>
+				</td>		   	
+				<td class="st1" align="left" colspan="3">
+				<input type="hidden" name="STYPE" value="">
+				<font class="size3R">
+					<input type="checkbox" name="STYPE_1" onclick="STYPE1_C();" title="說明:請依實際狀況勾選">研究發展計畫
+					<input type="checkbox" name="STYPE_2" onclick="STYPE2_C();" title="說明:請依實際狀況勾選">科研儀器設備
+					<input type="checkbox" name="STYPE_3" onclick="STYPE3_C();" title="說明:請依實際狀況勾選">研究設施
+				</font>
+				<script language="javascript">
+                    function STYPE1_C() {
+                        FORM6.STYPE.value = "1";
+                        FORM6.STYPE_1.checked = true;
+                        FORM6.STYPE_2.checked = false;
+                        FORM6.STYPE_3.checked = false;
+                        SPELL_PUR();
+                    }
+                    function STYPE2_C() {
+                        FORM6.STYPE.value = "2";
+                        FORM6.STYPE_1.checked = false;
+                        FORM6.STYPE_2.checked = true;
+                        FORM6.STYPE_3.checked = false;
+                        SPELL_PUR();
+                    }
+                    function STYPE3_C() {
+                        FORM6.STYPE.value = "3";
+                        FORM6.STYPE_1.checked = false;
+                        FORM6.STYPE_2.checked = false;
+                        FORM6.STYPE_3.checked = true;
+                        SPELL_PUR();
+                    }
+				</script>
+				</td>
+			</tr>
+	</tbody></table>
+	
+	</div>
+	<script language="javascript">
+	
+	</script>
+	
+	<div id="相關附件">
+	<table border="0" bgcolor="#F0F0F0" width="900" cellpadding="0" cellspacing="0" style="table-layout:fixed;border-collapse: collapse" background="../APS_IMG_Q/PCG/BC01.gif"> 
+		<colgroup><col width="200"><col width="620"><col width="40"><col width="40">
+		   </colgroup><tbody><tr>
+				<td class="st1" align="right"> 
+					<font class="size3DB">相關附件：</font><br>
+					<font class="size3DR">
+					</font>
+				</td>
+				<td class="st1" align="left" colspan="3">				
+					
+					
+					<input type="hidden" name="ACHK9" value="1">
+					
+						<input type="hidden" name="ACHK_9">
+					
+					<script language="javascript">
+                        function ACHK9_C() {
+                            if (FORM6.ACHK9.value == "1") {
+                                FORM6.ACHK_9.checked = true;
+                                alert("此附件為必要資料!!!");
+                                SPELL_PUR();
+                            }
+                        }
+					</script>
+					
+					<input type="hidden" name="ACHK6" value="">
+					
+						<input type="hidden" name="ACHK_6">
+					
+					<script language="javascript">
+                        function ACHK6_C() {
+                            if (FORM6.ACHK6.value == "1") {
+                                FORM6.ACHK_6.checked = false;
+                                FORM6.ACHK6.value = "";
+                                SPELL_PUR();
+                            }
+                            else {
+                                FORM6.ACHK_6.checked = true;
+                                FORM6.ACHK6.value = "1";
+                                SPELL_PUR();
+                            }
+                        }
+					</script>
+					
+					<input type="hidden" name="ACHK7" value="">
+					
+						<input type="hidden" name="ACHK_7" onclick="ACHK7_C();">
+					
+					<script language="javascript">
+                        function ACHK7_C() {
+                            if (FORM6.ACHK7.value == "1") {
+                                FORM6.ACHK_7.checked = false;
+                                FORM6.ACHK7.value = "";
+                                SPELL_PUR();
+                            }
+                            else {
+                                FORM6.ACHK_7.checked = true;
+                                FORM6.ACHK7.value = "1";
+                                SPELL_PUR();
+                            }
+                        }
+					</script>
+					
+					<input type="hidden" name="ACHK8" value="">
+					
+						<input type="hidden" name="ACHK_8" onclick="ACHK8_C();">
+					
+					<script language="javascript">
+                        function ACHK8_C() {
+                            if (FORM6.ACHK8.value == "1") {
+                                FORM6.ACHK_8.checked = false;
+                                FORM6.ACHK8.value = "";
+                                SPELL_PUR();
+                            }
+                            else {
+                                FORM6.ACHK_8.checked = true;
+                                FORM6.ACHK8.value = "1";
+                                SPELL_PUR();
+                            }
+                        }
+					</script>
+					
+					<input type="hidden" name="ACHK10" value="">
+					
+						<input type="hidden" name="ACHK_10" onclick="ACHK10_C();">
+					
+					<script language="javascript">
+                        function ACHK10_C() {
+                            if (FORM6.ACHK10.value == "1") {
+                                FORM6.ACHK_10.checked = false;
+                                FORM6.ACHK10.value = "";
+                                SPELL_PUR();
+                            }
+                            else {
+                                FORM6.ACHK_10.checked = true;
+                                FORM6.ACHK10.value = "1";
+                                SPELL_PUR();
+                            }
+                        }
+					</script>
+					
+					<input type="hidden" name="ACHK1FN" value="" style=" color: Blue; FONT-STYLE: normal; FONT-VARIANT: normal; FONT-WEIGHT: normal; LINE-HEIGHT:normal; WIDTH:300px; height: 25px" disabled="">
+					<input type="hidden" name="ACHK1" value="">
+					
+						<input type="hidden" name="ACHK_1" onclick="ACHK1_C();">
+					
+					<script language="javascript">
+                        function ACHK1_C() {
+                            if (FORM6.ACHK1.value == "1") {
+                                FORM6.ACHK_1.checked = false;
+                                FORM6.ACHK1.value = "";
+                                FORM6.ACHK1FN.disabled = true;
+                                SPELL_PUR();
+                            }
+                            else {
+                                FORM6.ACHK_1.checked = true;
+                                FORM6.ACHK1.value = "1";
+                                FORM6.ACHK1FN.disabled = false;
+                                SPELL_PUR();
+                            }
+                        }
+						
+                            FORM6.ACHK1FN.disabled=true;
+						
+					</script>					
+					
+					<input type="hidden" name="ACHK2FN" value="" style=" color: Blue; FONT-STYLE: normal; FONT-VARIANT: normal; FONT-WEIGHT: normal; LINE-HEIGHT:normal; WIDTH: 300px; height: 25px">
+					<input type="hidden" name="ACHK2" value="">
+					
+						<input type="hidden" name="ACHK_2" onclick="ACHK2_C();">
+										
+					<script language="javascript">
+                        function ACHK2_C() {
+                            if (FORM6.ACHK2.value == "1") {
+                                FORM6.ACHK_2.checked = false;
+                                FORM6.ACHK2.value = "";
+                                FORM6.ACHK2FN.disabled = true;
+                                SPELL_PUR();
+                            }
+                            else {
+                                FORM6.ACHK_2.checked = true;
+                                FORM6.ACHK2.value = "1";
+                                FORM6.ACHK2FN.disabled = false;
+                                SPELL_PUR();
+                            }
+                        }
+					</script>
+					
+					<input type="hidden" name="ACHK5" value="">
+					
+					<input type="hidden" name="ACHK_5" onclick="ACHK5_C();">
+					
+					<script language="javascript">
+                        function ACHK5_C() {
+                            if (FORM6.ACHK5.value == "1") {
+                                FORM6.ACHK_5.checked = false;
+                                FORM6.ACHK5.value = "";
+                                SPELL_PUR();
+                            }
+                            else {
+                                FORM6.ACHK_5.checked = true;
+                                FORM6.ACHK5.value = "1";
+                                SPELL_PUR();
+                            }
+                        }
+					</script>
+					
+					<input type="hidden" name="ACHK3FN" value="" style=" color: Blue; FONT-STYLE: normal; FONT-VARIANT: normal; FONT-WEIGHT: normal; LINE-HEIGHT:normal; WIDTH: 300px; height: 25px">
+					<input type="hidden" name="ACHK3" value="">
+					
+						<input type="hidden" name="ACHK_3" onclick="ACHK3_C();">
+					
+					<script language="javascript">
+                        function ACHK3_C() {
+                            if (FORM6.ACHK3.value == "1") {
+                                FORM6.ACHK_3.checked = false;
+                                FORM6.ACHK3.value = "";
+                                FORM6.ACHK3FN.disabled = true;
+                                SPELL_PUR();
+                            }
+                            else {
+                                FORM6.ACHK_3.checked = true;
+                                FORM6.ACHK3.value = "1";
+                                FORM6.ACHK3FN.disabled = false;
+                                SPELL_PUR();
+                            }
+                        }
+					</script>
+					
+					<input type="hidden" name="ACHK11" value="">
+					
+						<input type="hidden" name="ACHK_11" onclick="ACHK11_C();">
+					
+					<script language="javascript">
+                        function ACHK11_C() {
+                            if (FORM6.ACHK11.value == "1") {
+                                FORM6.ACHK_11.checked = false;
+                                FORM6.ACHK11.value = "";
+                                SPELL_PUR();
+                            }
+                            else {
+                                FORM6.ACHK_11.checked = true;
+                                FORM6.ACHK11.value = "1";
+                                SPELL_PUR();
+                            }
+                        }
+					</script>
+					
+					<input type="hidden" name="ACHK4" value="">
+					<input type="checkbox" name="ACHK_4" onclick="ACHK4_C();">
+					<font class="size3R">其他
+					<input type="text" name="ACHK4_TEXT" value="" onblur="SPELL_PUR();" style=" color: Blue; FONT-STYLE: normal; FONT-VARIANT: normal; FONT-WEIGHT: normal; LINE-HEIGHT:normal; WIDTH: 100px;">
+					
+					<!--<a href="#" onclick='AA=window.open("../QA_Q/QAFRM.asp?KEYSTR=其他&APYDO=表格","","top=1,left=1,width=400,height=400,resizable=1");'>【下載表單】</a>
+					<a href="#" onclick='AA=window.open("../QA_Q/QAFRM.asp?KEYSTR=其他&APYDO=說明","","top=1,left=1,width=400,height=400,resizable=1");'>【說明】</a>-->
+					
+					</font><br>
+					<script language="javascript">
+                        function ACHK4_C() {
+                            if (FORM6.ACHK4.value == "1") {
+                                FORM6.ACHK_4.checked = false;
+                                FORM6.ACHK4.value = "";
+                                SPELL_PUR();
+                            }
+                            else {
+                                FORM6.ACHK_4.checked = true;
+                                FORM6.ACHK4.value = "1";
+                                SPELL_PUR();
+                            }
+                        }
+					</script>
+					<script language="javascript">
+                        function POFFICE1_C() {
+                            FORM6.POFFICE.value = "1";
+                            FORM6.POFFICE_1.checked = true;
+                            FORM6.POFFICE_2.checked = false;
+                            //ACHK6
+                            FORM6.ACHK_6.disabled = false;
+                            //ACHK7
+                            FORM6.ACHK_7.disabled = false;
+                            //CTYPE_1
+                            FORM6.CTYPE_1.disabled = true;
+                            FORM6.CTYPE_1.checked = false;
+                            //RPUR_1
+                            FORM6.RPUR_1.disabled = true;
+                            FORM6.RPUR_1.checked = false;
+                            //CPUR_1
+                            FORM6.CPUR_1.disabled = true;
+                            FORM6.CPUR_1.checked = false;
+                            //UPUR_1
+                            FORM6.UPUR_1.disabled = true;
+                            FORM6.UPUR_1.checked = false;
+                            //GPUR_1
+                            FORM6.GPUR_1.disabled = true;
+                            FORM6.GPUR_1.checked = false;
+                            SPELL_PUR();
+                        }
+                        function POFFICE2_C() {
+                            FORM6.POFFICE.value = "2";
+                            FORM6.POFFICE_1.checked = false;
+                            FORM6.POFFICE_2.checked = true;
+                            SPELL_PUR();
+                            //ACHK6
+                            FORM6.ACHK_6.disabled = true;
+                            FORM6.ACHK_6.checked = false;
+                            //ACHK7
+                            FORM6.ACHK_7.disabled = true;
+                            FORM6.ACHK_7.checked = false;
+                            //CTYPE_1
+                            FORM6.CTYPE_1.disabled = false;
+                            //RPUR_1
+                            FORM6.RPUR_1.disabled = false;
+                            //CPUR_1
+                            FORM6.CPUR_1.disabled = false;
+                            //UPUR_1
+                            FORM6.UPUR_1.disabled = false;
+                            //GPUR_1
+                            FORM6.GPUR_1.disabled = false;
+                            SPELL_PUR();
+                        }
+				</script>
+				<input type="button" value="電子郵件" name="EMAIL" onclick="EMAIL_C();" style=" color: Blue; FONT-STYLE: normal; FONT-VARIANT: normal; FONT-WEIGHT: normal; LINE-HEIGHT:normal; WIDTH:100px;height:25px;padding-top:2px;padding-bottom:2px;">
+				<script language="javascript">
+                    function EMAIL_C() {
+                        AA = FORM6.CONTENT.value;
+                        BB = "";
+                        if (FORM6.ACHK6.value == "1") { BB = BB + "15萬元以下處理表(財物)"; }
+                        if (FORM6.ACHK7.value == "1") { BB = BB + "15萬元以下處理表(勞務)、"; }
+                        if (FORM6.ACHK1.value == "1") { BB = BB + "規格書、"; }
+                        if (FORM6.ACHK2.value == "1") { BB = BB + "契約書、"; }
+                        if (FORM6.ACHK5.value == "1") { BB = BB + "不利用共同供應契約申請書、"; }
+                        if (FORM6.ACHK8.value == "1") { BB = BB + "估價單、"; }
+                        if (FORM6.ACHK3.value == "1") { BB = BB + "限制性招標申請書、"; }
+                        if (FORM6.ACHK4.value == "1") { BB = BB + "其他、"; }
+                        if (FORM6.ACHK9.value == "1") { BB = BB + "補助或委託契約、"; }
+                        if (FORM6.ACHK10.value == "1") { BB = BB + "小額採購處理表、國外報價單、"; }
+                        if (FORM6.ACHK11.value == "1") { BB = BB + "成立審查小組申請書、評審評分表、"; }
+                        window.open("mailto:buyer@my.nthu.edu.tw?BodyFormat=0&MailFormat=MIME&Subject=採購案標的名稱:" + AA + "之相關附件,如附件&Body=採購管理者您好,這是採購案標的名稱:" + AA + "之附件(" + BB + "),如附件!");
+                    }
+				</script>
+				</td>
+		   </tr>
+	</tbody></table>
+	</div>
+	<div id="建議辦理方式">
+	<table border="0" bgcolor="#F0F0F0" width="900" cellpadding="0" cellspacing="0" style="table-layout:fixed;border-collapse: collapse" background="../APS_IMG_Q/PCG/BC01.gif"> 
+		<colgroup><col width="200"><col width="620"><col width="40"><col width="40">
+		   </colgroup><input type="hidden" name="PTYPE1" value="">
+		   <input type="hidden" name="PTYPE3" value="">
+		   <input type="hidden" name="PTYPE2" value="">
+		   <input type="hidden" name="PTYPE6" value="">
+		   <input type="hidden" name="PTYPE7" value="">
+		   <input type="hidden" name="PTYPE9" value="">		   
+	</table>
+	</div>
+	<div id="請購人資訊">
+	<table border="0" bgcolor="#F0F0F0" width="900" cellpadding="0" cellspacing="0" style="table-layout:fixed;border-collapse: collapse" background="../APS_IMG_Q/PCG/BC01.gif">
+		<colgroup><col width="200"><col width="620"><col width="40"><col width="40">
+		   </colgroup><tbody><tr>
+				<td class="st1" align="right"> 
+					<font class="size3DB">請購人資訊：</font><br>
+				</td>
+				<td class="st1" colspan="3"> 
+					<font class="size3R">人事編號:</font>
+					<input type="text" name="APP_IDNO" onblur="SPELL_PUR();window.open(&quot;JUMP_VENDOR_APP_Q.asp?VENDORID=&quot;+this.value+&quot;&quot;,&quot;&quot;,&quot;left=1,top=0,width=1,height=1,toolbar=0,menubar=0,location=0,directories=0,status=0,resizable=0,scrollbars=0&quot;);" value="" style=" color: Blue; FONT-STYLE: normal; FONT-VARIANT: normal; FONT-WEIGHT: normal; LINE-HEIGHT:normal; WIDTH: 60px">
+					<font class="size3R">姓名:</font>
+					<input type="text" name="APYUSER" onblur="SPELL_PUR()" value="" style=" color: Blue; FONT-STYLE: normal; FONT-VARIANT: normal; FONT-WEIGHT: normal; LINE-HEIGHT:normal; WIDTH: 60px">
+					<input type="hidden" name="APYUSERNO" onblur="SPELL_PUR()" value="" style=" color: Blue; FONT-STYLE: normal; FONT-VARIANT: normal; FONT-WEIGHT: normal; LINE-HEIGHT:normal; WIDTH: 60px">
+					<font class="size3R">單位:</font>
+					
+					<select name="PR_UNIT" style=" color: Blue; FONT-STYLE: normal; FONT-VARIANT: normal; FONT-WEIGHT: normal; LINE-HEIGHT:normal; WIDTH: 140px" onblur="SPELL_PUR();SIGN_UNIT();">
+					<option></option>
+					
+						<option value="000 ">全校性經費                    </option>
+					
+						<option value="001 ">校控經費                      </option>
+					
+						<option value="002 ">暑修經費                      </option>
+					
+						<option value="003 ">其他機關專項補助              </option>
+					
+						<option value="004 ">87學年度流通科獨立招生經費    </option>
+					
+						<option value="005 ">教育部委辦案件                </option>
+					
+						<option value="006 ">電子科技能檢定                </option>
+					
+						<option value="007 ">新校區整地水土保持工程        </option>
+					
+						<option value="008 ">節約措施                      </option>
+					
+						<option value="009 ">保留下年度設備費              </option>
+					
+						<option value="010 ">秘書室                        </option>
+					
+						<option value="011 ">電子館及女舍補照、補強案      </option>
+					
+						<option value="012 ">寒修經費                      </option>
+					
+						<option value="013 ">創辦人暨校友服務辦公室        </option>
+					
+						<option value="014 ">校長室                        </option>
+					
+						<option value="015 ">校友連絡中心                  </option>
+					
+						<option value="016 ">計畫辦公室                    </option>
+					
+						<option value="017 ">校務研究辦公室                </option>
+					
+						<option value="019 ">公共關係室                    </option>
+					
+						<option value="100 ">教務處                        </option>
+					
+						<option value="110 ">招生事務處                    </option>
+					
+						<option value="111 ">健保自付                      </option>
+					
+						<option value="200 ">學生事務處                    </option>
+					
+						<option value="201 ">軍訓室                        </option>
+					
+						<option value="202 ">諮商輔導組                    </option>
+					
+						<option value="300 ">總務處                        </option>
+					
+						<option value="310 ">出納組                        </option>
+					
+						<option value="350 ">總務處營繕組                  </option>
+					
+						<option value="400 ">人事室                        </option>
+					
+						<option value="500 ">主計室                        </option>
+					
+						<option value="610 ">圖書館                        </option>
+					
+						<option value="620 ">電算中心                      </option>
+					
+						<option value="621 ">電算中心一                    </option>
+					
+						<option value="700 ">進修推廣部                    </option>
+					
+						<option value="701 ">進修推廣部                    </option>
+					
+						<option value="710 ">進修部                        </option>
+					
+						<option value="720 ">推廣部                        </option>
+					
+						<option value="800 ">研究發展處                    </option>
+					
+						<option value="810 ">創育中心                      </option>
+					
+						<option value="820 ">國際事務處                    </option>
+					
+						<option value="830 ">語言中心                      </option>
+					
+						<option value="840 ">計畫辦公室                    </option>
+					
+						<option value="850 ">產學營運處                    </option>
+					
+						<option value="860 ">永續與校務研發中心            </option>
+					
+						<option value="870 ">環安中心                      </option>
+					
+						<option value="880 ">藝術中心                      </option>
+					
+						<option value="901 ">機械工程系                    </option>
+					
+						<option value="902 ">電機工程系                    </option>
+					
+						<option value="903 ">冷凍空調與能源系              </option>
+					
+						<option value="904 ">電子工程系                    </option>
+					
+						<option value="905 ">化工與材料工程系              </option>
+					
+						<option value="906 ">工業工程與管理系              </option>
+					
+						<option value="907 ">企業管理系                    </option>
+					
+						<option value="908 ">資訊管理系                    </option>
+					
+						<option value="909 ">行銷與流通管理系              </option>
+					
+						<option value="910 ">進修學院                      </option>
+					
+						<option value="911 ">通識教育中心                  </option>
+					
+						<option value="912 ">景觀系                        </option>
+					
+						<option value="913 ">體育室                        </option>
+					
+						<option value="914 ">基礎通識教育中心              </option>
+					
+						<option value="915 ">博雅通識教育中心              </option>
+					
+						<option value="916 ">89學年度寒修經費              </option>
+					
+						<option value="917 ">90學年度寒修經費(91年度)      </option>
+					
+						<option value="918 ">流通科技管理研究所            </option>
+					
+						<option value="919 ">資訊與電能科技研究所          </option>
+					
+						<option value="920 ">材料與化工研究所              </option>
+					
+						<option value="921 ">生產系統工程與管理研究所      </option>
+					
+						<option value="922 ">冷凍空調與能源科技研究所      </option>
+					
+						<option value="923 ">企業管理研究所                </option>
+					
+						<option value="924 ">應用英語系                    </option>
+					
+						<option value="925 ">健康產業科技研發與管理系      </option>
+					
+						<option value="926 ">精密機械與製造科技研究所      </option>
+					
+						<option value="927 ">自動化工程系                  </option>
+					
+						<option value="928 ">電機工程所                    </option>
+					
+						<option value="930 ">產業科技研究總中心            </option>
+					
+						<option value="931 ">資訊工程系                    </option>
+					
+						<option value="932 ">人文學院                      </option>
+					
+						<option value="933 ">工程學院                      </option>
+					
+						<option value="934 ">電資學院                      </option>
+					
+						<option value="935 ">管理學院                      </option>
+					
+						<option value="936 ">通識教育學院                  </option>
+					
+						<option value="938 ">技術研發中心                  </option>
+					
+						<option value="939 ">諮商輔導中心                  </option>
+					
+						<option value="940 ">文化創意事業系                </option>
+					
+						<option value="941 ">研發科技與資訊管理研究所      </option>
+					
+						<option value="942 ">精密製造科技研究所(博士班)    </option>
+					
+						<option value="943 ">專案管理研究所                </option>
+					
+						<option value="944 ">前瞻電資科技研究所            </option>
+					
+						<option value="945 ">智慧自動化工程系              </option>
+					
+						<option value="946 ">人工智慧應用工程系            </option>
+					
+						<option value="947 ">智慧製造與資訊應用碩士學位學程</option>
+					
+					</select>
+					<script language="javascript">
+                        function SIGN_UNIT() {
+                            FORM6.APYUNITNO.value = FORM6.PR_UNIT.value;
+                            SPELL_PUR();
+                            //alert(FORM6.APYUNITNO.value);
+                        }
+					</script>
+					<input type="hidden" name="APYUNIT" onblur="SPELL_PUR()" value="" style=" color: Blue; FONT-STYLE: normal; FONT-VARIANT: normal; FONT-WEIGHT: normal; LINE-HEIGHT:normal; WIDTH: 60px">
+					<input type="hidden" name="APYUNITNO" value="">
+					
+					<font class="size3R">職稱:</font>
+					<input type="text" name="APP_WK" onblur="SPELL_PUR()" value="" style=" color: Blue; FONT-STYLE: normal; FONT-VARIANT: normal; FONT-WEIGHT: normal; LINE-HEIGHT:normal; WIDTH: 90px">
+					<br>
+					<font class="size3R">分機或手機:(限20個阿拉伯數字)</font>
+					<input maxlength="20" type="text" name="APYUSERT" onblur="SPELL_PUR()" value="" style=" color: Blue; FONT-STYLE: normal; FONT-VARIANT: normal; FONT-WEIGHT: normal; LINE-HEIGHT:normal; WIDTH: 130px">
+					<font class="size3R">申請人Email:</font>
+					<input type="text" name="APYUSEREM" onblur="SPELL_PUR()" value="" style=" color: Blue; FONT-STYLE: normal; FONT-VARIANT: normal; FONT-WEIGHT: normal; LINE-HEIGHT:normal; WIDTH:200px">
+				</td>
+			</tr>
+	</tbody></table>
+	</div>
+	<div id="連絡人資訊">
+	<table border="0" bgcolor="#F0F0F0" width="900" cellpadding="0" cellspacing="0" style="table-layout:fixed;border-collapse: collapse" background="../APS_IMG_Q/PCG/BC01.gif">
+		<colgroup><col width="200"><col width="620"><col width="40"><col width="40">
+			</colgroup><tbody><tr>
+				<td class="st1" align="right"> 
+					<font class="size3DB">連絡人資訊：</font><br>
+				</td>
+				<td class="st1" colspan="3">
+					<font class="size3R">
+					(<input type="checkbox" name="CTUSER_1" onclick="CTUSER1_C();">同上)
+					</font>
+					<font class="size3R">學號或人事編號:</font>
+					<input type="text" name="CTUSERNO" onblur="SPELL_PUR();window.open(&quot;JUMP_VENDOR_APP_Q.asp?CTUSERNO=&quot;+this.value+&quot;&quot;,&quot;&quot;,&quot;left=1,top=0,width=1,height=1,toolbar=0,menubar=0,location=0,directories=0,status=0,resizable=0,scrollbars=0&quot;);" value="" style=" color: Blue; FONT-STYLE: normal; FONT-VARIANT: normal; FONT-WEIGHT: normal; LINE-HEIGHT:normal; WIDTH: 60px">
+					<font class="size3R">姓名:</font>
+					<input type="text" name="CTUSER" onblur="SPELL_PUR()" value="" style=" color: Blue; FONT-STYLE: normal; FONT-VARIANT: normal; FONT-WEIGHT: normal; LINE-HEIGHT:normal; WIDTH: 60px">
+					<br>
+					<font class="size3R">分機或手機:(限20個阿拉伯數字)</font>
+					<input maxlength="20" type="text" name="CTUSERT" onblur="SPELL_PUR()" value="" style=" color: Blue; FONT-STYLE: normal; FONT-VARIANT: normal; FONT-WEIGHT: normal; LINE-HEIGHT:normal; WIDTH: 130px">
+					<font class="size3R">聯絡人Email:</font>
+					<input type="text" name="CTUSEREM" onblur="SPELL_PUR()" value="" style=" color: Blue; FONT-STYLE: normal; FONT-VARIANT: normal; FONT-WEIGHT: normal; LINE-HEIGHT:normal; WIDTH: 200px">
+					<script language="javascript">
+                        function CTUSER1_C() {
+                            FORM6.CTUSER.value = FORM6.APYUSER.value;
+                            FORM6.CTUSERNO.value = FORM6.APYUSERNO.value;
+                            FORM6.CTUSERT.value = FORM6.APYUSERT.value;
+                            FORM6.CTUSEREM.value = FORM6.APYUSEREM.value;
+                            SPELL_PUR();
+                        }
+					</script>
+				</td>
+			</tr>
+	</tbody></table>
+	</div>
+	<input type="hidden" value="作成範本" name="SAVE_SAMPLE" style=" color: Blue; FONT-STYLE: normal; FONT-VARIANT: normal; FONT-WEIGHT: normal; LINE-HEIGHT:normal; WIDTH: 100px;height:25px;padding-top:1px;padding-bottom:1px;">
+	<script language="javascript">
+        function FORM6.SAVE_SAMPLE.onclick()
+        {
+            window.open("../QA_Q/SAVE_PUR_SAMPLE.asp?QA_ID=&SAMPLE_STR=" + FORM1.PRODUCT_1.value + "");
+        }
+	</script>
+	<script language="javascript">
+        function SPELL_PUR() {
+            if (isNaN(FORM6.ADDPURYEAR.value)) {
+                alert("請輸入數字");
+                FORM6.ADDPURYEAR.value = 0;
+            }
+            if (isNaN(FORM6.ADDPURAMT.value)) {
+                alert("請輸入數字");
+                FORM6.ADDPURAMT.value = 0;
+            }
+            if (isNaN(FORM6.ADDPURNUM.value)) {
+                alert("請輸入數字");
+                FORM6.ADDPURNUM.value = 0;
+            }
+
+            if (isNaN(FORM6.PUR_AMOUNT.value)) {
+                FORM6.PUR_AMOUNT.value = 0;
+            }
+            else {
+                FORM1.AMOUNT_1.value = FORM6.PUR_AMOUNT.value;
+                //ACHK1FN=FORM6.ACHK1FN.value;
+                ACHK1FN = "";
+                //迴圈替換"\"成為"§"
+                FILELEN = FORM6.ACHK1FN.value.length;
+                for (i = 0; i < FILELEN; i++) {
+                    //alert(FORM6.ACHK1FN.value.substr(i,1));
+                    //alert(FORM6.ACHK1FN.value.substr(2,1));//代表"\"
+                    if (FORM6.ACHK1FN.value.substr(i, 1) == FORM6.ACHK1FN.value.substr(2, 1)) {
+                        ACHK1FN = ACHK1FN + "§";
+                    }
+                    else {
+                        ACHK1FN = ACHK1FN + FORM6.ACHK1FN.value.substr(i, 1);
+                    }
+                }
+                //alert(ACHK1FN);
+                //ACHK2FN=FORM6.ACHK2FN.value;
+                ACHK2FN = "";
+                //迴圈替換"\"成為"§"
+                FILELEN = FORM6.ACHK2FN.value.length;
+                for (i = 0; i < FILELEN; i++) {
+                    if (FORM6.ACHK2FN.value.substr(i, 1) == FORM6.ACHK2FN.value.substr(2, 1)) {
+                        ACHK2FN = ACHK2FN + "§";
+                    }
+                    else {
+                        ACHK2FN = ACHK2FN + FORM6.ACHK2FN.value.substr(i, 1);
+                    }
+                }
+
+                //ACHK3FN=FORM6.ACHK3FN.value;
+                ACHK3FN = "";
+                //迴圈替換"\"成為"§"
+                FILELEN = FORM6.ACHK3FN.value.length;
+                for (i = 0; i < FILELEN; i++) {
+                    if (FORM6.ACHK3FN.value.substr(i, 1) == FORM6.ACHK3FN.value.substr(2, 1)) {
+                        ACHK3FN = ACHK3FN + "§";
+                    }
+                    else {
+                        ACHK3FN = ACHK3FN + FORM6.ACHK3FN.value.substr(i, 1);
+                    }
+                }
+                //迴圈替換"@"成為"€"
+                APYUSEREM = ""
+                MAILLEN = FORM6.APYUSEREM.value.length;
+                for (i = 0; i < MAILLEN; i++) {
+                    if (FORM6.APYUSEREM.value.substr(i, 1) == "@") {
+                        APYUSEREM = APYUSEREM + "€";
+                    }
+                    else {
+                        APYUSEREM = APYUSEREM + FORM6.APYUSEREM.value.substr(i, 1);
+                    }
+                }
+                //迴圈替換"@"成為"€"
+                CTUSEREM = ""
+                MAILLEN = FORM6.CTUSEREM.value.length;
+                for (i = 0; i < MAILLEN; i++) {
+                    if (FORM6.CTUSEREM.value.substr(i, 1) == "@") {
+                        CTUSEREM = CTUSEREM + "€";
+                    }
+                    else {
+                        CTUSEREM = CTUSEREM + FORM6.CTUSEREM.value.substr(i, 1);
+                    }
+                }
+
+                FORM1.PRODUCT_1.value = "採購單○" + FORM6.POFFICE.value + "○" + FORM6.PUR_NUMBER.value + "○" + FORM6.PUR_AMOUNT.value + "○" + FORM6.CTYPE.value + "○" + FORM6.LTYPE.value + "○" + FORM6.OTYPE.value + "○" + FORM6.CPUR.value + "○" + FORM6.RPUR.value + "○" + FORM6.SPUR.value + "○" + FORM6.UTYPE.value + "○" + FORM6.RCDAT.value + "○" + FORM6.CCDATC.value + "○" + FORM6.NDAYS.value + "○" + FORM6.RCDATB.value + "○" + FORM6.RCDATE.value + "○" + FORM6.PMNDAYS.value + "○" + FORM6.PP37T1.value + "○" + FORM6.TRANS.value + "○" + FORM6.PMSMONTH.value + "○" + FORM6.ADDPURYEAR.value + "○" + FORM6.ADDPURAMT.value + "○" + FORM6.ADDPURNUM.value + "○" + FORM6.ADDPURCNT.value + "○" + FORM6.ACHK1.value + "○" + ACHK1FN + "○" + FORM6.ACHK2.value + "○" + ACHK2FN + "○" + FORM6.ACHK3.value + "○" + FORM6.ACHK3FN.value + "○" + FORM6.APYUSER.value + "○" + FORM6.APYUSERNO.value + "○" + FORM6.APYUNIT.value + "○" + FORM6.APYUNITNO.value + "○" + FORM6.APP_WK.value + "○" + FORM6.APP_IDNO.value + "○" + FORM6.APYUSERT.value + "○" + APYUSEREM + "○" + FORM6.CTUSER.value + "○" + FORM6.CTUSERNO.value + "○" + FORM6.CTUSERT.value + "○" + CTUSEREM + "○" + FORM6.CONTENT.value + "○" + FORM6.ACHK4.value + "○" + FORM6.ACHK5.value + "○" + FORM6.ACHK6.value + "○" + FORM6.ACHK7.value + "○" + FORM6.ACHK8.value + "○" + FORM6.GPUR.value + "○" + FORM6.UPUR.value + "○" + FORM6.ACHK4_TEXT.value + "○" + FORM6.TRANS9_TEXT.value + "○" + FORM6.CONSULT.value + "○" + FORM6.STYPE.value + "○" + FORM6.ACHK9.value + "○" + FORM6.ACHK10.value + "○" + FORM6.ACHK11.value;
+                //alert(FORM1.PRODUCT_1.value);
+            }
+        }
+	
+	</script>
+</form>
+</td></tr>
+</tbody></table>
+</div>
+<!----採購申請單編輯--清大範本------------------------------------------------------->
+<script language="javascript">
+        //控制顯示之請購類別
+        function VIEW_PRODUCT() {
+            document.all("PRODUCT").style.display = "";
+            document.all("TOGAPP").style.display = "none";
+            document.all("TOGVOU").style.display = "none";
+            document.all("SAM").style.display = "none";
+            document.all("PAPER").style.display = "none";
+            document.all("PRESS").style.display = "none";
+            document.all("NTHU_PUR").style.display = "none";
+        } 
+	function TOG_APP() {
+            document.all("PRODUCT").style.display = "none";
+            document.all("TOGAPP").style.display = "";
+            document.all("TOGVOU").style.display = "none";
+            document.all("SAM").style.display = "none";
+            document.all("PAPER").style.display = "none";
+            document.all("PRESS").style.display = "none";
+            document.all("NTHU_PUR").style.display = "none";
+        }
+    function TOG_VOU() {
+        document.all("PRODUCT").style.display = "none";
+        document.all("TOGAPP").style.display = "none";
+        document.all("TOGVOU").style.display = "";
+        document.all("SAM").style.display = "none";
+        document.all("PAPER").style.display = "none";
+        document.all("PRESS").style.display = "none";
+        document.all("NTHU_PUR").style.display = "none";
+    }
+    function VIEW_SAM() {
+        document.all("PRODUCT").style.display = "none";
+        document.all("TOGAPP").style.display = "none";
+        document.all("TOGVOU").style.display = "none";
+        document.all("TRIVEL").style.display = "none";
+        document.all("SAM").style.display = "";
+        document.all("PAPER").style.display = "none";
+        document.all("PRESS").style.display = "none";
+        document.all("NTHU_PUR").style.display = "none";
+    }
+    function VIEW_PAPER() {
+        document.all("PRODUCT").style.display = "none";
+        document.all("TOGAPP").style.display = "none";
+        document.all("TOGVOU").style.display = "none";
+        document.all("SAM").style.display = "none";
+        document.all("PAPER").style.display = "";
+        document.all("PRESS").style.display = "none";
+        document.all("NTHU_PUR").style.display = "none";
+    }
+    function VIEW_PRESS() {
+        document.all("PRODUCT").style.display = "none";
+        document.all("TOGAPP").style.display = "none";
+        document.all("TOGVOU").style.display = "none";
+        document.all("SAM").style.display = "none";
+        document.all("PAPER").style.display = "none";
+        document.all("PRESS").style.display = "";
+        document.all("NTHU_PUR").style.display = "none";
+    }
+    function VIEW_NTHU_PUR() {
+        document.all("PRODUCT").style.display = "none";
+        document.all("TOGAPP").style.display = "none";
+        document.all("TOGVOU").style.display = "none";
+        document.all("SAM").style.display = "none";
+        document.all("PAPER").style.display = "none";
+        document.all("PRESS").style.display = "none";
+        document.all("NTHU_PUR").style.display = "";
+    } 
+</script>
+<script language="javascript">
+    //一進來就到
+    VIEW_PRODUCT();
+	
+</script>
+</center>
+
+
+
+</httpcookies></body></html>

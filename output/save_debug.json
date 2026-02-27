@@ -1,0 +1,26 @@
+{
+  "appa_values": {
+    "PROX_1": true,
+    "PAYKIND_1": "2",
+    "INVOICENO_1": "XC-77759774",
+    "IDATE_1": "1150211",
+    "VENDORID_S_1": "56006",
+    "VENDORID_1": "53※54※48※48※54",
+    "VENNAME_1": "",
+    "BANKNO_1": "",
+    "ACCOUNT_1": "",
+    "ACCOUNTNAM_1": "",
+    "AMOUNT_1": "876"
+  },
+  "sums": {
+    "budget": "加總:$876",
+    "items": "加總:$876",
+    "payee": "加總:$876"
+  },
+  "dialogs": [
+    {
+      "type": "confirm",
+      "message": "受款人尚未編輯，要編輯受款人嗎?"
+    }
+  ]
+}
