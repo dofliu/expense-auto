@@ -1,8 +1,8 @@
-"""主程式入口：掃描 receipts/ 內的發票圖片，合併辨識後填入同一張請購單。
+"""主程式入口：掃描 receipts/ 內的發票檔案（圖片/PDF），合併辨識後填入同一張請購單。
 
 完整流程：
-    1. 掃描 receipts/ 中的所有圖片
-    2. OCR 辨識所有圖片（每張照片可能含多張收據）
+    1. 掃描 receipts/ 中的所有檔案（JPG/PNG/WebP/PDF）
+    2. OCR 辨識所有檔案（每張照片可能含多張收據，PDF 可能多頁）
     3. 顯示辨識摘要
     4. 使用者確認（一次確認全部）
     5. 選擇核銷類型（部門採購 / 計畫請購）
@@ -38,12 +38,13 @@ def _timed_input(prompt: str, timeout: int = 10, default: str = "") -> str:
         print(f"\n    (超過 {timeout} 秒未選擇，自動使用預設值)")
         return default
     return result[0]
-from ocr import extract_multiple_receipts
+from ocr import extract_multiple_receipts, extract_receipt_data
 from form_filler import (
     start_browser, login, navigate_to_expense_form, fill_expense_form,
+    _is_tax_item,
 )
 
-SUPPORTED_EXTENSIONS = {".jpg", ".jpeg", ".png", ".webp"}
+SUPPORTED_EXTENSIONS = {".jpg", ".jpeg", ".png", ".webp", ".bmp", ".gif", ".tiff", ".pdf"}
 
 # ── 收據流水號追蹤（每天重新從 01 開始）────────────
 _receipt_counter: dict = {}  # key: "YYYYMMDD" → next_seq
@@ -59,17 +60,17 @@ def get_next_receipt_seq(iso_date: str) -> int:
     return _receipt_counter[key]
 
 
-def get_receipt_images() -> list:
-    """取得 receipts/ 目錄中所有支援的圖片檔。"""
+def get_receipt_files() -> list:
+    """取得 receipts/ 目錄中所有支援的收據檔案（圖片 + PDF）。"""
     receipts_dir = Path(RECEIPTS_DIR)
     if not receipts_dir.exists():
         print(f"找不到目錄: {RECEIPTS_DIR}")
         return []
-    images = [
+    files = [
         f for f in sorted(receipts_dir.iterdir())
         if f.suffix.lower() in SUPPORTED_EXTENSIONS
     ]
-    return images
+    return files
 
 
 def choose_plan(preset: str = "") -> tuple:
@@ -102,24 +103,106 @@ def choose_plan(preset: str = "") -> tuple:
 #  OCR 批次辨識
 # ════════════════════════════════════════════════════════════
 
-def ocr_all_images(images: list) -> list:
+def _validate_ocr_result(receipt: dict) -> bool:
     """
-    OCR 所有圖片，每張照片可能包含多張收據。
-    回傳所有收據的 flat list，每筆附加 _source_image 欄位。
+    驗證 OCR 結果是否有效。
+
+    有效條件：
+    1. amount > 0 或 items 中有 price > 0 的品項
+    2. 有 vendor 或 items（至少能辨識出內容）
+    """
+    try:
+        amt = float(receipt.get("amount", 0) or 0)
+    except (ValueError, TypeError):
+        amt = 0
+
+    items = receipt.get("items", [])
+    has_priced_items = False
+    for item in items:
+        try:
+            p = float(item.get("price", 0) or 0)
+            if p > 0:
+                has_priced_items = True
+                break
+        except (ValueError, TypeError):
+            continue
+
+    has_vendor = bool(receipt.get("vendor", "").strip())
+
+    # 至少要有金額或有品項
+    return (amt > 0 or has_priced_items) and (has_vendor or has_priced_items)
+
+
+def ocr_all_files(files: list, max_retries: int = 3) -> list:
+    """
+    OCR 所有檔案（圖片/PDF），每個檔案可能包含多張收據。
+    回傳所有收據的 flat list，每筆附加 _source_file 欄位。
+
+    若 OCR 失敗或結果無效，會自動重試（最多 max_retries 次）。
+    多張模式失敗時，會嘗試單張模式作為備案。
     """
     all_receipts = []
-    for img in images:
-        print(f"  辨識中: {img.name} ...")
-        try:
-            receipts = extract_multiple_receipts(str(img))
+    for f in files:
+        ext = f.suffix.lower()
+        file_type = "PDF" if ext == ".pdf" else "圖片"
+        print(f"  辨識中: {f.name} ({file_type}) ...")
+
+        receipts = None
+
+        # ── 多張辨識模式（含重試）──
+        for attempt in range(1, max_retries + 1):
+            try:
+                result = extract_multiple_receipts(str(f))
+                # 驗證結果
+                valid = [r for r in result if _validate_ocr_result(r)]
+                invalid_count = len(result) - len(valid)
+
+                if valid:
+                    receipts = valid
+                    if invalid_count > 0:
+                        print(f"    (第{attempt}次) 辨識到 {len(result)} 筆，"
+                              f"其中 {invalid_count} 筆無效已略過")
+                    break
+                else:
+                    print(f"    (第{attempt}次) 辨識結果無效（amount=0 或無品項），重試...")
+            except Exception as e:
+                print(f"    (第{attempt}次) OCR 錯誤: {e}")
+
+            if attempt < max_retries:
+                import time as _time
+                _time.sleep(1)  # API 重試前等 1 秒
+
+        # ── 備案：單張辨識模式 ──
+        if not receipts:
+            print(f"    多張模式失敗，嘗試單張辨識模式...")
+            for attempt in range(1, max_retries + 1):
+                try:
+                    single = extract_receipt_data(str(f))
+                    if _validate_ocr_result(single):
+                        receipts = [single]
+                        print(f"    單張模式成功！")
+                        break
+                    else:
+                        print(f"    (單張第{attempt}次) 結果無效，重試...")
+                except Exception as e:
+                    print(f"    (單張第{attempt}次) 錯誤: {e}")
+
+                if attempt < max_retries:
+                    import time as _time
+                    _time.sleep(1)
+
+        # ── 最終結果 ──
+        if receipts:
             n = len(receipts)
             label = "" if n == 1 else f"（含 {n} 張收據）"
             print(f"    -> 完成{label}")
             for r in receipts:
-                r["_source_image"] = img.name
+                r["_source_image"] = f.name   # 保持欄位名稱相容
             all_receipts.extend(receipts)
-        except Exception as e:
-            print(f"    [ERROR] OCR 失敗: {e}")
+        else:
+            print(f"    [ERROR] {f.name} OCR 完全失敗（重試 {max_retries} 次仍無有效結果）")
+            print(f"    請檢查該檔案是否損毀，或嘗試重新擷取/拍照")
+
     return all_receipts
 
 
@@ -253,14 +336,16 @@ def match_foreign_receipts_to_statements(all_docs: list) -> list:
             elif txn.get("original_currency", "").upper() == currency.upper():
                 score += 1  # 至少幣別相同
 
-            # 日期相近度
+            # 日期相近度（刷卡因時區差異可能前後差 1 天）
             if receipt_date and txn["date"]:
                 try:
                     from datetime import datetime
                     r_date = datetime.strptime(receipt_date, "%Y-%m-%d")
                     t_date = datetime.strptime(txn["date"], "%Y-%m-%d")
                     day_diff = abs((r_date - t_date).days)
-                    if day_diff <= 3:
+                    if day_diff <= 1:
+                        score += 3  # ±1天：高度吻合（時區差異）
+                    elif day_diff <= 3:
                         score += 2
                     elif day_diff <= 7:
                         score += 1
@@ -296,6 +381,236 @@ def match_foreign_receipts_to_statements(all_docs: list) -> list:
     return receipts
 
 
+# ════════════════════════════════════════════════════════════
+#  外幣收據正規化（品名、發票號碼、匯率警告）
+# ════════════════════════════════════════════════════════════
+
+# AI 服務品名對照表（vendor 關鍵字 → 標準品名）
+_AI_SERVICE_NAMES = {
+    "google":    "Google Gemini AI服務費",
+    "gemini":    "Google Gemini AI服務費",
+    "anthropic": "Claude AI服務費",
+    "claude":    "Claude AI服務費",
+    "openai":    "ChatGPT AI服務費",
+    "chatgpt":   "ChatGPT AI服務費",
+    "microsoft": "Microsoft AI服務費",
+    "azure":     "Microsoft Azure AI服務費",
+    "aws":       "AWS AI服務費",
+    "amazon":    "AWS AI服務費",
+}
+
+
+def _get_ai_service_name(vendor: str) -> str:
+    """根據廠商名稱，回傳標準化的 AI 服務品名。找不到則回傳 None。"""
+    v_lower = vendor.lower()
+    for keyword, name in _AI_SERVICE_NAMES.items():
+        if keyword in v_lower:
+            return name
+    return None
+
+
+def normalize_foreign_receipts(receipts: list) -> list:
+    """
+    正規化外幣收據：
+    1. AI 服務品名標準化（Google→Google Gemini AI服務費 等）
+    2. 外幣收據清空 invoice_no（用收據流水號取代，避免格式不符導致存入失敗）
+    3. 檢查外幣收據是否有台幣金額（未匹配到刷卡紀錄時暫停警告）
+
+    應在 match_foreign_receipts_to_statements() 之後呼叫。
+    """
+    has_unmatched_foreign = False
+
+    for receipt in receipts:
+        currency = receipt.get("currency", "TWD")
+        vendor = receipt.get("vendor", "")
+
+        if currency == "TWD":
+            # 國內收據也檢查 AI 服務品名（如 Google Cloud 台灣開發票的情況）
+            ai_name = _get_ai_service_name(vendor)
+            if ai_name:
+                items = receipt.get("items", [])
+                for item in items:
+                    old_name = item.get("name", "")
+                    if not _is_tax_item(old_name):
+                        item["name"] = ai_name
+                print(f"    [AI品名] {vendor} → 品項統一為 '{ai_name}'")
+            continue
+
+        # ── 外幣收據處理 ──
+
+        # (1) AI 服務品名標準化
+        ai_name = _get_ai_service_name(vendor)
+        if ai_name:
+            items = receipt.get("items", [])
+            for item in items:
+                old_name = item.get("name", "")
+                if not _is_tax_item(old_name):
+                    item["name"] = ai_name
+            print(f"    [AI品名] {vendor} → 品項統一為 '{ai_name}'")
+
+        # (2) 清空 invoice_no（外幣收據格式不符學校系統，改用收據流水號）
+        if receipt.get("invoice_no"):
+            print(f"    [發票號] {vendor}: 清除外幣 invoice '{receipt['invoice_no']}' → 改用收據流水號")
+            receipt["invoice_no"] = ""
+
+        # (3) 外幣收據已匹配台幣 → 將所有品項合併為一筆（台幣金額）
+        #     原因：OCR 品項價格是外幣原價，直接進入稅額處理會產生錯誤的「其他差額」
+        #     例：Claude USD$5 → 刷卡 NT$158 → 應合併為「Claude AI服務費 158」
+        if receipt.get("_matched_twd"):
+            twd_amount = receipt["_matched_twd"]
+            items = receipt.get("items", [])
+            # 找主品名：AI 服務標準名 > 第一個非稅品項名 > 廠商名
+            main_name = ai_name
+            if not main_name:
+                for item in items:
+                    if not _is_tax_item(item.get("name", "")):
+                        main_name = item.get("name", "")
+                        break
+            if not main_name:
+                main_name = vendor or "核銷明細"
+            # 取得 spec（規格）：保留第一個品項的 spec
+            main_spec = ""
+            for item in items:
+                if not _is_tax_item(item.get("name", "")) and item.get("spec"):
+                    main_spec = item["spec"]
+                    break
+            # 合併為單一品項
+            consolidated = {
+                "name": main_name,
+                "quantity": 1,
+                "price": twd_amount,
+            }
+            if main_spec:
+                consolidated["spec"] = main_spec
+            receipt["items"] = [consolidated]
+            print(f"    [外幣合併] {vendor}: 合併為 '{main_name}' NT${twd_amount}")
+
+        # (4) 檢查是否有台幣金額
+        if not receipt.get("_matched_twd"):
+            has_unmatched_foreign = True
+            orig_amt = receipt.get("original_amount", receipt.get("amount", "?"))
+            print(f"\n    *** 警告: {vendor} 為外幣收據 ({currency} {orig_amt}) ***")
+            print(f"    *** 未找到對應的刷卡紀錄，目前金額 NT${receipt.get('amount', 0)} 可能不正確！ ***")
+            print(f"    *** 建議: 將信用卡帳單圖片/PDF 一併放入 receipts/ 目錄重新辨識 ***")
+
+    if has_unmatched_foreign:
+        print(f"\n  ──────────────────────────────────────────────")
+        print(f"  有外幣收據尚未匹配到刷卡紀錄！")
+        print(f"  請確認以下任一方式提供台幣金額：")
+        print(f"    1. 將信用卡月結單/刷卡明細的圖片或 PDF 放入 receipts/ 目錄")
+        print(f"    2. 手動修改 output/ 中的 OCR JSON 檔，將 amount 改為台幣金額")
+        print(f"  ──────────────────────────────────────────────")
+
+        user_continue = _timed_input(
+            "\n  外幣收據金額可能有誤，是否仍要繼續？(y/n, 15秒後自動取消): ",
+            timeout=15, default="n"
+        ).strip().lower()
+        if user_continue != "y":
+            print("  已取消。請加入刷卡紀錄後重新執行。")
+            sys.exit(0)
+
+    return receipts
+
+
+# ════════════════════════════════════════════════════════════
+#  每張收據的稅額預處理
+# ════════════════════════════════════════════════════════════
+
+def _process_receipt_tax(receipt: dict) -> list:
+    """
+    針對單張收據做稅額智慧處理，回傳處理後的品項列表。
+
+    稅額處理規則（根據使用者說明）：
+      Case A: 單品項 + 稅額 → 合併為一筆（用收據總金額作為該品項價格）
+              例: 三相整流橋 457 + 稅額 23 → 三相整流橋 480
+      Case B: 多品項 + 稅額 → 檢查品項合計是否已含稅
+              - 若品項合計 == 收據金額 → 稅已含（營業稅僅為資訊），保留品項不加稅
+              - 若品項合計 + 稅額 == 收據金額 → 品項為未稅價，加「其他差額」
+              - 其他情況 → 補差額到收據金額
+      Case C: 無稅額 → 直接使用品項
+
+    Returns:
+        處理後的品項列表，每筆格式: {"name", "quantity", "price", "spec"(可選)}
+    """
+    items = receipt.get("items", [])
+    try:
+        amount = int(float(receipt.get("amount", 0)))
+    except (ValueError, TypeError):
+        amount = 0
+
+    if not items:
+        # 無品項明細 → 用廠商名+總金額建立代表品項
+        return [{
+            "name": receipt.get("vendor", "核銷明細"),
+            "quantity": 1,
+            "price": amount,
+        }]
+
+    tax_items = [i for i in items if _is_tax_item(i.get("name", ""))]
+    regular_items = [i for i in items if not _is_tax_item(i.get("name", ""))]
+
+    if not regular_items:
+        # 只有稅額項目？不太可能，但保險起見用總金額
+        return [{
+            "name": receipt.get("vendor", "核銷明細"),
+            "quantity": 1,
+            "price": amount,
+        }]
+
+    # 計算各項合計
+    def _item_total(item):
+        try:
+            q = int(float(item.get("quantity", 1)))
+        except (ValueError, TypeError):
+            q = 1
+        try:
+            p = int(float(item.get("price", 0)))
+        except (ValueError, TypeError):
+            p = 0
+        return p * q
+
+    regular_sum = sum(_item_total(i) for i in regular_items)
+    tax_sum = sum(_item_total(i) for i in tax_items)
+
+    if not tax_items:
+        # ── Case C: 無稅額 → 直接使用品項 ──
+        result = list(regular_items)
+        diff = amount - regular_sum
+        if diff > 0:
+            result.append({"name": "其他差額", "quantity": 1, "price": diff})
+        return result
+
+    if len(regular_items) == 1:
+        # ── Case A: 單品項 + 稅額 → 合併（用收據總金額） ──
+        item = regular_items[0]
+        return [{
+            "name": item.get("name", ""),
+            "spec": item.get("spec", ""),
+            "quantity": 1,
+            "price": amount,   # 用收據總金額（已含稅）
+        }]
+
+    # ── Case B: 多品項 + 稅額 ──
+    result = list(regular_items)
+
+    if regular_sum == amount:
+        # 品項合計 == 收據金額 → 稅已含在品項價格中，不加稅
+        pass
+    elif abs(regular_sum + tax_sum - amount) <= 1:
+        # 品項 + 稅額 ≈ 收據金額 → 品項為未稅價，加「其他差額」
+        result.append({"name": "其他差額", "spec": "稅額", "quantity": 1, "price": tax_sum})
+    else:
+        # 其他情況 → 用收據金額補差額
+        diff = amount - regular_sum
+        if diff > 0:
+            result.append({"name": "其他差額", "quantity": 1, "price": diff})
+        elif diff < 0:
+            # 品項合計 > 收據金額，可能 OCR 有誤，但不壓縮成一行
+            # 保留品項，讓使用者自行檢查
+            pass
+
+    return result
+
 
 # ════════════════════════════════════════════════════════════
 #  收據合併
@@ -316,9 +631,13 @@ def merge_receipts(receipts: list) -> dict:
     if not receipts:
         return {}
 
-    # 單張直接回傳（不需要合併）
+    # 單張也做稅額預處理
     if len(receipts) == 1:
-        return receipts[0]
+        r = receipts[0]
+        processed = _process_receipt_tax(r)
+        result = dict(r)  # shallow copy
+        result["items"] = processed
+        return result
 
     all_items = []
     total_amount = 0
@@ -326,19 +645,9 @@ def merge_receipts(receipts: list) -> dict:
     vendors = []
 
     for r in receipts:
-        items = r.get("items", [])
-        if not items:
-            # 無品項明細時，用廠商名稱 + 總金額建一個代表品項
-            try:
-                amt = int(float(r.get("amount", 0)))
-            except (ValueError, TypeError):
-                amt = 0
-            items = [{
-                "name": r.get("vendor", "核銷明細"),
-                "quantity": 1,
-                "price": amt,
-            }]
-        all_items.extend(items)
+        # 每張收據先做稅額預處理，再合併品項
+        processed = _process_receipt_tax(r)
+        all_items.extend(processed)
 
         try:
             total_amount += int(float(r.get("amount", 0)))
@@ -531,19 +840,27 @@ def main():
         }]
         images = [Path("test_dummy.jpg")]
     else:
-        images = get_receipt_images()
+        images = get_receipt_files()
         if not images:
-            print(f"receipts/ 目錄中沒有找到圖片。")
-            print(f"請將發票/收據圖片放入 {RECEIPTS_DIR}/ 目錄。")
+            print(f"receipts/ 目錄中沒有找到收據檔案。")
+            print(f"請將發票/收據檔案放入 {RECEIPTS_DIR}/ 目錄。")
+            print(f"支援格式: 圖片(JPG/PNG/WebP) 及 PDF")
             sys.exit(0)
 
-        print(f"\n找到 {len(images)} 張圖片：")
+        pdf_count = sum(1 for f in images if f.suffix.lower() == ".pdf")
+        img_count = len(images) - pdf_count
+        parts = []
+        if img_count > 0:
+            parts.append(f"{img_count} 張圖片")
+        if pdf_count > 0:
+            parts.append(f"{pdf_count} 份 PDF")
+        print(f"\n找到 {'、'.join(parts)}：")
         for i, img in enumerate(images, 1):
             print(f"  {i}. {img.name}")
 
-        # ── Step 2: OCR 所有圖片 ──────────────────────
+        # ── Step 2: OCR 所有檔案 ──────────────────────
         print("\n開始辨識...")
-        all_receipts = ocr_all_images(images)
+        all_receipts = ocr_all_files(images)
 
         if not all_receipts:
             print("OCR 失敗，無法辨識任何收據。")
@@ -565,6 +882,10 @@ def main():
         # ── Step 2.5: 外幣收據 ↔ 刷卡紀錄交叉比對 ─────
         # 從 all_receipts 中分離出刷卡紀錄，並為外幣收據匹配台幣金額
         all_receipts = match_foreign_receipts_to_statements(all_receipts)
+
+        # ── Step 2.6: 外幣收據正規化 ─────────────────
+        # AI 服務品名標準化 + 清空外幣 invoice_no + 未匹配匯率警告
+        all_receipts = normalize_foreign_receipts(all_receipts)
 
         # ── Step 3: 顯示辨識摘要 ──────────────────────
         show_ocr_summary(all_receipts)

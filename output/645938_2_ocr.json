@@ -1,7 +1,7 @@
 {
   "doc_type": "receipt",
   "date": "2026-02-23",
-  "vendor": "振宇五金股份有限公司",
+  "vendor": "振宇五金",
   "amount": 24,
   "currency": "TWD",
   "original_amount": 24,
@@ -9,8 +9,8 @@
   "invoice_no": "WJ-03657323",
   "items": [
     {
-      "name": "固尼式端子 TB-1503",
-      "quantity": 1,
+      "name": "固泥式端子 TB-1503",
+      "quantity": 1.0,
       "price": 24.0
     }
   ],

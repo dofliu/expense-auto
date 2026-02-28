@@ -1,11 +1,11 @@
 {
   "doc_type": "receipt",
   "date": "2026-02-20",
-  "vendor": "宸暉有限公司",
+  "vendor": "宸暐有限公司",
   "amount": 480,
   "currency": "TWD",
   "original_amount": 480,
-  "tax_id": "",
+  "tax_id": "54585058",
   "invoice_no": "XF35113921",
   "items": [
     {

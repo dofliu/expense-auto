@@ -170,6 +170,11 @@ def navigate_to_expense_form(menu_page: Page, use_project: bool = False,
     #   LIS2 → DA_SerFun_Q.asp?COM=YT   (部門請購)
     #   LIS4 → DA_SerFun_Q.asp?COM=NT   (計畫請購)
     title_frame = menu_page.frame("TITLE")
+    if not title_frame:
+        menu_page.wait_for_timeout(3000)
+        title_frame = menu_page.frame("TITLE")
+    if not title_frame:
+        raise RuntimeError("找不到 TITLE frame（Step 1）")
     if use_project:
         # LIS4 = 計畫請購查詢 (COM=NT)
         title_frame.evaluate("""() => {
@@ -183,18 +188,39 @@ def navigate_to_expense_form(menu_page: Page, use_project: bool = False,
         }""")
     else:
         title_frame.evaluate("LIS2()")
-    time.sleep(2)
+    menu_page.wait_for_timeout(2000)
 
     # Step 1.5: 跳過 — TITLE BUGETNO 下拉僅用於查詢面板的預算細項，與核銷表單無關
 
     # Step 2: 點擊「新增請購」(aBT2) — 部門 & 計畫模式都用 aBT2
     title_frame = menu_page.frame("TITLE")
-    title_frame.wait_for_load_state("networkidle", timeout=10000)
+    if not title_frame:
+        # TITLE frame 可能因導航而重新建立，遍歷尋找
+        for f in menu_page.frames:
+            if "TITLE" in f.name.upper() or "DA_SerFun_Q" in f.url:
+                title_frame = f
+                break
+    if not title_frame:
+        raise RuntimeError("找不到 TITLE frame（Step 2）")
+
+    title_frame.wait_for_load_state("networkidle", timeout=15000)
+
+    # 等待 aBT2 元素出現（TITLE 頁面可能仍在渲染）
+    for attempt in range(10):
+        has_btn = title_frame.evaluate(
+            "() => !!document.querySelector('a[name=aBT2]')"
+        )
+        if has_btn:
+            break
+        menu_page.wait_for_timeout(500)
+    else:
+        raise RuntimeError("TITLE frame 中找不到 aBT2 按鈕（等待 5 秒後逾時）")
+
     title_frame.evaluate("""() => {
         parent.FM.rows="15%,*,0,0,0,0,0";
         document.querySelector('a[name=aBT2]').click();
     }""")
-    time.sleep(3)
+    menu_page.wait_for_timeout(3000)
 
     # 取得 MAIN frame（此時是 DA_APP_Q.asp 類別選擇頁）
     main_frame = None
@@ -209,6 +235,18 @@ def navigate_to_expense_form(menu_page: Page, use_project: bool = False,
 
     # Step 3: 選 CHK3 (直接核銷) + 提交
     chk_name = EXPENSE_CATEGORY["checkbox"]
+
+    # 等待 checkbox 出現
+    for attempt in range(10):
+        has_chk = main_frame.evaluate(
+            f"() => !!document.querySelector('input[name={chk_name}]')"
+        )
+        if has_chk:
+            break
+        menu_page.wait_for_timeout(500)
+    else:
+        raise RuntimeError(f"MAIN frame 中找不到 {chk_name} checkbox")
+
     main_frame.evaluate(f"document.querySelector('input[name={chk_name}]').click()")
     time.sleep(1)
 
@@ -848,6 +886,33 @@ def fill_appa_frame(appa_frame: Frame, menu_page: Page, context,
         print(f"      VENDORID_S_1={vendorid_check.get('vendorid_s')}")
         print(f"      VENNAME_1={vendorid_check.get('venname')}")
 
+    # ── Step 5.5: 重新填入收據號碼和日期 ──────────
+    # CHK_P_1() 觸發查受款人時會清除 INVOICENO_1 和 IDATE_1，必須重填
+    appa_frame.evaluate(f"""() => {{
+        const inv = FORM1.INVOICENO_1;
+        if (inv && !inv.value) {{
+            inv.value = '{receipt_no_esc}';
+        }}
+    }}""")
+    if date_str:
+        idate = _idate_format(date_str)
+        appa_frame.evaluate(f"""() => {{
+            const dt = FORM1.IDATE_1;
+            if (dt && !dt.value) {{
+                dt.value = '{idate}';
+            }}
+        }}""")
+    # 驗證收據號碼確實有值
+    inv_check = appa_frame.evaluate("() => FORM1.INVOICENO_1 ? FORM1.INVOICENO_1.value : ''")
+    if inv_check:
+        print(f"    [OK] 收據號碼確認: {inv_check}")
+    else:
+        # 強制重填（不檢查是否為空，直接覆蓋）
+        appa_frame.evaluate(f"""() => {{
+            if (FORM1.INVOICENO_1) FORM1.INVOICENO_1.value = '{receipt_no_esc}';
+        }}""")
+        print(f"    [REFILL] 收據號碼被清除，已強制重填: {receipt_no}")
+
     # ── Step 6: 填入含稅金額 ─────────────────────
     appa_frame.evaluate(f"""() => {{
         FORM1.AMOUNT_1.value = '{amount}';
@@ -998,7 +1063,7 @@ def verify_and_save(appy_frame: Frame, menu_page: Page, auto_save: bool = True):
 
     for i, (label, js_code) in enumerate(button_cycle, 1):
         appy_frame.evaluate(f"() => {{ {js_code} }}")
-        time.sleep(0.5)
+        menu_page.wait_for_timeout(500)
         print(f"      ({i}/{len(button_cycle)}) {label}")
 
     # 驗證資料仍然存在
@@ -1049,17 +1114,22 @@ def verify_and_save(appy_frame: Frame, menu_page: Page, auto_save: bool = True):
         // 更新品名加總
         if (typeof CHK_APPP === 'function') CHK_APPP();
         // 更新經費加總
-        if (typeof SUM_SUM === 'function') FORM1.SUM_LIST.click();
+        if (typeof SUM_SUM === 'function') SUM_SUM();
     }""")
-    time.sleep(1)
+    menu_page.wait_for_timeout(1000)
 
     # 手動觸發 APPA 加總（繞過 CHK_APPA 的 bug）
     appy_frame.evaluate("""() => {
         try {
-            parent.APPA.FORM1.SUM_LIST.click();  // 觸發 APPA 的 SUM_SUM()
+            // 優先直接呼叫 SUM_SUM()，備用 SUM_LIST.click()
+            if (typeof parent.APPA.SUM_SUM === 'function') {
+                parent.APPA.SUM_SUM();
+            } else {
+                parent.APPA.FORM1.SUM_LIST.click();
+            }
         } catch(e) {}
     }""")
-    time.sleep(1)
+    menu_page.wait_for_timeout(1000)
 
     # 手動將 APPA 加總寫回 APPY（CHK_APPA 原本該做的事）
     appy_frame.evaluate("""() => {
@@ -1067,7 +1137,7 @@ def verify_and_save(appy_frame: Frame, menu_page: Page, auto_save: bool = True):
             FORM1.SUM_APPA.value = parent.APPA.FORM1.SUM_LIST.value;
         } catch(e) {}
     }""")
-    time.sleep(0.5)
+    menu_page.wait_for_timeout(500)
 
     # ── Step 2: 讀取三個加總值 ──
     sums = appy_frame.evaluate("""() => {
@@ -1094,13 +1164,89 @@ def verify_and_save(appy_frame: Frame, menu_page: Page, auto_save: bool = True):
     print(f"    品名加總: {sums.get('items_raw', '')} ({items_amt})")
     print(f"    受款人加總: {sums.get('payee_raw', '')} ({payee_amt})")
 
-    # ── Step 3: 驗證一致 ──
+    # ── Step 3: 驗證一致，自動調整小差額 ──
     if budget_amt == items_amt == payee_amt and budget_amt > 0:
         print(f"    V 三個金額一致 ({budget_amt})，執行存入...")
-    elif budget_amt > 0 and budget_amt == items_amt:
-        # APPA 加總可能因為 CHK_APPA bug 未正確取得，但經費和品名一致
-        print(f"    ~ 經費和品名一致 ({budget_amt})，受款人加總={payee_amt}")
-        print(f"    SUM_ALERT 會自動處理 APPA 金額，繼續存入...")
+    elif budget_amt > 0 and budget_amt == items_amt and payee_amt > 0:
+        diff = budget_amt - payee_amt
+        if abs(diff) <= 5:
+            # 小差額（通常因稅額四捨五入），自動調整 APPA 第 1 行金額
+            print(f"    ~ 經費和品名一致 ({budget_amt})，受款人加總={payee_amt}，差額={diff}")
+            print(f"    自動調整 APPA 行1 金額以消除差額...")
+
+            # Step 3a: 修改 APPA Row 1 的 AMOUNT_1
+            adj_result = appy_frame.evaluate(f"""() => {{
+                try {{
+                    const amt1 = parent.APPA.FORM1.AMOUNT_1;
+                    if (!amt1) return {{ ok: false, reason: 'AMOUNT_1 not found' }};
+                    const old_val = parseInt(amt1.value) || 0;
+                    const new_val = old_val + ({diff});
+                    amt1.value = String(new_val);
+                    return {{ ok: true, old_val: old_val, new_val: new_val }};
+                }} catch(e) {{
+                    return {{ ok: false, reason: e.message }};
+                }}
+            }}""")
+            if adj_result.get("ok"):
+                print(f"      AMOUNT_1: {adj_result['old_val']} -> {adj_result['new_val']}")
+            else:
+                print(f"      [WARN] 無法調整 AMOUNT_1: {adj_result.get('reason', '?')}")
+
+            # Step 3b: 重新計算 APPA 加總
+            appy_frame.evaluate("""() => {
+                try {
+                    // 優先直接呼叫 SUM_SUM()
+                    if (typeof parent.APPA.SUM_SUM === 'function') {
+                        parent.APPA.SUM_SUM();
+                    } else {
+                        parent.APPA.FORM1.SUM_LIST.click();
+                    }
+                } catch(e) {}
+            }""")
+            menu_page.wait_for_timeout(800)
+
+            # Step 3c: 把更新後的 APPA 加總寫回 APPY
+            appy_frame.evaluate("""() => {
+                try {
+                    FORM1.SUM_APPA.value = parent.APPA.FORM1.SUM_LIST.value;
+                } catch(e) {}
+            }""")
+            menu_page.wait_for_timeout(300)
+
+            # Step 3d: 驗證調整結果
+            new_payee = appy_frame.evaluate("""() => {
+                const el = FORM1.SUM_APPA;
+                if (!el) return 0;
+                return parseInt((el.value || '').replace(/[^0-9]/g, '')) || 0;
+            }""")
+            if new_payee == budget_amt:
+                print(f"    V 調整成功！三個金額現在一致 ({budget_amt})")
+            else:
+                # 嘗試備用方式：直接設定 SUM_APPA 和 SUM_LIST
+                print(f"    [WARN] SUM_SUM 後受款人={new_payee}，嘗試直接設定加總值...")
+                appy_frame.evaluate(f"""() => {{
+                    try {{
+                        // 直接把 APPA 的 SUM_LIST 設為正確值
+                        parent.APPA.FORM1.SUM_LIST.value = '{budget_amt}';
+                        // 同步到 APPY 的 SUM_APPA
+                        FORM1.SUM_APPA.value = '{budget_amt}';
+                    }} catch(e) {{}}
+                }}""")
+                menu_page.wait_for_timeout(300)
+                # 最終驗證
+                final_payee = appy_frame.evaluate("""() => {
+                    const el = FORM1.SUM_APPA;
+                    if (!el) return 0;
+                    return parseInt((el.value || '').replace(/[^0-9]/g, '')) || 0;
+                }""")
+                if final_payee == budget_amt:
+                    print(f"    V 備用方式成功！三個金額現在一致 ({budget_amt})")
+                else:
+                    print(f"    [WARN] 調整後受款人加總={final_payee}，仍不一致，嘗試繼續存入...")
+        else:
+            print(f"    X 差額過大 ({diff})！經費={budget_amt}, 受款人={payee_amt}")
+            print("    跳過存入，請手動確認。")
+            return False
     else:
         print(f"    X 金額不一致！經費={budget_amt}, 品名={items_amt}, 受款人={payee_amt}")
         print("    跳過存入，請手動確認。")
@@ -1167,7 +1313,10 @@ def verify_and_save(appy_frame: Frame, menu_page: Page, auto_save: bool = True):
             try:
                 new_page.wait_for_load_state("networkidle", timeout=15000)
             except Exception:
-                time.sleep(3)  # fallback: 直接等 3 秒
+                try:
+                    new_page.wait_for_timeout(3000)  # fallback: 等 3 秒
+                except Exception:
+                    pass
             # 再次覆蓋 print（確保不觸發原生對話框）
             try:
                 new_page.evaluate(
@@ -1220,7 +1369,7 @@ def verify_and_save(appy_frame: Frame, menu_page: Page, auto_save: bool = True):
             parent.DD.rows = "*,0";
             parent.QQ.cols = "*,0,0";
         }""")
-        time.sleep(0.5)
+        menu_page.wait_for_timeout(500)
 
         if auto_save:
             appy_frame.evaluate("SUM_ALERT();")
@@ -1821,12 +1970,14 @@ def fill_expense_form(frames: dict, receipt_data: dict,
     if len(non_tax_items) == 0:
         items_summary = "經費核銷"
     elif len(non_tax_items) <= 3:
-        items_summary = "、".join(
-            item.get("name", "") for item in non_tax_items
+        names = [
+            _sanitize_big5(item.get("name", ""))
+            for item in non_tax_items
             if item.get("name", "")
-        ) or "經費核銷"
+        ]
+        items_summary = "、".join(names) if names else "經費核銷"
     else:
-        first_name = non_tax_items[0].get("name", "核銷用品")
+        first_name = _sanitize_big5(non_tax_items[0].get("name", "核銷用品"))
         items_summary = f"{first_name}等{len(non_tax_items)}項"
 
     if plan_full_name and plan_code:
@@ -1838,12 +1989,50 @@ def fill_expense_form(frames: dict, receipt_data: dict,
     else:
         content_text = f"經費核銷-{items_summary}"
 
-    # 用 JS 填寫（frameset 結構下 Playwright fill() 可能報 not visible）
-    appp_frame.evaluate(f"""() => {{
-        const el = document.querySelector('textarea[name="{APPP_FIELDS["content"]}"]');
-        if (el) {{ el.value = "{_js_escape(content_text)}"; }}
+    # Big5 安全處理（學校系統 Big5 編碼）
+    content_text = _sanitize_big5(content_text)
+
+    # 用 JS 填寫用途說明（嘗試多種 selector：textarea / input / FORM1 直接存取）
+    content_field = APPP_FIELDS["content"]
+    content_escaped = _js_escape(content_text)
+    filled_ok = appp_frame.evaluate(f"""() => {{
+        // 方法1: 直接透過 FORM1 存取（ASP 表單最可靠）
+        try {{
+            if (document.FORM1 && document.FORM1.{content_field}) {{
+                document.FORM1.{content_field}.value = "{content_escaped}";
+                return "FORM1";
+            }}
+        }} catch(e) {{}}
+        // 方法2: querySelector 任意元素（textarea 或 input）
+        const el = document.querySelector('[name="{content_field}"]');
+        if (el) {{ el.value = "{content_escaped}"; return el.tagName; }}
+        return null;
     }}""")
-    print(f"    用途說明: {content_text}")
+    if filled_ok:
+        print(f"    用途說明: {content_text}  (via {filled_ok})")
+    else:
+        print(f"    [WARN] 用途說明欄位未找到 (name={content_field})，嘗試其他 frame..."  )
+        # Fallback: 在所有 frame 中搜尋 CONTENT 欄位
+        for f in menu_page.frames:
+            try:
+                fallback_ok = f.evaluate(f"""() => {{
+                    const el = document.querySelector('[name="{content_field}"]');
+                    if (el) {{ el.value = "{content_escaped}"; return el.tagName; }}
+                    try {{
+                        if (document.FORM1 && document.FORM1.{content_field}) {{
+                            document.FORM1.{content_field}.value = "{content_escaped}";
+                            return "FORM1";
+                        }}
+                    }} catch(e) {{}}
+                    return null;
+                }}""")
+                if fallback_ok:
+                    print(f"    用途說明: {content_text}  (via {fallback_ok} in frame: {f.name or f.url})")
+                    break
+            except Exception:
+                continue
+        else:
+            print(f"    [WARN] 所有 frame 都找不到用途說明欄位 (name={content_field})")
 
     # ── 3. 填寫憑證日期 ─────────────────────────
     date_str = receipt_data.get("date", "")
@@ -1866,35 +2055,17 @@ def fill_expense_form(frames: dict, receipt_data: dict,
         time.sleep(0.5)
         print(f"    憑證日期: 民國{roc_y}/{roc_m}/{roc_d}")
 
-    # ── 4. 稅額智慧處理 + 填寫品項明細 ──────────────
+    # ── 4. 填寫品項明細 ──────────────────────────
+    # 稅額處理已在 main.py 的 merge_receipts → _process_receipt_tax 完成
+    # 這裡直接填入已處理過的品項列表
     # 欄位名稱格式: PRODUCT_{N}, PRODUCT1_{N}, PRODUCT2_{N},
     #               SERUNIT_{N}, QUANTITY_{N}, AMOUNT_{N}
     # N = 1~15 (最多 15 列)
-    #
-    # 稅額處理策略:
-    #   Case A: 單品項 + 稅額 → 直接把稅額加入品項總價（不產生差額行）
-    #   Case B: 多品項 + 稅額 → 品項填原價，稅額合計為「其他差額」
-    #   Case C: 無稅額相關 → 原有差額邏輯
-
-    # 分離稅額項目和一般品項
-    tax_items = [item for item in items if _is_tax_item(item.get("name", ""))]
-    regular_items = [item for item in items if not _is_tax_item(item.get("name", ""))]
-
-    total_tax = 0
-    for ti in tax_items:
-        try:
-            tax_price = int(float(ti.get("price", 0)))
-            tax_qty = int(float(ti.get("quantity", 1)))
-            total_tax += tax_price * tax_qty
-        except (ValueError, TypeError):
-            pass
 
     parsed_items = []
     current_sum = 0
 
-    if tax_items and len(regular_items) == 1:
-        # ── Case A: 單品項 + 稅額 → 合併成一筆 ──
-        item = regular_items[0]
+    for item in items[:15]:
         try:
             qty = int(float(item.get("quantity", 1)))
         except (ValueError, TypeError):
@@ -1903,90 +2074,35 @@ def fill_expense_form(frames: dict, receipt_data: dict,
             price = int(float(item.get("price", 0)))
         except (ValueError, TypeError):
             price = 0
-        item_total = price * qty + total_tax
+        item_total = price * qty
         parsed_items.append({
             "name": str(item.get("name", "")),
             "spec": str(item.get("spec", "")),
             "qty": qty,
             "total": item_total
         })
-        current_sum = item_total
-        print(f"    [稅額處理] Case A: 單品項+稅額({total_tax}) → 合併為 {item_total}")
+        current_sum += item_total
 
-    elif tax_items and len(regular_items) > 1:
-        # ── Case B: 多品項 + 稅額 → 品項填原價，稅額歸「其他差額」──
-        for item in regular_items[:14]:
-            try:
-                qty = int(float(item.get("quantity", 1)))
-            except (ValueError, TypeError):
-                qty = 1
-            try:
-                price = int(float(item.get("price", 0)))
-            except (ValueError, TypeError):
-                price = 0
-            if price == 0 and len(parsed_items) == 0:
-                price = total_amount
-            item_total = price * qty
-            parsed_items.append({
-                "name": str(item.get("name", "")),
-                "spec": str(item.get("spec", "")),
-                "qty": qty,
-                "total": item_total
-            })
-            current_sum += item_total
-        # 稅額合計作為「其他差額」
-        if total_tax > 0:
-            parsed_items.append({
-                "name": "其他差額",
-                "spec": "稅額合計",
-                "qty": 1,
-                "total": total_tax
-            })
-            current_sum += total_tax
-        print(f"    [稅額處理] Case B: {len(regular_items)}品項+稅額({total_tax}) → 稅額歸差額行")
-
-    else:
-        # ── Case C: 無稅額 → 原有邏輯 ──
-        for item in items[:14]:
-            try:
-                qty = int(float(item.get("quantity", 1)))
-            except (ValueError, TypeError):
-                qty = 1
-            try:
-                price = int(float(item.get("price", 0)))
-            except (ValueError, TypeError):
-                price = 0
-            if price == 0 and len(parsed_items) == 0:
-                price = total_amount
-            item_total = price * qty
-            parsed_items.append({
-                "name": str(item.get("name", "")),
-                "spec": str(item.get("spec", "")),
-                "qty": qty,
-                "total": item_total
-            })
-            current_sum += item_total
-
-    # 差額補正（適用 Case B / Case C 有剩餘差額的情境）
+    # 差額補正（OCR 品項合計與收據總金額不完全一致時）
     diff = total_amount - current_sum
     if diff > 0 and len(parsed_items) > 0:
-        # 檢查是否已經有「其他差額」行（Case B 已加過）
         has_diff_row = any(p["name"] == "其他差額" for p in parsed_items)
-        if not has_diff_row:
+        if not has_diff_row and len(parsed_items) < 15:
             parsed_items.append({
                 "name": "其他差額",
                 "spec": "",
                 "qty": 1,
                 "total": diff
             })
-    elif diff < 0:
-        print(f"    [WARN] OCR 明細加總 ({current_sum}) 大於總金額 ({total_amount})，將合併為單一明細！")
-        parsed_items = [{
-            "name": "發票明細（系統自動調整）",
-            "spec": "",
-            "qty": 1,
-            "total": total_amount
-        }]
+        elif has_diff_row:
+            pass  # 差額行已存在（由稅額預處理加入）
+        else:
+            # 已滿 15 行，把差額加到最後一行
+            parsed_items[-1]["total"] += diff
+    elif diff < 0 and abs(diff) > 1:
+        # 品項合計 > 總金額（OCR 有誤），但仍保留個別品項（不壓縮）
+        print(f"    [WARN] OCR 明細加總 ({current_sum}) > 總金額 ({total_amount})，差額 {diff}")
+        print(f"    [INFO] 保留個別品項，金額以品項合計為準")
     elif not parsed_items and total_amount > 0:
         parsed_items = [{
             "name": "核銷明細",
@@ -1994,6 +2110,8 @@ def fill_expense_form(frames: dict, receipt_data: dict,
             "qty": 1,
             "total": total_amount
         }]
+
+    print(f"    品項數: {len(parsed_items)}, 品項合計: {current_sum}, 收據總金額: {total_amount}")
 
     for i, item_data in enumerate(parsed_items, start=1):
         # 先過濾 Big5 不支援字元（如 Ω），避免 POST 時亂碼導致伺服器解析失敗

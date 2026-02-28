@@ -1,7 +1,7 @@
 # NCUT 核銷自動填單系統
 
 勤益科技大學會計核銷系統的自動填單工具。
-掃描發票/收據圖片 → Gemini Vision OCR 辨識 → 自動登入系統 → 填寫「直接核銷（零用金）」表單。
+掃描發票/收據圖片或 PDF → Gemini Vision OCR 辨識 → 自動登入系統 → 填寫「直接核銷（零用金）」表單 → 自動存檔並產生 PDF。
 
 ---
 
@@ -14,10 +14,12 @@
 - [使用方法](#使用方法)
   - [批次處理（推薦）](#批次處理推薦)
   - [單獨 OCR 辨識](#單獨-ocr-辨識)
-  - [單獨測試填單](#單獨測試填單)
+  - [進階選項](#進階選項)
+- [外幣收據處理](#外幣收據處理)
 - [會計科目對照表](#會計科目對照表)
 - [專案架構](#專案架構)
 - [常見問題](#常見問題)
+- [已知限制與注意事項](#已知限制與注意事項)
 
 ---
 
@@ -25,13 +27,23 @@
 
 | 步驟 | 說明 | 模組 |
 |------|------|------|
-| 1. OCR 辨識 | 用 Google Gemini Vision API 辨識發票圖片 | `ocr.py` |
-| 2. 自動登入 | 自動填入帳密 + AI 驗證碼辨識 | `form_filler.py` |
-| 3. 選單導航 | 自動操作 4 層巢狀 frameset，開啟核銷表單 | `form_filler.py` |
-| 4. 表單填寫 | 自動填入品項、日期、金額、會計科目 | `form_filler.py` |
+| 1. OCR 辨識 | Gemini Vision API 辨識發票圖片/PDF，支援多張收據 | `ocr.py` |
+| 2. 外幣處理 | 自動比對信用卡刷卡紀錄，換算台幣金額 | `main.py` |
+| 3. 稅額處理 | 自動判斷含稅/未稅，智慧合併或拆分稅額 | `main.py` |
+| 4. 自動登入 | 帳密 + AI 驗證碼辨識（自動重試 5 次） | `form_filler.py` |
+| 5. 選單導航 | 操作 4 層巢狀 frameset，開啟核銷表單 | `form_filler.py` |
+| 6. 表單填寫 | 填入經費(APPY)、品名(APPP)、受款人(APPA)、用途說明 | `form_filler.py` |
+| 7. 自動存檔 | 驗證金額一致 → SUM_ALERT 存入 → 產生 PDF 核銷文件 | `form_filler.py` |
 
-> **目前支援**：「直接核銷（零用金）」類型
-> **尚未支援**：送出存檔（需手動確認後存檔）、廠商/發票號碼欄位（APPA frame）
+### 主要特色
+
+- **多張收據合併**：一次處理多張發票/收據，合併為一張請購單（最多 14 項品名）
+- **外幣自動換算**：自動比對信用卡帳單，將外幣金額換算為台幣
+- **AI 服務品名標準化**：Google → "Google Gemini AI服務費"、Claude → "Claude AI服務費" 等
+- **稅額智慧處理**：自動判斷 Case A(單品+稅→合併) / Case B(多品+稅) / Case C(無稅)
+- **PDF 收據支援**：支援 PDF 格式的發票和信用卡帳單
+- **OCR 自動重試**：失敗自動重試（最多 3 次），並有單張辨識備案模式
+- **金額自動校正**：存檔時若有 ≤5 元的四捨五入差額，自動調整
 
 ---
 
@@ -95,59 +107,100 @@ GEMINI_API_KEY=你的_Google_Gemini_API_Key
 
 ### 批次處理（推薦）
 
-最簡單的使用方式：把發票圖片丟進 `receipts/` 資料夾，然後執行主程式。
+最簡單的使用方式：把發票/收據檔案丟進 `receipts/` 資料夾，然後執行主程式。
 
 **步驟：**
 
-1. 將發票/收據圖片放入 `receipts/` 資料夾
-   支援格式：`.jpg`、`.jpeg`、`.png`、`.webp`
+1. 將發票/收據檔案放入 `receipts/` 資料夾
+   支援格式：`.jpg`、`.jpeg`、`.png`、`.webp`、`.pdf`
 
-2. 執行主程式：
+2. 若有外幣收據，同時放入信用卡刷卡明細的圖片或 PDF
+
+3. 執行主程式：
    ```bash
    python main.py
    ```
 
-3. 程式會逐一處理每張圖片：
-   - **OCR 辨識** → 顯示辨識結果（廠商、金額、日期、品項）
-   - **詢問確認** → 輸入 `y` 繼續填單，或 `n` 跳過
-   - **自動填單** → 登入系統、導航、填寫表單
-   - **截圖存檔** → 填寫完的畫面截圖存到 `output/`
-   - **等待確認** → 按 Enter 後處理下一張
-
-4. 填單完成後，**請自行在系統中確認並存檔**。
+4. 程式會自動：
+   - **OCR 辨識**所有檔案（支援多張收據合併、PDF 多頁辨識）
+   - **比對外幣**收據與信用卡刷卡紀錄
+   - **顯示摘要**供使用者確認
+   - **登入系統**並自動填寫表單
+   - **自動存檔**並產生 PDF 核銷文件
 
 ### 單獨 OCR 辨識
 
 只想辨識發票圖片，不填單：
 
 ```bash
-python ocr.py receipts/invoice_001.jpg
+python main.py --ocr-only
 ```
 
-輸出範例：
-```json
-{
-  "date": "2026-01-15",
-  "vendor": "全家便利商店",
-  "amount": 150,
-  "tax_id": "12345678",
-  "invoice_no": "AB-12345678",
-  "items": [
-    {"name": "文具用品", "quantity": 1, "price": 150}
-  ]
-}
-```
-
-### 單獨測試填單
-
-用程式內建的測試資料測試登入和填單流程：
+或直接辨識單一檔案：
 
 ```bash
-python form_filler.py
+python ocr.py receipts/invoice_001.jpg
+python ocr.py receipts/google_invoice.pdf
 ```
 
-這會用預設的假資料（全家便利商店 150 元文具用品）跑完整個流程，
-方便確認帳號密碼是否正確、系統是否可以正常存取。
+### 進階選項
+
+```bash
+# 計畫請購模式（預設會詢問）
+python main.py --project
+
+# 部門請購模式
+python main.py --no-project
+
+# 自動存入（不需手動確認）
+python main.py --auto-save
+
+# headless 模式（無瀏覽器視窗）
+python main.py --headless
+
+# 完成後自動關閉瀏覽器
+python main.py --close
+
+# 測試模式（用假資料測試填單流程）
+python main.py --test
+```
+
+---
+
+## 外幣收據處理
+
+### 使用方式
+
+1. 將外幣收據（如 Google Cloud、Anthropic、OpenAI 的帳單）放入 `receipts/`
+2. 將信用卡刷卡明細（截圖或 PDF）也放入 `receipts/`
+3. 程式會自動比對並換算台幣金額
+
+### 比對規則
+
+| 比對項目 | 分數 | 說明 |
+|----------|------|------|
+| 原幣金額完全吻合 | +5 | 如收據 USD $5.00 = 刷卡紀錄 $5.00 |
+| 廠商名稱匹配 | +3 | 部分關鍵字匹配即可 |
+| 日期 ±1 天 | +3 | 考慮時區差異 |
+| 日期 ±3 天 | +2 | |
+| 日期 ±7 天 | +1 | |
+| **門檻** | **≥5** | 達到門檻才視為匹配成功 |
+
+### AI 服務品名標準化
+
+| 廠商關鍵字 | 標準品名 |
+|------------|----------|
+| google, gemini | Google Gemini AI服務費 |
+| anthropic, claude | Claude AI服務費 |
+| openai, chatgpt | ChatGPT AI服務費 |
+| microsoft, azure | Microsoft Azure AI服務費 |
+| aws, amazon | AWS AI服務費 |
+
+### 注意事項
+
+- 外幣收據的發票號碼會自動清空，改用收據流水號
+- 信用卡上的「國外服務費」會包含在匹配金額中（合為一筆）
+- 若未找到匹配的刷卡紀錄，程式會暫停警告
 
 ---
 
@@ -168,20 +221,6 @@ python form_filler.py
 
 如需其他科目，完整清單請參考 `output/subjects.txt`（執行 `inspect_budget.py` 後產生）。
 
-### 自訂科目
-
-在 OCR 辨識結果中加入 `subject_code` 欄位即可指定：
-
-```python
-receipt_data = {
-    "date": "2026-01-15",
-    "vendor": "全家便利商店",
-    "amount": 150,
-    "items": [{"name": "文具用品", "quantity": 1, "price": 150}],
-    "subject_code": "110704-8013"   # 改用「服務費用」
-}
-```
-
 ---
 
 ## 專案架構
@@ -190,18 +229,19 @@ receipt_data = {
 expense-auto/
 ├── credentials.env        # 帳密和 API Key（不進版控）
 ├── config.py              # 所有設定：URL、欄位名稱、科目對照
-├── ocr.py                 # Gemini Vision OCR 辨識發票圖片
-├── form_filler.py         # Playwright 自動化：登入、導航、填單
-├── main.py                # 主程式：批次掃描 receipts/ 資料夾
+├── ocr.py                 # Gemini Vision OCR（圖片 + PDF）
+├── form_filler.py         # Playwright 自動化：登入、導航、填單、存檔
+├── main.py                # 主程式：OCR + 外幣比對 + 稅額處理 + 填單
 ├── requirements.txt       # Python 套件清單
 ├── .gitignore
 │
-├── receipts/              # 放入待處理的發票圖片
+├── receipts/              # 放入待處理的發票/收據/信用卡帳單
 │   └── .gitkeep
 │
-├── output/                # 程式輸出（OCR JSON、截圖等）
-│   ├── *_ocr.json         # 每張發票的 OCR 辨識結果
+├── output/                # 程式輸出
+│   ├── *_ocr.json         # 每張收據的 OCR 辨識結果
 │   ├── *_filled.png       # 填單完成截圖
+│   ├── expense_report_*.pdf  # 自動產生的核銷 PDF 文件
 │   └── captcha_tmp.png    # 驗證碼暫存圖片
 │
 ├── inspect_appy.py        # 開發工具：分析 APPY frame 結構
@@ -218,18 +258,9 @@ expense-auto/
 | 檔案 | 用途 |
 |------|------|
 | `config.py` | 集中管理所有設定：系統 URL、帳密讀取、表單欄位名稱、會計科目 |
-| `ocr.py` | 呼叫 Gemini Vision API 辨識發票圖片，回傳結構化 JSON |
-| `form_filler.py` | 4 大功能：`solve_captcha()`（驗證碼辨識）、`login()`（登入）、`navigate_to_expense_form()`（選單導航）、`fill_expense_form()`（表單填寫） |
-| `main.py` | 組合上述模組，批次處理 `receipts/` 中的所有圖片 |
-
-### `inspect_*.py` 開發工具
-
-這些檔案是開發過程中用來分析核銷系統的工具，一般使用不需要執行。
-
-如果需要查看系統目前可用的預算計畫或科目清單：
-```bash
-python inspect_budget.py
-```
+| `ocr.py` | 呼叫 Gemini Vision API 辨識發票圖片/PDF，回傳結構化 JSON |
+| `form_filler.py` | 核心自動化：驗證碼辨識、登入、選單導航、三區塊填寫(APPY/APPP/APPA)、用途說明、金額驗證、自動存檔、PDF 產生 |
+| `main.py` | 組合上述模組：OCR → 外幣比對 → 品名標準化 → 稅額處理 → 收據合併 → 填單 |
 
 ---
 
@@ -249,12 +280,24 @@ python inspect_budget.py
 - `NCUT_PASSWORD` 是密碼（注意特殊字元）
 - 使用 `NCUT_` 前綴避免和 Windows 系統環境變數衝突
 
-### Q: 表單填寫後還需要做什麼？
+### Q: OCR 辨識某些檔案經常失敗？
 
-目前系統**不會自動存檔**。填寫完成後：
-1. 仔細檢查表單內容是否正確
-2. 手動點擊「存檔」按鈕
-3. 確認系統回傳成功訊息
+程式會自動重試最多 3 次，並嘗試備用的單張辨識模式。若仍失敗：
+- 檢查檔案是否損毀（嘗試手動開啟確認）
+- PDF 檔案格式複雜時成功率較低，可嘗試截圖轉為 PNG
+- 確認 Gemini API 額度未用盡
+
+### Q: 外幣收據金額不正確？
+
+確保將信用卡刷卡明細（圖片或 PDF）也放入 `receipts/` 目錄。
+程式需要刷卡紀錄來換算正確的台幣金額。
+
+### Q: 存檔時出現「金額不相符」？
+
+程式會自動處理 ≤5 元的四捨五入差額。若差額過大：
+- 檢查 OCR 辨識的品項金額是否正確
+- 查看 `output/` 目錄中的 OCR JSON 結果
+- 必要時手動修改 JSON 後重新執行
 
 ### Q: 可以修改預設的會計科目嗎？
 
@@ -263,23 +306,20 @@ python inspect_budget.py
 DEFAULT_SUBJECT = "110704-8013"  # 改為服務費用
 ```
 
-### Q: 如果要處理非零用金的核銷？
-
-目前只支援「直接核銷（零用金）」。其他類型的核銷流程不同，
-需要修改 `config.py` 中的 `EXPENSE_CATEGORY` 以及 `form_filler.py` 的導航邏輯。
-
 ### Q: output/ 中的檔案可以刪除嗎？
 
 可以。`output/` 中的檔案都是程式產生的暫存/輸出：
 - `*_ocr.json`：OCR 辨識結果備份
 - `*_filled.png`：填單截圖供確認
+- `expense_report_*.pdf`：核銷文件 PDF
 - `captcha_tmp.png`：驗證碼暫存
 
 ---
 
-## 注意事項
+## 已知限制與注意事項
 
-- 本工具僅自動填寫表單，**不會自動送出存檔**，請務必人工確認後再存檔
+- 核銷系統為 **Big5 編碼的舊式 ASP 架構**，品名中的特殊字元（如 Ω、°、μ）會自動替換為安全字元
+- 日期使用**民國年**（如 115 年 = 2026 年）
+- 單張請購單最多 **14 個品項**，超過會自動截斷（超出金額歸入差額列）
 - `credentials.env` 含敏感資訊，請勿分享或上傳至版控
-- 核銷系統為 Big5 編碼的舊式 ASP 架構，如系統改版可能需更新程式
-- 日期使用民國年（如 115 年 = 2026 年）
+- 外幣收據**必須搭配信用卡刷卡紀錄**才能正確換算台幣金額

@@ -1,6 +1,6 @@
 {
   "date": "2026-02-11",
-  "vendor": "廣華電子材料有限公司 等3家",
+  "vendor": "廣華電子 等3家",
   "amount": 1380,
   "tax_id": "22369079",
   "invoice_no": "",
@@ -16,37 +16,28 @@
       "price": 810
     },
     {
-      "name": "營業稅",
-      "quantity": 1,
-      "price": 42
-    },
-    {
-      "name": "固尼式端子 TB-1503",
-      "quantity": 1,
+      "name": "固泥式端子 TB-1503",
+      "quantity": 1.0,
       "price": 24.0
     },
     {
       "name": "三相整流橋MDS150A含散熱器",
+      "spec": "",
       "quantity": 1,
-      "price": 457
-    },
-    {
-      "name": "稅額",
-      "quantity": 1,
-      "price": 23
+      "price": 480
     }
   ],
   "_source_count": 3,
   "_vendors": [
-    "廣華電子材料有限公司",
-    "振宇五金股份有限公司",
-    "宸暉有限公司"
+    "廣華電子",
+    "振宇五金",
+    "宸暐有限公司"
   ],
   "_receipts": [
     {
       "doc_type": "receipt",
       "date": "2026-02-11",
-      "vendor": "廣華電子材料有限公司",
+      "vendor": "廣華電子",
       "amount": 876,
       "currency": "TWD",
       "original_amount": 876,
@@ -74,7 +65,7 @@
     {
       "doc_type": "receipt",
       "date": "2026-02-23",
-      "vendor": "振宇五金股份有限公司",
+      "vendor": "振宇五金",
       "amount": 24,
       "currency": "TWD",
       "original_amount": 24,
@@ -82,8 +73,8 @@
       "invoice_no": "WJ-03657323",
       "items": [
         {
-          "name": "固尼式端子 TB-1503",
-          "quantity": 1,
+          "name": "固泥式端子 TB-1503",
+          "quantity": 1.0,
           "price": 24.0
         }
       ],
@@ -92,11 +83,11 @@
     {
       "doc_type": "receipt",
       "date": "2026-02-20",
-      "vendor": "宸暉有限公司",
+      "vendor": "宸暐有限公司",
       "amount": 480,
       "currency": "TWD",
       "original_amount": 480,
-      "tax_id": "",
+      "tax_id": "54585058",
       "invoice_no": "XF35113921",
       "items": [
         {
