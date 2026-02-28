@@ -6,14 +6,15 @@
   "invoice_no": "XC-77759774",
   "items": [
     {
-      "name": "95960 七角銀短特大6.4/45mmROHS",
+      "name": "七角銀鈕 特大6.4/45mmROHS",
       "quantity": 2,
       "price": 33
     },
     {
-      "name": "VWR050-150 50Q/50W大功率線繞VR",
+      "name": "VWR050-150 500Ω/50W 大功率陶瓷VR",
       "quantity": 1,
       "price": 810
     }
-  ]
+  ],
+  "_source_image": "645938.jpg"
 }

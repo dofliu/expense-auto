@@ -1,0 +1,87 @@
+{
+  "date": "2026-02-11",
+  "vendor": "廣華電子材料有限公司 等3家",
+  "amount": 1380,
+  "tax_id": "22369079",
+  "invoice_no": "",
+  "items": [
+    {
+      "name": "七角銀鈕 特大6.4/45mmROHS",
+      "quantity": 2,
+      "price": 33
+    },
+    {
+      "name": "VWR050-150 500Ω/50W 大功率陶瓷VR",
+      "quantity": 1,
+      "price": 810
+    },
+    {
+      "name": "固尼式端子 TB-1503",
+      "quantity": 1.0,
+      "price": 24.0
+    },
+    {
+      "name": "三相整流橋MDS150A含散熱器",
+      "quantity": 1,
+      "price": 457
+    }
+  ],
+  "_source_count": 3,
+  "_vendors": [
+    "廣華電子材料有限公司",
+    "振宇五金股份有限公司太平中山分公司",
+    "宸暉有限公司"
+  ],
+  "_receipts": [
+    {
+      "date": "2026-02-11",
+      "vendor": "廣華電子材料有限公司",
+      "amount": 876,
+      "tax_id": "22369079",
+      "invoice_no": "XC-77759774",
+      "items": [
+        {
+          "name": "七角銀鈕 特大6.4/45mmROHS",
+          "quantity": 2,
+          "price": 33
+        },
+        {
+          "name": "VWR050-150 500Ω/50W 大功率陶瓷VR",
+          "quantity": 1,
+          "price": 810
+        }
+      ],
+      "_source_image": "645938.jpg"
+    },
+    {
+      "date": "2026-02-23",
+      "vendor": "振宇五金股份有限公司太平中山分公司",
+      "amount": 24,
+      "tax_id": "42683511",
+      "invoice_no": "WJ-03657323",
+      "items": [
+        {
+          "name": "固尼式端子 TB-1503",
+          "quantity": 1.0,
+          "price": 24.0
+        }
+      ],
+      "_source_image": "645938.jpg"
+    },
+    {
+      "date": "2026-02-20",
+      "vendor": "宸暉有限公司",
+      "amount": 480,
+      "tax_id": "54585058",
+      "invoice_no": "XF35113921",
+      "items": [
+        {
+          "name": "三相整流橋MDS150A含散熱器",
+          "quantity": 1,
+          "price": 457
+        }
+      ],
+      "_source_image": "645938.jpg"
+    }
+  ]
+}

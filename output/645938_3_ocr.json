@@ -1,0 +1,15 @@
+{
+  "date": "2026-02-20",
+  "vendor": "宸暉有限公司",
+  "amount": 480,
+  "tax_id": "54585058",
+  "invoice_no": "XF35113921",
+  "items": [
+    {
+      "name": "三相整流橋MDS150A含散熱器",
+      "quantity": 1,
+      "price": 457
+    }
+  ],
+  "_source_image": "645938.jpg"
+}
