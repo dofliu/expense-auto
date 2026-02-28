@@ -30,13 +30,25 @@ def extract_receipt_data(image_path: str) -> dict:
     image = Image.open(image_path)
 
     prompt = (
-        "請辨識這張台灣發票或收據，回傳 JSON 格式，包含以下欄位：\n"
+        "請辨識這張發票、收據或刷卡紀錄，回傳 JSON 格式，包含以下欄位：\n"
+        "- doc_type: 文件類型 (可能的值: 'receipt'=發票/收據, 'credit_card_statement'=信用卡刷卡紀錄)\n"
         "- date: 日期 (YYYY-MM-DD)\n"
         "- vendor: 廠商/店家名稱\n"
-        "- amount: 總金額 (數字)\n"
+        "- amount: 總金額 (數字，含稅總價)\n"
+        "- currency: 幣別 (如 'TWD', 'USD', 'JPY'，預設 TWD)\n"
+        "- original_amount: 原幣金額 (若幣別為 TWD 則同 amount，若為外幣則填原幣數字)\n"
         "- tax_id: 統一編號 (8碼，若無則為空字串)\n"
         "- invoice_no: 發票號碼 (若無則為空字串)\n"
         "- items: 品項列表，每項含 name, quantity, price（price 是單價）\n"
+        "\n"
+        "特殊規則：\n"
+        "1. 若發票上有「稅額」、「營業稅」、「Tax」等稅金項目，請單獨列為 items 中的一筆，"
+        "name 填 '稅額' 或 '營業稅'，不要混入其他品項的 price。\n"
+        "2. 若是國外收據（如 Anthropic、Google Cloud、OpenAI、AWS），"
+        "請正確辨識幣別和金額。\n"
+        "3. 若是信用卡刷卡紀錄/帳單，doc_type 填 'credit_card_statement'，"
+        "items 中每筆交易包含 name(廠商名), quantity(1), price(台幣金額)，"
+        "另外加 original_currency 和 original_price 欄位。\n"
         "只回傳 JSON，不要其他文字，不要用 markdown code block。"
     )
 
@@ -70,15 +82,27 @@ def extract_multiple_receipts(image_path: str) -> list:
     image = Image.open(image_path)
 
     prompt = (
-        "這張圖片可能包含一張或多張台灣發票或收據（例如多張收據並排拍照）。\n"
-        "請辨識圖中所有收據，回傳 JSON 陣列，每個元素代表一張收據，"
+        "這張圖片可能包含一張或多張發票、收據或信用卡刷卡紀錄（例如多張收據並排拍照）。\n"
+        "請辨識圖中所有文件，回傳 JSON 陣列，每個元素代表一張收據或刷卡紀錄，"
         "包含以下欄位：\n"
+        "- doc_type: 文件類型 ('receipt'=發票/收據, 'credit_card_statement'=信用卡刷卡紀錄)\n"
         "- date: 日期 (YYYY-MM-DD)\n"
         "- vendor: 廠商/店家名稱\n"
-        "- amount: 總金額 (數字)\n"
+        "- amount: 總金額 (數字，含稅總價)\n"
+        "- currency: 幣別 (如 'TWD', 'USD', 'JPY'，預設 TWD)\n"
+        "- original_amount: 原幣金額 (若幣別為 TWD 則同 amount，若為外幣則填原幣數字)\n"
         "- tax_id: 統一編號 (8碼，若無則為空字串)\n"
         "- invoice_no: 發票號碼 (若無則為空字串)\n"
         "- items: 品項列表，每項含 name, quantity, price（price 是單價）\n"
+        "\n"
+        "特殊規則：\n"
+        "1. 若發票上有「稅額」、「營業稅」、「Tax」等稅金項目，請單獨列為 items 中的一筆，"
+        "name 填 '稅額' 或 '營業稅'，不要混入其他品項的 price。\n"
+        "2. 若是國外收據（如 Anthropic、Google Cloud、OpenAI、AWS），"
+        "請正確辨識幣別和金額。\n"
+        "3. 若是信用卡刷卡紀錄/帳單，doc_type 填 'credit_card_statement'，"
+        "items 中每筆交易包含 name(廠商名), quantity(1), price(台幣金額)，"
+        "另外加 original_currency 和 original_price 欄位。\n"
         "若圖片只有一張收據，回傳含一個元素的陣列 [...]。\n"
         "只回傳 JSON 陣列，不要其他文字，不要用 markdown code block。"
     )

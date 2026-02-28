@@ -138,9 +138,16 @@ def show_ocr_summary(receipts: list) -> None:
         src_label = f" [{src}]" if src else ""
         inv = r.get("invoice_no", "")
         inv_label = f" 發票:{inv}" if inv else " (收據)"
+        currency = r.get("currency", "TWD")
+        currency_label = ""
+        if currency != "TWD":
+            orig_amt = r.get("original_amount", "")
+            currency_label = f"  [原幣: {currency} {orig_amt}]"
+            if r.get("_matched_twd"):
+                currency_label += f" → 刷卡台幣: NT${r['_matched_twd']}"
         print(f"  [{i}]{src_label}")
         print(f"      廠商: {r.get('vendor', '?')}  日期: {r.get('date', '?')}"
-              f"  金額: NT${amt}{inv_label}")
+              f"  金額: NT${amt}{inv_label}{currency_label}")
         items = r.get("items", [])
         if items:
             for item in items:
@@ -154,6 +161,140 @@ def show_ocr_summary(receipts: list) -> None:
                       f"= NT${subtotal}")
     print(f"{'─'*50}")
     print(f"  合計總金額: NT${grand_total}")
+
+
+# ════════════════════════════════════════════════════════════
+#  外幣收據 ↔ 信用卡刷卡紀錄交叉比對
+# ════════════════════════════════════════════════════════════
+
+def match_foreign_receipts_to_statements(all_docs: list) -> list:
+    """
+    將外幣收據與信用卡刷卡紀錄進行交叉比對。
+
+    流程：
+    1. 從 all_docs 中區分出 receipts 和 credit_card_statements
+    2. 對每張外幣收據，在刷卡紀錄的交易明細中搜尋匹配項
+    3. 匹配依據：日期相近（±7天）+ 原幣金額吻合 + 廠商名稱模糊匹配
+    4. 匹配成功 → 用刷卡紀錄的台幣金額覆蓋收據的 amount
+
+    Args:
+        all_docs: OCR 辨識後的全部文件列表（含收據與刷卡紀錄）
+
+    Returns:
+        list: 僅包含收據的列表（不含刷卡紀錄本身），外幣收據已替換為台幣金額
+    """
+    receipts = []
+    statements = []
+
+    for doc in all_docs:
+        doc_type = doc.get("doc_type", "receipt")
+        if doc_type == "credit_card_statement":
+            statements.append(doc)
+        else:
+            receipts.append(doc)
+
+    if statements:
+        print(f"\n  找到 {len(statements)} 張信用卡刷卡紀錄，開始交叉比對...")
+
+    # 彙整所有刷卡紀錄中的交易明細
+    all_transactions = []
+    for stmt in statements:
+        stmt_items = stmt.get("items", [])
+        for item in stmt_items:
+            all_transactions.append({
+                "name": item.get("name", ""),
+                "twd_amount": item.get("price", 0),
+                "original_currency": item.get("original_currency", ""),
+                "original_price": item.get("original_price", 0),
+                "date": stmt.get("date", ""),
+                "_used": False,
+            })
+
+    # 對每張外幣收據嘗試比對
+    for receipt in receipts:
+        currency = receipt.get("currency", "TWD")
+        if currency == "TWD":
+            continue  # 國內發票不需要比對
+
+        orig_amount = receipt.get("original_amount", receipt.get("amount", 0))
+        try:
+            orig_amount = float(orig_amount)
+        except (ValueError, TypeError):
+            orig_amount = 0
+
+        vendor = receipt.get("vendor", "").lower()
+        receipt_date = receipt.get("date", "")
+
+        best_match = None
+        best_score = 0
+
+        for txn in all_transactions:
+            if txn["_used"]:
+                continue
+
+            score = 0
+
+            # 廠商名稱模糊比對（部分匹配即可）
+            txn_name = txn["name"].lower()
+            if vendor and txn_name:
+                # 檢查任一方是否包含另一方的關鍵部分
+                vendor_words = [w for w in vendor.split() if len(w) > 2]
+                for word in vendor_words:
+                    if word in txn_name:
+                        score += 3
+                        break
+                if any(w in vendor for w in txn_name.split() if len(w) > 2):
+                    score += 3
+
+            # 原幣金額比對
+            txn_orig = float(txn.get("original_price", 0) or 0)
+            if txn_orig > 0 and abs(txn_orig - orig_amount) < 0.01:
+                score += 5  # 原幣金額完全吻合 → 強匹配
+            elif txn.get("original_currency", "").upper() == currency.upper():
+                score += 1  # 至少幣別相同
+
+            # 日期相近度
+            if receipt_date and txn["date"]:
+                try:
+                    from datetime import datetime
+                    r_date = datetime.strptime(receipt_date, "%Y-%m-%d")
+                    t_date = datetime.strptime(txn["date"], "%Y-%m-%d")
+                    day_diff = abs((r_date - t_date).days)
+                    if day_diff <= 3:
+                        score += 2
+                    elif day_diff <= 7:
+                        score += 1
+                except (ValueError, TypeError):
+                    pass
+
+            if score > best_score:
+                best_score = score
+                best_match = txn
+
+        # 判斷是否達到可信的匹配門檻
+        if best_match and best_score >= 5:
+            try:
+                twd_amount = int(float(best_match["twd_amount"]))
+            except (ValueError, TypeError):
+                twd_amount = 0
+
+            if twd_amount > 0:
+                best_match["_used"] = True
+                receipt["_matched_twd"] = twd_amount
+                receipt["amount"] = twd_amount
+                receipt["_original_currency"] = currency
+                receipt["_original_amount"] = orig_amount
+                print(f"    ✓ {receipt.get('vendor', '?')} {currency} {orig_amount}"
+                      f" → 刷卡台幣 NT${twd_amount} (匹配分數: {best_score})")
+            else:
+                print(f"    ✗ {receipt.get('vendor', '?')} 匹配到但台幣金額無效")
+        elif currency != "TWD":
+            print(f"    ⚠ {receipt.get('vendor', '?')} {currency} {orig_amount}"
+                  f" → 未找到匹配的刷卡紀錄 (最高分數: {best_score})")
+            print(f"      請手動確認台幣金額！")
+
+    return receipts
+
 
 
 # ════════════════════════════════════════════════════════════
@@ -420,6 +561,10 @@ def main():
             out = Path(OUTPUT_DIR) / f"{stem}{suffix}_ocr.json"
             with open(out, "w", encoding="utf-8") as f:
                 json.dump(r, f, ensure_ascii=False, indent=2)
+
+        # ── Step 2.5: 外幣收據 ↔ 刷卡紀錄交叉比對 ─────
+        # 從 all_receipts 中分離出刷卡紀錄，並為外幣收據匹配台幣金額
+        all_receipts = match_foreign_receipts_to_statements(all_receipts)
 
         # ── Step 3: 顯示辨識摘要 ──────────────────────
         show_ocr_summary(all_receipts)

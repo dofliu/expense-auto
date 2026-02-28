@@ -295,6 +295,20 @@ def _sanitize_big5(text: str) -> str:
     return ''.join(result)
 
 
+def _is_tax_item(name: str) -> bool:
+    """
+    判斷品項名稱是否為稅額項目。
+
+    用於將 OCR 辨識出的「稅額」、「營業稅」、「其他差額(稅)」等項目
+    從一般品項中分離出來，以便進行智慧合併或歸類。
+    """
+    if not name:
+        return False
+    name_lower = name.lower().strip()
+    tax_keywords = ["稅額", "稅金", "營業稅", "銷售稅", "加值稅",
+                    "其他差額", "tax", "vat", "gst"]
+    return any(kw in name_lower for kw in tax_keywords)
+
 def _roc_date(iso_date: str) -> tuple:
     """
     將 ISO 日期 (YYYY-MM-DD) 轉為 ROC (民國) 年/月/日 tuple。
@@ -374,7 +388,13 @@ def fill_appy_frame(appy_frame: Frame, menu_page: Page,
         amount: 金額
         subject_code: 會計科目代碼，為空則保持系統預設（不強制覆蓋）
         plan_name: 計畫名稱關鍵字（如 "高教深耕"），為空則選預設
+
+    Returns:
+        tuple: (plan_full_name, plan_code) 所選計畫的全名與代碼
     """
+
+    chosen_plan_text = ""   # 計畫全名（下拉選單文字）
+    chosen_plan_code = ""   # 計畫代碼（BUGETNO 值）
 
     print("  填寫 APPY（表頭/計畫經費）...")
 
@@ -403,6 +423,8 @@ def fill_appy_frame(appy_frame: Frame, menu_page: Page,
             for opt in valid_options:
                 if plan_name in opt['text'] or plan_name in opt['value']:
                     selected_idx = opt['index']
+                    chosen_plan_text = opt['text']
+                    chosen_plan_code = opt['value']
                     print(f"    自動匹配計畫: {opt['text']}")
                     break
         
@@ -432,9 +454,12 @@ def fill_appy_frame(appy_frame: Frame, menu_page: Page,
                 print("      輸入錯誤，使用預設。")
                 selected_idx = valid_options[0]['index']
                 
-            # 找到 selected_idx 對應的選項文字
-            chosen_text = next((o['text'] for o in valid_options if o['index'] == selected_idx), str(selected_idx))
-            print(f"    -> 最終選擇計畫: {chosen_text}")
+            # 找到 selected_idx 對應的選項文字與值
+            chosen_opt = next((o for o in valid_options if o['index'] == selected_idx), None)
+            if chosen_opt:
+                chosen_plan_text = chosen_opt['text']
+                chosen_plan_code = chosen_opt['value']
+            print(f"    -> 最終選擇計畫: {chosen_plan_text}")
             
         # 設定下拉選單的值
         appy_frame.evaluate(f"""() => {{
@@ -552,6 +577,7 @@ def fill_appy_frame(appy_frame: Frame, menu_page: Page,
         print(f"      SUM_ALERT 將無法計算請購金額（T_BUG_AMT=0）！")
 
     print("  APPY 填寫完成")
+    return chosen_plan_text, chosen_plan_code
 
 
 def fill_appa_frame(appa_frame: Frame, menu_page: Page, context,
@@ -1768,22 +1794,49 @@ def fill_expense_form(frames: dict, receipt_data: dict,
 
     print("  填寫核銷表單...")
 
-    # ── 1. 填寫用途說明 ──────────────────────────
-    vendor = receipt_data.get("vendor", "")
-    items_desc = ", ".join(
-        item.get("name", "") for item in receipt_data.get("items", [])
-        if item.get("name", "")
-    )
-    # 組合更完整的用途說明：計畫名稱 + 廠商 + 品項
-    # 例如: "高教深耕計畫經費核銷 - 全家便利商店 購買文具用品, 列印紙"
-    parts = []
-    if plan_name:
-        parts.append(f"{plan_name}計畫經費核銷")
-    if vendor:
-        parts.append(vendor)
-    if items_desc:
-        parts.append(f"購買{items_desc}")
-    content_text = " - ".join(parts) if parts else "經費核銷"
+    # ── 1. 先填寫 APPY frame（計畫/經費/科目/金額）──取得計畫資訊
+    plan_full_name = ""
+    plan_code = ""
+    items = receipt_data.get("items", [])
+    try:
+        total_amount = int(float(receipt_data.get("amount", 0)))
+    except (ValueError, TypeError):
+        total_amount = 0
+
+    if appy_frame and menu_page:
+        subject_code = receipt_data.get("subject_code", "")
+        plan_full_name, plan_code = fill_appy_frame(
+            appy_frame, menu_page, total_amount, subject_code,
+            plan_name=plan_name)
+    elif not appy_frame:
+        print("  警告: 找不到 APPY frame，跳過計畫/經費填寫")
+
+    # ── 2. 生成用途說明（使用實際計畫名稱 + 代碼）──────
+    # 格式: {計畫名稱}({計畫代碼})-{品項摘要}
+    # 例: 高教深耕計畫(NCUT25TIAB004)-實驗用耗材一批
+    non_tax_items = [
+        item for item in items
+        if not _is_tax_item(item.get("name", ""))
+    ]
+    if len(non_tax_items) == 0:
+        items_summary = "經費核銷"
+    elif len(non_tax_items) <= 3:
+        items_summary = "、".join(
+            item.get("name", "") for item in non_tax_items
+            if item.get("name", "")
+        ) or "經費核銷"
+    else:
+        first_name = non_tax_items[0].get("name", "核銷用品")
+        items_summary = f"{first_name}等{len(non_tax_items)}項"
+
+    if plan_full_name and plan_code:
+        content_text = f"{plan_full_name}({plan_code})-{items_summary}"
+    elif plan_full_name:
+        content_text = f"{plan_full_name}-{items_summary}"
+    elif plan_name:
+        content_text = f"{plan_name}-{items_summary}"
+    else:
+        content_text = f"經費核銷-{items_summary}"
 
     # 用 JS 填寫（frameset 結構下 Playwright fill() 可能報 not visible）
     appp_frame.evaluate(f"""() => {{
@@ -1792,7 +1845,7 @@ def fill_expense_form(frames: dict, receipt_data: dict,
     }}""")
     print(f"    用途說明: {content_text}")
 
-    # ── 2. 填寫憑證日期 ─────────────────────────
+    # ── 3. 填寫憑證日期 ─────────────────────────
     date_str = receipt_data.get("date", "")
     if date_str:
         roc_y, roc_m, roc_d = _roc_date(date_str)
@@ -1813,19 +1866,35 @@ def fill_expense_form(frames: dict, receipt_data: dict,
         time.sleep(0.5)
         print(f"    憑證日期: 民國{roc_y}/{roc_m}/{roc_d}")
 
-    # ── 3. 填寫品項明細 ─────────────────────────
+    # ── 4. 稅額智慧處理 + 填寫品項明細 ──────────────
     # 欄位名稱格式: PRODUCT_{N}, PRODUCT1_{N}, PRODUCT2_{N},
     #               SERUNIT_{N}, QUANTITY_{N}, AMOUNT_{N}
     # N = 1~15 (最多 15 列)
-    items = receipt_data.get("items", [])
-    try:
-        total_amount = int(float(receipt_data.get("amount", 0)))
-    except (ValueError, TypeError):
-        total_amount = 0
+    #
+    # 稅額處理策略:
+    #   Case A: 單品項 + 稅額 → 直接把稅額加入品項總價（不產生差額行）
+    #   Case B: 多品項 + 稅額 → 品項填原價，稅額合計為「其他差額」
+    #   Case C: 無稅額相關 → 原有差額邏輯
+
+    # 分離稅額項目和一般品項
+    tax_items = [item for item in items if _is_tax_item(item.get("name", ""))]
+    regular_items = [item for item in items if not _is_tax_item(item.get("name", ""))]
+
+    total_tax = 0
+    for ti in tax_items:
+        try:
+            tax_price = int(float(ti.get("price", 0)))
+            tax_qty = int(float(ti.get("quantity", 1)))
+            total_tax += tax_price * tax_qty
+        except (ValueError, TypeError):
+            pass
 
     parsed_items = []
     current_sum = 0
-    for item in items[:14]:
+
+    if tax_items and len(regular_items) == 1:
+        # ── Case A: 單品項 + 稅額 → 合併成一筆 ──
+        item = regular_items[0]
         try:
             qty = int(float(item.get("quantity", 1)))
         except (ValueError, TypeError):
@@ -1834,28 +1903,82 @@ def fill_expense_form(frames: dict, receipt_data: dict,
             price = int(float(item.get("price", 0)))
         except (ValueError, TypeError):
             price = 0
-            
-        # 如果是第一筆且未辨識到單價，考慮把總額直接當成此筆單價
-        if price == 0 and len(parsed_items) == 0:
-            price = total_amount
-            
-        item_total = price * qty
+        item_total = price * qty + total_tax
         parsed_items.append({
             "name": str(item.get("name", "")),
             "spec": str(item.get("spec", "")),
             "qty": qty,
             "total": item_total
         })
-        current_sum += item_total
+        current_sum = item_total
+        print(f"    [稅額處理] Case A: 單品項+稅額({total_tax}) → 合併為 {item_total}")
 
+    elif tax_items and len(regular_items) > 1:
+        # ── Case B: 多品項 + 稅額 → 品項填原價，稅額歸「其他差額」──
+        for item in regular_items[:14]:
+            try:
+                qty = int(float(item.get("quantity", 1)))
+            except (ValueError, TypeError):
+                qty = 1
+            try:
+                price = int(float(item.get("price", 0)))
+            except (ValueError, TypeError):
+                price = 0
+            if price == 0 and len(parsed_items) == 0:
+                price = total_amount
+            item_total = price * qty
+            parsed_items.append({
+                "name": str(item.get("name", "")),
+                "spec": str(item.get("spec", "")),
+                "qty": qty,
+                "total": item_total
+            })
+            current_sum += item_total
+        # 稅額合計作為「其他差額」
+        if total_tax > 0:
+            parsed_items.append({
+                "name": "其他差額",
+                "spec": "稅額合計",
+                "qty": 1,
+                "total": total_tax
+            })
+            current_sum += total_tax
+        print(f"    [稅額處理] Case B: {len(regular_items)}品項+稅額({total_tax}) → 稅額歸差額行")
+
+    else:
+        # ── Case C: 無稅額 → 原有邏輯 ──
+        for item in items[:14]:
+            try:
+                qty = int(float(item.get("quantity", 1)))
+            except (ValueError, TypeError):
+                qty = 1
+            try:
+                price = int(float(item.get("price", 0)))
+            except (ValueError, TypeError):
+                price = 0
+            if price == 0 and len(parsed_items) == 0:
+                price = total_amount
+            item_total = price * qty
+            parsed_items.append({
+                "name": str(item.get("name", "")),
+                "spec": str(item.get("spec", "")),
+                "qty": qty,
+                "total": item_total
+            })
+            current_sum += item_total
+
+    # 差額補正（適用 Case B / Case C 有剩餘差額的情境）
     diff = total_amount - current_sum
     if diff > 0 and len(parsed_items) > 0:
-        parsed_items.append({
-            "name": "其他差額",
-            "spec": "",
-            "qty": 1,
-            "total": diff
-        })
+        # 檢查是否已經有「其他差額」行（Case B 已加過）
+        has_diff_row = any(p["name"] == "其他差額" for p in parsed_items)
+        if not has_diff_row:
+            parsed_items.append({
+                "name": "其他差額",
+                "spec": "",
+                "qty": 1,
+                "total": diff
+            })
     elif diff < 0:
         print(f"    [WARN] OCR 明細加總 ({current_sum}) 大於總金額 ({total_amount})，將合併為單一明細！")
         parsed_items = [{
@@ -1908,14 +2031,6 @@ def fill_expense_form(frames: dict, receipt_data: dict,
             return el ? el.value : '(not found)';
         }""")
         print(f"    [確認 APPP] PRODUCT_1 = {appp_conf!r}")
-
-    # ── 4. 填寫 APPY frame（計畫/經費/科目/金額）──────
-    if appy_frame and menu_page:
-        subject_code = receipt_data.get("subject_code", "")
-        fill_appy_frame(appy_frame, menu_page, total_amount, subject_code,
-                        plan_name=plan_name)
-    elif not appy_frame:
-        print("  警告: 找不到 APPY frame，跳過計畫/經費填寫")
 
     # ── 5. 填寫 APPA frame（受款人）──────────────────
     appa_frame = frames.get("appa")
